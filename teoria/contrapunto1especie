@@ -1,0 +1,27 @@
+reglas (comprobar el intervalo de cada momento y filtrar los intervalos permitidos para el siguiente compas)
+(comprobar el tipo de movimiento: similar, oblicuo...
+)
+(determinar las notas q forman parte del acorde )
+restrictions:
+	-no paralel 5ths or 8aves
+		dos notas q forman intervalo de 5th no pueden formar otra 5th inmediatamente despues
+	-no paralel motion from dim5 to 5 
+	-upper voice cant leap into a perfect interval(unisono, 4,5 o 8th) when moving in similar motion w bass
+	-tanto el bajo cmo la melodia son redondas
+	-todo notas del acorde 
+	-las notas se eligen desde el do central al sol encima ultima linea pentagrama	
+	-never cross voices, la melodia no puede ser mas baja q el bajo
+	-make it singable??no excesivos saltos ni tampoco q todo sean grados conjuntos 
+	-mejor intervalos consonantes imperfectos(3as y 5as) q no
+	intervalos perfcetos (4,5,8as)
+	-no doblar la sensible cuando es el bajo de dominante en primera inversion 4
+	-PAC melody moves from vii-I or II-I
+	-IAC melody moves from any to III
+	-HC lamelodia puede ser cualquier nota del V grado
+
+	distancias
+	No puede haber una distancia de más de una octava entre las distintas voces, excepto entre bajo y tenor, donde sí se puede sobrepasar esa distancia.
+
+	Las voces no pueden cruzarse (superposición de voces no permitida), pero sí puede haber algún unísono entre dos voces en momentos puntuales.
+
+	Del unísono sólo se puede salir por movimiento contrario u oblicuo, no directo.
