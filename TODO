@@ -1,0 +1,57 @@
+TODO
+C es el do central entre claves, notas acorde indicadas dentro de []	
+tesituras
+	soprano: (D - a)
+	contralto: (G, - d)
+	tenor: (D, - A)
+	bajo: (F,, - C)
+1especie
+	done
+	-poner en el array de notas todas las notas C,, C, c' etc
+
+	done
+	-ponerde antemano(o sea yo y no el programa) la primera notaBajo y primeraSoprano, hacer q sea un intervalo de 5a y q la primera limitacion es q el siguiente notas no sea 5as paralelas
+	
+	done
+	-calcular el intervalo entre estas dos notas
+		quizas hacer array asociativo, q en vez de indice tiene nombre??
+
+	todo
+	decidir como obtengo las notas del acorde, C,,=0 ó C,,=1?
+	C,= 8 de intervalo de 8a? o 7 de 7 tonos de diferemcia con C,,
+	parece q el 8 es mas intuitivo(variables1.js)(el 8 = 0 es el variables2.js) pero entonces habria q sumar1 cada vez q aplicamos el modulo ya q 8%8=0 y queremos q un 8a sea equivalente a intervalo de 1, no de 0. y ademas sumar dos para obterner itnervalo de 3 para contrarestar ese otro1
+
+
+	done
+	ya que he conseguido oberner los intervalos, ahora empezar con el bajo y soprano haciendo 5as y restringir q las siguientes dos notas sean tb 5a
+	pensar si hacer modulo en los intervalos-> 11=4 , 8=1 etc..
+
+	done
+	nombrar los archivos con un numero delante del nombre para indicar el orden en el q avanza el programa
+
+	todo
+	para hacer lo de los cifrados, quizas se podria poner en el bajo un array asociativo
+
+	todo
+	es la letra B mayor q la A? quizas se podria usar para ver si la meoldia sube o baja, ya q de momento uso un metodo simple para conseguir las notas del acorde 
+
+	todo
+	mirar lo de los motivos , frases, periodos... para mejorar mis bajos
+	mirar lo de el diagrama de progresiones para los bajos
+	aplicar el desarrollo de motivos, inversion, desarrollo retrogrado, inversion retrograda
+	cabtus firmus
+	alfred mann flux
+	target tones
+	schenkerian analysis
+	cantus firmus cadences?
+	Neo-Riemannian Analysis
+	gradus at parnassus de flux
+	musica ficta
+
+	todo
+	comom hago q el rango del cantus sea de 5th hasta max10th?
+
+	todo
+	comprobar q el climax no se repite
+	quizas elegir nota al azar dando mas probavbilidad a stepwise?
+
