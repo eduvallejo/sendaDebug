@@ -52,6 +52,14 @@ tesituras
 	comom hago q el rango del cantus sea de 5th hasta max10th?
 
 	todo
-	comprobar q el climax no se repite
+	el climax es el q marcara el rango del cantus, proponer un abanico de climax en el q el mas alto de ellos no supere intervalo de 10th, ni sea menor de una 5a, 
+	quizas primero seria bueno elegir el climax y luego la duracion, y asi , en caso q el climax sea una5a, la duracion seria la minima. ya q si el climax es bajo y la duracion ata seria inevitable repetir notas 
+	comprobar q el climax no se repite.
+
+	intervalos permitidos = [segunda, tercera, cuarta, quinta, sexta, octava]
+
 	quizas elegir nota al azar dando mas probavbilidad a stepwise?
+	se puede bajar mas abajo de la root? hay ley q lo prohiba?
+
+	crear un array de intervaolos permitidos q sea difrente antes q despues del climax. antes serian con mayor numero de intervalos subiendo y al reves
 

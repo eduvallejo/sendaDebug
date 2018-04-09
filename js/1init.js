@@ -1,54 +1,32 @@
 // console.log("notasMusicales.indexOf('G') : " + notasMusicales["G"]["position"]);
 // console.log("posIntervalo['C'] : " + posIntervalo.indexOf["C"]);
 
+//en este script se halla el intervalo declimax con root(por tanto la nota climax) 
+//y luego se halla al azar la posicion del climax dentro del cantus 
 
-var climaxIntervals = [quinta, sexta, ]; //2=itervalo de 3a desde el C
+var climaxIntervals = [cuarta, quinta, sexta, octava, decima]; //2=itervalo de 3a desde el C
 var notaClimax;
-// console.log("climaxIntervals : " + climaxIntervals);
-var intervaloClimaxDef = climaxIntervals[Math.floor((Math.random() 
+//al azar ponemos una distancia de tonos entre root y climax
+var numeroTonosClimaxRootDef = climaxIntervals[Math.floor((Math.random() 
 	* climaxIntervals.length))];
-// console.log("intervaloClimaxDef : " + intervaloClimaxDef);
-notaClimax = notasMusicales[intervaloClimaxDef];
-
+console.log("numeroTonosClimaxRootDef : " + numeroTonosClimaxRootDef);
+//con esa distancia de tonos , ya podemos saber q nota es el climax
+notaClimax = notasMusicales[ notasMusicales.indexOf(cantus[0]) + numeroTonosClimaxRootDef];
+console.log("notaClimax : " + notaClimax);
 //DEBUG
-notaClimax = "A";
-
-// notaClimax = notasMusicales[climaxIntervals[Math.floor((Math.random() 
-// 	* climaxIntervals.length))]];
-// console.log("notaClimax : " + notaClimax);
-// console.log("cantus : " + cantus);
-//de momento asignamos la posicion del climax a la mitad 
-// console.log(Math.floor(longitudCantus / 2) ); 
+// notaClimax = "A";
+//ahora hallamos una posicion q ocupara el climax por la mitad del cantus
 var posicionClimax = Math.floor(longitudCantus / 2) - 1;
-//debug
 console.log("posicionClimax : " + posicionClimax);
-
+//y ponemos la nota climax en esa posicion
 cantus[Math.floor(posicionClimax)] = notaClimax;
 console.log("cantus : " + cantus);
 
-//ahora tenemos ya el climax , obtendremos dessde la segunda nota hasta climax
-for (var i = 1; i < posicionClimax; i++) {
-	cantus[i] = notasMusicales[notasMusicales.indexOf(cantus[0]) + i];
-}
-// tengo q buscar la posicion cantus[0] en notasMusicales y hallar la siguinte
-
-//ahora desde el climax hasta la antepenultima
-var contadorReversoClimax = 1;
-for (var i = posicionClimax + 1; i < longitudCantus - 2; i++) {
-		cantus[i] = 
-			notasMusicales[notasMusicales.indexOf(notaClimax) - contadorReversoClimax];
-		console.log(" : " + notasMusicales[
-			(notasMusicales.indexOf(notaClimax)) - contadorReversoClimax
-			]);
-		// console.log("notasMusicales.indexOf(notasMusicales[i]))-1 : " + 
-		// 	(notasMusicales.indexOf(notasMusicales[i])) - contadorReversoClimax);
-		contadorReversoClimax++;
-		// contadorReversoClimax++;	
-}
 
 
-console.log("notasMusicales.indexOf['C'] : " + (notasMusicales[notasMusicales.indexOf("C")+1]));
-console.log("cantus : " + cantus);
+
+
+// console.log("escalaDo : " + escalaDo); 
 
 
 

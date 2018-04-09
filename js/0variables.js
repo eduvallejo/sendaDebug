@@ -34,6 +34,16 @@ var onceava = 10;
 var doceava = 11;
 var treceava = 12;
 var quinceava = 13;
+//intervalos desdecendientes
+var segundaAbajo = -1;
+var terceraAbajo = -2;
+var cuartaAbajo = -3;
+var quintaAbajo = -4;
+var sextaAbajo = -5;
+var septimaAbajo = -6;
+var octavaAbajo = -7;
+
+
 // var sexta = 14;
 // var sexta = 15;
 // var sexta = 16;
@@ -42,8 +52,16 @@ var quinceava = 13;
 // var sexta = 19;
 // var sexta = 10;
 
-var intervalosPermitidos = [segunda, tercera, cuarta, quinta, sexta];
+//intervalos peremitidos
+//repito los intervalos  quiero salgan mas amenudo , los stepwise
+var intervalosPermitidos = [segunda, segunda, tercera, cuarta, quinta, sexta, octava,
+								segundaAbajo,segundaAbajo, terceraAbajo, cuartaAbajo, 
+];
 
+//esta es solo el header al q se se suma el cantus 
+var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1\n"
+// console.log("escalaDo : " + escalaDo);
+// var escalaDo = "X:1\nM: 4/4\nL: 1/8\nK: Emin\n|:D2|EB{c}BA B2 EB|\n";
 
 // console.log("indiceNota['G,'] : " + indiceNota['G,']);
 	// console.log("indiceNota['E,'] : " + indiceNota['E,']);

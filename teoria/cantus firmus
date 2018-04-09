@@ -12,6 +12,8 @@ cantus firmus
 -never leap tres veces seguidas, da igual la direccion
 -los intervalos de 2a en una melodia se consderan consonates, no como en intervalos armonicos q serian disonantes
 -se aceptan de dos a cuatro leaps, en funcion de lo largo del canto	
+-skip up , step down
+-skip down, step up
 
 intervalos aceptados
 	perfect 8s, 5s, 4s
@@ -29,10 +31,19 @@ fijos:
 
 1)establecer tono , modo... seria C jonico
 2)determinar longitud
-3)eelegir un compas para el climax(¿elegir q nota sera?)se dice q ha de ser consonante ccon tonica
+3)eelegir un compas para el climax(¿elegir q nota sera?)se dice q ha de ser consonante ccon tonica(3a, 4a, 5a, 6a, 8a)
 4)hacer subir hasta el climax y bajar desde ahi
-5)
+5)de momento q la penultima sea la supertonica
 
 propuesta
 (¿hacer como primer intento q la primera parte sea subida a secas hasta climax y luego bajada a secas?
 	q habria q hacer?
+
+
+
+
+
+
+
+
+
