@@ -38,7 +38,7 @@ tesituras
 	todo
 	mirar lo de los motivos , frases, periodos... para mejorar mis bajos
 	mirar lo de el diagrama de progresiones para los bajos
-	aplicar el desarrollo de motivos, inversion, desarrollo retrogrado, inversion retrograda
+	aplicar el desarrollo de motivos, inversion, desarrollo retrogrado, inversion 			retrograda
 	cabtus firmus
 	alfred mann flux
 	target tones
@@ -63,3 +63,18 @@ tesituras
 
 	crear un array de intervaolos permitidos q sea difrente antes q despues del climax. antes serian con mayor numero de intervalos subiendo y al reves
 
+	si pongo q la primera nota sea , p ej, D: modo dorico?
+
+	cargar diferentes sonido del audio api
+
+	prohibir mas de 4 leaps en un cantus
+	prohibir 3 o mas LArge LEAPS(>=5th )
+		y poner despues de large leaps q haga direccion reversa mediante steps or skips
+	despues de intervalo de 4th puede ir como mucho una 3a en el mismo sentido(prohibir saltos > 4th en mismo sentido despues de 4th)
+	pero mejor cambiar direccion desdepues de 4th
+	prohibir dos saltos seguidos en misma direccion
+	prohibir tres saltos seguidos, da igual direccion
+
+	como hacer una melodia? melodias infantiles
+
+	outlining concept- no se pueden poner dos 4ths seguidas ya q outline una 7th y el intervalo de 7th es prohibido. lo mismom con tres intervalos de 3a -> intervalo de 7th	  

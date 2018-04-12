@@ -11,7 +11,8 @@
        <script type="text/javascript" src="js/1init.js"></script>
        <script type="text/javascript" src="js/2notasInicioClimax.js"></script>
        <script type="text/javascript" src="js/3notasClimaxFinal.js"></script>
-       <script type="text/javascript" src="js/bbddintervalos.js"></script>
+       <script type="text/javascript" src="js/4oscillator.js"></script>
+       <script type="text/javascript" src="js/4oscillator.js"></script>
 
        <link href="css/abcjs-midi.css" media="all" rel="stylesheet" type="text/css" />
        <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -29,8 +30,8 @@
     </head>
 <!--     <body onload="ABCJS.renderMidi('notation', escalaDo); return false;">
  -->    
-	<body onload="renderAbcSvg();">
-
+	<body onload="renderAbcSvg(); playOscillator();">
+	<button onclick="playOscillator();">play</button>
  	<div id="notation"></div>
  	<div id="midi"></div>
     </body>
