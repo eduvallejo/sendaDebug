@@ -1,5 +1,9 @@
 
-var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,", "C,","D,","E,","F,","G,","A,","B,","C","D","E","F","G","A","B","c","d","e","f","g","a","b", ];
+var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,", 
+	"C,","D,","E,","F,","G,","A,","B,",
+		"C","D","E","F","G","A","B",
+			"c","d","e","f","g","a","b",
+				"c'","d'","e'","f'","g'","a'","b'" ];
 // var notasMusicales= {"A": {"position":1,},"B": {"position":2,},"C": {"position":3,},"D": {"position":4,},"E": {"position":5,},"F": {"position":6,},"G": {"position":7,},};
 var notaClimax;
 var longitudCantus = 15;//15 es ideal ya q el click final es como si 16
@@ -25,6 +29,20 @@ cantus[0] = "C";
 cantus[longitudCantus - 1] = "C";
 cantus[longitudCantus - 2] = "D";
 
+//cantidad de tonos de cada intervalo
+var segunda = 1;var tercera = 2;var cuarta = 3;var cuartaAug = 3.5;
+var quinta = 4;var sexta = 5;var septima = 6;var octava = 7;
+var novena = 8;var decima = 9;var onceava = 10;var doceava = 11;
+var treceava = 12;var quinceava = 13;
+//intervalos desdecendientes
+var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo = -4;
+var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
+
+//repito los intervalos  quiero salgan mas amenudo , los stepwise
+var intervalosPermitidos = [ segunda,segunda,segunda,segunda,segundaAbajo,segundaAbajo,tercera, tercera,tercera, terceraAbajo, cuarta];
+var intervalosPermitidosBajar = [ segundaAbajo,segundaAbajo,segundaAbajo,segunda,segunda, segundaAbajo,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
+console.log("intervalosPermitidos : " + intervalosPermitidos);
+
 var posIntervalo = {
 	"C,,": 1 ,"^C,,": 1.5,"_D,,": 1.5, "D,,": 2, "^D,,": 2.5, "_E,,": 2.5 ,"E,,": 3 ,"_F,,": 3 ,"^E,,": 4 , "F,," : 4 ,"^F,," : 4.5 ,"_G,," : 4.5 ,"G,,": 5 ,"^G,,": 5.5 ,"_A,,": 5.5 ,"A,,": 6 ,"^A,,": 6.5 ,"_B,,": 6.5 ,"B,,": 7 ,
 	"C,": 8 ,"^C,": 8.5,"_D,": 8.5, "D,": 9, "^D,": 9.5, "_E,": 9.5 ,"E,": 10 ,"_F,": 10 ,"^E,": 11 , "F," : 11 ,"^F," : 11.5 ,"_G," : 11.5 ,"G,": 12 ,"^G,": 12.5 ,"_A,": 12.5 ,"A,": 13 ,"^A,": 13.5 ,"_B,": 13.5 ,"B,": 14 ,
@@ -35,29 +53,15 @@ var posIntervalo = {
 var tesituraSoprano = ["C", "D", "E", "F" ,"G","A","B",	
 	"c", "d", "e", "f" ,"g","a","b"];
 
-var segunda = 1;var tercera = 2;var cuarta = 3;var cuartaAug = 3.5;
-var quinta = 4;var sexta = 5;var septima = 6;var octava = 7;
-var novena = 8;var decima = 9;var onceava = 10;var doceava = 11;
-var treceava = 12;var quinceava = 13;
-//intervalos desdecendientes
-var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo = -4;
-var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
+
 
 
 function randomFunction(argument) {
-	// intervalosPermitidos[Math.floor((Math.random() * intervalosPermitidos.length))]
+	// console.log("argument : " + argument);
 	return argument[Math.floor((Math.random() 
 					* argument.length))];
 }
 //intervalos peremitidos
-//repito los intervalos  quiero salgan mas amenudo , los stepwise
-var intervalosPermitidos = [ segunda, segunda, segunda, segunda, quinta, tercera, tercera, cuarta, cuarta, cuarta, quinta, sexta, octava,
-								 segundaAbajo, segundaAbajo, terceraAbajo, quintaAbajo
-];
-var intervalosPermitidosBajar = [segunda, tercera,
-								segundaAbajo, segundaAbajo, segundaAbajo, terceraAbajo, cuartaAbajo,quintaAbajo 
-
-];
 
 //esta es solo el header al q se se suma el cantus 
 var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
@@ -81,80 +85,25 @@ var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 cl
 // 	bajo: (F,, - C)
 
 frecuenciaNotas = {
-  "C0": {
-    "hz":16.35,
-  },
-  " C^0/_D ": {
-    "hz":17.32,
-  },
-  "D0": {
-    "hz":18.35,
-  },
-  " D^0/_E ": {
-    "hz":19.45,
-  },
-  "E0": {
-    "hz":20.6,
-  },
-  "F0": {
-    "hz":21.83,
-  },
-  " F^0/_G ": {
-    "hz":23.12,
-  },
-  "G0": {
-    "hz":24.5,
-  },
-  " G^0/_A ": {
-    "hz":25.96,
-  },
-  "A0": {
-    "hz":27.5,
-  },
-  " A^0/_B ": {
+  "C0": {"hz":16.35,}," C^0/_D ": {"hz":17.32,},"D0": {"hz":18.35,}," D^0/_E ": {"hz":19.45,},"E0": {"hz":20.6,},"F0": {"hz":21.83,}," F^0/_G ": {"hz":23.12,},"G0": {"hz":24.5,}," G^0/_A ": {"hz":25.96,},"A0": {"hz":27.5,}," A^0/_B ": {
     "hz":29.14,
   },
-  "B,,,": {
+  "B,,,,": {
     "hz":30.87,
   },
-  "C,,,": {
-    "hz":32.7,
-  },
-  " C^1/Db1 ": {
-    "hz":34.65,
-  },
-  "D,,,": {
-    "hz":36.71,
-  },
-  " D^1/Eb1 ": {
-    "hz":38.89,
-  },
-  "E,,,": {
-    "hz":41.2,
-  },
-  "F,,,": {
-    "hz":43.65,
-  },
-  " F^1/Gb1 ": {
-    "hz":46.25,
-  },
-  "G,,,": {
-    "hz":49,
-  },
-  " G^1/Ab1 ": {
-    "hz":51.91,
-  },
-  "A,,,": {
-    "hz":55,
-  },
-  " A^1/Bb1 ": {
-    "hz":58.27,
-  },
-  "B,,,": {
-    "hz":61.74,
-  },
-  "C,,": {
-    "hz":65.41,
+  "C,,,": {"hz":32.7,},
+  " C^1/Db1 ": {"hz":34.65,},
+  "D,,,": {"hz":36.71,},
+  " D^1/Eb1 ": {"hz":38.89,},
+  "E,,,": {"hz":41.2,},
+  "F,,,": {"hz":43.65,},
+  " F^1/Gb1 ": {"hz":46.25,},
+  "G,,,": {"hz":49,},
+  " G^1/Ab1 ": {"hz":51.91,},
+  "A,,,": {"hz":55,},
+  " A^1/Bb1 ": {"hz":58.27,},
+  "B,,,": {"hz":61.74,},
+  "C,,": {"hz":65.41,
   },
   " C^2/Db2 ": {
     "hz":69.3,
@@ -297,40 +246,40 @@ frecuenciaNotas = {
   "b": {
     "hz":987.77,
   },
-  "C6": {
+  "c'": {
     "hz":1046.5,
   },
   " C^6/Db6 ": {
     "hz":1108.73,
   },
-  "D6": {
+  "d'": {
     "hz":1174.66,
   },
   " D^6/Eb6 ": {
     "hz":1244.51,
   },
-  "E6": {
+  "e'": {
     "hz":1318.51,
   },
-  "F6": {
+  "f'": {
     "hz":1396.91,
   },
   " F^6/Gb6 ": {
     "hz":1479.98,
   },
-  "G6": {
+  "g'": {
     "hz":1567.98,
   },
   " G^6/Ab6 ": {
     "hz":1661.22,
   },
-  "A6": {
+  "a'": {
     "hz":1760,
   },
   " A^6/Bb6 ": {
     "hz":1864.66,
   },
-  "B6": {
+  "b'": {
     "hz":1975.53,
   },
   "C7": {
@@ -406,4 +355,10 @@ frecuenciaNotas = {
     "hz":7902.13,
   }
 };
+
+function getFrecuenciaNotas(argument) {
+	console.log("argument : " + argument);
+	return frecuenciaNotas[argument]["hz"];
+	// return frecuenciaNotas[cantus[i]]["hz"]);
+}
 
