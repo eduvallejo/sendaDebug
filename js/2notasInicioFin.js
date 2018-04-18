@@ -7,7 +7,7 @@ function notasInicioFin(argument) {
 		var breakInfiniteLoops = 0;
 		do{
 			breakInfiniteLoops++;
-			console.log("breakInfiniteLoops : " + breakInfiniteLoops);
+			// console.log("breakInfiniteLoops : " + breakInfiniteLoops);
 			if (breakInfiniteLoops > 100) {break;} else {} 
 			if (i != posicionClimax) {
 				//FIXBUG02
@@ -37,7 +37,7 @@ function notasInicioFin(argument) {
 					//este es el intervalo anterior, ya q aun no hemos calculado el actual
 				if (Math.abs(randomInterval) < 3 || i == 1) {//para aplicar recovery()
 					if (i < posicionClimax) {
-						// console.log("intervalposPermitidos : " + intervalosPermitidos);
+						console.log("intervalposPermitidos : " + intervalosPermitidos);
 						randomInterval = randomFunction(intervalosPermitidos);		
 					} else {//i > climax
 						randomInterval = randomFunction(intervalosPermitidosBajar);		
@@ -53,11 +53,11 @@ function notasInicioFin(argument) {
 					}
 				} else {//recovery
 					if (randomInterval > 1) {//recovery positive
-						console.log("PositoveRecovery : " + randomInterval);
+						// console.log("PositoveRecovery : " + randomInterval);
 						randomInterval = -1;
 					} else if(randomInterval < 1){ //bug01-asigna esto cuando ya no puede poner leaps
 						//recovery from negative leap
-						console.log("NegativeRecovery : " + randomInterval);
+						// console.log("NegativeRecovery : " + randomInterval);
 						randomInterval = 1;
 					}
 				}
@@ -65,9 +65,9 @@ function notasInicioFin(argument) {
 				cantus[i] = notasMusicales[notasMusicales.indexOf(cantus[i - 1]) + 
 					randomInterval
 				];	
-				console.log("cantus[" + i + "] : " + cantus[i]);	
-				console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(cantus[i]));
-				console.log("getFrecuenciaNotas[" + cantus[i] + "] : " + getFrecuenciaNotas(cantus[i]));
+				// console.log("cantus[" + i + "] : " + cantus[i]);	
+				// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(cantus[i]));
+				// console.log("getFrecuenciaNotas[" + cantus[i] + "] : " + getFrecuenciaNotas(cantus[i]));
 			}
 		//aqui se ponen las reglas del cantus 
 		}while( 
@@ -83,9 +83,11 @@ function notasInicioFin(argument) {
 				 )  //
 	}
 	//aqui solo se suma el cantus al header de escalaDo
-	for (var i = 0; i < cantus.length; i++) {
-		escalaDo = escalaDo + cantus[i];
-	}
+	// for (var i = 0; i < cantus.length; i++) {
+	// 	escalaDo = escalaDo + cantus[i];
+	// }
+	//una vez calculado el cantus, calculamos el soprano
+	vozSoprano();
 }
 
 // prohibir mas de 4 leaps en un cantus

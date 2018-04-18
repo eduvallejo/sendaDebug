@@ -4,7 +4,7 @@
 //en este script se halla el intervalo declimax con root(por tanto la nota climax) 
 //y luego se halla al azar la posicion del climax dentro del cantus 
 
-var climaxIntervals = [cuarta, quinta, sexta, octava, decima]; //2=itervalo de 3a desde el C
+var climaxIntervals = [cuarta, quinta, sexta, octava]; //2=itervalo de 3a desde el C
 var notaClimax;
 //al azar ponemos una distancia de tonos entre root y climax
 // var numeroTonosClimaxRootDef = climaxIntervals[Math.floor((Math.random() 

@@ -25,9 +25,9 @@ var largeLeapsTotal = 0;
 
 
 //la primera, penultima y ultima nota las predefinimos
-cantus[0] = "C";
-cantus[longitudCantus - 1] = "C";
-cantus[longitudCantus - 2] = "D";
+cantus[0] = "C,";
+cantus[longitudCantus - 1] = "C,";
+cantus[longitudCantus - 2] = "D,";
 
 //cantidad de tonos de cada intervalo
 var segunda = 1;var tercera = 2;var cuarta = 3;var cuartaAug = 3.5;
@@ -39,19 +39,10 @@ var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo
 var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
 
 //repito los intervalos  quiero salgan mas amenudo , los stepwise
-var intervalosPermitidos = [ segunda,segunda,segunda,segunda,segundaAbajo,segundaAbajo,tercera, tercera,tercera, terceraAbajo, cuarta];
-var intervalosPermitidosBajar = [ segundaAbajo,segundaAbajo,segundaAbajo,segunda,segunda, segundaAbajo,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
+var intervalosPermitidos = [ segunda,segundaAbajo,tercera, tercera,tercera, terceraAbajo, cuarta];
+var intervalosPermitidosBajar = [ segundaAbajo,segunda,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
 console.log("intervalosPermitidos : " + intervalosPermitidos);
 
-var posIntervalo = {
-	"C,,": 1 ,"^C,,": 1.5,"_D,,": 1.5, "D,,": 2, "^D,,": 2.5, "_E,,": 2.5 ,"E,,": 3 ,"_F,,": 3 ,"^E,,": 4 , "F,," : 4 ,"^F,," : 4.5 ,"_G,," : 4.5 ,"G,,": 5 ,"^G,,": 5.5 ,"_A,,": 5.5 ,"A,,": 6 ,"^A,,": 6.5 ,"_B,,": 6.5 ,"B,,": 7 ,
-	"C,": 8 ,"^C,": 8.5,"_D,": 8.5, "D,": 9, "^D,": 9.5, "_E,": 9.5 ,"E,": 10 ,"_F,": 10 ,"^E,": 11 , "F," : 11 ,"^F," : 11.5 ,"_G," : 11.5 ,"G,": 12 ,"^G,": 12.5 ,"_A,": 12.5 ,"A,": 13 ,"^A,": 13.5 ,"_B,": 13.5 ,"B,": 14 ,
-	"C": 15 ,"^C": 15.5,"_D": 15.5, "D": 16, "^D": 16.5, "_E": 16.5 ,"E": 17 ,"_F": 17 ,"^E": 18 , "F," : 18 ,"^F," : 18.5 ,"_G," : 18.5 ,"G": 19 ,"^G": 19.5 ,"_A": 19.5 ,"A": 20 ,"^A": 20.5 ,"_B": 20.5 ,"B": 21 ,
-	"c": 22 ,"^c": 22.5,"_d": 22.5, "d": 23, "^d": 23.5, "_e": 23.5 ,"e": 24 ,"_f": 24 ,"^e": 25 , "f," : 25 ,"^f," : 25.5 ,"_g," : 25.5 ,"g": 26 ,"^g": 26.5 ,"_a": 26.5 ,"a": 27 ,"^a": 27.5 ,"_b": 27.5 ,"B": 28 ,
-};
-
-var tesituraSoprano = ["C", "D", "E", "F" ,"G","A","B",	
-	"c", "d", "e", "f" ,"g","a","b"];
 
 
 
@@ -65,6 +56,7 @@ function randomFunction(argument) {
 
 //esta es solo el header al q se se suma el cantus 
 var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
+// var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=bass\n"
 // console.log("escalaDo : " + escalaDo);
 // var escalaDo = "X:1\nM: 4/4\nL: 1/8\nK: Emin\n|:D2|EB{c}BA B2 EB|\n";
 
@@ -196,7 +188,7 @@ frecuenciaNotas = {
     "hz":369.99,
   },
   "G": {
-    "hz":392,
+    "hz":391.995,
   },
   " G^4/Ab4 ": {
     "hz":415.3,

@@ -1,0 +1,7 @@
+https://github.com/meenie/band.js/  para libreria de oscillators y sounds		
+simplificar los oscillators
+arreglar la distorsion
+
+quizas se podria mostrar informacion poniendo delante de cada nota algo asi como lo de los acordes "Em" q se mostraba en abcjs. en vez de poner entre comillas el acorde, podria poner el intervalo q forman las notas o algo util
+
+use convolver node para hacer reverbs

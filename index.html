@@ -10,8 +10,7 @@
        <script type="text/javascript" src="js/0variables.js"></script>
        <script type="text/javascript" src="js/1init.js"></script>
        <script type="text/javascript" src="js/2notasInicioFin.js"></script>
-       <!-- <script type="text/javascript" src="js/3notasClimaxFinal.js"></script> -->
-       <script type="text/javascript" src="js/4oscillator.js"></script>
+       <script type="text/javascript" src="js/3primeraespecie.js"></script>
        <script type="text/javascript" src="js/4oscillator.js"></script>
 
        <link href="css/abcjs-midi.css" media="all" rel="stylesheet" type="text/css" />
@@ -31,21 +30,22 @@
 <!--     <body onload="ABCJS.renderMidi('notation', escalaDo); return false;">
  -->    
 	<body onload="renderAbcSvg(); playOscillator();">
-	<!-- <body> -->
+<!-- 	<body onload="renderAbcSvg(); ">
+ -->	<!-- <body> -->
 	<button onclick="playOscillator();">play</button>
  	<div id="notation"></div>
- 	<!-- <div id="midi"></div> -->
+ 	<div id="midi"></div>
     </body>
     <script type="text/javascript">
    		function renderAbcSvg(argument) {
 		 	var tuneObjectArray;
-			console.log("escalaDo : " + escalaDo);
+			// console.log("escalaDo : " + escalaDo);
 			outputElement = document.getElementById('notation');
 			var tuneObjectArray;
 			var tuneObjectArrayMidi;
 
 			tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
-			// tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
+			tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
 
 		    	
    		}
