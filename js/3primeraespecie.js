@@ -1,14 +1,4 @@
-//1a especie
-	//intervalos=[primera, quinta, octava, doceava, tercera, sexta, decima, treceava]
-	//en 1a especie el intervalo de 4th es disonante, ya q quiere resolver a 3a
-	//forbidden direct(paralel or similar) motion into perfect interval(unison, 5ths and 8ths)
-	//a un interv de 5th o 8th se llega solo por contrario
-		// hidden 5ths and 8ths
-	//prohibido antiparalel perfects
-		// 5th->12th(8th+5th) or unison to eigth or 8th to 15th(8th+8th)
-	//en cambio SI q esta permitido
-		// 8th to 5th or 5th to 8th
-	//la primera nota es la 8th o la 5th
+
 
 var tesituraSoprano = ["C", "D", "E", "F" ,"G","A","B",	
 	"c", "d", "e", "f" ,"g","a","b"];
@@ -23,7 +13,20 @@ var notaClimaxSoprano = "a"
 soprano[posicionClimax] = notaClimaxSoprano;
 //cambiar la posicion climax soprano para q sea compas diferente q bajo	
 
-
+//1a especie
+	//intervalos=[primera, quinta, octava, doceava, tercera, sexta, decima, treceava]
+	//en 1a especie el intervalo de 4th es disonante, ya q quiere resolver a 3a
+	//forbidden direct(paralel or similar) motion into perfect interval(unison, 5ths and 8ths)
+	//a un interv de 5th o 8th se llega solo por contrario
+		// hidden 5ths and 8ths
+	//prohibido antiparalel perfects
+		// 5th->12th(8th+5th) or unison to eigth or 8th to 15th(8th+8th)
+	//en cambio SI q esta permitido
+		// 8th to 5th or 5th to 8th
+	//la primera nota es la 8th o la 5th
+//se calcilan con respecto al cantus de cda momento
+// var intervalosSopranoSubir = [octava, decima, doceava, quinceava];
+// var intervalosBajar = [octava, decima, doceava, quinceava];
 
 
 function vozSoprano(argument) {

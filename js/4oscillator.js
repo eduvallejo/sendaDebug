@@ -5,16 +5,10 @@ var gainNode;
 var setIntervalNotas;
 
 var contextSoprano, oscillatorSoprano;
-var counterOscillatorSoprano = 0;
-var gainNodeSoprano;
-var setIntervalNotasSoprano;
-
-
 //compressor
 var compressor = context.createDynamicsCompressor();
-var compressorSoprano = context.createDynamicsCompressor();
 
-
+var convolver = context.createConvolver();
 
 function oscillatorFunction() {
 	if (counterOscillator >= longitudCantus) {
@@ -28,58 +22,34 @@ function oscillatorFunction() {
 			oscillator.stop();
 			oscillatorSoprano.stop();
 		}
-		//oscillator cantus
-		oscillator = context.createOscillator();
 		gainNode = context.createGain();
 		gainNode.gain.value = 1;
-		oscillator.connect(gainNode);
-		oscillator.type = oscillator.syne;
-		oscillator.frequency.value = frecuenciaNotas[cantus[counterOscillator]]["hz"];
-		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
 		gainNode.gain.setTargetAtTime(0, context.currentTime, 0.15);
 		gainNode.connect(compressor);
-		// gainNode.gain.linearRampToValueAtTime(0.3, context.currentTime + 0.4);
 		compressor.threshold.setValueAtTime(-50, context.currentTime);
-		compressor.knee.setValueAtTime(40, context.currentTime);
-		compressor.ratio.setValueAtTime(12, context.currentTime);
-		compressor.attack.setValueAtTime(0, context.currentTime);
-		compressor.release.setValueAtTime(0.25, context.currentTime);
-		// audioSong.play();
 		compressor.connect(context.destination);
+		
+		//oscillator cantus
+		oscillator = context.createOscillator();
+		oscillator.frequency.value = frecuenciaNotas[cantus[counterOscillator]]["hz"];
+		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
+		oscillator.connect(gainNode);
+		// gainNode.gain.linearRampToValueAtTime(0.3, context.currentTime + 0.4);
 		// console.log("context.currentTime : " + context.currentTime);
 		oscillator.start(0);
-		// oscillator.stop();
-		counterOscillator++;
 
-		//oscillator cantus
+
+		//oscillator soprano//
 		oscillatorSoprano = context.createOscillator();
-		gainNodeSoprano = context.createGain();
-		gainNodeSoprano.gain.value = 1;
-		gainNodeSoprano.gain.setTargetAtTime(0, context.currentTime, 0.15);
-		// gainNodeSoprano.gain.linearRampToValueAtTime(0.3, context.currentTime + 0.4);
-		oscillatorSoprano.connect(gainNodeSoprano);
-		oscillatorSoprano.type = oscillatorSoprano.syne;
 		oscillatorSoprano.frequency.value = 
-			frecuenciaNotas[soprano[counterOscillatorSoprano]]["hz"];
-		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
-		
-		compressorSoprano.threshold.setValueAtTime(-50, context.currentTime);
-		// compressorSoprano.knee.setValueAtTime(40, context.currentTime);
-		// compressorSoprano.ratio.setValueAtTime(12, context.currentTime);
-		// compressorSoprano.attack.setValueAtTime(0, context.currentTime);
-		// compressorSoprano.release.setValueAtTime(0.25, context.currentTime);
-
-		gainNodeSoprano.connect(compressorSoprano);
-		// audioSong.play();
-		compressorSoprano.connect(context.destination);
-
-		// gainNodeSoprano.connect(context.destination);
-		// audioSong.play();
-		// oscillatorSoprano.connect(context.destination);
-		// console.log("context.currentTime : " + context.currentTime);
+			frecuenciaNotas[soprano[counterOscillator]]["hz"];
+		oscillatorSoprano.connect(gainNode);
 		oscillatorSoprano.start(0);
 		// oscillator.stop();
-		counterOscillatorSoprano++;
+
+
+		counterOscillator++;
+		// counterOscillatorSoprano++;
 	}
 
 }
@@ -88,7 +58,6 @@ function oscillatorFunction() {
 function playOscillator() {
 	//oscillator
 	counterOscillator = 0;
-	counterOscillatorSoprano = 0;
 	setIntervalNotas = setInterval(oscillatorFunction, 700);
 }
 
