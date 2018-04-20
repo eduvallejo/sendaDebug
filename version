@@ -5,3 +5,9 @@ arreglar la distorsion
 quizas se podria mostrar informacion poniendo delante de cada nota algo asi como lo de los acordes "Em" q se mostraba en abcjs. en vez de poner entre comillas el acorde, podria poner el intervalo q forman las notas o algo util
 
 use convolver node para hacer reverbs
+
+he cambiado el soprano para q solo mire si el intervalo armonico es correcto, pero ahora no hay nada q haga una bonita melodia... añadir las reglas melodicas tb al soprano a parte de las armonicas
+
+hacer q no todas las reglas se apliquen a la vez:
+	primero las condiciones mas deseables, como intervalos melodicos de segunda o tercera 
+		luego,, si es imposible , q se aplique alguna posibilidad no tan deseable a modo de recurso de emergencia(como un salto de octava)

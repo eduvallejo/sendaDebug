@@ -10,21 +10,21 @@ var notaClimax;
 // var numeroTonosClimaxRootDef = climaxIntervals[Math.floor((Math.random() 
 // 	* climaxIntervals.length))];
 var numeroTonosClimaxRootDef = randomFunction(climaxIntervals);
-console.log("numeroTonosClimaxRootDef : " + numeroTonosClimaxRootDef);
+// console.log("numeroTonosClimaxRootDef : " + numeroTonosClimaxRootDef);
 //con esa distancia de tonos , ya podemos saber q nota es el climax
 notaClimax = notasMusicales[ notasMusicales.indexOf(cantus[0]) + numeroTonosClimaxRootDef];
 //DEBUG
 // notaClimax = "e";
-console.log("notaClimax : " + notaClimax);
-console.log("notasMusicales.indexOf(climax) : " + notasMusicales.indexOf(notaClimax));
+// console.log("notaClimax : " + notaClimax);
+// console.log("notasMusicales.indexOf(climax) : " + notasMusicales.indexOf(notaClimax));
 
 //ahora hallamos una posicion q ocupara el climax por la mitad del cantus
 var posicionClimax = Math.floor( (8 * longitudCantus) / 16) ;
 // posicionClimax = 1
-console.log("posicionClimax : " + posicionClimax);
+// console.log("posicionClimax : " + posicionClimax);
 //y ponemos la nota climax en esa posicion
 cantus[Math.floor(posicionClimax)] = notaClimax;
-console.log("cantus : " + cantus);
+// console.log("cantus : " + cantus);
 
 
 
