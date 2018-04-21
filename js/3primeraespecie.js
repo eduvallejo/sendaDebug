@@ -36,7 +36,8 @@ console.log("soprano : " + soprano);
 // var intervalosSoprano = [octava, tercera, quinta, sexta, decima, doceava];
 // var intervalosSoprano = [octava, tercera, quinta, sexta, decima, doceava];
 // var intervalosSoprano = [octava, tercera, tercera, quinta];
-var intervalosSoprano = [octava, tercera,tercera, quinta, sexta,  sexta];
+var intervalosSoprano = [octava, octava,octava,octava,octava,
+tercera, quinta,quinta,quinta,quinta];
 
 //constante q se le suma a los intervalos para obterner el intervalo definitivo de soprano
 constanteSoprano = 0;
@@ -48,7 +49,10 @@ function vozSoprano(argument) {
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxSoprano; i++) {
 	for (var i = 1; i < (longitudCantus - 2); i++) {//las dos ultimas estan predefinidas
+		breakInfiniteLoops = 0;
 		do{
+			breakInfiniteLoops++;
+			if (breakInfiniteLoops>50) { window.location.reload();} else {}
 			if (i != posicionClimaxSoprano) {
 					
 				if (i < posicionClimaxSoprano) {//eleccion preclimax
@@ -80,13 +84,23 @@ function vozSoprano(argument) {
 			// console.log("notasMusicales.indexOf("+ soprano[posicionClimaxSoprano] +") : " + notasMusicales.indexOf(soprano[posicionClimaxSoprano]));
 			// console.log("checkMovimientoDirecto(cantus[" + i + "]),  : " + checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] ));
 			// console.log("soprano[" + i + "] : " + soprano[i]);
-			checkOctavasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
-			checkQuintasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
-			checkTercerasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
+			// checkOctavasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
+			// checkQuintasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
+			// checkTercerasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
 		//aqui se ponen las reglas del soprano 
 		}while(
 			((notasMusicales.indexOf(soprano[i])  >=  notasMusicales.indexOf(soprano[posicionClimaxSoprano])) && i != posicionClimaxSoprano)
 			//octavas seguidas
+			// ||checkOctavasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
+			// ||checkQuintasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
+			// ||checkQuintasOctavasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
+			// ||checkTercerasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
+			// ||checkTercerasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
+			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 5, 5)
+			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 8, 8)
+			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 5, 8)
+			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 8, 5)
+
 			// ||(randomIntervalSopranoCantus[i - 1] == 8 )&&( randomIntervalSopranoCantus[i] == 8)
 			// 	&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]  )== true)
 			//quintas seguidas
@@ -96,8 +110,8 @@ function vozSoprano(argument) {
 			// ||(randomIntervalSopranoCantus[i - 1] == 8 )&&( randomIntervalSopranoCantus[i] == 5)
 			// 	&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i] ) == true)
 			//quintas -> octavas seguidas
-			||(randomIntervalSopranoCantus[i - 1] == 5 )&&( randomIntervalSopranoCantus[i] == 8)
-				&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i] ) == true)
+			// ||(randomIntervalSopranoCantus[i - 1] == 5 )&&( randomIntervalSopranoCantus[i] == 8)	
+				// &&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i] ) == true)
 			//evitar dos leaps seguidos
 			// ||checkLeaps(soprano[i - 2], soprano[i - 1], soprano[i]) == true && i > 2
 		)
@@ -126,9 +140,9 @@ function vozSoprano(argument) {
 	}
 	escalaDo += "\nV:2 clef=treble\n"
 	for (var i = 0; i < cantus.length; i++) {
-		escalaDo = escalaDo + cantus[i] ;
+		escalaDo = escalaDo + cantus[i] + '"' + (i+1) + '"' ;
 	}
-	console.log("escalaDo : " + escalaDo);
+	// console.log("escalaDo : " + escalaDo);
 	console.log("randomIntervalSopranoCantus : " + randomIntervalSopranoCantus);
 }
 

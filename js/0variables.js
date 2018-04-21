@@ -78,11 +78,11 @@ function checkLeaps(argument1, argument2, argument3) {
 function checkMovimientoDirecto(voz1actual, voz1anterior, voz2actual, voz2anterior) {
   //directo hacia abajo
   if (((getTonesBetween(voz1actual, voz1anterior)) >= 1) && ((getTonesBetween(voz2actual, voz2anterior)) >= 1)) {
-    // console.log("movimientoDirecto : yes" );
+    console.log("movimientoDirectoAbajo : yes" );
     return true;
   }else if (((getTonesBetween(voz1actual, voz1anterior)) <= -1) && ((getTonesBetween(voz2actual, voz2anterior)) <= -1)) {
   //directo hacia arriba
-    // console.log("movimientoDirecto : yes" );
+    console.log("movimientoDirectoArriba : yes" );
     return true;
   }else {return false;}
 }
@@ -98,6 +98,7 @@ function checkOctavasSeguidas(argument1, argument2) {
     // &&(checkMovimientoDirecto(argument1,argument2)== true)== true
     ) {
     console.log("8as seguidas : " );
+    return true;
   }
 }
 //funciones de checkeo
@@ -106,8 +107,33 @@ function checkQuintasSeguidas(argument1, argument2) {
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
     console.log("quintas seguidas : " );
+    return true;
   }
 
+}
+//funciones de checkeo
+function checkQuintasOctavasSeguidas(argument1, argument2) {
+  if((argument1 == 5 )&&( argument2 == 8)
+        // &&(checkMovimientoDirecto(argument1,argument2 == true
+        ){
+    console.log("quintasOCtavas seguidas : " );
+    return true;
+  }else if((argument1 == 8 )&&( argument2 == 5)
+        // &&(checkMovimientoDirecto(argument1,argument2 == true
+        ){
+    console.log("OctavasQuintas seguidas : " );
+    return true;
+  }
+
+}
+//funciones de checkeo intervalos seguidos prohibidos
+function checkIntervalsProhibidos(interval1, interval2, argument1, argument2) {
+  if((argument1 == interval1 )&&( argument2 == interval2)
+        // &&(checkMovimientoDirecto(argument1,argument2 == true
+        ){
+    console.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
+    return true;
+  }
 }
 //funciones de checkeo
 function checkTercerasSeguidas(argument1, argument2) {
@@ -115,6 +141,7 @@ function checkTercerasSeguidas(argument1, argument2) {
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
     console.log("terceras seguidas : " );
+    return true;
   }
 
 }
