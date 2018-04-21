@@ -37,10 +37,10 @@ function notasInicioFin(argument) {
 					//este es el intervalo anterior, ya q aun no hemos calculado el actual
 				if (Math.abs(randomInterval) < 3 || i == 1) {//para aplicar recovery()
 					if (i < posicionClimax) {
-						// console.log("intervalposPermitidos : " + intervalosPermitidos);
-						randomInterval = randomFunction(intervalosPermitidos);		
+						// console.log("intervalposPermitidos : " + intervMelodicPermitidos);
+						randomInterval = randomFunction(intervMelodicPermitidos);		
 					} else {//i > climax
-						randomInterval = randomFunction(intervalosPermitidosBajar);		
+						randomInterval = randomFunction(intervMelodicPermitidosBajar);		
 					}
 
 					//leaps control

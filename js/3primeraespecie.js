@@ -3,16 +3,16 @@
 var tesituraSoprano = ["C", "D", "E", "F" ,"G","A","B",	
 	"c", "d", "e", "f" ,"g","a","b"];
 var soprano = [];
-var randomIntervalSoprano = [];
+var randomIntervalSopranoCantus = [];
 for (var i = 0; i < longitudCantus; i++) {
 	soprano[i] = "0";
-	randomIntervalSoprano[i] = "0";
+	randomIntervalSopranoCantus[i] = "0";
 }
-randomIntervalSoprano[0] = 8; //es un Do, intervalo de 1a
+randomIntervalSopranoCantus[0] = 8; //es un Do, intervalo de 1a
 soprano[0] = "c"; //podría ser la 8th o la 5th
 soprano[longitudCantus - 2] = "B";
 soprano[longitudCantus - 1] = "c";
-var notaClimaxSoprano = "g"
+var notaClimaxSoprano = "e"
 var posicionClimaxSoprano = posicionClimax + 1;
 soprano[posicionClimaxSoprano] = notaClimaxSoprano;
 console.log("soprano : " + soprano);
@@ -36,10 +36,10 @@ console.log("soprano : " + soprano);
 // var intervalosSoprano = [octava, tercera, quinta, sexta, decima, doceava];
 // var intervalosSoprano = [octava, tercera, quinta, sexta, decima, doceava];
 // var intervalosSoprano = [octava, tercera, tercera, quinta];
-var intervalosSoprano = [octava, tercera, tercera,tercera, quinta, sexta,sexta, sexta];
+var intervalosSoprano = [octava, tercera,tercera, quinta, sexta,  sexta];
 
 //constante q se le suma a los intervalos para obterner el intervalo definitivo de soprano
-constanteSoprano = 7;
+constanteSoprano = 0;
 
 
 
@@ -61,27 +61,45 @@ function vozSoprano(argument) {
 				//siguiente version de buscar notas(al azar , solo notas superiores a root)
 				soprano[i] = notasMusicales[notasMusicales.indexOf(cantus[i]) + 
 					randomInterval + constanteSoprano];	
-				randomIntervalSoprano[i] = (((notasMusicales.indexOf(soprano[i]) % 7 + 8 )) -
-					+ (notasMusicales.indexOf(cantus[i]) % 7 + 1 ) % 7 + 1)  ;
+				// randomIntervalSopranoCantus[i] = (((notasMusicales.indexOf(soprano[i]) % 7 + 8 )) -
+				// 	+ (notasMusicales.indexOf(cantus[i]) % 7 + 1 ) % 7 + 1)  ;
+				randomIntervalSopranoCantus[i] = ((((notasMusicales.indexOf(soprano[i]) + 1)) - ((notasMusicales.indexOf(cantus[i])) + 1) + 1) );
 				// console.log("soprano[" + i + "] : " + soprano[i]);	
 				// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(soprano[i]));
 				// console.log("getFrecuenciaNotas[" + soprano[i] + "] : " + getFrecuenciaNotas(soprano[i]));
 			}else if(i == posicionClimaxSoprano){
-				randomIntervalSoprano[i] = (((notasMusicales.indexOf(soprano[i]) % 7 + 8 )) -
+				randomIntervalSopranoCantus[i] = (((notasMusicales.indexOf(soprano[i]) % 7 + 8 )) -
 					+ (notasMusicales.indexOf(cantus[i]) % 7 + 1 ) % 7 + 1)  ;
 				// console.log("soprano[" + i + "] : " + soprano[i]);	
-				console.log("ClimaxrandomIntervalSoprano[" + i + "] : " + randomIntervalSoprano[i]);	
 			}
-				console.log("randomIntervalSoprano[" + i + "] : " + randomIntervalSoprano[i]);	
+			// console.log("getInterval(soprano[i-1], soprano[" + i + "]) : " + 
+			// 	getInterval(soprano[i - 1], soprano[i]));
+				// console.log("randomIntervalSopranoCantus[" + i + "] : " + randomIntervalSopranoCantus[i]);	
+				// console.log("randomIntervalSopranoCantus[" + i + "] : " + randomIntervalSopranoCantus[i]);	
 			// console.log("notasMusicales.indexOf(soprano[" + i +"]) : " + notasMusicales.indexOf(soprano[i]));
 			// console.log("notasMusicales.indexOf("+ soprano[posicionClimaxSoprano] +") : " + notasMusicales.indexOf(soprano[posicionClimaxSoprano]));
+			// console.log("checkMovimientoDirecto(cantus[" + i + "]),  : " + checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] ));
+			// console.log("soprano[" + i + "] : " + soprano[i]);
+			checkOctavasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
+			checkQuintasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
+			checkTercerasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
 		//aqui se ponen las reglas del soprano 
 		}while(
 			((notasMusicales.indexOf(soprano[i])  >=  notasMusicales.indexOf(soprano[posicionClimaxSoprano])) && i != posicionClimaxSoprano)
 			//octavas seguidas
-			||(randomIntervalSoprano[i - 1] == 8 )&&( randomIntervalSoprano[i] == 8)
+			// ||(randomIntervalSopranoCantus[i - 1] == 8 )&&( randomIntervalSopranoCantus[i] == 8)
+			// 	&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]  )== true)
 			//quintas seguidas
-			||(randomIntervalSoprano[i - 1] == 5 )&&( randomIntervalSoprano[i] == 5)
+			// ||(randomIntervalSopranoCantus[i - 1] == 5 )&&( randomIntervalSopranoCantus[i] == 5)
+			// 	&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i] ) == true)
+			//octavas -> quintas seguidas
+			// ||(randomIntervalSopranoCantus[i - 1] == 8 )&&( randomIntervalSopranoCantus[i] == 5)
+			// 	&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i] ) == true)
+			//quintas -> octavas seguidas
+			||(randomIntervalSopranoCantus[i - 1] == 5 )&&( randomIntervalSopranoCantus[i] == 8)
+				&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i] ) == true)
+			//evitar dos leaps seguidos
+			// ||checkLeaps(soprano[i - 2], soprano[i - 1], soprano[i]) == true && i > 2
 		)
 			// ( notasMusicales.indexOf(notaClimaxSoprano) <= notasMusicales.indexOf(soprano[i]) && (i != posicionClimaxSoprano) ) //repetir  >= q el climax
 			// || (notasMusicales.indexOf(notaClimaxSoprano) - notasMusicales.indexOf(soprano[i])) > 9 //o si se supera el rango de 10th con la climax
@@ -96,19 +114,22 @@ function vozSoprano(argument) {
 	}
 	console.log("soprano : " + soprano);
 	console.log("cantus : " + cantus);
+	escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
+
+
 	//aqui solo se suma el soprano al header de escalaDo
 	for (var i = 0; i < soprano.length; i++) {
-		// escalaDo = escalaDo + soprano[i] + '"' + ((((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )%7 ) + '"' + " " + '"' +
-		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) ) ) +'"';
-		escalaDo = escalaDo + soprano[i] + ' "' + (((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )) -
-			+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
+		// escalaDo = escalaDo + soprano[i] + ' "' + (((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )) -
+		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
+		escalaDo = escalaDo + soprano[i] + '" ' 
+			+ ((((notasMusicales.indexOf(soprano[i + 1]) + 1)) - ((notasMusicales.indexOf(cantus[i + 1])) + 1) + 1) ) +'ª"';
 	}
-	escalaDo += "\nV:2 clef=bass\n"
+	escalaDo += "\nV:2 clef=treble\n"
 	for (var i = 0; i < cantus.length; i++) {
 		escalaDo = escalaDo + cantus[i] ;
 	}
 	console.log("escalaDo : " + escalaDo);
-	console.log("randomIntervalSoprano : " + randomIntervalSoprano);
+	console.log("randomIntervalSopranoCantus : " + randomIntervalSopranoCantus);
 }
 
 

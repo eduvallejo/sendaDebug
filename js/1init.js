@@ -32,7 +32,6 @@ cantus[Math.floor(posicionClimax)] = notaClimax;
 
 
 
-
 // console.log("escalaDo : " + escalaDo); 
 
 

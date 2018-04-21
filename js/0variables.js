@@ -6,11 +6,18 @@ var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,",
 				"c'","d'","e'","f'","g'","a'","b'" ];
 // var notasMusicales= {"A": {"position":1,},"B": {"position":2,},"C": {"position":3,},"D": {"position":4,},"E": {"position":5,},"F": {"position":6,},"G": {"position":7,},};
 var notaClimax;
-var longitudCantus = 15;//15 es ideal ya q el click final es como si 16
+var longitudCantus = 24;//15 es ideal ya q el click final es como si 16
 var cantus = [];
 for (var i = 0; i < longitudCantus; i++) {
 	cantus[i] = "0";
 }
+//la primera, penultima y ultima nota las predefinimos
+// cantus[0] = "C,";
+// cantus[longitudCantus - 1] = "C,";
+// cantus[longitudCantus - 2] = "D,";
+cantus[0] = "C";
+cantus[longitudCantus - 1] = "C";
+cantus[longitudCantus - 2] = "D";
 
 //Reglas
 // prohibir mas de 4 leaps en un cantus
@@ -24,10 +31,10 @@ var largeLeapsTotal = 0;
 // prohibir tres saltos seguidos, da igual direccion 
 
 
-//la primera, penultima y ultima nota las predefinimos
-cantus[0] = "C,";
-cantus[longitudCantus - 1] = "C,";
-cantus[longitudCantus - 2] = "D,";
+// //la primera, penultima y ultima nota las predefinimos
+// cantus[0] = "C,";
+// cantus[longitudCantus - 1] = "C,";
+// cantus[longitudCantus - 2] = "D,";
 
 //cantidad de tonos de cada intervalo
 var segunda = 1;var tercera = 2;var cuarta = 3;var cuartaAug = 3.5;
@@ -39,11 +46,12 @@ var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo
 var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
 
 //repito los intervalos  quiero salgan mas amenudo , los stepwise
-var intervalosPermitidos = [ segunda,segundaAbajo,tercera, tercera,tercera, terceraAbajo, cuarta];
-var intervalosPermitidosBajar = [ segundaAbajo,segunda,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
-console.log("intervalosPermitidos : " + intervalosPermitidos);
+var intervMelodicPermitidos = [ segunda,segundaAbajo,tercera, tercera,tercera, terceraAbajo, cuarta];
+var intervMelodicPermitidosBajar = [ segundaAbajo,segunda,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
+console.log("intervMelodicPermitidos : " + intervMelodicPermitidos);
 
 
+var escalaDo ;
 
 
 
@@ -52,12 +60,83 @@ function randomFunction(argument) {
 	return argument[Math.floor((Math.random() 
 					* argument.length))];
 }
+
+//obtener intervalo de dos notas
+function getTonesBetween(argument1, argument2) {
+  // console.log("notasMusicales.indexOf(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") : "  + (notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
+  return notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1);
+
+}
+//saber si hay dos leaps seguidos
+function checkLeaps(argument1, argument2, argument3) {
+  if(Math.abs(notasMusicales.indexOf(argument1) - (notasMusicales.indexOf(argument2))) >= 3 
+      && Math.abs(notasMusicales.indexOf(argument2) - Math.abs(notasMusicales.indexOf(argument3))) >= 3){
+        return true;
+  }else{return false;}
+}
+
+function checkMovimientoDirecto(voz1actual, voz1anterior, voz2actual, voz2anterior) {
+  //directo hacia abajo
+  if (((getTonesBetween(voz1actual, voz1anterior)) >= 1) && ((getTonesBetween(voz2actual, voz2anterior)) >= 1)) {
+    // console.log("movimientoDirecto : yes" );
+    return true;
+  }else if (((getTonesBetween(voz1actual, voz1anterior)) <= -1) && ((getTonesBetween(voz2actual, voz2anterior)) <= -1)) {
+  //directo hacia arriba
+    // console.log("movimientoDirecto : yes" );
+    return true;
+  }else {return false;}
+}
+
+//get intervalo ()
+function getInterval(argument1, argument2) {
+  return ((((notasMusicales.indexOf(soprano[i + 1])+1)) - ((notasMusicales.indexOf(cantus[i + 1]))+1) + 1));
+}
+
+//funciones de checkeo
+function checkOctavasSeguidas(argument1, argument2) {
+  if ((argument1 == 8 )&&( argument2 == 8)
+    // &&(checkMovimientoDirecto(argument1,argument2)== true)== true
+    ) {
+    console.log("8as seguidas : " );
+  }
+}
+//funciones de checkeo
+function checkQuintasSeguidas(argument1, argument2) {
+  if((argument1 == 5 )&&( argument2 == 5)
+        // &&(checkMovimientoDirecto(argument1,argument2 == true
+        ){
+    console.log("quintas seguidas : " );
+  }
+
+}
+//funciones de checkeo
+function checkTercerasSeguidas(argument1, argument2) {
+  if((argument1 == 3)&&( argument2 == 3)
+        // &&(checkMovimientoDirecto(argument1,argument2 == true
+        ){
+    console.log("terceras seguidas : " );
+  }
+
+}
+//funciones de checkeo
+function checkSextasSeguidas(argument1, argument2) {
+  if((argument1 == 6)&&( argument2 == 6)
+        // &&(checkMovimientoDirecto(argument1,argument2 == true
+        ){
+    console.log("sextas seguidas : " );
+  }
+
+}
+
+
+
 //intervalos peremitidos
 
 //esta es solo el header al q se se suma el cantus 
-var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
+// var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
 // var escalaDo = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=bass\n"
 // console.log("escalaDo : " + escalaDo);
+
 // var escalaDo = "X:1\nM: 4/4\nL: 1/8\nK: Emin\n|:D2|EB{c}BA B2 EB|\n";
 
 // console.log("indiceNota['G,'] : " + indiceNota['G,']);
