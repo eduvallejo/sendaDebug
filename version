@@ -9,6 +9,4 @@ hacer q no todas las reglas se apliquen a la vez:
 
 cantus en el soprano
 
-hacer una funcion de saber si la nota ha subido o bajado para saber si moviemiento directo
-
-acabar de hacer q compruebe el movimiento directo y bloquee las quintas seguidas directas
+hacer q compruebe bien los intervalos tanto si el CF esta en la voz baja o en la superior

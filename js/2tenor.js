@@ -1,4 +1,8 @@
+//repito los intervalos  quiero salgan mas amenudo , los stepwise
 
+var intervMelodicPermitidos = [ segunda,segundaAbajo,segunda, segunda, tercera, tercera,tercera, terceraAbajo, cuarta];
+var intervMelodicPermitidosBajar = [ segundaAbajo,segunda,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
+console.log("intervMelodicPermitidos : " + intervMelodicPermitidos);
 function notasInicioFin(argument) {
 	// BUGs Evitar q los leaps se cuemten cuando no se aplican
 	var randomInterval = 5;

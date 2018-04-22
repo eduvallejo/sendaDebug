@@ -9,10 +9,10 @@ for (var i = 0; i < longitudCantus; i++) {
 	randomIntervalSopranoCantus[i] = "0";
 }
 randomIntervalSopranoCantus[0] = 8; //es un Do, intervalo de 1a
-soprano[0] = "c"; //podría ser la 8th o la 5th
+soprano[0] = "G"; //podría ser la 8th o la 5th
 soprano[longitudCantus - 2] = "B";
 soprano[longitudCantus - 1] = "c";
-var notaClimaxSoprano = "e"
+var notaClimaxSoprano = "e";
 var posicionClimaxSoprano = posicionClimax + 1;
 soprano[posicionClimaxSoprano] = notaClimaxSoprano;
 console.log("soprano : " + soprano);
@@ -31,13 +31,7 @@ console.log("soprano : " + soprano);
 	//la primera nota es la 8th o la 5th
 
 //se calcilan con respecto al cantus de cda momento
-// var intervalosSoprano = [octava, decima, doceava, quinceava];
-// var intervalosSoprano = [octava, decima, doceava, quinceava];
-// var intervalosSoprano = [octava, tercera, quinta, sexta, decima, doceava];
-// var intervalosSoprano = [octava, tercera, quinta, sexta, decima, doceava];
-// var intervalosSoprano = [octava, tercera, tercera, quinta];
-var intervalosSoprano = [octava, octava,octava,octava,octava,
-tercera, quinta,quinta,quinta,quinta];
+var intervalosSoprano = [ octava, quinta,quinta,quinta,tercera,tercera,tercera, sexta, sexta,sexta, quinta];
 
 //constante q se le suma a los intervalos para obterner el intervalo definitivo de soprano
 constanteSoprano = 0;
@@ -87,19 +81,29 @@ function vozSoprano(argument) {
 			// checkOctavasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
 			// checkQuintasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
 			// checkTercerasSeguidas(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]);
+			// console.log("getIndexBetween(soprano[i], soprano[i -1]) : " 
+			// 	+ getIndexBetween(soprano[i], soprano[i -1]));
+			// //5as ocultas
+			// if (checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] ) && randomIntervalSopranoCantus[i] == 5) {
+			// 	console.log("5as ocultas en [" + i + "] : " + soprano[i]);
+			// } else {}
 		//aqui se ponen las reglas del soprano 
 		}while(
-			((notasMusicales.indexOf(soprano[i])  >=  notasMusicales.indexOf(soprano[posicionClimaxSoprano])) && i != posicionClimaxSoprano)
+			// ((notasMusicales.indexOf(soprano[i])  >=  notasMusicales.indexOf(soprano[posicionClimaxSoprano])) && i != posicionClimaxSoprano)
 			//octavas seguidas
 			// ||checkOctavasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
 			// ||checkQuintasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
 			// ||checkQuintasOctavasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
 			// ||checkTercerasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
 			// ||checkTercerasSeguidas(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1])
-			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 5, 5)
-			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 8, 8)
-			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 5, 8)
-			||checkIntervalsProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 8, 5)
+			checkIntervalosProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] )
+			||checkIntervalosProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] )
+			||checkIntervalosProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 5, 8) 
+			||checkIntervalosProhibidos(randomIntervalSopranoCantus[i], randomIntervalSopranoCantus[i - 1], 8, 5)
+			//5as ocultas (5as por movimiento directo)
+			||checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] ) && randomIntervalSopranoCantus[i] == 5
+			//8as ocultas (8as por movimiento directo)
+			||checkMovimientoDirecto(cantus[i],cantus[i-1],soprano[i],soprano[i-1] ) && randomIntervalSopranoCantus[i] == 8
 
 			// ||(randomIntervalSopranoCantus[i - 1] == 8 )&&( randomIntervalSopranoCantus[i] == 8)
 			// 	&&(checkMovimientoDirecto(randomIntervalSopranoCantus[i - 1],randomIntervalSopranoCantus[i]  )== true)
