@@ -7,6 +7,46 @@ hacer q no todas las reglas se apliquen a la vez:
 	primero las condiciones mas deseables, como intervalos melodicos de segunda o tercera 
 		luego,, si es imposible , q se aplique alguna posibilidad no tan deseable a modo de recurso de emergencia(como un salto de octava)
 
-cantus en el soprano
+hacer q se acepten diferentes tonalidades
 
-hacer q compruebe bien los intervalos tanto si el CF esta en la voz baja o en la superior
+hacer esta regla
+solo permitiremos la formación de quintas y octavas por movimiento contrario (u oblicuo), o cuando la voz superior alcance el intervalo de quinta u octava por movimiento de segunda.
+
+schoemberg hablaba de tecnica de variacion en desarrollo lo q usaba bach para desarrollar los motivos
+
+hacer q se restoren los saltos
+
+y si los random no los eligo de los intervalos armonicos sino de los melodicos y luego los while los censuro con los intervalos del acorde
+
+hacer variaciones sobre los arpeggios de tunnel of love
+
+(en bajo continuo el 5 se omite, se entiende q hay un 5 a no ser q haya un 6)
+(en bajo continuo el 3 se omite, se entiende q hay un 3 a no ser q haya un 4)
+
+si el bajo es invertido, las notas del acorde seran la 3 y la 6 (6)
+si el bajo es 2a inversion, las notas del acorde seran la 4 y la 6 (6-4)
+significa q en la primera especie solo hay acordes con bajo en root(5-3)
+
+se toleran dos saltos en la misma direccion si el intervalo q suman esta permitido ( se tolera salto de 5 y 4a ya q dan una octava)
+
+las secuencias se han de evitar ya q podrian producir un motivo , las exigencias de un motivo no estan al alcance de un principiante
+
+checkear los registros de las voces
+
+permitir diferentes tonalidades
+
+permitir q el cantus este en otras voces
+
+hacer lo del backtracking de tunnel con variaciones del arpeggio piano
+
+para hacer las voces inferiores no se ha de sumar el intervalo armonico obtenido al azar sino restarselo?cuidado con las 5 disminuidas
+
+los intervalos de la primera nota son los mismos cuando el CF esta abajo como cuando esta arriba?
+
+poner las voces de soprano y bajo junto con el cantus, just for fun
+
+hacer melodias sobre progresiones armonicas sacadas de canciones, como por ej oh what a beautiful m orning
+
+poner samplers con acordes sobre una melodia, como la del odde to joy
+
+cancelar la aprovacion previa de paypal con promofarma https://www.paypal.com/myaccount/settings/payments

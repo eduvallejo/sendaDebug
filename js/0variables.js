@@ -11,14 +11,11 @@ for (var i = 0; i < longitudCantus; i++) {
 	cantus[i] = "0";
 }
 
-// prohibir mas de 4 leaps en un cantus
-var leapsTotal= 0;
-// prohibir 3 o mas LArge LEAPS(>=5th )
-var largeLeapsTotal = 0;
-
+var key = "Cmaj";
+// var key = "Gmaj";
 
 //cantidad de tonos de cada intervalo
-var segunda = 1;var tercera = 2;var cuarta = 3;var cuartaAug = 3.5;
+var unisono = 0; var segunda = 1;var tercera = 2;var cuarta = 3;var cuartaAug = 3.5;
 var quinta = 4;var sexta = 5;var septima = 6;var octava = 7;
 var novena = 8;var decima = 9;var onceava = 10;var doceava = 11;
 var treceava = 12;var quinceava = 13;
@@ -28,9 +25,11 @@ var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
 
 
 var escalaDo ;
+// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
 
 function randomFunction(argument) {
   // console.log("argument : " + argument);
   return argument[Math.floor((Math.random() 
           * argument.length))];
 }
+

@@ -1,9 +1,16 @@
 //repito los intervalos  quiero salgan mas amenudo , los stepwise
 
+// prohibir mas de 4 leaps en un cantus
+var leapsTotal= 0;
+// prohibir 3 o mas LArge LEAPS(>=5th )
+var largeLeapsTotal = 0;
+
+
 var intervMelodicPermitidos = [ segunda,segundaAbajo,segunda, segunda, tercera, tercera,tercera, terceraAbajo, cuarta];
 var intervMelodicPermitidosBajar = [ segundaAbajo,segunda,terceraAbajo,terceraAbajo,tercera, quintaAbajo];
 console.log("intervMelodicPermitidos : " + intervMelodicPermitidos);
-function notasInicioFin(argument) {
+
+function crearAlto(argument) {
 	// BUGs Evitar q los leaps se cuemten cuando no se aplican
 	var randomInterval = 5;
 	// for (var i = 1; i < posicionClimax; i++) {
@@ -91,13 +98,6 @@ function notasInicioFin(argument) {
 	// 	escalaDo = escalaDo + cantus[i];
 	// }
 	//una vez calculado el cantus, calculamos el soprano
-	vozSoprano();
+	// crearSoprano();
+	crearBajo();
 }
-
-// prohibir mas de 4 leaps en un cantus
-// prohibir 3 o mas LArge LEAPS(>=5th )
-// 	y poner despues de large leaps q haga direccion reversa mediante steps or skips
-// despues de intervalo de 4th puede ir como mucho una 3a en el mismo sentido(prohibir saltos > 4th en mismo sentido despues de 4th)
-// pero mejor cambiar direccion desdepues de 4th
-// prohibir dos saltos seguidos en misma direccion
-// prohibir tres saltos seguidos, da igual direccion

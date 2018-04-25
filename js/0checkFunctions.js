@@ -1,44 +1,36 @@
-// console.log("notasMusicales.indexOf('G') : " + notasMusicales["G"]["position"]);
-// console.log("posIntervalo['C'] : " + posIntervalo.indexOf["C"]);
-
-//en este script se halla el intervalo declimax con root(por tanto la nota climax) 
-//y luego se halla al azar la posicion del climax dentro del cantus 
-
-cantus[0] = "C";
-cantus[longitudCantus - 1] = "C";
-cantus[longitudCantus - 2] = "D";
-
-
-var climaxIntervals = [cuarta, quinta, sexta, octava]; //2=itervalo de 3a desde el C
-var notaClimax;
-//al azar ponemos una distancia de tonos entre root y climax
-// var numeroTonosClimaxRootDef = climaxIntervals[Math.floor((Math.random() 
-// 	* climaxIntervals.length))];
-var numeroTonosClimaxRootDef = randomFunction(climaxIntervals);
-// console.log("numeroTonosClimaxRootDef : " + numeroTonosClimaxRootDef);
-//con esa distancia de tonos , ya podemos saber q nota es el climax
-notaClimax = notasMusicales[ notasMusicales.indexOf(cantus[0]) + numeroTonosClimaxRootDef];
-//DEBUG
-// notaClimax = "e";
-console.log("notaClimax : " + notaClimax);
-// console.log("notasMusicales.indexOf(climax) : " + notasMusicales.indexOf(notaClimax));
-
-//ahora hallamos una posicion q ocupara el climax por la mitad del cantus
-var posicionClimax = Math.floor( (8 * longitudCantus) / 16) ;
-// posicionClimax = 1
-// console.log("posicionClimax : " + posicionClimax);
-//y ponemos la nota climax en esa posicion
-cantus[Math.floor(posicionClimax)] = notaClimax;
-// console.log("cantus : " + cantus);
 
 
 
-//obtener intervalo de dos notas
-function getIndexBetween(argument1, argument2) {
-  // console.log("notasMusicales.indexOf(i-1)-(i)(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") : "  + (notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
-  return notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1);
+function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
+	if(getIndexBetween(indiceMenos2, indiceMenos1) > 2 
+		 && (getIndexBetween(indiceMenos1, indiceActual) > 0 	
+		 		|| getIndexBetween(indiceMenos1, indiceActual) < -2)){
+		
+		// console.log("indiceMenos2+indiceMenos1+indiceActual : " + indiceMenos2 + "," + indiceMenos1+ "," + indiceActual);
+		return true;
+	} 	
+	//restore leaps q bajan
+	if(getIndexBetween(indiceMenos2, indiceMenos1) < -2 
+		  && (getIndexBetween(indiceMenos1, indiceActual) < 0 	
+		  	|| getIndexBetween(indiceMenos1, indiceActual) > 2)){
 
+		// console.log("indiceMenos2+indiceMenos1+indiceActual : " + indiceMenos2 + "," + indiceMenos1+ "," + indiceActual);
+		return true;
+	} 
 }
+
+//checkear saltos melodicos prohibidos mayores de ooctava o salto de 7a
+function checkIndexBetween(argument1, argument2) {
+	if (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) > 7 
+			|| (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) == 6)) {
+  		// console.log("notasMusicales.indexOf(i-1)-(i)(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") : "  + (notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
+  		console.log("Salto melodico mayor de 8a o 7a(notasMusicales.indexOf(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") )" 
+  			+ Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1) ));
+  		return true;
+	}
+}
+
+
 //saber si hay dos leaps seguidos
 function checkLeaps(argument1, argument2, argument3) {
   if(Math.abs(notasMusicales.indexOf(argument1) - (notasMusicales.indexOf(argument2))) >= 3 
@@ -59,17 +51,12 @@ function checkMovimientoDirecto(voz1actual, voz1anterior, voz2actual, voz2anteri
   }else {return false;}
 }
 
-//get intervalo ()
-function getInterval(argument1, argument2) {
-  return ((((notasMusicales.indexOf(soprano[i + 1])+1)) - ((notasMusicales.indexOf(cantus[i + 1]))+1) + 1));
-}
-
 //funciones de checkeo
 function checkOctavasSeguidas(argument1, argument2) {
   if ((argument1 == 8 )&&( argument2 == 8)
     // &&(checkMovimientoDirecto(argument1,argument2)== true)== true
     ) {
-    console.log("8as seguidas : " );
+    // console.log("8as seguidas : " );
     return true;
   }
 }
@@ -78,7 +65,7 @@ function checkQuintasSeguidas(argument1, argument2) {
   if((argument1 == 5 )&&( argument2 == 5)
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
-    console.log("quintas seguidas : " );
+    // console.log("quintas seguidas : " );
     return true;
   }
 
@@ -103,7 +90,7 @@ function checkIntervalosProhibidos(argument1, argument2, interval1, interval2) {
   if((argument1 == interval1 )&&( argument2 == interval2)
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
-    console.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
+    // console.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
     return true;
   }
 }
@@ -190,6 +177,9 @@ frecuenciaNotas = {
   "F,,": {
     "hz":87.31,
   },
+  "^F,,/Gb2 ": {
+    "hz":92.5,
+  },
   " F^2/Gb2 ": {
     "hz":92.5,
   },
@@ -245,7 +235,7 @@ frecuenciaNotas = {
     "hz":246.94,
   },
   "C": {
-    "hz":261.63,
+    "hz":261.0,
   },
   " C^4/Db4 ": {
     "hz":277.18,
