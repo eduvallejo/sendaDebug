@@ -4,7 +4,7 @@ var counterOscillator = 0;
 var gainNode;
 var setIntervalNotas;
 
-var contextSoprano, oscillatorSoprano, oscillatorBajo;
+var contextSoprano, oscillatorSoprano, oscillatorBajo, oscillatorAlto;
 //compressor
 var compressor = context.createDynamicsCompressor();
 
@@ -16,13 +16,15 @@ function oscillatorFunction() {
 		oscillator.stop();
 		// oscillatorSoprano.stop();
 		oscillatorBajo.stop();
+		oscillatorAlto.stop();
 
 		playOscillator();
 	}else{
 		if (oscillator) {
 			oscillator.stop();
-			oscillatorSoprano.stop();
+			// oscillatorSoprano.stop();
 			oscillatorBajo.stop();
+			oscillatorAlto.stop();
 		}
 		gainNode = context.createGain();
 		gainNode.gain.value = 1;
@@ -32,7 +34,7 @@ function oscillatorFunction() {
 		compressor.connect(context.destination);
 
 		// console.log("cantus : " + cantus);
-		//oscillator cantus
+		//oscillator cantus(tenor)
 		oscillator = context.createOscillator();
 		// oscillator.frequency.value = frecuenciaNotas[cantus[counterOscillator]]["hz"];
 		oscillator.frequency.value = 
@@ -47,15 +49,19 @@ function oscillatorFunction() {
 
 
 		//oscillator soprano//
-		oscillatorSoprano = context.createOscillator();
+		// oscillatorSoprano = context.createOscillator();
 		// oscillatorSoprano.frequency.value = 
-		// 	frecuenciaNotas[soprano[counterOscillator]]["hz"];
-		oscillatorSoprano.frequency.value = 
-			getFrequency(soprano, counterOscillator, 0, key);
-		oscillatorSoprano.connect(gainNode);
-		oscillatorSoprano.start(0);
-		// oscillator.stop();
+		// 	getFrequency(soprano, counterOscillator, 0, key);
+		// oscillatorSoprano.connect(gainNode);
+		// oscillatorSoprano.start(0);
 	
+		//Alto
+		oscillatorAlto = context.createOscillator();
+		oscillatorAlto.frequency.value = 
+			getFrequency(alto , counterOscillator, 0, key);
+		oscillatorAlto.connect(gainNode);
+		oscillatorAlto.start(0);
+
 
 		//oscillator bajo//
 		oscillatorBajo = context.createOscillator();
@@ -86,3 +92,6 @@ function playOscillator() {
 // 	setIntervalNotasSoprano = setInterval(oscillatorFunctionSoprano, 500);
 	
 // }
+function showAbc(argument) {
+	alert(escalaDo);	
+}

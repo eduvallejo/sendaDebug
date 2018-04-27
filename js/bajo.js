@@ -129,7 +129,8 @@ function crearBajo(argument) {
 	// console.log("escalaDo : " + escalaDo);
 	// console.log("randomIntervalBajoCantus : " 
 		// + randomIntervalBajoCantus);
-	crearSoprano();
+	// crearSoprano();
+	crearAlto();
 }
 
 

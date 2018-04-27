@@ -1,3 +1,4 @@
+//antiguo 2alto.js
 //repito los intervalos  quiero salgan mas amenudo , los stepwise
 
 // prohibir mas de 4 leaps en un cantus

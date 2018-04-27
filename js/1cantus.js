@@ -22,6 +22,9 @@ cantus = ["C","D","F","E","D","C"];
 //Ej3 schoenberg en Fmaj
 // key = "Fmaj";
 // cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
+//Ej5 schoenberg en Fmaj
+key = "Abmaj";
+cantus = ["A,", "C", "D", "E", "C", "F", "E", "C", "D", "C", "B,", "A," ];
 
 escalaDo = "X:1\nL:1/2\nK:" + key ;
 
