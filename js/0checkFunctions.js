@@ -21,11 +21,12 @@ function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
 
 //checkear saltos melodicos prohibidos mayores de ooctava o salto de 7a
 function checkIndexBetween(argument1, argument2) {
-	if (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) > 7 
-			|| (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) == 6)) {
+  // console.log("Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) : " + Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
+	if (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) > intervMelodMax 
+			|| (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) == septima)) {
   		// console.log("notasMusicales.indexOf(i-1)-(i)(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") : "  + (notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
-  		console.log("Salto melodico mayor de 8a o 7a(notasMusicales.indexOf(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") )" 
-  			+ Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1) ));
+  		// console.log("Salto melodico mayor de 8a o 7a(notasMusicales.indexOf(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") )" 
+  		// 	+ Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1) ));
   		return true;
 	}
 }

@@ -2,3 +2,16 @@ segunda especie
 
 las consonancias(1, 3, 5, 6, 8) se pueden usar tanto en timepos fuertes como en debiles pero las disonancias solo segun unas formulas
 	18. nota de paso(+) 
+
+el primer tiempo la voz superior solo 1, 8, 5, 3
+	en la inf solo 1 o 8a
+
+q notas valen para el final?
+
+de momento hacer q la voz añadida sean blancas, conseguir q suenen y luego ya mirare lo de las disonancias
+
+arreglar lo delos cuelgues, probar meter una funcion q haga break y luego actualice la pagina
+
+las voces adyacentes no deberian separrase mas de una octava
+
+hacer q vuelva atras si se sobrepasa el breakpoint

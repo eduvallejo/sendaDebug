@@ -6,6 +6,8 @@ var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,",
 // var notasMusicales= {"A": {"position":1,},"B": {"position":2,},"C": {"position":3,},"D": {"position":4,},"E": {"position":5,},"F": {"position":6,},"G": {"position":7,},};
 var notaClimax;
 var longitudCantus = 6;//15 es ideal ya q el click final es como si 16
+var blancas = 2; 
+
 var cantus = [];
 for (var i = 0; i < longitudCantus; i++) {
 	cantus[i] = "0";
@@ -22,10 +24,12 @@ var treceava = 12;var quinceava = 13;
 //intervalos desdecendientes
 var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo = -4;
 var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
-
+var intervMelodMax = cuarta;
 
 var escalaDo ;
 // escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
+
+
 
 function randomFunction(argument) {
   // console.log("argument : " + argument);

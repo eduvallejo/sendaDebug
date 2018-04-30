@@ -3,6 +3,6 @@ abc/
 midi/
 ogg/
 *.pdf
-*.txt
+*.txt*
 *.odt
 

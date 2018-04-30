@@ -47,7 +47,10 @@ function crearBajo(argument) {
 		breakInfiniteLoops = 0;
 		do{
 			breakInfiniteLoops++;
-			if (breakInfiniteLoops>50) { window.location.reload();} else {}
+			if (breakInfiniteLoops>50) { 
+				colgado == true;
+				break;
+			} else {}
 			// if (i != posicionClimaxBajo) {
 			if (true) {
 					
@@ -80,29 +83,29 @@ function crearBajo(argument) {
 			// ((notasMusicales.indexOf(bajo[i])  >=  notasMusicales.indexOf(bajo[posicionClimaxBajo])) && i != posicionClimaxBajo)
 			//octavas seguidas
 			checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
-			// ||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
-			// ||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 8) 
-			// ||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 5)
+			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
+			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 8) 
+			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 5)
 			// //5as ocultas (5as por movimiento directo)
 			||checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 5
 			// //8as ocultas (8as por movimiento directo)
 			||checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 8
 			// //restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
-			// ||checkLeapsToRestore(bajo[i - 2], bajo[i - 1],bajo[i])
+			||checkLeapsToRestore(bajo[i - 2], bajo[i - 1],bajo[i])
 			// //chekear q la melodia no salta intervalos prohibidos melodicamente
 			||checkIndexBetween(bajo[i - 1], bajo[i])
 		)
+		comprobarCuelgue();
 		// console.log("getIndexBetween(bajo[" + (i - 1) + "], bajo[" + i +"])" + getIndexBetween(bajo[i - 1], bajo[i]));		 
 	}//end for loop
-	console.log("bajo : " + bajo);
+	// console.log("bajo : " + bajo);
+	console.clear();
 	console.log("cantus : " + cantus);
 	
-	// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1 clef=alto1\n"
-	// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\n"
-	// escalaDo = "X:1\nL:1/2\nK:" + key + "\nV:1 clef=alto3\n"
-	escalaDo += "\nV:2 clef=alto4\n"
+	// escalaDo += "\nV:2 clef=alto4\n"
+	escalaDo += "\nV:2 clef=alto3\n"
 	for (var i = 0; i < cantus.length; i++) {
-		escalaDo += cantus[i];
+		escalaDo += cantus[i] + "|";
 	}
 	// escalaDo += "\nV:2 clef=treble\n"
 	//aqui solo se suma el bajo al header de escalaDo
@@ -133,4 +136,13 @@ function crearBajo(argument) {
 	crearAlto();
 }
 
+var colgado = false;
 
+function pararCuelgue(argument) {
+	alert("pararCuelgue : ");
+	window.location.reload();
+}
+
+function comprobarCuelgue(argument) {
+	if (colgado == true) {pararCuelgue();}
+}

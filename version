@@ -53,4 +53,7 @@ añadir un check de q despues de un leap se pueda pèrmitir otro leap siempre q 
 
 https://www.youtube.com/watch?v=6cbTQp6h0Ko rules 3rd specie
 
-changing TONES = two consecutive non-chord tones
+changing TONES = tw	o consecutive non-chord tones
+
+la ultima blanca del alto  me va a dar problemas con el oscillator
+mirar como hice lo de los tiempos con el siightreading, quizas pasaba alguna variable para indicar el tiempo

@@ -6,13 +6,14 @@ for (var i = 0; i < longitudCantus; i++) {
 	alto[i] = "0";
 	randomIntervalAltoCantus[i] = "0";
 }
-var intervaloSopranoCero = [ quinta, tercera,  octava, decima];
+var intervaloSopranoCero = [ quinta, tercera,  octava];
 alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloSopranoCero)];
+alto[1] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloSopranoCero)];
 
-alto[longitudCantus - 2] = //la sensible 
-	notasMusicales[getIndexOf(cantus[longitudCantus - 1]) + 6];
-alto[longitudCantus - 1] = //la fundamental
-	notasMusicales[getIndexOf(cantus[longitudCantus - 1]) + 7];
+// alto[longitudCantus - 2] = //la sensible 
+// 	notasMusicales[getIndexOf(cantus[longitudCantus - 1]) + 6];
+// alto[longitudCantus - 1] = //la fundamental
+// 	notasMusicales[getIndexOf(cantus[longitudCantus - 1]) + 7];
 
 //esto del climax sirve para algo?
 // var notaClimaxSoprano = "d";
@@ -24,46 +25,61 @@ var posicionClimaxAlto = posicionClimax + 1;
 
 //se calcilan con respecto al cantus de cda momento
 // var intervalosArmonicosAlto = [ octava,quinta,tercera,tercera,tercera, sexta, sexta,sexta, quinta];
-var intervalosArmonicosAlto = [ tercera, quinta, sexta, octava];
+var intervalosArmonicosAlto = [ tercera, quinta, sexta, sexta, octava];
 
  
-
-
-
+var cantusDoble = [];
+//cantus para blancas
+// console.log("cantusDoble : " + cantusDoble);
+	var contadorTemp = 0;
+	for (var i = 0; i < cantus.length*2; i++) {
+		if (i % 2 == 1) {contadorTemp++;} else {}
+		cantusDoble[i] = cantus[i - contadorTemp];
+		// console.log(i + " - contadorTemp: " + (i - contadorTemp));
+		// cantusDoble[i + contadorTemp] = cantus[i];
+		// contadorTemp++;
+		// console.log("i : " + i);
+	}
+	console.log("altoLEnfth : " + alto.length);
+	console.log("Doble.length : " + cantusDoble.length);
+console.log("alto : " + alto);
+	alto[cantusDoble.length - 3] = //la sensible 
+		notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) + 6];
+console.log("alto : " + alto);
+		// "f";
+	alto[cantusDoble.length - 2] = //la fndamental 
+		notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) +  7];
+	alto[cantusDoble.length - 1] = //la fndamental 
+		notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) +  7];
+		// "e";
+console.log("alto : " + alto);
 function crearAlto(argument) {
 	// BUGs Evitar q los leaps se cuemten cuando no se aplican
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxAlto; i++) {
-	for (var i = 1; i < (longitudCantus - 2); i++) {//las dos ultimas estan predefinidas
+	for (var i = 1; i < (cantusDoble.length - 3); i++) {//las dos ultimas estan predefinidas
 		breakInfiniteLoops = 0;
 		do{
 			breakInfiniteLoops++;
-			if (breakInfiniteLoops>50) { window.location.reload();} else {}
-			// if (i != posicionClimaxAlto) {
-			if (true) {
-					
-				if (i < posicionClimaxAlto) {//eleccion preclimax
-					// console.log("intervalposPermitidos : " + intervalosPermitidos);
-					randomInterval = randomFunction(intervalosArmonicosAlto) ;
-					// console.log("randomInterval : " + randomInterval);		
-				} else {//eleccion postclimax
-					randomInterval = randomFunction(intervalosArmonicosAlto)  ;		
-					// console.log("randomInterval : " + randomInterval);		
-				}
-		
-				//siguiente version de buscar notas(al azar , solo notas superiores a root)
-				alto[i] = notasMusicales[notasMusicales.indexOf(cantus[i]) + 
-					randomInterval ];	
-				randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
-					- ((notasMusicales.indexOf(cantus[i])))) + 1;
-				// console.log("alto[" + i + "] : " + alto[i]);	
-				// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(alto[i]));
-				// console.log("getFrecuenciaNotas[" + alto[i] + "] : " + getFrecuenciaNotas(alto[i]));
-			}else if(i == posicionClimaxAlto){
-				// randomIntervalAltoCantus[i] = (((notasMusicales.indexOf(alto[i]) % 7 + 8 )) -
-				// 	+ (notasMusicales.indexOf(cantus[i]) % 7 + 1 ) % 7 + 1)  ;
-				// console.log("alto[" + i + "] : " + alto[i]);	
+			if (breakInfiniteLoops>40) {
+				colgado == true;
+				console.log("colgado en  : " + i );
+				//tirar para atras si no hay una solucion buena
+				// alto[i] =="";
+				// randomIntervalAltoCantus[i] = "";
+				// i = i - 1; //tirar para atras si no hay una solucion buena
+				break;
 			}
+			randomInterval = randomFunction(intervalosArmonicosAlto) ;
+				// console.log("randomInterval : " + randomInterval);		
+	
+			alto[i] = notasMusicales[notasMusicales.indexOf(cantusDoble[i]) + 
+				randomInterval ];	
+			randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+				- ((notasMusicales.indexOf(cantusDoble[i])))) + 1;
+			// console.log("alto[" + i + "] : " + alto[i]);	
+			// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(alto[i]));
+			// console.log("getFrecuenciaNotas[" + alto[i] + "] : " + getFrecuenciaNotas(alto[i]));
 		//aqui se ponen las reglas del alto 
 		}while(//he comentado algunos para poder debugear sin q se cuelgue
 			// ((notasMusicales.indexOf(alto[i])  >=  notasMusicales.indexOf(alto[posicionClimaxAlto])) && i != posicionClimaxAlto)
@@ -79,12 +95,27 @@ function crearAlto(argument) {
 			//restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
 			||checkLeapsToRestore(alto[i - 2], alto[i - 1],alto[i])
 			//chekear q la melodia no salta intervalos prohibidos melodicamente
-			// ||checkIndexBetween(alto[i - 1], alto[i])
+			||checkIndexBetween(alto[i - 1], alto[i])
+			// ||checkIndexBetween(alto[i], alto[i + 1])
+			//q no hayas dos notas iguales
+			||getIndexBetween(alto[i - 1]) == getIndexBetween(alto[i])
+			||getIndexBetween(alto[i]) == getIndexBetween(alto[i + 1])
+			//q no haya seguidas grupos de dos iguales
+			||getIndexBetween(alto[i - 3]) == getIndexBetween(alto[i - 1]) &&
+			getIndexBetween(alto[i - 2]) == getIndexBetween(alto[i])
+			//q no haya seguidas grupos de dos iguales
+			||getIndexBetween(alto[i + 1]) == getIndexBetween(alto[i - 1]) &&
+			getIndexBetween(alto[i + 2]) == getIndexBetween(alto[i])
+			//q no baje por debajo del F,,
+			||getIndexOf(alto[i]) < 4
 		)
+		comprobarCuelgue();
+		//mirar si shay consonantes vecinas en fuertes para poner nota paso
+		if (i%2 == 0 && i > 1 ) {
+			colocarNotasDePasoYbordadura(i);
+		} 
 		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
 	}//end for loop
-	console.log("alto : " + alto);
-	// console.log("cantus : " + cantus);
 	
 	// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1 clef=alto1\n"
 	// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\n"
@@ -93,10 +124,11 @@ function crearAlto(argument) {
 	console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
 	// var keyPosition = ("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
 	// [escalaDo.slice(0, keyPosition), "HOLA", escalaDo.slice(keyPosition)].join('');
-
+	console.log("alto : " + alto);
 	var escalaDoAlto;
 	// console.log("alto : " + alto);
 	escalaDoAlto = "V:1 clef=alto1\n";
+	// escalaDoAlto = "V:1\n";
 	// escalaDo += "\nV:2 clef=treble\n"
 	//aqui solo se suma el alto al header de escalaDo
 	for (var i = 0; i < alto.length; i++) {
@@ -105,30 +137,24 @@ function crearAlto(argument) {
 		escalaDoAlto += 
 		 	'"' 
 		 		+(((notasMusicales.indexOf(alto[i]))
-					- (notasMusicales.indexOf(cantus[i])))+1) 
+					- (notasMusicales.indexOf(cantusDoble[i])))+1) 
 			+'ª"'
-				+ alto[i]
+				+ alto[i] + "/" //ya q estamos en segunda Especie
 			;
 	}
-	// console.log("escalaDoAlto : " + escalaDoAlto);
-	escalaDo = escalaDo.replace(key ,key +"\n" + escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
-	// escalaDo += "\nV:2 clef=treble\n"
-	// for (var i = 0; i < cantus.length; i++) {
-	// 	escalaDo = escalaDo + cantus[i] + '"' + (i+1) + '"' ;
-	// }
-	// escalaDo += "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
-	// escalaDo += "\nV:2 clef=alto\nCDFEDC"
-	// escalaDo += "\nV:2 clef=alto\n" + cantus;
-	// escalaDo += "\nV:2 clef=alto4\n" ;
-	
-	// escalaDo += "\nV:2 clef=alto4\n" ;
-	// for (var i = 0; i < cantus.length; i++) {
-	// 	escalaDo += cantus[i];
-	// }
-
+	// convertirUltimaBlancaEnNegra, REMOVER EL ultimo /
+	// escalaDoAlto = escalaDoAlto.substring(0, escalaDoAlto.length-1);
+	escalaDo = escalaDo.replace(key ,key +"\n" 
+		+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
 	// console.log("escalaDo : " + escalaDo);
-	// console.log("randomIntervalAltoCantus : " 
-	// 	+ randomIntervalAltoCantus);
 }
 
 
+function pararCuelgue(argument) {
+	alert("pararCuelgue : ");
+	window.location.reload();
+}
+
+function comprobarCuelgue(argument) {
+	if (colgado == true) {pararCuelgue();}
+}

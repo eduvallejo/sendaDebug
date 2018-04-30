@@ -26,9 +26,21 @@ cantus = ["C","D","F","E","D","C"];
 key = "Abmaj";
 cantus = ["A,", "C", "D", "E", "C", "F", "E", "C", "D", "C", "B,", "A," ];
 
-escalaDo = "X:1\nL:1/2\nK:" + key ;
+key = "Cmaj";
+cantus = ["C","C","C","C", "G,", "G,", "C","C","C","C","C","C","G,", "G,","C" ];
+
+//ej 13 segunda especie dos voces
+key = "Cmaj";
+cantus = ["C","B,","G,","A,", "E,", "F,", "A,","D,","G,","F,","D,","C,"];
+
+//debug
+// key = "Cmaj";
+// cantus = ["C","E","D","C"];
+
+escalaDo = "X:1\nL:1/1\nK:" + key ;
 
 longitudCantus = cantus.length;
+longitudCantusDoble = longitudCantus * 2;
 console.log("longitudCantus : " + longitudCantus);
 function getClimaxPosition(argument) {
 	for (var i = 0; i < cantus.length; i++) {
