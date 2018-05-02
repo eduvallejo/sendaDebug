@@ -23,8 +23,8 @@ var novena = 8;var decima = 9;var onceava = 10;var doceava = 11;
 var treceava = 12;var quinceava = 13;
 //intervalos desdecendientes
 var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo = -4;
-var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7;
-var intervMelodMax = cuarta;
+var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7; var novenaAbajo = -8; var decimaAbajo = -9; 
+var intervMelodMax = quinta;
 
 var escalaDo ;
 // escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"

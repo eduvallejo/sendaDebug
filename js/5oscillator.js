@@ -2,8 +2,9 @@ var context, oscillator;
 context = new AudioContext;
 var counterOscillator = 0;
 var counterOscillatorAlto = 0;
+var counterOscillatorBajo = 0;
 var gainNode, gainNodeAlto;
-var setIntervalNotas, setIntervalNotasAlto;
+var setIntervalNotas, setIntervalNotasAlto, setIntervalNotasBajo;
 
 var contextSoprano, oscillatorSoprano, oscillatorBajo, oscillatorAlto;
 //compressor
@@ -11,12 +12,14 @@ var compressor = context.createDynamicsCompressor();
 
 var convolver = context.createConvolver();
 
+// var oscillatorLetters = /[a-gA-GzZ]/;//letters involved in time
+// console.log("alto : " + alto);
+
 function oscillatorFunction() {
 	if (counterOscillator >= longitudCantus) {
 		clearInterval(setIntervalNotas);
 		oscillator.stop();
 		// oscillatorSoprano.stop();
-		// oscillatorBajo.stop();
 		// oscillatorAlto.stop();
 
 		playOscillator();
@@ -24,7 +27,6 @@ function oscillatorFunction() {
 		if (oscillator) {
 			oscillator.stop();
 			// oscillatorSoprano.stop();
-			// oscillatorBajo.stop();
 			// oscillatorAlto.stop();
 		}
 		gainNode = context.createGain();
@@ -96,14 +98,6 @@ function oscillatorFunctionAlto() {
 		oscillatorAlto.start(0);
 		// console.log("alto[counterOscillatorAlto] : " + alto[counterOscillatorAlto]);
 
-
-		//oscillator bajo//
-		// oscillatorBajo = context.createOscillator();
-		// oscillatorBajo.frequency.value = 
-		// 	getFrequency(bajo, counterOscillator, 0, key);
-		// oscillatorBajo.connect(gainNode);
-		// oscillatorBajo.start(0);
-
 		// console.log("counterOscillatorAlto : " + counterOscillatorAlto);
 		counterOscillatorAlto++;
 		// counterOscillatorSoprano++;
@@ -111,7 +105,49 @@ function oscillatorFunctionAlto() {
 
 }
 
+function oscillatorFunctionBajo() {
+	if (counterOscillatorBajo >= bajo.length) {
+		clearInterval(setIntervalNotasBajo);
+		oscillatorBajo.stop();
+		// console.log("Bajo : " + Bajo);
+
+		playOscillatorBajo();
+	}else{
+		if (oscillatorBajo) {
+			oscillatorBajo.stop();
+		}
+		gainNodeBajo = context.createGain();
+		gainNodeBajo.gain.value = 1;
+		gainNodeBajo.gain.setTargetAtTime(0, context.currentTime, 0.15);
+		gainNodeBajo.connect(compressor);
+		compressor.threshold.setValueAtTime(-50, context.currentTime);
+		compressor.connect(context.destination);
+
+		// oscillator bajo//
+		oscillatorBajo = context.createOscillator();
+		oscillatorBajo.frequency.value = 
+			getFrequency(bajo, counterOscillatorAlto, 0, key);
+		oscillatorBajo.connect(gainNodeAlto);
+		oscillatorBajo.start(0);
+
+		// console.log("counterOscillatorAlto : " + counterOscillatorAlto);
+		counterOscillatorBajo++;
+		// counterOscillatorSoprano++;
+	}
+
+}
+
+function playOscillatorBajo() {
+	// console.log("alto : " + alto);
+	//oscillatorBajo
+	counterOscillatorBajo = 0;
+	oscillatorFunctionBajo();//para no tener delay en la 1a ejecucion
+	setIntervalNotas = setInterval(oscillatorFunctionBajo, 600);
+}
+
+
 function playOscillator() {
+	// console.log("alto : " + alto);
 	//oscillator
 	counterOscillator = 0;
 	oscillatorFunction();//para no tener delay en la 1a ejecucion
@@ -119,11 +155,15 @@ function playOscillator() {
 }
 
 function playOscillatorAlto(argument) {
+	// for (var i = 0; i < alto.length; i++) {
+	// 	alto[i] = alto[i].replace("/", ""); //elimino las quotes de los acordes, asi descode mmas facil
+
+	// }
 	counterOscillatorAlto = 0;
 	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
 	setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 600);
-	
 }
+
 function showAbc(argument) {
 	alert(escalaDo);	
 }

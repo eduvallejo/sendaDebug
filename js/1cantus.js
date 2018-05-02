@@ -33,11 +33,24 @@ cantus = ["C","C","C","C", "G,", "G,", "C","C","C","C","C","C","G,", "G,","C" ];
 key = "Cmaj";
 cantus = ["C","B,","G,","A,", "E,", "F,", "A,","D,","G,","F,","D,","C,"];
 
-//debug
-// key = "Cmaj";
-// cantus = ["C","E","D","C"];
+//ej 18
+key = "Cmaj";
+cantus = ["C","F", "G", "F", "D", "G" ,"C"];
 
-escalaDo = "X:1\nL:1/1\nK:" + key ;
+//debug
+key = "Cmaj";
+cantus = ["C","G","D","C"];
+
+//ej 17
+key = "Cmaj";
+cantus = ["C","E", "D", "A,", "B," ,"D", 
+
+"C"];
+
+escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
+
+checkFinalCantus(cantus);
+mostrarGradosCantus();
 
 longitudCantus = cantus.length;
 longitudCantusDoble = longitudCantus * 2;

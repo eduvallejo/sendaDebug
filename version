@@ -55,5 +55,16 @@ https://www.youtube.com/watch?v=6cbTQp6h0Ko rules 3rd specie
 
 changing TONES = tw	o consecutive non-chord tones
 
-la ultima blanca del alto  me va a dar problemas con el oscillator
-mirar como hice lo de los tiempos con el siightreading, quizas pasaba alguna variable para indicar el tiempo
+cambiar lo del final, q tenga en cuenta si el cantus es II-I o VII-I
+
+mirar si lo de lo q no pilla las octavas directas es porq tengo puesto cantus a secas en el while, en vez de catus doble
+
+lo mas urgente quizas sea lo de poder quitar lo de las dos blancas al final, poder usar algo como decodeajaxresponse para leer el tiempo de cada nota del abcº	
+
+Laprimera nota de la voz superior no debe ser otra que primera 8a 5a o tercera. La sexta no expresarla la tonalidad de forma in
+controvertible. 
+En la voz inferior sólo se puede usar, alcomienzo, primera u octava
+
+acabar lo de checkear finale
+
+poner el grado encima del cantu<s

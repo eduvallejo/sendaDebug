@@ -4,19 +4,23 @@
        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> -->
-       <title>Senda</title>
+       <title></title>
        <script src="lib/jquery.min.js" type="text/javascript"></script>
        <script src="lib/abcjs_midi_4.0.1-min.js" type="text/javascript"></script>
        <script type="text/javascript" src="js/0variables.js"></script>
+       <script type="text/javascript" src="js/0variablesSight.js"></script>
        <script type="text/javascript" src="js/0checkFunctions.js"></script>
        <script type="text/javascript" src="js/0getIndexFunctions.js"></script>
+       <script type="text/javascript" src="js/1cantusFunciones.js"></script>
        <script type="text/javascript" src="js/1cantus.js"></script>
+       <script type="text/javascript" src="js/3funcionesAlto.js"></script>
        <script type="text/javascript" src="js/3alto.js"></script>
        <!-- <script type="text/javascript" src="js/3soprano.js"></script> -->
        <script type="text/javascript" src="js/bajo.js"></script>
        <script type="text/javascript" src="js/4sounds.js"></script>
        <script type="text/javascript" src="js/5oscillator.js"></script>
        <script type="text/javascript" src="js/notasDePaso.js"></script>
+       <script type="text/javascript" src="js/decodeAjaxResponse.js"></script>
 
        <link href="css/abcjs-midi.css" media="all" rel="stylesheet" type="text/css" />
        <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -36,8 +40,9 @@
     </head>
 <!--     <body onload="ABCJS.renderMidi('notation', escalaDo); return false;">
  -->    
-	<body onload="renderAbcSvg(); playOscillator();playOscillatorAlto();">
-<!-- 	<body onload="renderAbcSvg(); ">
+  <body onload="renderAbcSvg(); playOscillator();playOscillatorAlto();">
+<!-- 	<body onload="renderAbcSvg(); playOscillator();playOscillatorAlto();playOscillatorBajo();">
+ --><!-- 	<body onload="renderAbcSvg(); ">
  -->	<!-- <body> -->
 	<button onclick="showAbc();">show Abc</button>
  	<div id="notation"></div>

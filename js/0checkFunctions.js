@@ -1,4 +1,14 @@
-
+function checkFinalCantus(argument) {
+  console.log("cantus[cantus.length - 1] : " + getIndexOf(cantus[cantus.length - 1]));
+  console.log("cantus[cantus.length - 2] : " + getIndexOf(cantus[cantus.length - 2]));
+  if ((getIndexOf(cantus[cantus.length - 2]) - getIndexOf(cantus[cantus.length - 1])) == 1) {
+    console.log("final II-I : ");
+    return("II-I");
+  } else if((getIndexOf(cantus[cantus.length - 2]) - getIndexOf(cantus[cantus.length - 1])) == -1){
+    console.log("final VII-I : ");
+    return("VII-I");
+  }
+}
 
 
 function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
