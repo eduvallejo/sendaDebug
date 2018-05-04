@@ -28,47 +28,47 @@ var posicionClimaxbajo = posicionClimax + 1;
 var intervalosArmonicosBajo = [ terceraAbajo, quintaAbajo, sextaAbajo, sextaAbajo,];
 
  
-var cantusDoble = [];
+var cantusExtendido = [];
 //cantus para blancas
-// console.log("cantusDoble : " + cantusDoble);
+// console.log("cantusExtendido : " + cantusExtendido);
 	var contadorTemp = 0;
 	for (var i = 0; i < cantus.length*2; i++) {
 		if (i % 2 == 1) {contadorTemp++;} else {}
-		cantusDoble[i] = cantus[i - contadorTemp];
+		cantusExtendido[i] = cantus[i - contadorTemp];
 		// console.log(i + " - contadorTemp: " + (i - contadorTemp));
-		// cantusDoble[i + contadorTemp] = cantus[i];
+		// cantusExtendido[i + contadorTemp] = cantus[i];
 		// contadorTemp++;
 		// console.log("i : " + i);
 	}
 
 	// console.log("bajoLEnfth : " + bajo.length);
-	// console.log("Doble.length : " + cantusDoble.length);
+	// console.log("Doble.length : " + cantusExtendido.length);
 // console.log("bajo : " + bajo);
-	bajo[cantusDoble.length - 3] = //la sensible 
-		// notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) + 6];
-		notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) - 1];
+	bajo[cantusExtendido.length - 3] = //la sensible 
+		// notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) + 6];
+		notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) - 1];
 		// console.log("bajo : " + bajo);
 		// "f";
-	bajo[cantusDoble.length - 2] = //la fndamental 
-		// notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) +  7];
-		notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) ];
-	bajo[cantusDoble.length - 1] = //la fndamental 
-		// notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) +  7];
-		notasMusicales[getIndexOf(cantusDoble[cantusDoble.length - 1]) ];
+	bajo[cantusExtendido.length - 2] = //la fndamental 
+		// notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) +  7];
+		notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) ];
+	bajo[cantusExtendido.length - 1] = //la fndamental 
+		// notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) +  7];
+		notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) ];
 // 		// "e";
 // console.log("bajo : " + bajo);
 var intervaloBajoFin = [  octavaAbajo];
-// bajo[cantusDoble.length - 1] = 
-// 	notasMusicales[notasMusicales.indexOf(cantus[cantusDoble.length - 1]) -15];
-// bajo[cantusDoble.length - 2] = 
-// // 	notasMusicales[notasMusicales.indexOf(cantus[cantusDoble.length - 1])  -15];
-// console.log("bajo[cantusDoble.length - 1] : " + bajo[cantusDoble.length - 1]);
-
+// bajo[cantusExtendido.length - 1] = 
+// 	notasMusicales[notasMusicales.indexOf(cantus[cantusExtendido.length - 1]) -15];
+// bajo[cantusExtendido.length - 2] = 
+// // 	notasMusicales[notasMusicales.indexOf(cantus[cantusExtendido.length - 1])  -15];
+// console.log("bajo[cantusExtendido.length - 1] : " + bajo[cantusExtendido.length - 1]);
+console.clear();
 function crearBajo(argument) {
 	// BUGs Evitar q los leaps se cuemten cuando no se aplican
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxAlto; i++) {
-	for (var i = 1; i < (cantusDoble.length ); i++) {//las dos ultimas estan predefinidas
+	for (var i = 1; i < (cantusExtendido.length ); i++) {//las dos ultimas estan predefinidas
 		breakInfiniteLoops = 0;
 		do{
 			breakInfiniteLoops++;
@@ -84,10 +84,10 @@ function crearBajo(argument) {
 			randomInterval = randomFunction(intervalosArmonicosBajo) ;
 				// console.log("randomInterval : " + randomInterval);		
 	
-			bajo[i] = notasMusicales[notasMusicales.indexOf(cantusDoble[i]) + 
+			bajo[i] = notasMusicales[notasMusicales.indexOf(cantusExtendido[i]) + 
 				randomInterval ];	
 			randomIntervalBajoCantus[i] = ((notasMusicales.indexOf(bajo[i]))
-				- ((notasMusicales.indexOf(cantusDoble[i])))) + 1;
+				- ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
 			// console.log("bajo[" + i + "] : " + bajo[i]);	
 			// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(bajo[i]));
 			// console.log("getFrecuenciaNotas[" + bajo[i] + "] : " + getFrecuenciaNotas(bajo[i]));
@@ -100,14 +100,14 @@ function crearBajo(argument) {
 			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 8) 
 			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 5)
 			//5as ocultas (5as por movimiento directo)
-			||checkMovimientoDirecto(cantusDoble[i],cantusDoble[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 5
+			||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 5
 			//8as ocultas (8as por movimiento directo)
-			||checkMovimientoDirecto(cantusDoble[i],cantusDoble[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 8
+			||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 8
 			//restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
 			||checkLeapsToRestore(bajo[i - 2], bajo[i - 1],bajo[i])
 			//chekear q la melodia no salta intervalos prohibidos melodicamente
-			||checkIndexBetween(bajo[i - 1], bajo[i])
-			// ||checkIndexBetween(bajo[i], bajo[i + 1])
+			||checkForbiddenMelodicInterval(bajo[i - 1], bajo[i])
+			// ||checkForbiddenMelodicInterval(bajo[i], bajo[i + 1])
 			//q no hayas dos notas iguales
 			||getIndexBetween(bajo[i - 1]) == getIndexBetween(bajo[i])
 			||getIndexBetween(bajo[i]) == getIndexBetween(bajo[i + 1])
@@ -123,7 +123,7 @@ function crearBajo(argument) {
 		comprobarCuelgue();
 		//mirar si shay consonantes vecinas en fuertes para poner nota paso
 		if (i%2 == 0 && i > 1 ) {
-			colocarNotasDePasoYbordadura(i);
+			// colocarNotasDePasoYbordadura(i);
 		} 
 		// console.log("getIndexBetween(bajo[" + (i - 1) + "], bajo[" + i +"])" + getIndexBetween(bajo[i - 1], bajo[i]));		 
 	}//end for loop
@@ -155,19 +155,20 @@ function crearBajo(argument) {
 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
 		escalaDo = escalaDo 
 		 		+ '"' 
-		 			+ (( ((notasMusicales.indexOf(cantusDoble[i ])) + 1) 
+		 			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
 		 			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
 		 				+'ª"'
 			+ bajo[i] + "/"
 			;
 		// console.log("getIndexOf(bajo[" + i + "]) : " + getIndexOf(bajo[i]));
-		// console.log("getIndexOf(cantus[" + i + "]) : " + getIndexOf(cantusDoble[i]));
+		// console.log("getIndexOf(cantus[" + i + "]) : " + getIndexOf(cantusExtendido[i]));
 	}
 
 	// console.log("escalaDo : " + escalaDo);
 	// console.log("randomIntervalBajoCantus : " 
 		// + randomIntervalBajoCantus);
 	// crearSoprano();
+
 	crearAlto();
 }
 

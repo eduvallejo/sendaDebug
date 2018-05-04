@@ -43,17 +43,16 @@ cantus = ["C","G","D","C"];
 
 //ej 17
 key = "Cmaj";
-cantus = ["C","E", "D", "A,", "B," ,"D", 
-
-"C"];
+cantus = ["C","D","C"];
+cantus = ["C","E", "D", "A,", "B," ,"D","C"];
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
 
 checkFinalCantus(cantus);
 mostrarGradosCantus();
-
+console.clear();
 longitudCantus = cantus.length;
-longitudCantusDoble = longitudCantus * 2;
+longitudcantusExtendido = longitudCantus * 2;
 console.log("longitudCantus : " + longitudCantus);
 function getClimaxPosition(argument) {
 	for (var i = 0; i < cantus.length; i++) {

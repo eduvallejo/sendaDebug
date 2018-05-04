@@ -93,7 +93,7 @@ function crearBajo(argument) {
 			// //restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
 			||checkLeapsToRestore(bajo[i - 2], bajo[i - 1],bajo[i])
 			// //chekear q la melodia no salta intervalos prohibidos melodicamente
-			||checkIndexBetween(bajo[i - 1], bajo[i])
+			||checkForbiddenMelodicInterval(bajo[i - 1], bajo[i])
 		)
 		comprobarCuelgue();
 		// console.log("getIndexBetween(bajo[" + (i - 1) + "], bajo[" + i +"])" + getIndexBetween(bajo[i - 1], bajo[i]));		 

@@ -6,7 +6,7 @@ var notasPorLinea = [];
 notasPorLinea[0] = 0; //para no tener NAN
 var notasPorLineaUsuario = 0;
 var cantidadScroll = 0;
-// msPerBeat = 1000;
+msPerBeat = 1000;
 function resetearAjax(argument) {
 	// console.clear();
 	pointer = 0;
@@ -38,7 +38,7 @@ function decodeAjaxResponse(song) {
 	// console.log("argumentDecodeAjaxResponse : " + song);
 	// song = song.replace("<", "&lt");// "<" needs to be "&lt" in pre
 	song = song.replace(/".*?"/g, ""); //elimino las quotes de los acordes, asi descode mmas facil
-	// console.log("argumentDecodeAjaxResponse : " + song);
+	console.log("argumentDecodeAjaxResponse : " + song);
 
 	var musicLines = false;
 	while(musicLines == false){
@@ -119,6 +119,7 @@ function decodeAjaxResponse(song) {
 
 	//NOTAS MUSICALES
 	while(song[pointer] != undefined){
+
 		// //vertical scrolling
 		// bug11(song[pointer]);
 		// console.log(encodeURI(song[pointer]));
@@ -316,6 +317,7 @@ function decodeAjaxResponse(song) {
 			// console.log("changeTempoInThisNote : " + changeTempoInThisNote);
 			// ^CC | C | D|
 			// console.log("noteLetter.length : " + noteLetter.length);
+			// console.log("msPerBeat : " + msPerBeat);
 			tiemposCorrectos[contadorTc]  = msPerBeat;//letra a secas 
 			// console.log("msPerBeat : " + msPerBeat);
 			// console.log("tiemposCorrectos : " + tiemposCorrectos);
@@ -716,7 +718,7 @@ function decodeAjaxResponse(song) {
 	// getNotesWidth();
 	// console.log("alto : " + alto);
 }
-
+// console.log("tiemposCorrectos : " + tiemposCorrectos);
 // var song = 'B/2A/2|"G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2| "G"BB "Em"B/2A/2G/2A/2|"Am"BA "D7"AB/2A/2| "G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2|"G"B/2de/2 "Em"d/2B/2G/2A/2| "D7"BA "G"G:|'; 
 
 function saltarCaracter(pointer) {
@@ -732,7 +734,7 @@ function saltarCaracter(pointer) {
 		// }
 								// [a-gA-GzZ0-9/:<>]
 		while(!song[pointer].match(notSkipCharacters)){
-			// console.log("Saltados : " + song[pointer]);
+			console.log("Saltados : " + song[pointer]);
 			pointer++;
 		// console.log("song[" + pointer + "] : " + song[pointer]);
 		}

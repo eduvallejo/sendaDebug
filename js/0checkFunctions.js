@@ -12,17 +12,17 @@ function checkFinalCantus(argument) {
 
 
 function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
-	if(getIndexBetween(indiceMenos2, indiceMenos1) > 2 
+	if(getIndexBetween(indiceMenos2, indiceMenos1) > tercera 
 		 && (getIndexBetween(indiceMenos1, indiceActual) > 0 	
-		 		|| getIndexBetween(indiceMenos1, indiceActual) < -2)){
+		 		|| getIndexBetween(indiceMenos1, indiceActual) < -segunda)){
 		
 		// console.log("indiceMenos2+indiceMenos1+indiceActual : " + indiceMenos2 + "," + indiceMenos1+ "," + indiceActual);
 		return true;
 	} 	
 	//restore leaps q bajan
-	if(getIndexBetween(indiceMenos2, indiceMenos1) < -2 
+	if(getIndexBetween(indiceMenos2, indiceMenos1) < -tercera 
 		  && (getIndexBetween(indiceMenos1, indiceActual) < 0 	
-		  	|| getIndexBetween(indiceMenos1, indiceActual) > 2)){
+		  	|| getIndexBetween(indiceMenos1, indiceActual) > segunda)){
 
 		// console.log("indiceMenos2+indiceMenos1+indiceActual : " + indiceMenos2 + "," + indiceMenos1+ "," + indiceActual);
 		return true;
@@ -30,13 +30,15 @@ function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
 }
 
 //checkear saltos melodicos prohibidos mayores de ooctava o salto de 7a
-function checkIndexBetween(argument1, argument2) {
-  // console.log("Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) : " + Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
-	if (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) > intervMelodMax 
-			|| (Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)) == septima)) {
-  		// console.log("notasMusicales.indexOf(i-1)-(i)(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") : "  + (notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1)));
-  		// console.log("Salto melodico mayor de 8a o 7a(notasMusicales.indexOf(" + argument2 + ") - notasMusicales.indexOf(" + argument1 + ") )" 
-  		// 	+ Math.abs(notasMusicales.indexOf(argument2) - notasMusicales.indexOf(argument1) ));
+function checkForbiddenMelodicInterval(argumentoAnterior, argumentoPosterior, iPosicion) {
+  // console.log("intervaloMomento : " + Math.abs(notasMusicales.indexOf(argumentoPosterior) - notasMusicales.indexOf(argumentoAnterior)));
+	var intervaloMomento = Math.abs(getIndexBetween(argumentoAnterior, argumentoPosterior));
+  if (intervaloMomento > intervMelodMax 
+			|| (intervaloMomento == septima)
+    ){
+  		// console.log("notasMusicales.indexOf(i-1)-(i)(" + argumentoPosterior + ") - notasMusicales.indexOf(" + argumentoAnterior + ") : "  + (notasMusicales.indexOf(argumentoPosterior) - notasMusicales.indexOf(argumentoAnterior)));
+  		console.log("En i:" + iPosicion + " melodico > 7a8a en argAnt(" + argumentoAnterior + ") y argPost(" + argumentoPosterior + ") )" 
+  			+ intervaloMomento );
   		return true;
 	}
 }

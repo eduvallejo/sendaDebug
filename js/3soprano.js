@@ -81,7 +81,7 @@ function crearSoprano(argument) {
 			//restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
 			||checkLeapsToRestore(soprano[i - 2], soprano[i - 1],soprano[i])
 			//chekear q la melodia no salta intervalos prohibidos melodicamente
-			||checkIndexBetween(soprano[i - 1], soprano[i])
+			||checkForbiddenMelodicInterval(soprano[i - 1], soprano[i])
 		)
 		// console.log("getIndexBetween(soprano[" + (i - 1) + "], soprano[" + i +"])" + getIndexBetween(soprano[i - 1], soprano[i]));		 
 	}//end for loop
