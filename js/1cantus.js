@@ -17,39 +17,45 @@ cantus = ["C","D","F","E","D","C"];
 // cantus = ["C", "B,", "A,", "C", "D", "F", "E", "D",
 // 	"C", "G", "A", "F", "G", "E", "F", "D", "C"];
 //Ej2 schoenberg en Gmaj
-// key = "Gmaj";
-// cantus = ["G,", "A,", "C", "B,", "A,", "G,"];
 //Ej3 schoenberg en Fmaj
-// key = "Fmaj";
-// cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
 //Ej5 schoenberg en Fmaj
-key = "Abmaj";
-cantus = ["A,", "C", "D", "E", "C", "F", "E", "C", "D", "C", "B,", "A," ];
 
-key = "Cmaj";
-cantus = ["C","C","C","C", "G,", "G,", "C","C","C","C","C","C","G,", "G,","C" ];
+// key = "Cmaj";
+// cantus = ["C","C","C","C", "G,", "G,", "C","C","C","C","C","C","G,", "G,","C" ];
 
-//ej 13 segunda especie dos voces
-key = "Cmaj";
-cantus = ["C","B,","G,","A,", "E,", "F,", "A,","D,","G,","F,","D,","C,"];
+// //ej 13 segunda especie dos voces
+// key = "Cmaj";
+// cantus = ["C","B,","G,","A,", "E,", "F,", "A,","D,","G,","F,","D,","C,"];
 
-//ej 18
+// //ej 18
 key = "Cmaj";
 cantus = ["C","F", "G", "F", "D", "G" ,"C"];
 
-//debug
-key = "Cmaj";
-cantus = ["C","G","D","C"];
+// //debug
+// key = "Cmaj";
+// cantus = ["C","G","D","C"];
 
-//ej 17
+// //ej 17
+// //de momento el cantus solo se acaba con II-I o VII-I
+
+//hearing salzer
+//ej30
+key = "Bbmaj";
+cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,","G," ];
+
 key = "Cmaj";
-cantus = ["C","D","C"];
 cantus = ["C","E", "D", "A,", "B," ,"D","C"];
+cantus = ["C","G", "D", "C"];
+
+key = "Fmaj";
+cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
+key = "Gmaj";
+cantus = ["G,", "A,", "C", "B,", "A,", "G,"];
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
 
 checkFinalCantus(cantus);
-mostrarGradosCantus();
+// mostrarGradosCantus();
 console.clear();
 longitudCantus = cantus.length;
 longitudcantusExtendido = longitudCantus * 2;

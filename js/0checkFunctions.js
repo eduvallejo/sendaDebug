@@ -1,28 +1,36 @@
 function checkFinalCantus(argument) {
-  console.log("cantus[cantus.length - 1] : " + getIndexOf(cantus[cantus.length - 1]));
-  console.log("cantus[cantus.length - 2] : " + getIndexOf(cantus[cantus.length - 2]));
-  if ((getIndexOf(cantus[cantus.length - 2]) - getIndexOf(cantus[cantus.length - 1])) == 1) {
+  // console.log("cantus[cantus.length - 1] : " + getIndexOf(cantus[cantus.length - 1]));
+  // console.log("cantus[cantus.length - 2] : " + getIndexOf(cantus[cantus.length - 2]));
+  // console.log("getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]) : " + getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]));
+  if (getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]) == segundaAbajo) {
     console.log("final II-I : ");
     return("II-I");
-  } else if((getIndexOf(cantus[cantus.length - 2]) - getIndexOf(cantus[cantus.length - 1])) == -1){
+  // } else if((getIndexOf(cantus[cantus.length - 2]) - getIndexOf(cantus[cantus.length - 1])) == -1){
+  // } else if (getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]) == segundaAbajo) {
+  } else {//TODO
     console.log("final VII-I : ");
     return("VII-I");
   }
 }
 
-
+function checkNotasIguales(argument, argumentPost, index){
+    if(getIndexBetween(argument, argumentPost, index) == 0){
+      // console.log("notas = en " + index + ": " + argument + "=" + argumentPost);
+      return true;
+    }
+}
 function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
-	if(getIndexBetween(indiceMenos2, indiceMenos1) > tercera 
+	if(getIndexBetween(indiceMenos2, indiceMenos1) >= restoreInterval 
 		 && (getIndexBetween(indiceMenos1, indiceActual) > 0 	
-		 		|| getIndexBetween(indiceMenos1, indiceActual) < -segunda)){
+		 		|| getIndexBetween(indiceMenos1, indiceActual) < -tercera)){
 		
 		// console.log("indiceMenos2+indiceMenos1+indiceActual : " + indiceMenos2 + "," + indiceMenos1+ "," + indiceActual);
 		return true;
 	} 	
 	//restore leaps q bajan
-	if(getIndexBetween(indiceMenos2, indiceMenos1) < -tercera 
+	if(getIndexBetween(indiceMenos2, indiceMenos1) <= -restoreInterval 
 		  && (getIndexBetween(indiceMenos1, indiceActual) < 0 	
-		  	|| getIndexBetween(indiceMenos1, indiceActual) > segunda)){
+		  	|| getIndexBetween(indiceMenos1, indiceActual) > tercera)){
 
 		// console.log("indiceMenos2+indiceMenos1+indiceActual : " + indiceMenos2 + "," + indiceMenos1+ "," + indiceActual);
 		return true;
@@ -32,15 +40,17 @@ function checkLeapsToRestore(indiceMenos2, indiceMenos1, indiceActual ) {
 //checkear saltos melodicos prohibidos mayores de ooctava o salto de 7a
 function checkForbiddenMelodicInterval(argumentoAnterior, argumentoPosterior, iPosicion) {
   // console.log("intervaloMomento : " + Math.abs(notasMusicales.indexOf(argumentoPosterior) - notasMusicales.indexOf(argumentoAnterior)));
-	var intervaloMomento = Math.abs(getIndexBetween(argumentoAnterior, argumentoPosterior));
-  if (intervaloMomento > intervMelodMax 
-			|| (intervaloMomento == septima)
-    ){
-  		// console.log("notasMusicales.indexOf(i-1)-(i)(" + argumentoPosterior + ") - notasMusicales.indexOf(" + argumentoAnterior + ") : "  + (notasMusicales.indexOf(argumentoPosterior) - notasMusicales.indexOf(argumentoAnterior)));
-  		console.log("En i:" + iPosicion + " melodico > 7a8a en argAnt(" + argumentoAnterior + ") y argPost(" + argumentoPosterior + ") )" 
-  			+ intervaloMomento );
-  		return true;
-	}
+	if (iPosicion != 0) {
+      var intervaloMomento = Math.abs(getIndexBetween(argumentoAnterior, argumentoPosterior));
+      if (intervaloMomento > intervMelodMax 
+          || (intervaloMomento == septima)
+        ){
+          // console.log("notasMusicales.indexOf(i-1)-(i)(" + argumentoPosterior + ") - notasMusicales.indexOf(" + argumentoAnterior + ") : "  + (notasMusicales.indexOf(argumentoPosterior) - notasMusicales.indexOf(argumentoAnterior)));
+          console.log("En i:" + iPosicion + " melodico > 7a8a en argAnt(" + argumentoAnterior + ") y argPost(" + argumentoPosterior + ") )" 
+            + intervaloMomento );
+          return true;
+      }
+    }
 }
 
 
@@ -99,11 +109,13 @@ function checkQuintasOctavasSeguidas(argument1, argument2) {
 
 }
 //funciones de checkeo intervalos seguidos prohibidos
-function checkIntervalosProhibidos(argument1, argument2, interval1, interval2) {
-  if((argument1 == interval1 )&&( argument2 == interval2)
-        // &&(checkMovimientoDirecto(argument1,argument2 == true
+function checkIntervalosProhibidos(randomIntervalCantusAlto1, randomIntervalCantusAlto2, interval1, interval2) {
+  if((randomIntervalCantusAlto1 == interval1 )&&( randomIntervalCantusAlto2 == interval2)
+        // &&(checkMovimientoDirecto(randomIntervalCantusAlto1,randomIntervalCantusAlto2 == true
         ){
-    // console.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
+  //   console.log("randomIntervalCantusAlto1 : " + randomIntervalCantusAlto1);
+  // console.log("randomIntervalCantusAlto2 : " + randomIntervalCantusAlto2);
+  //   console.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
     return true;
   }
 }

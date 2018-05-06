@@ -77,4 +77,15 @@ si se vuelve a bloquear en i - 2 hacer q vaya a i -3
 
 hacer un check melodico q cancele el salto de quinta aumentada o dism 
 
-mostrar tb en el abc la posicion q la nota ocupa en la escala root
+permitir intervalo de unisono solo en tiempos debiles, ya q en fuerte da la sensacion de final, ademas debemos abandonar el unisono en direccion opuesta y por grado conjunto a como hemos llegado
+
+permitir ciertos random inrtevals solo apartir de q el contador del break llegue a 30 por ej	
+
+Es posible empezar una melodía con dos blancas en el primer compás,
+o también con un silencio de blanca seguido de una blanca. Es preferible
+empezar un ejercicio en un silencio, ya que este comienzo acentúa la na­
+turaleza de la especie desde el principio
+
+sacar los grados , no de la primera nota del cantus(a veces no es la root) si no de la key(hacer una funcion q relacione key con tonica		)
+
+me he quedado en la bordadura de salzer p13

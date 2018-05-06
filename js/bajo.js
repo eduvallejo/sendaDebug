@@ -28,18 +28,18 @@ var posicionClimaxbajo = posicionClimax + 1;
 var intervalosArmonicosBajo = [ terceraAbajo, quintaAbajo, sextaAbajo, sextaAbajo,];
 
  
-var cantusExtendido = [];
-//cantus para blancas
-// console.log("cantusExtendido : " + cantusExtendido);
-	var contadorTemp = 0;
-	for (var i = 0; i < cantus.length*2; i++) {
-		if (i % 2 == 1) {contadorTemp++;} else {}
-		cantusExtendido[i] = cantus[i - contadorTemp];
-		// console.log(i + " - contadorTemp: " + (i - contadorTemp));
-		// cantusExtendido[i + contadorTemp] = cantus[i];
-		// contadorTemp++;
-		// console.log("i : " + i);
-	}
+// var cantusExtendido = [];
+// //cantus para blancas
+// // console.log("cantusExtendido : " + cantusExtendido);
+// 	var contadorTemp = 0;
+// 	for (var i = 0; i < cantus.length*2; i++) {
+// 		if (i % 2 == 1) {contadorTemp++;} else {}
+// 		cantusExtendido[i] = cantus[i - contadorTemp];
+// 		// console.log(i + " - contadorTemp: " + (i - contadorTemp));
+// 		// cantusExtendido[i + contadorTemp] = cantus[i];
+// 		// contadorTemp++;
+// 		// console.log("i : " + i);
+// 	}
 
 	// console.log("bajoLEnfth : " + bajo.length);
 	// console.log("Doble.length : " + cantusExtendido.length);

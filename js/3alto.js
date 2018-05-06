@@ -18,7 +18,7 @@ var divisionEspecie = divisionSegundaEspecie;
 
 //se calcilan con respecto al cantus de cda momento
 // var intervalosArmonicosAlto = [ octava,quinta,tercera,tercera,tercera, sexta, sexta,sexta, quinta];
-var intervalosArmonicosAlto = [ tercera, quinta, sexta, sexta, octava];
+var intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
 
 //apaño para q las blabcas se apareen con el cantus adecuado 
 //cantus para blancas
@@ -33,11 +33,12 @@ colocarSensibleYfinal(checkFinalCantus());
 // alto[cantusExtendido.length - 2] = notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
 function crearAlto(argument) {
 console.log("alto : " + alto);
-	// BUGs Evitar q los leaps se cuemten cuando no se aplican
+	// BUGs Evitar q los leaps se cuemten 3uando no se aplican
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxAlto; i++) {
 	for (var i = 0; i < (cantusExtendido.length - 3); i++) {//las dos ultimas estan predefinidas
 		breakInfiniteLoops = 0;
+		var primerIntento = true ;
 		do{
 		if (i == 0) {
 			var intervaloAltoCero = [ unisono, tercera, quinta, octava];
@@ -47,10 +48,10 @@ console.log("alto : " + alto);
 			if (breakInfiniteLoops>40) {
 				colgado == true;
 				// console.log("colgado en  : " + i );
-				if (i >= 2) { //si se cuelga en el i=1 imposible i-2
-					i = i - 2; //tirar para atras si no hay una solucion buena
+				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
+					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
 				} 
-				// console.log("i : " + i);
+				console.log("BREAK i-2: " + i);
 				break;
 			}
 			randomInterval = randomFunction(intervalosArmonicosAlto) ;
@@ -59,40 +60,65 @@ console.log("alto : " + alto);
 			alto[i] = notasMusicales[notasMusicales.indexOf(cantusExtendido[i]) + 
 				randomInterval ];	
 			randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
-				- ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+				// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+				- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+
+			//intentar poner consonancias vecinas para favorecer notas de paso
+			if (i % divisionEspecie == 0 && i > 1 && primerIntento == true) {
+				// console.log("i Consonancias: " + i);
+				for (var j = 0; j < intervalosArmonicosAlto.length -1; j++) {// lo de -1 es porq no me gusta la 8va como segunda nota de pasoS
+					if ((Math.abs(getIndexBetween(alto[i - 2]
+						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+						, i))) == tercera) 
+					{
+						// console.log("(Math: "+ (Math.abs(getIndexBetween(alto[i - 2]
+						// ,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+						// , i))));
+
+						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
+						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+						// console.log("alto[i-2] : " + alto[i-2]);
+						// console.log("alto[" + i +"] : " + alto[i]);
+					} else {}
+				}
+				primerIntento = false;
+			}
 			// console.log("alto[" + i + "] : " + alto[i]);	
 			// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(alto[i]));
 			// console.log("getFrecuenciaNotas[" + alto[i] + "] : " + getFrecuenciaNotas(alto[i]));
 		//aqui se ponen las reglas del alto 
-		console.log("i : " + i);
+		// console.log("i : " + i);
 		}while(//he comentado algunos para poder debugear sin q se cuelgue
 			// ((notasMusicales.indexOf(alto[i])  >=  notasMusicales.indexOf(alto[posicionClimaxAlto])) && i != posicionClimaxAlto)
 			//octavas seguidas
-			checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],alto[i],alto[i-1] )
-			||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],alto[i],alto[i-1] )
-			||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 8) 
-			||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 5)
-			//5as ocultas (5as por movimiento directo)
-			||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] ) && randomIntervalAltoCantus[i] == 5
-			//8as ocultas (8as por movimiento directo)
-			||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] ) && randomIntervalAltoCantus[i] == 8
-			//restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
-			||checkLeapsToRestore(alto[i - 2], alto[i - 1],alto[i])
-			//chekear q la melodia no salta intervalos prohibidos melodicamente
-			||checkForbiddenMelodicInterval(alto[i - 1], alto[i], i) 
-			//chekear q la melodia no salta intervalos prohibidos melodicamente
-			// ||checkForbiddenMelodicInterval(alto[i], alto[i+1], i) //hacer i-3
-			//q no hayas dos notas iguales
-			||getIndexBetween(alto[i - 1]) == getIndexBetween(alto[i])
-			||getIndexBetween(alto[i]) == getIndexBetween(alto[i + 1]) 
-			//q no haya seguidas grupos de dos iguales
-			||getIndexBetween(alto[i - 3]) == getIndexBetween(alto[i - 1]) &&
-			getIndexBetween(alto[i - 2]) == getIndexBetween(alto[i])
-			//q no haya seguidas grupos de dos iguales
-			||getIndexBetween(alto[i + 1]) == getIndexBetween(alto[i - 1]) &&
-			getIndexBetween(alto[i + 2]) == getIndexBetween(alto[i])
-			//q no baje por debajo del F,,
-			||getIndexOf(alto[i]) < 4
+			// checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],alto[i],alto[i-1] )
+			// ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],alto[i],alto[i-1] )
+			// ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 8) 
+			// ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 5)
+			// //5as ocultas (5as por movimiento directo)
+			// ||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] ) && randomIntervalAltoCantus[i] == 5
+			// //8as ocultas (8as por movimiento directo)
+			// ||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] ) && randomIntervalAltoCantus[i] == 8
+			// //restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
+			// ||checkLeapsToRestore(alto[i - 2], alto[i - 1],alto[i])
+			// //chekear q la melodia no salta intervalos prohibidos melodicamente
+			// ||checkForbiddenMelodicInterval(alto[i - 1], alto[i], i) 
+			// //chekear q la melodia no salta intervalos prohibidos melodicamente
+			// // ||checkForbiddenMelodicInterval(alto[i], alto[i+1], i) //hacer i-3
+			// //q no hayas dos notas iguales
+			// ||getIndexBetween(alto[i - 1]) == getIndexBetween(alto[i])
+			// ||getIndexBetween(alto[i]) == getIndexBetween(alto[i + 1]) 
+			// //q no haya seguidas grupos de dos iguales
+			// ||getIndexBetween(alto[i - 3]) == getIndexBetween(alto[i - 1]) &&
+			// getIndexBetween(alto[i - 2]) == getIndexBetween(alto[i])
+			// //q no haya seguidas grupos de dos iguales
+			// ||getIndexBetween(alto[i + 1]) == getIndexBetween(alto[i - 1]) &&
+			// getIndexBetween(alto[i + 2]) == getIndexBetween(alto[i])
+			// //q no baje por debajo del F,,
+			// ||getIndexOf(alto[i]) < 4
+			checkingsWhile(i) == true
 		)
 		comprobarCuelgue();
 		//mirar si shay consonantes vecinas en fuertes para poner nota paso
@@ -117,9 +143,9 @@ console.log("alto : " + alto);
 		 	'"' 
 		 		+(((notasMusicales.indexOf(alto[i]))
 					- (notasMusicales.indexOf(cantusExtendido[i])))+1) 
-			+'ª"'
+			+'ª (' + mostrarGradosVoz(alto, i)+ ') "'
 				+ alto[i] + "/" + divisionEspecie//ya q estamos en segunda Especie
-			;
+		;
 		if (i >= alto.length - 1) {
 			escalaDoAlto = escalaDoAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
 		} else {}
@@ -137,6 +163,7 @@ console.log("alto : " + alto);
 	console.log("escalaDoAlto : " + escalaDoAlto);
 	// console.clear();
 	decodeAjaxResponse(escalaDoAlto);
+	checkFinalCantus();
 }
 
 

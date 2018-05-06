@@ -73,6 +73,74 @@ function oscillatorFunction() {
 }
 
 
+
+function playOscillator() {
+	// console.log("alto : " + alto);
+	//oscillator
+	counterOscillator = 0;
+	oscillatorFunction();//para no tener delay en la 1a ejecucion
+	setIntervalNotas = setInterval(oscillatorFunction, 1000);
+}
+
+function oscillatorFunctionAlto() {
+	if (counterOscillatorAlto >= alto.length) {
+		clearInterval(setIntervalNotasAlto);
+		oscillatorAlto.stop();
+		// console.log("alto : " + alto);
+
+		// playOscillatorAlto();
+		counterOscillatorAlto = 0;
+		contadorAltoTiempos = 0;
+
+		setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
+		tiemposCorrectos[contadorAltoTiempos]);
+
+	}else{
+		if (oscillatorAlto) {
+			oscillatorAlto.stop();
+		}
+		gainNodeAlto = context.createGain();
+		gainNodeAlto.gain.value = 1;
+		gainNodeAlto.gain.setTargetAtTime(0, context.currentTime, 0.15);
+		gainNodeAlto.connect(compressor);
+		compressor.threshold.setValueAtTime(-50, context.currentTime);
+		compressor.connect(context.destination);
+
+		//Alto
+		oscillatorAlto = context.createOscillator();
+		oscillatorAlto.frequency.value = 
+			getFrequency(alto , counterOscillatorAlto, 0, key);
+		oscillatorAlto.connect(gainNodeAlto);
+		oscillatorAlto.start(0);
+		// console.log("alto[counterOscillatorAlto] : " + alto[counterOscillatorAlto]);
+
+		// console.log("counterOscillatorAlto : " + counterOscillatorAlto);
+		counterOscillatorAlto++;
+		contadorAltoTiempos++;
+		// counterOscillatorSoprano++;
+	}
+
+}
+var contadorAltoTiempos = 0;
+function playOscillatorAlto(argument) {
+	// for (var i = 0; i < alto.length; i++) {
+	// 	alto[i] = alto[i].replace("/", ""); //elimino las quotes de los acordes, asi descode mmas facil
+
+	// }
+	counterOscillatorAlto = 0;
+	contadorAltoTiempos = 0;
+	console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
+	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
+	// setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
+	// 	tiemposCorrectos[contadorAltoTiempos]);
+	setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
+		tiemposCorrectos[contadorAltoTiempos]);
+}
+
+function showAbc(argument) {
+	alert(escalaDo);	
+}
+
 function oscillatorFunctionBajo() {
 	if (counterOscillatorBajo >= bajo.length) {
 		clearInterval(setIntervalNotasBajo);
@@ -111,72 +179,4 @@ function playOscillatorBajo() {
 	counterOscillatorBajo = 0;
 	oscillatorFunctionBajo();//para no tener delay en la 1a ejecucion
 	setIntervalNotas = setInterval(oscillatorFunctionBajo, 500);
-}
-
-
-function playOscillator() {
-	// console.log("alto : " + alto);
-	//oscillator
-	counterOscillator = 0;
-	oscillatorFunction();//para no tener delay en la 1a ejecucion
-	setIntervalNotas = setInterval(oscillatorFunction, 1000);
-}
-
-function oscillatorFunctionAlto() {
-	if (counterOscillatorAlto >= alto.length) {
-		clearInterval(setIntervalNotasAlto);
-		oscillatorAlto.stop();
-		// console.log("alto : " + alto);
-
-		// playOscillatorAlto();
-		counterOscillatorAlto = 0;
-		contadorAltoTiempos = 0;
-
-			setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
-		tiemposCorrectos[contadorAltoTiempos]);
-
-	}else{
-		if (oscillatorAlto) {
-			oscillatorAlto.stop();
-		}
-		gainNodeAlto = context.createGain();
-		gainNodeAlto.gain.value = 1;
-		gainNodeAlto.gain.setTargetAtTime(0, context.currentTime, 0.15);
-		gainNodeAlto.connect(compressor);
-		compressor.threshold.setValueAtTime(-50, context.currentTime);
-		compressor.connect(context.destination);
-
-		//Alto
-		oscillatorAlto = context.createOscillator();
-		oscillatorAlto.frequency.value = 
-			getFrequency(alto , counterOscillatorAlto, 0, key);
-		oscillatorAlto.connect(gainNodeAlto);
-		oscillatorAlto.start(0);
-		// console.log("alto[counterOscillatorAlto] : " + alto[counterOscillatorAlto]);
-
-		// console.log("counterOscillatorAlto : " + counterOscillatorAlto);
-		counterOscillatorAlto++;
-		contadorAltoTiempos++;
-		// counterOscillatorSoprano++;
-	}
-
-}
-var contadorAltoTiempos = 0;
-function playOscillatorAlto(argument) {
-	// for (var i = 0; i < alto.length; i++) {
-	// 	alto[i] = alto[i].replace("/", ""); //elimino las quotes de los acordes, asi descode mmas facil
-
-	// }
-	counterOscillatorAlto = 0;
-	contadorAltoTiempos = 0;
-	// console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
-	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
-	// setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
-	// 	tiemposCorrectos[contadorAltoTiempos]);
-	setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
-		tiemposCorrectos[contadorAltoTiempos]);
-}
-
-function showAbc(argument) {
-	alert(escalaDo);	
 }
