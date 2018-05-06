@@ -48,15 +48,18 @@ function colocarSensibleYfinal(tipoFinalCantus) {
 	console.log("colocarsensibleyfinal : " + tipoFinalCantus);
 		// console.log("cantus.length*divisionEspecie - 3 : " 
 		// 	+ (cantus.length*divisionEspecie -3));
-		alto[cantus.length*divisionEspecie - 3] = //la sensible 
-			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + 6];
-		// var intervaloAltoFin = [ tercera, octava];
 		var intervaloAltoFin = [ octava];
+/*		alto[cantus.length*divisionEspecie - 3] = //la sensible 
+			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + 6];
 		alto[cantus.length*divisionEspecie - 2] = 
 			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
-		// alto[cantus.length*divisionEspecie - 1] = 
-		// 	notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
-		// 	console.log("ColocaDoalto : " + alto);
+*/		// 	console.log("ColocaDoalto : " + alto);
+
+		alto[alto.length - 2] = //la sensible 
+			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + 6];
+		alto[alto.length - 1] = 
+			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
+
 	} else if(tipoFinalCantus == "VII-I"){
 	console.log("colocarsensibleyfinal : " + tipoFinalCantus);
 		console.log("cantus.length*divisionEspecie - 3 : " 
@@ -71,6 +74,7 @@ function colocarSensibleYfinal(tipoFinalCantus) {
 		// 	notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
 		// 	console.log("ColocaDoalto : " + alto);	
 	}
+	console.log("COLOCARalto : " + alto);
 }
 
 function agregarAbc(nota){

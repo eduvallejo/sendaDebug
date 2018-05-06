@@ -63,7 +63,7 @@ var intervaloBajoFin = [  octavaAbajo];
 // bajo[cantusExtendido.length - 2] = 
 // // 	notasMusicales[notasMusicales.indexOf(cantus[cantusExtendido.length - 1])  -15];
 // console.log("bajo[cantusExtendido.length - 1] : " + bajo[cantusExtendido.length - 1]);
-console.clear();
+// console.clear();
 function crearBajo(argument) {
 	// BUGs Evitar q los leaps se cuemten cuando no se aplican
 	var randomInterval = 1;

@@ -43,22 +43,22 @@ cantus = ["C","F", "G", "F", "D", "G" ,"C"];
 key = "Bbmaj";
 cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,","G," ];
 
-key = "Cmaj";
-cantus = ["C","E", "D", "A,", "B," ,"D","C"];
-cantus = ["C","G", "D", "C"];
 
 key = "Fmaj";
 cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
 key = "Gmaj";
 cantus = ["G,", "A,", "C", "B,", "A,", "G,"];
+key = "Cmaj";
+cantus = ["C","E", "D", "A,", "B," ,"D","C"];
+cantus = ["C","G", "D", "C"];
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
 
 checkFinalCantus(cantus);
 // mostrarGradosCantus();
-console.clear();
+// console.clear();
 longitudCantus = cantus.length;
-longitudcantusExtendido = longitudCantus * 2;
+// longitudcantusExtendido = longitudCantus * divisionEspecie;
 console.log("longitudCantus : " + longitudCantus);
 function getClimaxPosition(argument) {
 	for (var i = 0; i < cantus.length; i++) {

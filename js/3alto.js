@@ -1,19 +1,24 @@
+var posicionClimaxAlto = posicionClimax + 1;
+
+var divisionPrimeraEspecie = 1;
+var divisionSegundaEspecie = 2;
+var divisionEspecie = divisionSegundaEspecie;
+var divisionEspecie = divisionPrimeraEspecie;
 
 
 var alto = [];
 var randomIntervalAltoCantus = [];
-for (var i = 0; i < cantus.length*divisionEspecie; i++) {
+for (var i = 0; i < (cantus.length*divisionEspecie - (divisionEspecie-1)); i++) {
 	alto[i] = "0";
+	// console.log("i : " + i);
 	randomIntervalAltoCantus[i] = "0";
 }
+console.log("EXTENdalto : " + alto);
 // var intervaloAltoCero = [ unisono, quinta, tercera,  octava];
 // alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
 // alto[1] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
 
-var posicionClimaxAlto = posicionClimax + 1;
-
-var divisionSegundaEspecie = 2;
-var divisionEspecie = divisionSegundaEspecie;
+// var divisionEspecie = divisionPrimeraEspecie;
 
 
 //se calcilan con respecto al cantus de cda momento
@@ -26,30 +31,35 @@ var intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
 var cantusExtendido = [];
 var contadorTemp = 0;
 for (var i = 0; i < cantus.length*divisionEspecie; i++) {
-	if (i % 2 == 1) {contadorTemp++;} else {}
+	if (i % divisionEspecie == 1) {contadorTemp++;} else {}
 	cantusExtendido[i] = cantus[i - contadorTemp];
 }
 colocarSensibleYfinal(checkFinalCantus());
 // alto[cantusExtendido.length - 2] = notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
 function crearAlto(argument) {
-console.log("alto : " + alto);
+// console.log("alto : " + alto);
+// console.log("cantusExtendido.length : " + cantusExtendido.length);
 	// BUGs Evitar q los leaps se cuemten 3uando no se aplican
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxAlto; i++) {
-	for (var i = 0; i < (cantusExtendido.length - 3); i++) {//las dos ultimas estan predefinidas
+	for (var i = 0; i < (alto.length - 2); i++) {//las dos ultimas estan predefinidas
+	intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
 		breakInfiniteLoops = 0;
 		var primerIntento = true ;
 		do{
 		if (i == 0) {
-			var intervaloAltoCero = [ unisono, tercera, quinta, octava];
-			alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
+			// var intervaloAltoCero = [ quinta, octava];
+			// alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
+			intervalosArmonicosAlto = [ quinta, octava];
+			alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervalosArmonicosAlto)];
 		}
 			breakInfiniteLoops++;
 			if (breakInfiniteLoops>40) {
 				colgado == true;
 				// console.log("colgado en  : " + i );
 				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
-					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
+					// i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
+					i = 1; //tirar para atras si no hay una solucion buena
 				} 
 				console.log("BREAK i-2: " + i);
 				break;
@@ -160,7 +170,9 @@ console.log("alto : " + alto);
 	// console.clear();
 	
 	console.log("alto : " + alto);
+	// escalaDoAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
 	console.log("escalaDoAlto : " + escalaDoAlto);
+
 	// console.clear();
 	decodeAjaxResponse(escalaDoAlto);
 	checkFinalCantus();
