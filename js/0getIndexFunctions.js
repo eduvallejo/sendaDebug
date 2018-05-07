@@ -16,8 +16,17 @@ function getClimaxPosition(argument) {
 }
 
 //obtener intervalo de dos notas
-function getIndexBetween(argumentPre, argumentPost, iPos) {
-  // console.log("notasMusicales.indexOfPre("+iPos+ ":)(" + argumentPost + ") - notasMusicales.indexOf("+iPos+":)(" + argumentPre + ") : "  + (notasMusicales.indexOf(argumentPost) - notasMusicales.indexOf(argumentPre)));
+function getIndexBetweenMismaVoz(voz, iAnt, iPost) {
+  // console.log("IGUALES Index("+iAnt+ ":)(" + voz[iPost] + ") - Index("+iPost+":)(" + voz[iAnt] + ") : "  
+  	// + (notasMusicales.indexOf(voz[iPost]) - notasMusicales.indexOf(voz[iAnt])));
+  return (notasMusicales.indexOf(voz[iPost]) - notasMusicales.indexOf(voz[iAnt]));
+
+}
+
+//obtener intervalo de dos notas
+function getIndexBetween(argumentPre, argumentPost, iPosAnt, iPosPost) {
+  // console.log("IGUALES Index("+iPosAnt+ ":)(" + argumentPost + ") - Index("+iPosPost+":)(" + argumentPre + ") : "  
+  	// + (notasMusicales.indexOf(argumentPost) - notasMusicales.indexOf(argumentPre)));
   return (notasMusicales.indexOf(argumentPost) - notasMusicales.indexOf(argumentPre));
 
 }

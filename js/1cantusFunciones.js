@@ -61,7 +61,7 @@ function mostrarGradosCantus(iPos){
 
 function mostrarGradosVoz(voz, iPos){
     // for (var i = 0; i < cantus.length; i++) {
-    //  console.log("getIndexOf(cantus[i] -cantus[0]) : " + (getIndexOf(cantus[i]) 
+    //    //console.log.log("getIndexOf(cantus[i] -cantus[0]) : " + (getIndexOf(cantus[i]) 
     //      - getIndexOf(cantus[0])));
     // }
 

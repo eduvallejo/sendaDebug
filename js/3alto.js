@@ -2,9 +2,12 @@ var alto = [];
 var divisionPrimeraEspecie = 1;
 var divisionSegundaEspecie = 2;
 var divisionTerceraEspecie = 4;
+var divisionCuartaEspecie = 8;
 var divisionEspecie = divisionPrimeraEspecie;
 var divisionEspecie = divisionSegundaEspecie;
 var divisionEspecie = divisionTerceraEspecie;
+// var divisionEspecie = divisionCuartaEspecie;
+
 var randomIntervalAltoCantus = [];
 
 for (var i = 0; i < (cantus.length*divisionEspecie - (divisionEspecie-1)); i++) {
@@ -15,48 +18,13 @@ for (var i = 0; i < (cantus.length*divisionEspecie - (divisionEspecie-1)); i++) 
 console.log("alto : " + alto);
 var posicionClimaxAlto = posicionClimax + 1;
 
-//DEBUG
-// function crearAlto(argument){//version sin calculoo para debug
-// 	alto = ["G","A","B","c"]; //1a
-//     escalaDoAlto = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
-
-//     alto = ["c","B","A" ,"G", "A","B", "c"]; //2a
-//     escalaDoAlto = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
-
-// 	alto = ["c","B","A","G", "c","B","A","G", "c","B","A","B", "c"]; //3a
-//     escalaDoAlto = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
-    
-//     escalaDo = escalaDo.replace(key ,key +"\n" 
-//     	+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
-//     // console.clear();
-    
-//     console.log("alto : " + alto);
-//     // escalaDoAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
-//     console.log("escalaDoAlto : " + escalaDoAlto);
-// 	decodeAjaxResponse(escalaDoAlto);
-//     // tiemposCorrectos = [1000, 1000, 1000, 1000];
-//     // tiemposCorrectos = [500, 500,  500, 500, 500, 500 , 1000];
-//     // tiemposCorrectos = [250,250,250,250,250,250,250,250,250,250,250,250,1000];
-
-// }
-
-
 
 // var intervalosArmonicosAlto = [ octava,quinta,tercera,tercera,tercera, sexta, sexta,sexta, quinta];
 var intervalosArmonicosAlto = [  unisono, quinta, sexta, tercera, octava ];
 
-// console.log("cantusExtendido : " + cantusExtendido);
+// cantusExtendido : " + cantusExtendido);
 var cantusExtendido = [];
 var contadorTemp = 0;
-
-//ESTO es una chapuza, arreglarlo para q valga para todas las especies
-// for (var i = 0; i < cantus.length*divisionEspecie; i++) {
-// 	console.log(i + " % " + divisionEspecie + ": " + i % divisionEspecie);
-// 	if (i % divisionEspecie == 1) {
-// 		contadorTemp++;
-// 	} 
-// 	cantusExtendido[i] = cantus[i - contadorTemp];
-// }
 for (var i = 0; i < cantus.length*divisionEspecie; i++) {
 	// console.log(i + " % " + divisionEspecie + ": " + i % divisionEspecie);
 	cantusExtendido[i] = cantus[contadorTemp];
@@ -94,8 +62,8 @@ function crearAlto(argument) {
 				colgado == true;
 				// console.log("colgado en  : " + i );
 				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
-					// i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
-					i = 1; //tirar para atras si no hay una solucion buena
+					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
+					// i = 1; //tirar para atras si no hay una solucion buena
 					break;
 				} 
 				console.log("BREAK i-2: " + i);
@@ -161,7 +129,8 @@ function crearAlto(argument) {
 		 	'"' 
 		 		+(((notasMusicales.indexOf(alto[i]))
 					- (notasMusicales.indexOf(cantusExtendido[i])))+1) 
-			+'ª (' + mostrarGradosVoz(alto, i)+ ') "'
+			// +'ª (' + mostrarGradosVoz(alto, i)+ ') "'
+			+'ª"'
 				+ alto[i] + "/" + divisionEspecie//ya q estamos en segunda Especie
 		;
 
@@ -185,6 +154,7 @@ function crearAlto(argument) {
 
 	// console.clear();
 	decodeAjaxResponse(escalaDoAlto);
+	console.clear();
 	console.log("alto : " + alto);
 	for (var i = 0; i < alto.length; i++) {
 		// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
@@ -204,5 +174,31 @@ function comprobarCuelgue(argument) {
 }
 
 function consoleLog(argument, position){
-    console.log(argument+"[" + position + "] : " + argument[position]);
+    //console.log(argument+"[" + position + "] : " + argument[position]);
 }
+
+//DEBUG
+// function crearAlto(argument){//version sin calculoo para debug
+// 	alto = ["G","A","B","c"]; //1a
+//     escalaDoAlto = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
+
+//     alto = ["c","B","A" ,"G", "A","B", "c"]; //2a
+//     escalaDoAlto = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
+
+// 	alto = ["c","B","A","G", "c","B","A","G", "c","B","A","B", "c"]; //3a
+//     escalaDoAlto = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
+    
+//     escalaDo = escalaDo.replace(key ,key +"\n" 
+//     	+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
+//     // console.clear();
+    
+//     //console.log("alto : " + alto);
+//     // escalaDoAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
+//     //console.log("escalaDoAlto : " + escalaDoAlto);
+// 	decodeAjaxResponse(escalaDoAlto);
+//     // tiemposCorrectos = [1000, 1000, 1000, 1000];
+//     // tiemposCorrectos = [500, 500,  500, 500, 500, 500 , 1000];
+//     // tiemposCorrectos = [250,250,250,250,250,250,250,250,250,250,250,250,1000];
+
+// }
+

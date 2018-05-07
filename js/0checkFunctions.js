@@ -1,21 +1,27 @@
 function checkFinalCantus(argument) {
-  // console.log("cantus[cantus.length - 1] : " + getIndexOf(cantus[cantus.length - 1]));
-  // console.log("cantus[cantus.length - 2] : " + getIndexOf(cantus[cantus.length - 2]));
+    //console.log.log("cantus[cantus.length - 2] : " + getIndexOf(cantus[cantus.length - 2]));
+    //console.log.log("cantus[cantus.length - 1] : " + getIndexOf(cantus[cantus.length - 1]));
+    //console.log.log("cantus[cantus.length - 2] : " + notasMusicales[getIndexOf(cantus[cantus.length - 2])]);
+    //console.log.log("cantus[cantus.length - 1] : " + notasMusicales[getIndexOf(cantus[cantus.length - 1])]);
+
   // console.log("getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]) : " + getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]));
-  if (getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]) == segundaAbajo) {
-    console.log("final II-I : ");
+  if (getIndexBetweenMismaVoz(cantus, cantus.length - 2, cantus.length - 1) == segundaAbajo) {
+    //console.log("final II-I : ");
     return("II-I");
   // } else if((getIndexOf(cantus[cantus.length - 2]) - getIndexOf(cantus[cantus.length - 1])) == -1){
   // } else if (getIndexBetween(cantus[cantus.length - 2], cantus[cantus.length - 1]) == segundaAbajo) {
   } else {//TODO
-    console.log("final VII-I : ");
+    //console.log("final VII-I : ");
     return("VII-I");
+    // return("II-I");  
   }
 }
 
-function checkNotasIguales(argument, argumentPost, index){
-    if(getIndexBetween(argument, argumentPost, index) == 0){
-      // console.log("notas = en " + index + ": " + argument + "=" + argumentPost);
+function checkNotasIguales(voz, iAnt, iPost){
+    if(getIndexBetween(voz[iAnt], voz[iPost], iAnt, iPost) == 0){
+      // console.log("IGUALES Index("+iAnt+ ":)(" + voz[iPost] + ") - Index("+iPost+":)(" + voz[iAnt] + ") : "  
+      //   + (notasMusicales.indexOf(voz[iPost]) - notasMusicales.indexOf(voz[iAnt])));
+      // console.log("notas = en " + index + ": " + argument + "=" + voz[iPost]);
       return true;
     }
 }
@@ -46,8 +52,8 @@ function checkForbiddenMelodicInterval(argumentoAnterior, argumentoPosterior, iP
           || (intervaloMomento == septima)
         ){
           // console.log("notasMusicales.indexOf(i-1)-(i)(" + argumentoPosterior + ") - notasMusicales.indexOf(" + argumentoAnterior + ") : "  + (notasMusicales.indexOf(argumentoPosterior) - notasMusicales.indexOf(argumentoAnterior)));
-          console.log("En i:" + iPosicion + " melodico > 7a8a en argAnt(" + argumentoAnterior + ") y argPost(" + argumentoPosterior + ") )" 
-            + intervaloMomento );
+          //console.log("En i:" + iPosicion + " melodico > 7a8a en argAnt(" + argumentoAnterior + ") y argPost(" + argumentoPosterior + ") )" 
+            // + intervaloMomento );
           return true;
       }
     }
@@ -98,12 +104,12 @@ function checkQuintasOctavasSeguidas(argument1, argument2) {
   if((argument1 == 5 )&&( argument2 == 8)
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
-    console.log("quintasOCtavas seguidas : " );
+    //console.log("quintasOCtavas seguidas : " );
     return true;
   }else if((argument1 == 8 )&&( argument2 == 5)
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
-    console.log("OctavasQuintas seguidas : " );
+    //console.log("OctavasQuintas seguidas : " );
     return true;
   }
 
@@ -113,9 +119,9 @@ function checkIntervalosProhibidos(randomIntervalCantusAlto1, randomIntervalCant
   if((randomIntervalCantusAlto1 == interval1 )&&( randomIntervalCantusAlto2 == interval2)
         // &&(checkMovimientoDirecto(randomIntervalCantusAlto1,randomIntervalCantusAlto2 == true
         ){
-  //   console.log("randomIntervalCantusAlto1 : " + randomIntervalCantusAlto1);
+  //     //console.log.log("randomIntervalCantusAlto1 : " + randomIntervalCantusAlto1);
   // console.log("randomIntervalCantusAlto2 : " + randomIntervalCantusAlto2);
-  //   console.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
+  //     //console.log.log("intervalos seguidas : " + interval1 + "ª , " + interval2 + "ª");
     return true;
   }
 }
@@ -124,7 +130,7 @@ function checkTercerasSeguidas(argument1, argument2) {
   if((argument1 == 3)&&( argument2 == 3)
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
-    console.log("terceras seguidas : " );
+    //console.log("terceras seguidas : " );
     return true;
   }
 
@@ -134,7 +140,7 @@ function checkSextasSeguidas(argument1, argument2) {
   if((argument1 == 6)&&( argument2 == 6)
         // &&(checkMovimientoDirecto(argument1,argument2 == true
         ){
-    console.log("sextas seguidas : " );
+    //console.log("sextas seguidas : " );
   }
 
 }

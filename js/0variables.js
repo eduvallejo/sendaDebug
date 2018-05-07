@@ -33,7 +33,7 @@ var escalaDo ;
 var buclesAtrasCuelgue = 4;
 
 // var msPerBeat = 1000;
-var msPerBeat = 2000;
+var msPerBeat = 1500;
 
 
 

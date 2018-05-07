@@ -21,6 +21,7 @@
        <script type="text/javascript" src="js/5oscillator.js"></script>
        <script type="text/javascript" src="js/notasDePaso.js"></script>
        <script type="text/javascript" src="js/decodeAjaxResponse.js"></script>
+       <script type="text/javascript" src="js/colors.js"></script>
 
        <link href="css/abcjs-midi.css" media="all" rel="stylesheet" type="text/css" />
        <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -63,15 +64,16 @@
     </body>
     <script type="text/javascript">
    		function renderAbcSvg(argument) {
-		 	var tuneObjectArray;
-			// console.log("escalaDo : " + escalaDo);
-			outputElement = document.getElementById('notation');
-			var tuneObjectArray;
-			var tuneObjectArrayMidi;
+      var tuneObjectArray;
+      // console.log("escalaDo : " + escalaDo);
+      outputElement = document.getElementById('notation');
+      var tuneObjectArray;
+      var tuneObjectArrayMidi;
 
-			tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
-			tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
+      tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
+      tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
 
+      pintarNotasRelacionAcorde();
 		    	
    		}
 

@@ -23,6 +23,6 @@ function colocarNotasDePasoYbordadura(i) {
 		alto[i - 1] = 
 			notasMusicales[notasMusicales.indexOf(alto[i - 2]) + 1];
 		// console.log("getIndexBetween(alto[i-2], alto[i]) : " + getIndexBetween(alto[i-2], alto[i]));
-		// console.log("bordadura en:" + i);
+		console.log("bordadura en:" + i);
 	} 
 }

@@ -329,6 +329,6 @@ var  sostenidosTonalidades = { //hay q añadir las notas bajas  y altas (ej: C,,
 // var  bemolesTonalidades = {"Abmaj": {"B" : true, "b" : true, "E" : true, "e" : true, "A" : true, "a" : true, "D" : true, "d" : true}};
 // console.log("bemolesTonalidades : " + bemolesTonalidades.length);
 // for (x in bemolesTonalidades) {
-//     console.log("bemolesTonalidades[y] : " + bemolesTonalidades[x][0]);
+//     //console.log("bemolesTonalidades[y] : " + bemolesTonalidades[x][0]);
 // } 
 // console.log(JSON.stringify(bemolesTonalidades))

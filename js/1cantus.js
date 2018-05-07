@@ -50,8 +50,8 @@ cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,","G," ];
 // cantus = ["C","G,", "D", "C"];
 
 // //debug
-// key = "Cmaj";
-// cantus = ["C","G","D","C"];
+key = "Cmaj";
+cantus = ["C","G","D","C"];
 
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;

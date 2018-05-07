@@ -73,6 +73,7 @@ el tema del cantusExtendido es una chapuza, sobretodo lo de las negras en el ult
 
 en contrspiunto a dos ,la cambiata solo se usa si no hay otra foema de salir de un pornlema. en ca,bio en a 3 voces se acepta si una de las voces es uintermedia
 
+
 si se vuelve a bloquear en i - 2 hacer q vaya a i -3
 
 hacer un check melodico q cancele el salto de quinta aumentada o dism 
@@ -93,3 +94,7 @@ me he quedado en la bordadura de salzer p13
 a ver si funciona tb con 3a especie
 
 hay dos momentos del codigo con crearAlto();mirar cual es innecesario
+
+poner colores (quizas como fondo de compas) para mostrar informacion sobre por ejemplo, el intervalo con respecto a la root
+
+y si al igual q los colores nos transmiten informacion sobre las notas msicales, podria ser q el sonido fuese el mejor metodo de mostrar informacion sobre la musica?
