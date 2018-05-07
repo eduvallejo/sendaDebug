@@ -31,9 +31,6 @@ cantus = ["C","D","F","E","D","C"];
 key = "Cmaj";
 cantus = ["C","F", "G", "F", "D", "G" ,"C"];
 
-// //debug
-// key = "Cmaj";
-// cantus = ["C","G","D","C"];
 
 // //ej 17
 // //de momento el cantus solo se acaba con II-I o VII-I
@@ -44,13 +41,18 @@ key = "Bbmaj";
 cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,","G," ];
 
 
-key = "Fmaj";
-cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
-key = "Gmaj";
-cantus = ["G,", "A,", "C", "B,", "A,", "G,"];
-key = "Cmaj";
-cantus = ["C","E", "D", "A,", "B," ,"D","C"];
-cantus = ["C","G", "D", "C"];
+// key = "Fmaj";
+// cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
+// key = "Gmaj";
+// cantus = ["G,", "A,", "C", "B,", "A,", "G,"];
+// key = "Cmaj";
+// cantus = ["C","E", "D", "A,", "B," ,"D","C"];
+// cantus = ["C","G,", "D", "C"];
+
+// //debug
+// key = "Cmaj";
+// cantus = ["C","G","D","C"];
+
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
 

@@ -90,7 +90,6 @@ sacar los grados , no de la primera nota del cantus(a veces no es la root) si no
 
 me he quedado en la bordadura de salzer p13
 
-hacer q lea el abc de un copy paste para no tener q calcular cuando debugeamos otras cosas
+a ver si funciona tb con 3a especie
 
-por ejemplo , ahora q estoy con el oscillator sincronizando. de momento si la 2a va bien, la 1a va mal. ahora lo tengo puesto para q funcione bien la segunda.
-	intentar entenderlo desde la 1a especie
+hay dos momentos del codigo con crearAlto();mirar cual es innecesario

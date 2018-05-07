@@ -6,7 +6,7 @@ var notasPorLinea = [];
 notasPorLinea[0] = 0; //para no tener NAN
 var notasPorLineaUsuario = 0;
 var cantidadScroll = 0;
-msPerBeat = 1000;
+// msPerBeat = 1000;
 function resetearAjax(argument) {
 	// console.clear();
 	pointer = 0;

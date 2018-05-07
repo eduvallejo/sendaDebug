@@ -1,44 +1,80 @@
-var posicionClimaxAlto = posicionClimax + 1;
-
+var alto = [];
 var divisionPrimeraEspecie = 1;
 var divisionSegundaEspecie = 2;
-var divisionEspecie = divisionSegundaEspecie;
+var divisionTerceraEspecie = 4;
 var divisionEspecie = divisionPrimeraEspecie;
-
-
-var alto = [];
+var divisionEspecie = divisionSegundaEspecie;
+var divisionEspecie = divisionTerceraEspecie;
 var randomIntervalAltoCantus = [];
+
 for (var i = 0; i < (cantus.length*divisionEspecie - (divisionEspecie-1)); i++) {
 	alto[i] = "0";
 	// console.log("i : " + i);
 	randomIntervalAltoCantus[i] = "0";
 }
-console.log("EXTENdalto : " + alto);
-// var intervaloAltoCero = [ unisono, quinta, tercera,  octava];
-// alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
-// alto[1] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
+console.log("alto : " + alto);
+var posicionClimaxAlto = posicionClimax + 1;
 
-// var divisionEspecie = divisionPrimeraEspecie;
+//DEBUG
+// function crearAlto(argument){//version sin calculoo para debug
+// 	alto = ["G","A","B","c"]; //1a
+//     escalaDoAlto = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
+
+//     alto = ["c","B","A" ,"G", "A","B", "c"]; //2a
+//     escalaDoAlto = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
+
+// 	alto = ["c","B","A","G", "c","B","A","G", "c","B","A","B", "c"]; //3a
+//     escalaDoAlto = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
+    
+//     escalaDo = escalaDo.replace(key ,key +"\n" 
+//     	+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
+//     // console.clear();
+    
+//     console.log("alto : " + alto);
+//     // escalaDoAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
+//     console.log("escalaDoAlto : " + escalaDoAlto);
+// 	decodeAjaxResponse(escalaDoAlto);
+//     // tiemposCorrectos = [1000, 1000, 1000, 1000];
+//     // tiemposCorrectos = [500, 500,  500, 500, 500, 500 , 1000];
+//     // tiemposCorrectos = [250,250,250,250,250,250,250,250,250,250,250,250,1000];
+
+// }
 
 
-//se calcilan con respecto al cantus de cda momento
+
 // var intervalosArmonicosAlto = [ octava,quinta,tercera,tercera,tercera, sexta, sexta,sexta, quinta];
-var intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
+var intervalosArmonicosAlto = [  unisono, quinta, sexta, tercera, octava ];
 
-//apaño para q las blabcas se apareen con el cantus adecuado 
-//cantus para blancas
 // console.log("cantusExtendido : " + cantusExtendido);
 var cantusExtendido = [];
 var contadorTemp = 0;
+
+//ESTO es una chapuza, arreglarlo para q valga para todas las especies
+// for (var i = 0; i < cantus.length*divisionEspecie; i++) {
+// 	console.log(i + " % " + divisionEspecie + ": " + i % divisionEspecie);
+// 	if (i % divisionEspecie == 1) {
+// 		contadorTemp++;
+// 	} 
+// 	cantusExtendido[i] = cantus[i - contadorTemp];
+// }
 for (var i = 0; i < cantus.length*divisionEspecie; i++) {
-	if (i % divisionEspecie == 1) {contadorTemp++;} else {}
-	cantusExtendido[i] = cantus[i - contadorTemp];
+	// console.log(i + " % " + divisionEspecie + ": " + i % divisionEspecie);
+	cantusExtendido[i] = cantus[contadorTemp];
+	if (i % divisionEspecie == divisionEspecie-1) {
+		contadorTemp++;
+	} 
+	// cantusExtendido[i] = cantus[i - contadorTemp];
+
 }
+console.log("altoExtENDIDO : " + alto);
+console.log("cantusEXTEN : " + cantusExtendido);
+//
+
 colocarSensibleYfinal(checkFinalCantus());
-// alto[cantusExtendido.length - 2] = notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
+
 function crearAlto(argument) {
-// console.log("alto : " + alto);
-// console.log("cantusExtendido.length : " + cantusExtendido.length);
+	// console.log("alto : " + alto);
+	// console.log("cantusExtendido.length : " + cantusExtendido.length);
 	// BUGs Evitar q los leaps se cuemten 3uando no se aplican
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxAlto; i++) {
@@ -60,6 +96,7 @@ function crearAlto(argument) {
 				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
 					// i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
 					i = 1; //tirar para atras si no hay una solucion buena
+					break;
 				} 
 				console.log("BREAK i-2: " + i);
 				break;
@@ -95,39 +132,10 @@ function crearAlto(argument) {
 				}
 				primerIntento = false;
 			}
-			// console.log("alto[" + i + "] : " + alto[i]);	
-			// console.log("posicionEnNotasMusicales : " + notasMusicales.indexOf(alto[i]));
-			// console.log("getFrecuenciaNotas[" + alto[i] + "] : " + getFrecuenciaNotas(alto[i]));
+			// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
 		//aqui se ponen las reglas del alto 
 		// console.log("i : " + i);
 		}while(//he comentado algunos para poder debugear sin q se cuelgue
-			// ((notasMusicales.indexOf(alto[i])  >=  notasMusicales.indexOf(alto[posicionClimaxAlto])) && i != posicionClimaxAlto)
-			//octavas seguidas
-			// checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],alto[i],alto[i-1] )
-			// ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],alto[i],alto[i-1] )
-			// ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 8) 
-			// ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 5)
-			// //5as ocultas (5as por movimiento directo)
-			// ||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] ) && randomIntervalAltoCantus[i] == 5
-			// //8as ocultas (8as por movimiento directo)
-			// ||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] ) && randomIntervalAltoCantus[i] == 8
-			// //restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
-			// ||checkLeapsToRestore(alto[i - 2], alto[i - 1],alto[i])
-			// //chekear q la melodia no salta intervalos prohibidos melodicamente
-			// ||checkForbiddenMelodicInterval(alto[i - 1], alto[i], i) 
-			// //chekear q la melodia no salta intervalos prohibidos melodicamente
-			// // ||checkForbiddenMelodicInterval(alto[i], alto[i+1], i) //hacer i-3
-			// //q no hayas dos notas iguales
-			// ||getIndexBetween(alto[i - 1]) == getIndexBetween(alto[i])
-			// ||getIndexBetween(alto[i]) == getIndexBetween(alto[i + 1]) 
-			// //q no haya seguidas grupos de dos iguales
-			// ||getIndexBetween(alto[i - 3]) == getIndexBetween(alto[i - 1]) &&
-			// getIndexBetween(alto[i - 2]) == getIndexBetween(alto[i])
-			// //q no haya seguidas grupos de dos iguales
-			// ||getIndexBetween(alto[i + 1]) == getIndexBetween(alto[i - 1]) &&
-			// getIndexBetween(alto[i + 2]) == getIndexBetween(alto[i])
-			// //q no baje por debajo del F,,
-			// ||getIndexOf(alto[i]) < 4
 			checkingsWhile(i) == true
 		)
 		comprobarCuelgue();
@@ -156,10 +164,14 @@ function crearAlto(argument) {
 			+'ª (' + mostrarGradosVoz(alto, i)+ ') "'
 				+ alto[i] + "/" + divisionEspecie//ya q estamos en segunda Especie
 		;
+
 		if (i >= alto.length - 1) {
 			escalaDoAlto = escalaDoAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
-		} else {}
-		if (i%divisionEspecie == 1 ) {
+		}
+		//Colocar la barra de compases
+		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
+		if (i%divisionEspecie == divisionEspecie - 1 ) {
+			// console.log(i + "%" + divisionEspecie + " para | : " + i );
 			escalaDoAlto += "|";
 		} 
 	}
@@ -169,14 +181,17 @@ function crearAlto(argument) {
 		+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
 	// console.clear();
 	
-	console.log("alto : " + alto);
-	// escalaDoAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
 	console.log("escalaDoAlto : " + escalaDoAlto);
 
 	// console.clear();
 	decodeAjaxResponse(escalaDoAlto);
-	checkFinalCantus();
+	console.log("alto : " + alto);
+	for (var i = 0; i < alto.length; i++) {
+		// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
+	}
 }
+
+
 
 
 function pararCuelgue(argument) {
@@ -186,4 +201,8 @@ function pararCuelgue(argument) {
 
 function comprobarCuelgue(argument) {
 	if (colgado == true) {pararCuelgue();}
+}
+
+function consoleLog(argument, position){
+    console.log(argument+"[" + position + "] : " + argument[position]);
 }

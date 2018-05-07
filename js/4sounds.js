@@ -10,6 +10,13 @@ function playSound(argument) {
 }
 
 function obtenerFrecuenciaNota(nota, octava) {
+  // console.log("freq(" + nota + ": " + 440.0*Math.exp(
+  //   (
+  //     (octava-4)+
+  //     (nota-10)/12.0
+  //   )
+  //   *Math.log(2.0)));
+
   return 440.0*Math.exp(
     (
       (octava-4)+

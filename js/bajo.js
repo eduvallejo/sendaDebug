@@ -95,31 +95,31 @@ function crearBajo(argument) {
 		}while(//he comentado algunos para poder debugear sin q se cuelgue
 			// ((notasMusicales.indexOf(bajo[i])  >=  notasMusicales.indexOf(bajo[posicionClimaxbajo])) && i != posicionClimaxbajo)
 			//octavas seguidas
-			checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
-			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
-			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 8) 
-			||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 5)
-			//5as ocultas (5as por movimiento directo)
-			||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 5
-			//8as ocultas (8as por movimiento directo)
-			||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 8
-			//restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
-			||checkLeapsToRestore(bajo[i - 2], bajo[i - 1],bajo[i])
-			//chekear q la melodia no salta intervalos prohibidos melodicamente
-			||checkForbiddenMelodicInterval(bajo[i - 1], bajo[i])
-			// ||checkForbiddenMelodicInterval(bajo[i], bajo[i + 1])
-			//q no hayas dos notas iguales
-			||getIndexBetween(bajo[i - 1]) == getIndexBetween(bajo[i])
-			||getIndexBetween(bajo[i]) == getIndexBetween(bajo[i + 1])
-			//q no haya seguidas grupos de dos iguales
-			||getIndexBetween(bajo[i - 3]) == getIndexBetween(bajo[i - 1]) &&
-			getIndexBetween(bajo[i - 2]) == getIndexBetween(bajo[i])
-			//q no haya seguidas grupos de dos iguales
-			||getIndexBetween(bajo[i + 1]) == getIndexBetween(bajo[i - 1]) &&
-			getIndexBetween(bajo[i + 2]) == getIndexBetween(bajo[i])
-			//q no baje por debajo del F,,
-			||getIndexOf(bajo[i]) < 4
-		)
+			// checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 5) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
+			// ||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 8) &&  checkMovimientoDirecto(cantus[i],cantus[i-1],bajo[i],bajo[i-1] )
+			// ||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 5, 8) 
+			// ||checkIntervalosProhibidos(randomIntervalBajoCantus[i], randomIntervalBajoCantus[i - 1], 8, 5)
+			// //5as ocultas (5as por movimiento directo)
+			// ||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 5
+			// //8as ocultas (8as por movimiento directo)
+			// ||checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],bajo[i],bajo[i-1] ) && randomIntervalBajoCantus[i] == 8
+			// //restore leaps q suben o bajan con ibtervalo contrario de maximo 3a
+			// ||checkLeapsToRestore(bajo[i - 2], bajo[i - 1],bajo[i])
+			// //chekear q la melodia no salta intervalos prohibidos melodicamente
+			// ||checkForbiddenMelodicInterval(bajo[i - 1], bajo[i])
+			// // ||checkForbiddenMelodicInterval(bajo[i], bajo[i + 1])
+			// //q no hayas dos notas iguales
+			// ||getIndexBetween(bajo[i - 1]) == getIndexBetween(bajo[i])
+			// ||getIndexBetween(bajo[i]) == getIndexBetween(bajo[i + 1])
+			// //q no haya seguidas grupos de dos iguales
+			// ||getIndexBetween(bajo[i - 3]) == getIndexBetween(bajo[i - 1]) &&
+			// getIndexBetween(bajo[i - 2]) == getIndexBetween(bajo[i])
+			// //q no haya seguidas grupos de dos iguales
+			// ||getIndexBetween(bajo[i + 1]) == getIndexBetween(bajo[i - 1]) &&
+			// getIndexBetween(bajo[i + 2]) == getIndexBetween(bajo[i])
+			// //q no baje por debajo del F,,
+			// ||getIndexOf(bajo[i]) < 4
+		false)
 		comprobarCuelgue();
 		//mirar si shay consonantes vecinas en fuertes para poner nota paso
 		if (i%2 == 0 && i > 1 ) {
@@ -139,29 +139,18 @@ function crearBajo(argument) {
 	for (var i = 0; i < cantus.length; i++) {
 		escalaDo += '"' + mostrarGradosCantus(i)+ '"'+ cantus[i] + "|";
 	}
-	// escalaDo += "\nV:2 clef=treble\n"
-	//aqui solo se suma el bajo al header de escalaDo
-	// escalaDo += "\nV:2 clef=treble\n"
-	// for (var i = 0; i < cantus.length; i++) {
-	// 	escalaDo = escalaDo + cantus[i] + '"' + (i+1) + '"' ;
-	// }
-	// escalaDo += "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
-	// escalaDo += "\nV:2 clef=alto\nCDFEDC"
-	// escalaDo += "\nV:2 clef=alto\n" + cantus;
+	
 	escalaDo += "\nV:3 clef=bass\n" ;
 	// escalaDo += "\nV:3 clef=alto4\n" ;
 	for (var i = 0; i < bajo.length; i++) {
-		// escalaDo = escalaDo + bajo[i] + ' "' + (((notasMusicales.indexOf(bajo[i + 1]) % 7 + 8 )) -
-		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
-		escalaDo = escalaDo 
-		 		+ '"' 
-		 			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
-		 			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
-		 				+'ª"'
-			+ bajo[i] + "/"
-			;
-		// console.log("getIndexOf(bajo[" + i + "]) : " + getIndexOf(bajo[i]));
-		// console.log("getIndexOf(cantus[" + i + "]) : " + getIndexOf(cantusExtendido[i]));
+		// escalaDo = escalaDo 
+		//  		+ '"' 
+		//  			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
+		//  			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
+		//  				+'ª"'
+		// 	+ bajo[i] + "/"
+		// 	;
+		escalaDo += "";
 	}
 
 	// console.log("escalaDo : " + escalaDo);
@@ -169,7 +158,7 @@ function crearBajo(argument) {
 		// + randomIntervalBajoCantus);
 	// crearSoprano();
 
-	crearAlto();
+	// crearAlto();
 }
 
 var colgado = false;
