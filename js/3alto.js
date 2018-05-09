@@ -62,6 +62,7 @@ function crearAlto(argument) {
 				colgado == true;
 				// console.log("colgado en  : " + i );
 				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
+					console.log("BREAK i: " + i);
 					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
 					// i = 1; //tirar para atras si no hay una solucion buena
 					break;
@@ -118,7 +119,7 @@ function crearAlto(argument) {
 
 	var escalaDoAlto;
 	// console.log("alto : " + alto);
-	escalaDoAlto = "V:1 clef=alto1\n";
+	escalaDoAlto = "V:1 clef=" + clefAlto + "\n";
 	// escalaDoAlto = "V:1\n";
 	// escalaDo += "\nV:2 clef=treble\n"
 	//aqui solo se suma el alto al header de escalaDo

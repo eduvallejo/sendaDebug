@@ -6,6 +6,7 @@
 
 //cantus de Schoemberg
 //Ej 1a
+key = "Cmaj";
 cantus = ["C","D","F","E","D","C"];
 //Ej 1b
 // cantus = ["C","D","E","E","D","C","D","F","E","D","C"];
@@ -55,6 +56,11 @@ cantus = ["C","G","D","C"];
 
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
+
+var clefSoprano = "treble";
+var clefAlto = "treble";
+var clefTenor = "treble";
+var clefBass = "bass";
 
 checkFinalCantus(cantus);
 // mostrarGradosCantus();

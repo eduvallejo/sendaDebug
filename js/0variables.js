@@ -13,7 +13,7 @@ for (var i = 0; i < longitudCantus; i++) {
 	cantus[i] = "0";
 }
 
-var key = "Cmaj";
+// var key = "Cmaj";
 // var key = "Gmaj";
 
 //cantidad de tonos de cada intervalo

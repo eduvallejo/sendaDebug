@@ -133,14 +133,15 @@ function crearBajo(argument) {
 	// console.log("cantus : " + cantus);
 	// console.log("bajo : " + bajo);
 	
-	escalaDo += "\nV:2 clef=alto4\n"
+	// escalaDo += "\nV:2 clef=alto4\n"
+	escalaDo += "\nV:2 clef=" + clefTenor +"\n"
 	// escalaDo += "\nV:2 clef=alto3\n"
 	// escalaDo += "\nV:2 clef=treble\n"
 	for (var i = 0; i < cantus.length; i++) {
 		escalaDo += '"' + mostrarGradosCantus(i)+ '"'+ cantus[i] + "|";
 	}
 	
-	escalaDo += "\nV:3 clef=bass\n" ;
+	escalaDo += "\nV:3 clef=" + clefBass +"\n" ;
 	// escalaDo += "\nV:3 clef=alto4\n" ;
 	for (var i = 0; i < bajo.length; i++) {
 		// escalaDo = escalaDo 
