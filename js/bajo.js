@@ -138,7 +138,7 @@ function crearBajo(argument) {
 	// escalaDo += "\nV:2 clef=alto3\n"
 	// escalaDo += "\nV:2 clef=treble\n"
 	for (var i = 0; i < cantus.length; i++) {
-		escalaDo += '"' + mostrarGradosCantus(i)+ '"'+ cantus[i] + "|";
+		escalaDo += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
 	}
 	
 	escalaDo += "\nV:3 clef=" + clefBass +"\n" ;

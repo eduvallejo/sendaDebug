@@ -36,3 +36,47 @@ function getIndexBetween(argumentPre, argumentPost, iPosAnt, iPosPost) {
 function getInterval(argument1, argument2) {
   return ((((notasMusicales.indexOf(soprano[i + 1])+1)) - ((notasMusicales.indexOf(cantus[i + 1]))+1) + 1));
 }
+
+function mostrarNombreIntervalo(argument){
+    switch (argument) {
+    	case 0:
+    	return 	"1a";
+    		break;
+    	case 1:
+    	return 	"2a";
+    		break;
+    	case 2:
+    	return 	"3a";
+    		break;
+    	case 3:
+    	return 	"4a";
+    		break;
+    	case 4:
+    	return 	"5a";
+    		break;
+    	case 5:
+    	return 	"6a";
+    		break;
+    	case 6:
+    	return 	"7a";
+    		break;
+    	case 7:
+    	return 	"8a";
+    		break;
+        case 8:
+        return 	"9a";
+        	break;
+        case 9:
+        	return "10a";
+        	break;
+        case 10:
+        	return "11a";
+        	break;
+        case 11:
+        	return "12a";
+        	break;
+        
+    	default:
+    		// to do
+    }
+}

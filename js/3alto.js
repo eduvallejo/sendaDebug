@@ -97,10 +97,12 @@ function crearAlto(argument) {
 							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
 						// console.log("alto[i-2] : " + alto[i-2]);
 						// console.log("alto[" + i +"] : " + alto[i]);
+						console.log("nota de paso en [" + i + "]");
+						primerIntentoNotaDePaso = false;
 					}
 				}
-				primerIntentoNotaDePaso = false;
 			}
+			//notas vecinas2a si no hay de paso
 			if (primerIntentoNotaDePaso == true) {
 				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
 					if ((Math.abs(getIndexBetween(alto[i - 1]
@@ -111,10 +113,28 @@ function crearAlto(argument) {
 						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
 							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
 							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+						console.log("nota de 2a en [" + i + "] con intervalo de " + mostrarNombreIntervalo(intervalosArmonicosAlto[j]));
+						primerIntentoNotaDePaso  = false;
 					}	
 				}
-				primerIntentoNotaDePaso  = false;
 			}
+			//notas a tercera si no hay vecinas
+			if (primerIntentoNotaDePaso == true) {
+				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
+					if ((Math.abs(getIndexBetween(alto[i - 1]
+						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+						, i))) == tercera) 
+					{
+						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
+						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+						console.log("nota de 3a en [" + i + "]");
+						primerIntentoNotaDePaso  = false;
+					}	
+				}
+			}
+			primerIntentoNotaDePaso  = false;
 			
 			// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
 		//aqui se ponen las reglas del alto 
@@ -166,12 +186,12 @@ function crearAlto(argument) {
 		+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
 	// console.clear();
 	
-	console.log("escalaDoAlto : " + escalaDoAlto);
+	// console.log("escalaDoAlto : " + escalaDoAlto);
 
 	// console.clear();
 	decodeAjaxResponse(escalaDoAlto);
-	console.clear();
-	console.log("alto : " + alto);
+	// console.clear();
+	// console.log("alto : " + alto);
 	for (var i = 0; i < alto.length; i++) {
 		// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
 	}
