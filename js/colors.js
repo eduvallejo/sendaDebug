@@ -89,8 +89,8 @@ function colorear(argument) {
 }
 
 var coloresNotaAcorde = {
-	1 : "#331a00", 2 : "#6d6d46", 3 : "green",   4 : "red",  5 : "blue",  6 : "#33cccc", 7 : " #ff4d4d", 
-	8 : "#331a00", 9 : "#6d6d46", 10 : "green", 11 : "red", 12 : "blue", 13 : "#33cccc",  14 : " #ff4d4d", 
+	1 : "#331a00", 2 : "#999966", 3 : "green",   4 : "#0059b3",  5 : "red",  6 : "#33cccc", 7 : " #ff33cc", 
+	8 : "#331a00", 9 : "#999966", 10 : "green", 11 : "#0059b3", 12 : "red", 13 : "#33cccc",  14 : "#ff33cc", 
 	15: "331a00",16 : "#ff4da6" 
 }
 

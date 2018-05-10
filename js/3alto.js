@@ -49,7 +49,7 @@ function crearAlto(argument) {
 	for (var i = 0; i < (alto.length - 2); i++) {//las dos ultimas estan predefinidas
 	intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
 		breakInfiniteLoops = 0;
-		var primerIntento = true ;
+		var primerIntentoNotaDePaso = true ;
 		do{
 		if (i == 0) {
 			// var intervaloAltoCero = [ quinta, octava];
@@ -80,7 +80,7 @@ function crearAlto(argument) {
 				- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
 
 			//intentar poner consonancias vecinas para favorecer notas de paso
-			if (i % divisionEspecie == 0 && i > 1 && primerIntento == true) {
+			if (i % divisionEspecie == 0 && i > 1 && primerIntentoNotaDePaso == true) {
 				// console.log("i Consonancias: " + i);
 				for (var j = 0; j < intervalosArmonicosAlto.length -1; j++) {// lo de -1 es porq no me gusta la 8va como segunda nota de pasoS
 					if ((Math.abs(getIndexBetween(alto[i - 2]
@@ -97,10 +97,25 @@ function crearAlto(argument) {
 							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
 						// console.log("alto[i-2] : " + alto[i-2]);
 						// console.log("alto[" + i +"] : " + alto[i]);
-					} else {}
+					}
 				}
-				primerIntento = false;
+				primerIntentoNotaDePaso = false;
 			}
+			if (primerIntentoNotaDePaso == true) {
+				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
+					if ((Math.abs(getIndexBetween(alto[i - 1]
+						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+						, i))) == segunda) 
+					{
+						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
+						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+					}	
+				}
+				primerIntentoNotaDePaso  = false;
+			}
+			
 			// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
 		//aqui se ponen las reglas del alto 
 		// console.log("i : " + i);

@@ -24,7 +24,7 @@ var treceava = 12;var quinceava = 13;
 //intervalos desdecendientes
 var segundaAbajo = -1;var terceraAbajo = -2;var cuartaAbajo = -3;var quintaAbajo = -4;
 var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7; var novenaAbajo = -8; var decimaAbajo = -9; 
-var intervMelodMax = octava;
+var intervMelodMax = sexta;
 var restoreInterval = cuarta;
 
 var escalaDo ;
