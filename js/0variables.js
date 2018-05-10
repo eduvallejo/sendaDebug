@@ -30,7 +30,7 @@ var restoreInterval = cuarta;
 var escalaDo ;
 // escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
 
-var buclesAtrasCuelgue = 4;
+var buclesAtrasCuelgue = 2;
 
 // var msPerBeat = 1000;
 var msPerBeat = 1500;

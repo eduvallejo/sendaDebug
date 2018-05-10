@@ -39,7 +39,8 @@ cantus = ["C","F", "G", "F", "D", "G" ,"C"];
 //hearing salzer
 //ej30
 key = "Bbmaj";
-cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,","G," ];
+cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,", "G,"];
+
 
 
 // key = "Fmaj";
@@ -50,9 +51,12 @@ cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,","G," ];
 // cantus = ["C","E", "D", "A,", "B," ,"D","C"];
 // cantus = ["C","G,", "D", "C"];
 
+key = "AbMaj";
+cantus = ["A","E","D","G","B","A"];
+
 // //debug
-key = "Cmaj";
-cantus = ["C","F", "G", "D", "C",];
+// key = "Cmaj";
+// cantus = ["C","G", "D", "C",];
 
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;

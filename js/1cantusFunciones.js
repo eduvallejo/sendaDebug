@@ -17,6 +17,9 @@ function mostrarGradosCantus(iPos){
     		return "III";
     		break;
     	case 3:
+            return "IV";
+            break;
+        case quintaAbajo:
     		return "IV";
     		break;
     	case 4:

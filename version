@@ -95,6 +95,7 @@ a ver si funciona tb con 3a especie
 
 hay dos momentos del codigo con crearAlto();mirar cual es innecesario
 
-poner colores (quizas como fondo de compas) para mostrar informacion sobre por ejemplo, el intervalo con respecto a la root
 
 y si al igual q los colores nos transmiten informacion sobre las notas msicales, podria ser q el sonido fuese el mejor metodo de mostrar informacion sobre la musica?
+
+enchufar un escalaDo predefinido al decode(o despues) para hacer debugging sin tener q confiar en q salga una melodia adecuada para ese debug

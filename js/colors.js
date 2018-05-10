@@ -89,6 +89,7 @@ function colorear(argument) {
 }
 
 var coloresNotaAcorde = {
+	octavaAbajo : "#331a00", septimaAbajo : "#999966", sextaAbajo : "green",   quintaAbajo : "#0059b3",  cuartaAbajo : "red",  terceraAbajo : "#33cccc", segundaAbajo : " #ff33cc", 
 	1 : "#331a00", 2 : "#999966", 3 : "green",   4 : "#0059b3",  5 : "red",  6 : "#33cccc", 7 : " #ff33cc", 
 	8 : "#331a00", 9 : "#999966", 10 : "green", 11 : "#0059b3", 12 : "red", 13 : "#33cccc",  14 : "#ff33cc", 
 	15: "331a00",16 : "#ff4da6" 
@@ -100,12 +101,14 @@ function pintarNotasRelacionAcorde(argument) {
 	var notesArray = document.getElementsByClassName("abcjs-note");
 	// var notesArray = document.getElementsByTagName("button");
 	console.log("notesArray.length : " + notesArray.length);
+	//pentagrama superior
 	for (var i = 0; i < alto.length; i++){
 		// console.log("notesArray[" + i + "].nextSibling.[width] : " + notesArray[i].nextSibling.getAttribute("width"));
 		// posicionNota1 = parseInt(posicionNota1) +  parseInt(notesArray[i].nextSibling.getAttribute("width")); 
 		notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(alto, i)]);
 		// console.log(" mostrarGradosVoz(alto, " + i + "): " + mostrarGradosVoz(alto, i));
 	}
+	//pentagrama siguiente al superior
 	for (var i = alto.length; i < notesArray.length; i++){
 		// console.log("notesArray[" + i + "].nextSibling.[width] : " + notesArray[i].nextSibling.getAttribute("width"));
 		// posicionNota1 = parseInt(posicionNota1) +  parseInt(notesArray[i].nextSibling.getAttribute("width")); 

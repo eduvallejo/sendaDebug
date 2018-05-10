@@ -3,8 +3,8 @@ function checkingsWhile(i){
 	  if(
 	  	checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], quinta, quinta) 
 	  		&&  checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] )
-	   //  ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], octava, octava) 
-	   //  	&&  checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] )
+	    ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], octava, octava) 
+	    	&&  checkMovimientoDirecto(cantusExtendido[i],cantusExtendido[i-1],alto[i],alto[i-1] )
 	   //  ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 5, 8) 
 	   //  ||checkIntervalosProhibidos(randomIntervalAltoCantus[i], randomIntervalAltoCantus[i - 1], 8, 5)
 	   //  // 5as ocultas (5as por movimiento directo)
@@ -18,10 +18,12 @@ function checkingsWhile(i){
 	   //  // chekear q la melodia no salta intervalos prohibidos melodicamente
 	   //  ||checkForbiddenMelodicInterval(alto[i], alto[i+1], i) //hacer i-3
 	   //  //q no hayas dos notas iguales
-	    ||checkNotasIguales(alto, i-1, i)
-	    ||checkNotasIguales(alto, i-2, i)
-	    ||checkNotasIguales(alto, i, i+1)
-	    ||checkNotasIguales(alto, i, i+2)
+	    ||checkNotasIguales(alto, i - 1, i)
+	    ||checkNotasIguales(alto, i - 2, i)
+	    // ||checkNotasIguales(alto, i - 3, i) //checkear a apartir de -3 se cuelga con buclesAtrasCuelgue=4
+	    ||checkNotasIguales(alto, i, i + 1)
+	    ||checkNotasIguales(alto, i, i + 2)
+	    ||checkNotasIguales(alto, i, i + 3)
 	   //  ||getIndexBetween(alto[i - 1]) == getIndexBetween(alto[i])
 	   //  ||getIndexBetween(alto[i]) == getIndexBetween(alto[i + 1]) 
 	    // //q no haya seguidas grupos de dos iguales
