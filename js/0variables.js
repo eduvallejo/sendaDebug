@@ -38,7 +38,6 @@ var msPerBeat = 1500;
 
 
 function randomFunction(argument) {
-  // console.log("argument : " + argument);
   return argument[Math.floor((Math.random() 
           * argument.length))];
 }

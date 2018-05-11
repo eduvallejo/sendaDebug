@@ -55,8 +55,9 @@ key = "AbMaj";
 cantus = ["A","E","D","G","B","A"];
 
 // //debug
-// key = "Cmaj";
+key = "Cmaj";
 // cantus = ["C","G", "D", "C",];
+cantus = ["C","G", "B,", "C"]; //VII-I
 
 
 escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
