@@ -2,11 +2,11 @@ var alto = [];
 var divisionPrimeraEspecie = 1;
 var divisionSegundaEspecie = 2;
 var divisionTerceraEspecie = 4;
-var divisionCuartaEspecie = 8;
+var divisionCuartaEspecie = 2;
 var divisionEspecie = divisionPrimeraEspecie;
-var divisionEspecie = divisionSegundaEspecie;
+// var divisionEspecie = divisionSegundaEspecie;
 // var divisionEspecie = divisionTerceraEspecie;
-// var divisionEspecie = divisionCuartaEspecie;
+var divisionEspecie = divisionCuartaEspecie;
 
 var randomIntervalAltoCantus = [];
 
