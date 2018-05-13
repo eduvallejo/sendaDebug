@@ -58,7 +58,8 @@ function oscillatorFunction() {
 
 
 function oscillatorFunctionAlto() {
-	if (contadorOscillatorAlto >= alto.length) {
+	// if (contadorOscillatorAlto >= alto.length) {
+	if (contadorOscillatorAlto >= noteLetter.length) {
 		clearInterval(setIntervalNotasAlto);
 		oscillatorAlto.stop();
 		// console.log("alto : " + alto);
@@ -84,7 +85,8 @@ function oscillatorFunctionAlto() {
 		//Alto
 		oscillatorAlto = context.createOscillator();
 		oscillatorAlto.frequency.value = 
-			getFrequency(alto , contadorOscillatorAlto, 0, key);
+			// getFrequency(alto , contadorOscillatorAlto, 0, key);
+			getFrequency(noteLetter , contadorOscillatorAlto, 0, key);
 		oscillatorAlto.connect(gainNodeAlto);
 		oscillatorAlto.start(0);
 
@@ -111,7 +113,7 @@ function playOscillatorAlto(argument) {
 	// console.log("msPerBeat : " + msPerBeat);
 	contadorOscillatorAlto = 0;
 	contadorAltoTiempos = 0;
-	console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
+	// console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
 	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
 
 	// setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 

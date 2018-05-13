@@ -154,9 +154,22 @@ function crearAlto(argument) {
 		)
 		comprobarCuelgue();
 		//mirar si shay consonantes vecinas en fuertes para poner nota paso
-		if (i%2 == 0 && i > 1 ) {
-			colocarNotasDePasoYbordadura(i);
-		} 
+		//evito notas de paso en la cuarta especie ya que 
+		// hemos de poner consonancias siempre en la 2a blanca y ligarla
+		if (divisionEspecie != divisionCuartaEspecie) {
+			if (i%2 == 0 && i > 1 ) {
+				colocarNotasDePasoYbordadura(i);
+			} 
+		}
+
+		//cuarta Especie
+		if (divisionEspecie == divisionCuartaEspecie) {
+			if (i%2 == 0 && i > 1 ) {
+				// colocarNotasDePasoYbordadura(i);
+				alto[i] = alto[i - 1];
+			} 
+		}
+
 		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
 	}//end for loop
 	
@@ -183,11 +196,17 @@ function crearAlto(argument) {
 		if (i >= alto.length - 1) {
 			escalaDoAlto = escalaDoAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
 		}
-		//Colocar la barra de compases
 		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
-		if (i%divisionEspecie == divisionEspecie - 1 ) {
+
+		//4a especie colocamos ligadura antes de la barra 
+		if (i%divisionEspecie == divisionEspecie - 1 
+				&& i < alto.length-2) {
 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
 			escalaDoAlto += "-"; //ligadura de 4a especie
+		}
+		//Colocar la barra de compases
+		if (i%divisionEspecie == divisionEspecie - 1 ) {
+			// console.log(i + "%" + divisionEspecie + " para | : " + i );
 			escalaDoAlto += "|";
 		} 
 	}

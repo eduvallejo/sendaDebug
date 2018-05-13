@@ -33,10 +33,11 @@ var escalaDo ;
 var buclesAtrasCuelgue = 2;
 
 // var msPerBeat = 1000;
-var msPerBeat = 4000;
+var msPerBeat = 500;
 
-var frecuenciaNota = []; //para evitar el bug de decodeajax 594 q sale frecuencaNota not defined
+//bug relacionado con las ligaduras
 //realmente no uso esta variable ya q la frecuencia la saco del getFrequency
+var frecuenciaNota = []; //para evitar el bug de decodeajax 594 q sale frecuencaNota not defined
 
 function randomFunction(argument) {
   return argument[Math.floor((Math.random() 
