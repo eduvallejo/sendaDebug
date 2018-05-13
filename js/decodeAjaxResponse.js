@@ -580,10 +580,9 @@ function decodeAjaxResponse(song) {
 			// frecuenciaNota.splice([i + 1 - contadorPop], 1);
 		}
 	}
-
+	// console.clear();
 	//expulsar(pop) las notas ligadas
 	var contadorPop = 0;
-	// console.log("tiemposCorrectosAntesPOP : " + tiemposCorrectos);
 	// console.log("noteLetterAntesPopo : " + noteLetter);
 	var tiemposCorrectosLenghtAntesDelPop = tiemposCorrectos.length; //para evitar el bug de las notas ligadas cuando hay muchas
 	for (var i = 0; i <= tiemposCorrectosLenghtAntesDelPop ; i++) {
@@ -717,8 +716,10 @@ function decodeAjaxResponse(song) {
 	// //hacemos un array con la anchura de cada nota para poder hacer scroll horiz
 	// getNotesWidth();
 	// console.log("alto : " + alto);
+	console.clear();
+	// console.log("tiemposCorrectos : " + tiemposCorrectos);
+	// console.log("frecuenciaNota : " + frecuenciaNota);
 }
-// console.log("tiemposCorrectos : " + tiemposCorrectos);
 // var song = 'B/2A/2|"G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2| "G"BB "Em"B/2A/2G/2A/2|"Am"BA "D7"AB/2A/2| "G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2|"G"B/2de/2 "Em"d/2B/2G/2A/2| "D7"BA "G"G:|'; 
 
 function saltarCaracter(pointer) {

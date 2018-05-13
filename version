@@ -74,9 +74,10 @@ el tema del cantusExtendido es una chapuza, sobretodo lo de las negras en el ult
 en contrspiunto a dos ,la cambiata solo se usa si no hay otra foema de salir de un pornlema. en ca,bio en a 3 voces se acepta si una de las voces es uintermedia
 
 
-si se vuelve a bloquear en i - 2 hacer q vaya a i -3
 
 hacer un check melodico q cancele el salto de quinta aumentada o dism 
+sacar los grados , no de la primera nota del cantus(a veces no es la root) si no de la key(hacer una funcion q relacione key con tonica		)
+
 
 permitir intervalo de unisono solo en tiempos debiles, ya q en fuerte da la sensacion de final, ademas debemos abandonar el unisono en direccion opuesta y por grado conjunto a como hemos llegado
 
@@ -87,17 +88,18 @@ o también con un silencio de blanca seguido de una blanca. Es preferible
 empezar un ejercicio en un silencio, ya que este comienzo acentúa la na­
 turaleza de la especie desde el principio
 
-sacar los grados , no de la primera nota del cantus(a veces no es la root) si no de la key(hacer una funcion q relacione key con tonica		)
-
 me he quedado en la bordadura de salzer p13
 
-a ver si funciona tb con 3a especie
 
 hay dos momentos del codigo con crearAlto();mirar cual es innecesario
 
 
 y si al igual q los colores nos transmiten informacion sobre las notas msicales, podria ser q el sonido fuese el mejor metodo de mostrar informacion sobre la musica?
 
-enchufar un escalaDo predefinido al decode(o despues) para hacer debugging sin tener q confiar en q salga una melodia adecuada para ese debug
+p96 del pdf desde el movil
 
-arreglar lo del tipoFinal VII-I, parece q aunq se coloque bien las notas, luego en el vozSoprano se sobreecribe la sensible
+de momento he puesto el simbolo de la ligadura en el abc (-).
+ahora he de mirar de poner una consonancia en la 2a y ultima blanca de cada compas. supongo q habra q quitar las notas de paso? 
+	luego mirar si esa consonancia de la ultima blanca es disonancia o consonancia en el compas siguiente. 
+		1)si es sincopa disonante, bajar por grado conjunto
+		2)y si es sincopa consonante proceder as c en d i e ndo o descendiendo, tanto por grado conjunto como por salto hacia otra consonancia

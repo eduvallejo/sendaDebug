@@ -1,4 +1,4 @@
-var alto = [];
+
 var divisionPrimeraEspecie = 1;
 var divisionSegundaEspecie = 2;
 var divisionTerceraEspecie = 4;
@@ -8,21 +8,17 @@ var divisionEspecie = divisionPrimeraEspecie;
 // var divisionEspecie = divisionTerceraEspecie;
 var divisionEspecie = divisionCuartaEspecie;
 
-var randomIntervalAltoCantus = [];
+var posicionClimaxAlto = posicionClimax + 1;
 
+var alto = [];
+var randomIntervalAltoCantus = [];
 //lo de - (divisionEspecie-1) es porq el cantus , al ser la ultima nota una redonda, tiene menos notas q el cantusExtendido
 for (var i = 0; i < (cantus.length*divisionEspecie - (divisionEspecie-1)); i++) {
 	alto[i] = "0";
 	// console.log("i : " + i);
 	randomIntervalAltoCantus[i] = "0";
 }
-console.log("alto : " + alto);
-var posicionClimaxAlto = posicionClimax + 1;
-
-
-// var intervalosArmonicosAlto = [ octava,quinta,tercera,tercera,tercera, sexta, sexta,sexta, quinta];
-var intervalosArmonicosAlto = [  unisono, quinta, sexta, tercera, octava ];
-
+// console.log("alto : " + alto);
 // cantusExtendido : " + cantusExtendido);
 var cantusExtendido = [];
 var contadorTemp = 0;
@@ -33,13 +29,11 @@ for (var i = 0; i < cantus.length*divisionEspecie; i++) {
 		contadorTemp++;
 	} 
 	// cantusExtendido[i] = cantus[i - contadorTemp];
-
 }
 console.log("altoExtENDIDO : " + alto);
 console.log("cantusEXTEN : " + cantusExtendido);
-//
 
-colocarSensibleYfinal(checkFinalCantus());
+
 
 //FOR DEBUGGING, tb cambiar el cantus en cantus.js y el tipo de especie
 // alto = ["a","f","e","c","d","B","e","d","b","g","a"];//AbMaj 2a especie
@@ -56,6 +50,8 @@ colocarSensibleYfinal(checkFinalCantus());
 // }
 //END DEBUGGING
 
+colocarSensibleYfinal(checkFinalCantus());
+var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 function crearAlto(argument) {
 	// BUGs Evitar q los leaps se cuemten 3uando no se aplican
 	var randomInterval = 1;
@@ -191,6 +187,7 @@ function crearAlto(argument) {
 		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
 		if (i%divisionEspecie == divisionEspecie - 1 ) {
 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
+			escalaDoAlto += "-"; //ligadura de 4a especie
 			escalaDoAlto += "|";
 		} 
 	}
@@ -201,14 +198,15 @@ function crearAlto(argument) {
 	// console.clear();
 	
 	// console.log("escalaDoAlto : " + escalaDoAlto);
+	console.clear();
 	console.log("alto : " + alto);
 	// console.clear();
+	// var entenderSlice = "0123456789";
+	// console.log("entenderSlice : " + entenderSlice);
+	// entenderSlice = entenderSlice.slice(0, -1);
+	// console.log("entenderSlice : " + entenderSlice);
 	decodeAjaxResponse(escalaDoAlto);
-	// console.clear();
-	// console.log("alto : " + alto);
-	for (var i = 0; i < alto.length; i++) {
-		// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
-	}
+	
 }
 
 

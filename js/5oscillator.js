@@ -48,24 +48,6 @@ function oscillatorFunction() {
 		// console.log("context.currentTime : " + context.currentTime);
 		oscillator.start(0);
 
-
-
-		//oscillator soprano//
-		// oscillatorSoprano = context.createOscillator();
-		// oscillatorSoprano.frequency.value = 
-		// 	getFrequency(soprano, contadorOscillator, 0, key);
-		// oscillatorSoprano.connect(gainNode);
-		// oscillatorSoprano.start(0);
-	
-
-		//oscillator bajo//
-		// oscillatorBajo = context.createOscillator();
-		// oscillatorBajo.frequency.value = 
-		// 	getFrequency(bajo, contadorOscillator, 0, key);
-		// oscillatorBajo.connect(gainNode);
-		// oscillatorBajo.start(0);
-
-
 		contadorOscillator++;
 		// contadorOscillatorSoprano++;
 	}
@@ -129,7 +111,7 @@ function playOscillatorAlto(argument) {
 	// console.log("msPerBeat : " + msPerBeat);
 	contadorOscillatorAlto = 0;
 	contadorAltoTiempos = 0;
-	// console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
+	console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
 	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
 
 	// setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
