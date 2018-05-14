@@ -63,19 +63,25 @@
  	<div id="midi"></div>
     </body>
     <script type="text/javascript">
-   		function renderAbcSvg(argument) {
-      var tuneObjectArray;
-      // console.log("escalaDo : " + escalaDo);
-      outputElement = document.getElementById('notation');
-      var tuneObjectArray;
-      var tuneObjectArrayMidi;
 
-      tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
-      tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
+      var tuneObjectArray;
+      //para mostrar la animacion se ha de constrior objeto output
+      var outputElement = document.getElementById('notation');
+      function renderAbcSvg(argument) {
+        var tuneObjectArray;
+        // console.log("escalaDo : " + escalaDo);
+        var tuneObjectArrayMidi;
 
-      pintarNotasRelacionAcorde();
-		    	
-   		}
+        tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
+        // tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
+        pintarNotasRelacionAcorde();
+            
+        outputElement = document.getElementById('notation');
+        // outputElement = document.getElementById('notation');
+        ABCJS.startAnimation(outputElement, tuneObjectArray[0],
+         {showCursor : true, bpm : (msPerBeat / 1000)*60,});
+        // ABCJS.stopAnimation();
+      }
 
     </script>
 </html>

@@ -43,8 +43,8 @@ cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,", "G,"];
 
 
 
-key = "Fmaj";
-cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
+// key = "Fmaj";
+// cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
 // key = "Gmaj";
 // cantus = ["G,", "A,", "C", "B,", "A,", "G,"];
 // key = "Cmaj";
@@ -56,8 +56,8 @@ cantus = ["F,", "G,", "B,", "A,", "G,","F,"];
 
 // //debug
 key = "Cmaj";
-cantus = ["C","F", "D", "C"];
-// cantus = ["C","G", "B,", "C"]; //VII-I
+// cantus = ["C","D","F", "G", "D", "C"];
+cantus = ["C","G", "B,", "C"]; //VII-I
 
 //4a especie
 // key = "Fmaj";

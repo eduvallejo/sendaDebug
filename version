@@ -93,13 +93,30 @@ me he quedado en la bordadura de salzer p13
 
 hay dos momentos del codigo con crearAlto();mirar cual es innecesario
 
+cambiar la duracion de las notas en el oscillator, 
+	gainNodeAlto.gain.setTargetAtTime(0, context.currentTime, 0.15);
+		creo q es el 0.15 lo q se ha de cambiar
 
 y si al igual q los colores nos transmiten informacion sobre las notas msicales, podria ser q el sonido fuese el mejor metodo de mostrar informacion sobre la musica?
 
-p96 del pdf desde el movil
+mostrar en la partitura si el intervalo es mayor o menor, aumentado etc...
 
 de momento he puesto el simbolo de la ligadura en el abc (-).
 ahora he de mirar de poner una consonancia en la 2a y ultima blanca de cada compas. supongo q habra q quitar las notas de paso? 
 	luego mirar si esa consonancia de la ultima blanca es disonancia o consonancia en el compas siguiente. 
 		1)si es sincopa disonante, bajar por grado conjunto
-		2)y si es sincopa consonante proceder as c en d i e ndo o descendiendo, tanto por grado conjunto como por salto hacia otra consonancia
+		2)y si es sincopa consonante proceder as c en d i e ndo o descendiendo, tanto por grado conjunto como por salto hacia otra consonancia (esto es lo mismo de siempre, no hay q cambiar nada)
+
+solo he de programar la sincopa disdonante, q baje por conjunto. pero q pasa si e lgrado conjunto no es consonante?
+	la 7a baja a la 6a
+	la 4a a la 3a
+	y la 2a a la 1a? unisono?
+		Pero no todas las resoluciones s i g u e n este razonamiento. ¿Por q u é las
+		resoluciones 9-10 y 2-3 en e l contrapunto superior, y 4-3 y 7-6 en e l infe­rio se c ons i deran validas aunq prohibidas en severo (ejem. 63).
+	En el 6-5, por otro lado, el ligero acento recae s o bre las quin­
+		tas; esta sincopación deberá utilizarse con precaución (ejem. 64b)
+
+ponerme a hacer las disionantes
+	q bajen por grado conjunto menos en las 9as, ( q suben a 3a) en el superior
+	tb mirar el bug q se hace si la disonancia es en el penultimo compas, ya q esa disionancia no podra bajar ya q tendra q ir a la sensible 
+

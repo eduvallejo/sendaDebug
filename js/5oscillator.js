@@ -21,7 +21,6 @@ function oscillatorFunction() {
 		oscillator.stop();
 		// oscillatorSoprano.stop();
 		// oscillatorAlto.stop();
-
 		playOscillator();
 	}else{
 		if (oscillator) {
@@ -31,7 +30,7 @@ function oscillatorFunction() {
 		}
 		gainNode = context.createGain();
 		gainNode.gain.value = 1;
-		gainNode.gain.setTargetAtTime(0, context.currentTime, 0.25);
+		gainNode.gain.setTargetAtTime(setTarget, context.currentTime, 0.25);
 		gainNode.connect(compressor);
 		compressor.threshold.setValueAtTime(-50, context.currentTime);
 		compressor.connect(context.destination);
@@ -58,8 +57,8 @@ function oscillatorFunction() {
 
 
 function oscillatorFunctionAlto() {
-	// if (contadorOscillatorAlto >= alto.length) {
-	if (contadorOscillatorAlto >= noteLetter.length) {
+	// if (contadorOscillatorAlto >= alto.length) { //previo a ligaduras
+	if (contadorOscillatorAlto >= noteLetter.length) { //a partir de ligaduras
 		clearInterval(setIntervalNotasAlto);
 		oscillatorAlto.stop();
 		// console.log("alto : " + alto);
@@ -77,7 +76,7 @@ function oscillatorFunctionAlto() {
 		}
 		gainNodeAlto = context.createGain();
 		gainNodeAlto.gain.value = 1;
-		gainNodeAlto.gain.setTargetAtTime(0, context.currentTime, 0.15);
+		gainNodeAlto.gain.setTargetAtTime(setTarget, context.currentTime, 0.15);
 		gainNodeAlto.connect(compressor);
 		compressor.threshold.setValueAtTime(-50, context.currentTime);
 		compressor.connect(context.destination);
