@@ -20,7 +20,7 @@ function checkingsWhile(i){
 	   // //  ||checkForbiddenMelodicInterval(alto[i], alto[i+1], i) //hacer i-3
 	   // //  //q no hayas dos notas iguales
 	    ||checkNotasIguales(alto, i - 1, i)
-	    ||checkNotasIguales(alto, i - 2, i)
+	    // ||checkNotasIguales(alto, i - 2, i)
 	   //  // ||checkNotasIguales(alto, i - 3, i) //checkear a apartir de -3 se cuelga con buclesAtrasCuelgue=4
 	    ||checkNotasIguales(alto, i, i + 1)
 	   //  ||checkNotasIguales(alto, i, i + 2)

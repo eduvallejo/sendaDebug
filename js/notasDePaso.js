@@ -23,7 +23,8 @@ function colocarNotasDePasoYbordadura(i) {
 			// console.log("alto[i - 2] : " + alto[i - 2]);
 			// console.log("alto[i] : " + alto[i]);
 		alto[i - 1] = 
-			notasMusicales[notasMusicales.indexOf(alto[i - 2]) + 1];
+			// notasMusicales[notasMusicales.indexOf(alto[i - 2]) + segunda];
+			notasMusicales[notasMusicales.indexOf(alto[i - 2]) + intervaloBordadura];
 		// console.log("getIndexBetween(alto[i-2], alto[i]) : " + getIndexBetween(alto[i-2], alto[i]));
 		console.log("bordadura en:" + i);
 	} 

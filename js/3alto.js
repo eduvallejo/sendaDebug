@@ -4,9 +4,9 @@ var divisionSegundaEspecie = 2;
 var divisionTerceraEspecie = 4;
 var divisionCuartaEspecie = 2;
 var divisionEspecie = divisionPrimeraEspecie;
-// var divisionEspecie = divisionSegundaEspecie;
-// var divisionEspecie = divisionTerceraEspecie;
-var divisionEspecie = divisionCuartaEspecie;
+var divisionEspecie = divisionSegundaEspecie;
+var divisionEspecie = divisionTerceraEspecie;
+// var divisionEspecie = divisionCuartaEspecie;
 
 var posicionClimaxAlto = posicionClimax + 1;
 
@@ -177,9 +177,9 @@ function crearAlto(argument) {
 				// se mira la sincopa anterior si es disonante y q tipo  para ver si hemos de salir por grado conjunto abajo
 				if (disonanciassincopaAbajo.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
 					) {
-					console.log("alto[" + i + "] : " + alto[i]);
+					// console.log("alto[" + i + "] : " + alto[i]);
 					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segundaAbajo)	
-					console.log("alto[" + i + "] : " + alto[i]);
+					// console.log("alto[" + i + "] : " + alto[i]);
 				}
 			}
 			var disonanciasSincopaArriba = [segunda, novena];
@@ -223,7 +223,7 @@ function crearAlto(argument) {
 
 		//4a especie colocamos ligadura antes de la barra 
 		if (i%divisionEspecie == divisionEspecie - 1 
-				&& i < alto.length-2) {
+				&& i < alto.length-2 && divisionEspecie == divisionCuartaEspecie) {
 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
 			escalaDoAlto += "-"; //ligadura de 4a especie
 		}

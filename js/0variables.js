@@ -37,6 +37,8 @@ var msPerBeat = 2000;
 //oscillator, 0 siginifca q el obetivo es el silencio
 var setTarget = 0.1;
 
+var intervaloBordadura = segundaAbajo;
+
 //bug relacionado con las ligaduras
 //realmente no uso esta variable ya q la frecuencia la saco del getFrequency
 var frecuenciaNota = []; //para evitar el bug de decodeajax 594 q sale frecuencaNota not defined

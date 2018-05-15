@@ -38,6 +38,7 @@ cantus = ["C","F", "G", "F", "D", "G" ,"C"];
 
 //hearing salzer
 //ej30
+//pieza musescore
 key = "Bbmaj";
 cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,", "G,"];
 

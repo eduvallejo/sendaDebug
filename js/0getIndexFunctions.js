@@ -94,7 +94,7 @@ function mostrarNombreIntervalo(argument){
         	break;
         //cruze de voces
         case -1:
-        return  "7ª";
+        return  "-2ª";
             break;
     	default:
     		// to do
