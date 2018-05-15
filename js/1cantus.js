@@ -55,9 +55,9 @@ cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,", "G,"];
 // cantus = ["A","E","D","G","B","A"];
 
 // //debug
-key = "Cmaj";
+// key = "Cmaj";
 // cantus = ["C","D","F", "G", "D", "C"];
-cantus = ["C","G", "B,", "C"]; //VII-I
+// cantus = ["C","G", "B,", "C"]; //VII-I
 
 //4a especie
 // key = "Fmaj";

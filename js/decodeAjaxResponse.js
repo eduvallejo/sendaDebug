@@ -716,11 +716,11 @@ function decodeAjaxResponse(song) {
 	// //hacemos un array con la anchura de cada nota para poder hacer scroll horiz
 	// getNotesWidth();
 	// console.log("alto : " + alto);
-	console.clear();
-	console.log("alto : " + alto);
-	console.log("tiemposCorrectos : " + tiemposCorrectos);
+	// console.clear();
+	// console.log("alto : " + alto);
 	console.log("noteLetter : " + noteLetter);
-	console.log("cantus : " + cantus);
+	console.log("tiemposCorrectos : " + tiemposCorrectos);
+	// console.log("cantus : " + cantus);
 	// console.log("frecuenciaNota : " + frecuenciaNota);
 }
 // var song = 'B/2A/2|"G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2| "G"BB "Em"B/2A/2G/2A/2|"Am"BA "D7"AB/2A/2| "G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2|"G"B/2de/2 "Em"d/2B/2G/2A/2| "D7"BA "G"G:|'; 

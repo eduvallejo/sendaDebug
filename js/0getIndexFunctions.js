@@ -31,51 +31,71 @@ function getIndexBetween(argumentPre, argumentPost, iPosAnt, iPosPost) {
 
 }
 
+//obtener intervalo de dos notas
+function getIntervaloArmonico(argumentPre, argumentPost, iPosAnt, iPosPost) {
+  // console.log("IGUALES Index("+iPosAnt+ ":)(" + argumentPost + ") - Index("+iPosPost+":)(" + argumentPre + ") : "  
+    // + (notasMusicales.indexOf(argumentPost) - notasMusicales.indexOf(argumentPre)));
+  return (notasMusicales.indexOf(argumentPost) - notasMusicales.indexOf(argumentPre));
 
-//get intervalo ()
-function getInterval(argument1, argument2) {
-  return ((((notasMusicales.indexOf(soprano[i + 1])+1)) - ((notasMusicales.indexOf(cantus[i + 1]))+1) + 1));
 }
 
+//cambiar nota en funcion de intervalo
+function cambiarNotaConIntervalo(nota, intervalo){
+    // console.log("notaAntes : " + nota);
+    nota = notasMusicales[getIndexOf(nota) + intervalo];   
+    return nota;
+    // console.log("notaAntes : " + nota);
+}
+
+
+//get intervalo ()
+// function getInterval(argument1, argument2) {
+//   return ((((notasMusicales.indexOf(soprano[i + 1])+1)) - ((notasMusicales.indexOf(cantus[i + 1]))+1) + 1));
+// }
+
 function mostrarNombreIntervalo(argument){
+    // console.log("argument : " + argument);
     switch (argument) {
     	case 0:
-    	return 	"1a";
+    	return 	"1ª";
     		break;
     	case 1:
-    	return 	"2a";
+    	return 	"2ª";
     		break;
     	case 2:
-    	return 	"3a";
+    	return 	"3ª";
     		break;
     	case 3:
-    	return 	"4a";
+    	return 	"4ª";
     		break;
     	case 4:
-    	return 	"5a";
+    	return 	"5ª";
     		break;
     	case 5:
-    	return 	"6a";
+    	return 	"6ª";
     		break;
     	case 6:
-    	return 	"7a";
+    	return 	"7ª";
     		break;
     	case 7:
-    	return 	"8a";
+    	return 	"8ª";
     		break;
         case 8:
-        return 	"9a";
+        return 	"9ª";
         	break;
         case 9:
-        	return "10a";
+        	return "10ª";
         	break;
         case 10:
-        	return "11a";
+        	return "11ª";
         	break;
         case 11:
-        	return "12a";
+        	return "12ª";
         	break;
-        
+        //cruze de voces
+        case -1:
+        return  "7ª";
+            break;
     	default:
     		// to do
     }

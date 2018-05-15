@@ -57,7 +57,7 @@ function crearAlto(argument) {
 	var randomInterval = 1;
 	// for (var i = 1; i < posicionClimaxAlto; i++) {
 	for (var i = 0; i < (alto.length - 2); i++) {//las dos ultimas estan predefinidas
-	intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
+		intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
 		breakInfiniteLoops = 0;
 		var primerIntentoNotaDePaso = true ;
 		do{
@@ -164,16 +164,38 @@ function crearAlto(argument) {
 
 		//cuarta Especie
 		if (divisionEspecie == divisionCuartaEspecie) {
-			if (i%2 == 0 && i > 1 ) {
-				// colocarNotasDePasoYbordadura(i);
+			// sincopamos la segunda blanca con la 1a del siguiente compas 
+			if (i % 2 == 0 && i > 1 ) {
 				alto[i] = alto[i - 1];
-			} 
+				// console.log("getIntervaloArmonico(cantusExtendido[" + (i) + "], alto[" + (i) + "] )) : " 
+				// 	+ mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], alto[ i])));
+			}
+			// console.log("alto[" + i + "] : " + alto[i]);
+			//restringir como salen las sincopas disonantes
+			var disonanciassincopaAbajo = [cuarta, septima, onceava, ];
+			if (i % 2 == 1 && i > 1 ) {
+				// se mira la sincopa anterior si es disonante y q tipo  para ver si hemos de salir por grado conjunto abajo
+				if (disonanciassincopaAbajo.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
+					) {
+					console.log("alto[" + i + "] : " + alto[i]);
+					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segundaAbajo)	
+					console.log("alto[" + i + "] : " + alto[i]);
+				}
+			}
+			var disonanciasSincopaArriba = [segunda, novena];
+			if (i % 2 == 1 && i > 1 ) {
+				// console.log("i : " + i);
+				if (disonanciasSincopaArriba.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
+					) {
+					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segunda)	
+				}
+			}
 		}
 
 		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
 	}//end for loop
-	
-	console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
+
+	// console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
 
 	var escalaDoAlto;
 	// console.log("alto : " + alto);
@@ -186,10 +208,11 @@ function crearAlto(argument) {
 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
 		escalaDoAlto += 
 		 	'"' 
-		 		+(((notasMusicales.indexOf(alto[i]))
-					- (notasMusicales.indexOf(cantusExtendido[i])))+1) 
+		 		// +(((notasMusicales.indexOf(alto[i]))
+					// - (notasMusicales.indexOf(cantusExtendido[i])))+1) 
 			// +'ª (' + mostrarGradosVoz(alto, i)+ ') "'
-			+'ª"'
+			+ mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], alto[i])) + '"'
+			// +'ª"'
 				+ alto[i] + "/" + divisionEspecie//ya q estamos en segunda Especie
 		;
 
@@ -217,7 +240,7 @@ function crearAlto(argument) {
 	// console.clear();
 	
 	// console.log("escalaDoAlto : " + escalaDoAlto);
-	console.clear();
+	// console.clear();
 	console.log("alto : " + alto);
 	// console.clear();
 	// var entenderSlice = "0123456789";
