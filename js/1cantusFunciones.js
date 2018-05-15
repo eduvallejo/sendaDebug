@@ -4,7 +4,9 @@ function mostrarGradosCantus(iPos){
     // 		- getIndexOf(cantus[0])));
     // }
 
-    var grado = (getIndexOf(cantus[iPos]) - getIndexOf(cantus[0]));
+    // var grado = (getIndexOf(cantus[iPos]) - getIndexOf(cantus[0]));
+    var grado = (getIndexOf(cantus[iPos]) - getIndexOf(key[0]));
+
     // console.log("grado : " + grado);
     switch (grado) {
     	case unisono:
@@ -68,7 +70,9 @@ function mostrarGradosVoz(voz, iPos){
     //      - getIndexOf(cantus[0])));
     // }
 
-    var grado = (getIndexOf(voz[iPos]) - getIndexOf(cantus[0]));
+    // var grado = (getIndexOf(voz[iPos]) - getIndexOf(cantus[0]));
+    var grado = (getIndexOf(voz[iPos]) - getIndexOf(key[0]));
+    // console.log("key[0] : " + key[0]);
     // console.log("grado : " + grado);
     switch (grado) {
         case unisono:

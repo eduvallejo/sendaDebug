@@ -162,6 +162,20 @@ function getFrequency(voz, posicionNota, cantidadAlteracion, key) {
 
       // console.log("DESPUES---indiceNota['A'] : " + indiceNota['A']);
       break;    
+    case "Bbmaj":
+      // console.log("ANTES---indiceNota['A'] : " + indiceNota['A']);
+      indiceNota["B,,"]--;
+      indiceNota["B,"]--;
+      indiceNota["B"]--;
+      indiceNota["b"]--;
+      indiceNota["b'"]--;
+      indiceNota["E,,"]--;
+      indiceNota["E,"]--;
+      indiceNota["E"]--;
+      indiceNota["e"]--;
+      indiceNota["e'"]--;
+      // console.log("DESPUES---indiceNota['A'] : " + indiceNota['A']);
+      break;    
     case "Abmaj":
       // console.log("ANTES---indiceNota['A'] : " + indiceNota['A']);
       indiceNota["B,,"]--;
