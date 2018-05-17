@@ -127,34 +127,40 @@ function crearBajo(argument) {
 		} 
 		// console.log("getIndexBetween(bajo[" + (i - 1) + "], bajo[" + i +"])" + getIndexBetween(bajo[i - 1], bajo[i]));		 
 	}//end for loop
-	
 	// console.log("bajo : " + bajo);
 	// console.clear();
 	// console.log("cantus : " + cantus);
 	// console.log("bajo : " + bajo);
 	
 	// escalaDo += "\nV:2 clef=alto4\n"
+
+	
 	escalaDo += "\nV:2 clef=" + clefTenor +"\n"
-	// escalaDo += "\nV:2 clef=alto3\n"
-	// escalaDo += "\nV:2 clef=treble\n"
 	for (var i = 0; i < cantus.length; i++) {
-		escalaDo += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+		// escalaDo += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+		escalaDo += '"['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+		// console.log(i + " % 4 : " + i%4);
+		if (i % 4 == 3 && i > 1) {
+			// console.log("i : " + i);
+			escalaDo += '\n';
+		}
 	}
 	
-	escalaDo += "\nV:3 clef=" + clefBass +"\n" ;
-	// escalaDo += "\nV:3 clef=alto4\n" ;
-	for (var i = 0; i < bajo.length; i++) {
-		// escalaDo = escalaDo 
-		//  		+ '"' 
-		//  			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
-		//  			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
-		//  				+'ª"'
-		// 	+ bajo[i] + "/"
-		// 	;
-		escalaDo += "";
-	}
+	decodeAjaxResponse(escalaDo, "tenor");
+	
+	// escalaDo += "\nV:3 clef=" + clefBass +"\n" ;
+	// // escalaDo += "\nV:3 clef=alto4\n" ;
+	// for (var i = 0; i < bajo.length; i++) {
+	// 	// escalaDo = escalaDo 
+	// 	//  		+ '"' 
+	// 	//  			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
+	// 	//  			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
+	// 	//  				+'ª"'
+	// 	// 	+ bajo[i] + "/"
+	// 	// 	;
+	// 	escalaDo += "";
+	// }
 
-	// console.log("escalaDo : " + escalaDo);
 	// console.log("randomIntervalBajoCantus : " 
 		// + randomIntervalBajoCantus);
 	// crearSoprano();
@@ -163,7 +169,10 @@ function crearBajo(argument) {
 }
 
 var colgado = false;
-
+var noteLetterTenor = ["notas", "tiempos"];
+noteLetterTenor["notas"] = [];
+noteLetterTenor["tiempos"] = [];
+noteLetterTenor["intervaloConAlto"] = [];
 function pararCuelgue(argument) {
 	alert("pararCuelgue : ");
 	window.location.reload();

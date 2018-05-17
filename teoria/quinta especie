@@ -19,4 +19,8 @@ través del flujo real de la melodía o forman peque ño s embelle cimi entos.
 
 aqui hemos de crear una funcion q introduzca negras y corcheas pra complementar las blancas
 
-hacer q los colores de las notas sean en funcion del modo jonico
+
+el uso del mismo embellecimiento en
+un compás después de otro resulta monótono,
+
+hacer un programa q muestre el ritmo y tengas q apretar una tecla para marcar ese mismo ritmo, como el sightreading pero sin melodias. ritmos arbitrarios

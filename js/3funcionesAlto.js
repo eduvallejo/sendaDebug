@@ -46,7 +46,7 @@ function checkingsWhile(i){
 var intervaloAltoFin = [ octava];
 function colocarSensibleYfinal(tipoFinalCantus) {
 	if (tipoFinalCantus == "II-I") {
-		console.log("colocarsensibleyfinal : " + tipoFinalCantus);
+		// console.log("colocarsensibleyfinal : " + tipoFinalCantus);
 	
 		alto[alto.length - 2] = //la sensible 
 			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + septima];
@@ -54,14 +54,14 @@ function colocarSensibleYfinal(tipoFinalCantus) {
 			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
 
 	} else if(tipoFinalCantus == "VII-I"){
-		console.log("colocarsensibleyfinal : " + tipoFinalCantus);
-		console.log("alto.length : " + alto.length);
-		console.log("cantusExtendido.length : " + cantusExtendido.length);
+		// console.log("colocarsensibleyfinal : " + tipoFinalCantus);
+		// console.log("alto.length : " + alto.length);
+		// console.log("cantusExtendido.length : " + cantusExtendido.length);
 		alto[alto.length - 2] = 
 			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + novena];
 		alto[alto.length - 1] = 
 			notasMusicales[notasMusicales.indexOf(cantus[cantus.length - 1]) + randomFunction(intervaloAltoFin)];
-			console.log("ColocaDoalto : " + alto);	
+			// console.log("ColocaDoalto : " + alto);	
 	}
 	// console.log("COLOCARalto : " + alto);
 }

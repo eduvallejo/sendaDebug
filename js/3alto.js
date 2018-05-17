@@ -52,204 +52,205 @@ console.log("cantusEXTEN : " + cantusExtendido);
 
 colocarSensibleYfinal(checkFinalCantus());
 var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
-function crearAlto(argument) {
-	// BUGs Evitar q los leaps se cuemten 3uando no se aplican
-	var randomInterval = 1;
-	// for (var i = 1; i < posicionClimaxAlto; i++) {
-	for (var i = 0; i < (alto.length - 2); i++) {//las dos ultimas estan predefinidas
-		intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
-		breakInfiniteLoops = 0;
-		var primerIntentoNotaDePaso = true ;
-		do{
-		if (i == 0) {
-			// var intervaloAltoCero = [ quinta, octava];
-			// alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
-			intervalosArmonicosAlto = [ quinta, octava];
-			alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervalosArmonicosAlto)];
-		}
-			breakInfiniteLoops++;
-			if (breakInfiniteLoops>40) {
-				colgado == true;
-				// console.log("colgado en  : " + i );
-				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
-					console.log("BREAK i: " + i);
-					// i = 1; //tirar para atras si no hay una solucion buena
-					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
-					break;
-				} 
-				console.log("BREAK i-2: " + i);
-				break;
-			}
-			randomInterval = randomFunction(intervalosArmonicosAlto) ;
-				// console.log("randomInterval : " + randomInterval);		
+
+// function crearAlto(argument) {
+// 	// BUGs Evitar q los leaps se cuemten 3uando no se aplican
+// 	var randomInterval = 1;
+// 	// for (var i = 1; i < posicionClimaxAlto; i++) {
+// 	for (var i = 0; i < (alto.length - 2); i++) {//las dos ultimas estan predefinidas
+// 		intervalosArmonicosAlto = [  quinta, sexta, tercera, octava];
+// 		breakInfiniteLoops = 0;
+// 		var primerIntentoNotaDePaso = true ;
+// 		do{
+// 		if (i == 0) {
+// 			// var intervaloAltoCero = [ quinta, octava];
+// 			// alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervaloAltoCero)];
+// 			intervalosArmonicosAlto = [ quinta, octava];
+// 			alto[0] = notasMusicales[notasMusicales.indexOf(cantus[0]) + randomFunction(intervalosArmonicosAlto)];
+// 		}
+// 			breakInfiniteLoops++;
+// 			if (breakInfiniteLoops>40) {
+// 				colgado == true;
+// 				// console.log("colgado en  : " + i );
+// 				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
+// 					console.log("BREAK i: " + i);
+// 					// i = 1; //tirar para atras si no hay una solucion buena
+// 					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
+// 					break;
+// 				} 
+// 				console.log("BREAK i-2: " + i);
+// 				break;
+// 			}
+// 			randomInterval = randomFunction(intervalosArmonicosAlto) ;
+// 				// console.log("randomInterval : " + randomInterval);		
 	
-			alto[i] = notasMusicales[notasMusicales.indexOf(cantusExtendido[i]) + 
-				randomInterval ];	
-			randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
-				// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
-				- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+// 			alto[i] = notasMusicales[notasMusicales.indexOf(cantusExtendido[i]) + 
+// 				randomInterval ];	
+// 			randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+// 				// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+// 				- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
 
-			//intentar poner consonancias vecinas para favorecer notas de paso
-			if (i % divisionEspecie == 0 && i > 1 && primerIntentoNotaDePaso == true) {
-				// console.log("i Consonancias: " + i);
-				for (var j = 0; j < intervalosArmonicosAlto.length -1; j++) {// lo de -1 es porq no me gusta la 8va como segunda nota de pasoS
-					if ((Math.abs(getIndexBetween(alto[i - 2]
-						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
-						, i))) == tercera) 
-					{
-						// console.log("(Math: "+ (Math.abs(getIndexBetween(alto[i - 2]
-						// ,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
-						// , i))));
+// 			//intentar poner consonancias vecinas para favorecer notas de paso
+// 			if (i % divisionEspecie == 0 && i > 1 && primerIntentoNotaDePaso == true) {
+// 				// console.log("i Consonancias: " + i);
+// 				for (var j = 0; j < intervalosArmonicosAlto.length -1; j++) {// lo de -1 es porq no me gusta la 8va como segunda nota de pasoS
+// 					if ((Math.abs(getIndexBetween(alto[i - 2]
+// 						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+// 						, i))) == tercera) 
+// 					{
+// 						// console.log("(Math: "+ (Math.abs(getIndexBetween(alto[i - 2]
+// 						// ,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+// 						// , i))));
 
-						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
-						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
-							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
-							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
-						// console.log("alto[i-2] : " + alto[i-2]);
-						// console.log("alto[" + i +"] : " + alto[i]);
-						// console.log("nota de paso " + alto[i-1] + " en [" + (i-1) + "]");
-						primerIntentoNotaDePaso = false;
-					}
-				}
-			}
-			//notas vecinas2a si no hay de paso
-			if (primerIntentoNotaDePaso == true) {
-				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
-					if ((Math.abs(getIndexBetween(alto[i - 1]
-						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
-						, i))) == segunda) 
-					{
-						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
-						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
-							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
-							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
-						// console.log("nota Vecina 2a  " + alto[i] + " en [" + i + "] con intervalo de " + mostrarNombreIntervalo(intervalosArmonicosAlto[j]));
-						primerIntentoNotaDePaso  = false;
-					}	
-				}
-			}
-			//notas a tercera si no hay vecinas
-			if (primerIntentoNotaDePaso == true) {
-				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
-					if ((Math.abs(getIndexBetween(alto[i - 1]
-						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
-						, i))) == tercera) 
-					{
-						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
-						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
-							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
-							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
-						// console.log("nota de 3a en [" + i + "]");
-						primerIntentoNotaDePaso  = false;
-					}	
-				}
-			}
-			primerIntentoNotaDePaso  = false;
+// 						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
+// 						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+// 							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+// 							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+// 						// console.log("alto[i-2] : " + alto[i-2]);
+// 						// console.log("alto[" + i +"] : " + alto[i]);
+// 						// console.log("nota de paso " + alto[i-1] + " en [" + (i-1) + "]");
+// 						primerIntentoNotaDePaso = false;
+// 					}
+// 				}
+// 			}
+// 			//notas vecinas2a si no hay de paso
+// 			if (primerIntentoNotaDePaso == true) {
+// 				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
+// 					if ((Math.abs(getIndexBetween(alto[i - 1]
+// 						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+// 						, i))) == segunda) 
+// 					{
+// 						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
+// 						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+// 							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+// 							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+// 						// console.log("nota Vecina 2a  " + alto[i] + " en [" + i + "] con intervalo de " + mostrarNombreIntervalo(intervalosArmonicosAlto[j]));
+// 						primerIntentoNotaDePaso  = false;
+// 					}	
+// 				}
+// 			}
+// 			//notas a tercera si no hay vecinas
+// 			if (primerIntentoNotaDePaso == true) {
+// 				for (var j = 0; j < intervalosArmonicosAlto.length; j++) {
+// 					if ((Math.abs(getIndexBetween(alto[i - 1]
+// 						,notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]]
+// 						, i))) == tercera) 
+// 					{
+// 						alto[i] = notasMusicales[getIndexOf(cantusExtendido[i]) + intervalosArmonicosAlto[j]];	
+// 						randomIntervalAltoCantus[i] = ((notasMusicales.indexOf(alto[i]))
+// 							// - ((notasMusicales.indexOf(cantusExtendido[i])))) + 1;
+// 							- ((notasMusicales.indexOf(cantusExtendido[i])))) ;
+// 						// console.log("nota de 3a en [" + i + "]");
+// 						primerIntentoNotaDePaso  = false;
+// 					}	
+// 				}
+// 			}
+// 			primerIntentoNotaDePaso  = false;
 			
-			// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
-		//aqui se ponen las reglas del alto 
-		// console.log("i : " + i);
-		}while(//he comentado algunos para poder debugear sin q se cuelgue
-			checkingsWhile(i) == true
-		)
-		comprobarCuelgue();
-		//mirar si shay consonantes vecinas en fuertes para poner nota paso
-		//evito notas de paso en la cuarta especie ya que 
-		// hemos de poner consonancias siempre en la 2a blanca y ligarla
-		if (divisionEspecie != divisionCuartaEspecie) {
-			if (i%2 == 0 && i > 1 ) {
-				colocarNotasDePasoYbordadura(i);
-			} 
-		}
+// 			// console.log("getIndexOf(alto[" + i + "]) : " + getIndexOf(alto[i]));
+// 		//aqui se ponen las reglas del alto 
+// 		// console.log("i : " + i);
+// 		}while(//he comentado algunos para poder debugear sin q se cuelgue
+// 			checkingsWhile(i) == true
+// 		)
+// 		comprobarCuelgue();
+// 		//mirar si shay consonantes vecinas en fuertes para poner nota paso
+// 		//evito notas de paso en la cuarta especie ya que 
+// 		// hemos de poner consonancias siempre en la 2a blanca y ligarla
+// 		if (divisionEspecie != divisionCuartaEspecie) {
+// 			if (i%2 == 0 && i > 1 ) {
+// 				colocarNotasDePasoYbordadura(i);
+// 			} 
+// 		}
 
-		//cuarta Especie
-		if (divisionEspecie == divisionCuartaEspecie) {
-			// sincopamos la segunda blanca con la 1a del siguiente compas 
-			if (i % 2 == 0 && i > 1 ) {
-				alto[i] = alto[i - 1];
-				// console.log("getIntervaloArmonico(cantusExtendido[" + (i) + "], alto[" + (i) + "] )) : " 
-				// 	+ mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], alto[ i])));
-			}
-			// console.log("alto[" + i + "] : " + alto[i]);
-			//restringir como salen las sincopas disonantes
-			var disonanciassincopaAbajo = [cuarta, septima, onceava, ];
-			if (i % 2 == 1 && i > 1 ) {
-				// se mira la sincopa anterior si es disonante y q tipo  para ver si hemos de salir por grado conjunto abajo
-				if (disonanciassincopaAbajo.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
-					) {
-					// console.log("alto[" + i + "] : " + alto[i]);
-					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segundaAbajo)	
-					// console.log("alto[" + i + "] : " + alto[i]);
-				}
-			}
-			var disonanciasSincopaArriba = [segunda, novena];
-			if (i % 2 == 1 && i > 1 ) {
-				// console.log("i : " + i);
-				if (disonanciasSincopaArriba.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
-					) {
-					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segunda)	
-				}
-			}
-		}
+// 		//cuarta Especie
+// 		if (divisionEspecie == divisionCuartaEspecie) {
+// 			// sincopamos la segunda blanca con la 1a del siguiente compas 
+// 			if (i % 2 == 0 && i > 1 ) {
+// 				alto[i] = alto[i - 1];
+// 				// console.log("getIntervaloArmonico(cantusExtendido[" + (i) + "], alto[" + (i) + "] )) : " 
+// 				// 	+ mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], alto[ i])));
+// 			}
+// 			// console.log("alto[" + i + "] : " + alto[i]);
+// 			//restringir como salen las sincopas disonantes
+// 			var disonanciassincopaAbajo = [cuarta, septima, onceava, ];
+// 			if (i % 2 == 1 && i > 1 ) {
+// 				// se mira la sincopa anterior si es disonante y q tipo  para ver si hemos de salir por grado conjunto abajo
+// 				if (disonanciassincopaAbajo.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
+// 					) {
+// 					// console.log("alto[" + i + "] : " + alto[i]);
+// 					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segundaAbajo)	
+// 					// console.log("alto[" + i + "] : " + alto[i]);
+// 				}
+// 			}
+// 			var disonanciasSincopaArriba = [segunda, novena];
+// 			if (i % 2 == 1 && i > 1 ) {
+// 				// console.log("i : " + i);
+// 				if (disonanciasSincopaArriba.includes(getIntervaloArmonico(cantusExtendido[i - 1], alto[ i - 1]))
+// 					) {
+// 					alto[i] = cambiarNotaConIntervalo(alto[i - 1], segunda)	
+// 				}
+// 			}
+// 		}
 
-		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
-	}//end for loop
+// 		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
+// 	}//end for loop
 
-	// console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
+// 	// console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
 
-	var escalaDoAlto;
-	// console.log("alto : " + alto);
-	escalaDoAlto = "V:1 clef=" + clefAlto + "\n";
-	// escalaDoAlto = "V:1\n";
-	// escalaDo += "\nV:2 clef=treble\n"
-	//aqui solo se suma el alto al header de escalaDo
-	for (var i = 0; i < alto.length; i++) {
-		// escalaDo = escalaDo + alto[i] + ' "' + (((notasMusicales.indexOf(alto[i + 1]) % 7 + 8 )) -
-		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
-		escalaDoAlto += 
-		 	'"' 
-		 		// +(((notasMusicales.indexOf(alto[i]))
-					// - (notasMusicales.indexOf(cantusExtendido[i])))+1) 
-			// +'ª (' + mostrarGradosVoz(alto, i)+ ') "'
-			+ mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], alto[i])) + '"'
-			// +'ª"'
-				+ alto[i] + "/" + divisionEspecie//ya q estamos en segunda Especie
-		;
+// 	var escalaDoAlto;
+// 	// console.log("alto : " + alto);
+// 	escalaDoAlto = "V:1 clef=" + clefAlto + "\n";
+// 	// escalaDoAlto = "V:1\n";
+// 	// escalaDo += "\nV:2 clef=treble\n"
+// 	//aqui solo se suma el alto al header de escalaDo
+// 	for (var i = 0; i < alto.length; i++) {
+// 		// escalaDo = escalaDo + alto[i] + ' "' + (((notasMusicales.indexOf(alto[i + 1]) % 7 + 8 )) -
+// 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
+// 		escalaDoAlto += 
+// 		 	'"' 
+// 		 		// +(((notasMusicales.indexOf(alto[i]))
+// 					// - (notasMusicales.indexOf(cantusExtendido[i])))+1) 
+// 			// +'ª (' + mostrarGradosVoz(alto, i)+ ') "'
+// 			+ mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], alto[i])) + '"'
+// 			// +'ª"'
+// 				+ alto[i] + "/" + divisionEspecie//ya q estamos en segunda Especie
+// 		;
 
-		if (i >= alto.length - 1) {
-			escalaDoAlto = escalaDoAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
-		}
-		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
+// 		if (i >= alto.length - 1) {
+// 			escalaDoAlto = escalaDoAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
+// 		}
+// 		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
 
-		//4a especie colocamos ligadura antes de la barra 
-		if (i%divisionEspecie == divisionEspecie - 1 
-				&& i < alto.length-2 && divisionEspecie == divisionCuartaEspecie) {
-			// console.log(i + "%" + divisionEspecie + " para | : " + i );
-			escalaDoAlto += "-"; //ligadura de 4a especie
-		}
-		//Colocar la barra de compases
-		if (i%divisionEspecie == divisionEspecie - 1 ) {
-			// console.log(i + "%" + divisionEspecie + " para | : " + i );
-			escalaDoAlto += "|";
-		} 
-	}
-	// convertirUltimaBlancaEnNegra, REMOVER EL ultimo /
-	// escalaDoAlto = escalaDoAlto.substring(0, escalaDoAlto.length-1);
-	escalaDo = escalaDo.replace(key ,key +"\n" 
-		+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
-	// console.clear();
+// 		//4a especie colocamos ligadura antes de la barra 
+// 		if (i%divisionEspecie == divisionEspecie - 1 
+// 				&& i < alto.length-2 && divisionEspecie == divisionCuartaEspecie) {
+// 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
+// 			escalaDoAlto += "-"; //ligadura de 4a especie
+// 		}
+// 		//Colocar la barra de compases
+// 		if (i%divisionEspecie == divisionEspecie - 1 ) {
+// 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
+// 			escalaDoAlto += "|";
+// 		} 
+// 	}
+// 	// convertirUltimaBlancaEnNegra, REMOVER EL ultimo /
+// 	// escalaDoAlto = escalaDoAlto.substring(0, escalaDoAlto.length-1);
+// 	escalaDo = escalaDo.replace(key ,key +"\n" 
+// 		+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
+// 	// console.clear();
 	
-	// console.log("escalaDoAlto : " + escalaDoAlto);
-	// console.clear();
-	console.log("alto : " + alto);
-	// console.clear();
-	// var entenderSlice = "0123456789";
-	// console.log("entenderSlice : " + entenderSlice);
-	// entenderSlice = entenderSlice.slice(0, -1);
-	// console.log("entenderSlice : " + entenderSlice);
-	decodeAjaxResponse(escalaDoAlto);
+// 	// console.log("escalaDoAlto : " + escalaDoAlto);
+// 	// console.clear();
+// 	console.log("alto : " + alto);
+// 	// console.clear();
+// 	// var entenderSlice = "0123456789";
+// 	// console.log("entenderSlice : " + entenderSlice);
+// 	// entenderSlice = entenderSlice.slice(0, -1);
+// 	// console.log("entenderSlice : " + entenderSlice);
+// 	decodeAjaxResponse(escalaDoAlto);
 	
-}
+// }
 
 
 

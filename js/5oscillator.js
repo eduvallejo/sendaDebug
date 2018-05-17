@@ -34,12 +34,11 @@ function oscillatorFunction() {
 		gainNode.connect(compressor);
 		compressor.threshold.setValueAtTime(-50, context.currentTime);
 		compressor.connect(context.destination);
-
 		//oscillator cantus(tenor)
 		oscillator = context.createOscillator();
 		// oscillator.frequency.value = frecuenciaNotas[cantus[contadorOscillator]]["hz"];
 		oscillator.frequency.value = 
-			getFrequency(cantus, contadorOscillator, 0, key);
+			getFrequency(noteLetterTenor["notas"], contadorOscillator, 0, key);
 
 		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
 		oscillator.connect(gainNode);
@@ -70,6 +69,12 @@ function oscillatorFunctionAlto() {
 		// tiemposCorrectos[contadorAltoTiempos]);
 
 		playOscillatorAlto();
+        ABCJS.stopAnimation();
+        // console.log("msPerBeat	 : " + msPerBeat	);
+          ABCJS.startAnimation(outputElement, tuneObjectArray[0],
+			 {showCursor : true, bpm : (60000 / msPerBeat),});
+
+        //mirar de poner bien el bpm adecuado
 	}else{
 		if (oscillatorAlto) {
 			oscillatorAlto.stop();
@@ -88,6 +93,9 @@ function oscillatorFunctionAlto() {
 			getFrequency(noteLetter , contadorOscillatorAlto, 0, key);
 		oscillatorAlto.connect(gainNodeAlto);
 		oscillatorAlto.start(0);
+		
+		// document.getElementById("demo").innerHTML = arrayDeIntervalos[contadorOscillatorAlto];
+		document.getElementById("intervaloSonando").innerHTML = noteLetterTenor["intervaloConAlto"][contadorOscillatorAlto];
 
 		// console.log("contadorOscillatorAlto : " + contadorOscillatorAlto);
 		// contadorOscillatorSoprano++;
@@ -105,7 +113,8 @@ function playOscillator() {
 	//oscillator
 	contadorOscillator = 0;
 	oscillatorFunction();//para no tener delay en la 1a ejecucion
-	setIntervalNotas = setInterval(oscillatorFunction, msPerBeat);
+	// setIntervalNotas = setInterval(oscillatorFunction, msPerBeat*4);
+	setIntervalNotas = setInterval(oscillatorFunction, noteLetterTenor["tiempos"][contadorOscillator]);
 }
 var contadorAltoTiempos = 0;
 function playOscillatorAlto(argument) {
@@ -113,7 +122,12 @@ function playOscillatorAlto(argument) {
 	contadorOscillatorAlto = 0;
 	contadorAltoTiempos = 0;
 	// console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
+	        ABCJS.startAnimation(outputElement, tuneObjectArray[0],
+			 {showCursor : true, bpm : (60000 /msPerBeat),});
 	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
+
+
+	//mirar de poner bien el bpm adecuado
 
 	// setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
 	// 	tiemposCorrectos[contadorAltoTiempos]);

@@ -1,4 +1,5 @@
 function mostrarGradosCantus(iPos){
+    // console.log("cantus : " + cantus);
     // for (var i = 0; i < cantus.length; i++) {
     // 	console.log("getIndexOf(cantus[i] -cantus[0]) : " + (getIndexOf(cantus[i]) 
     // 		- getIndexOf(cantus[0])));
@@ -10,14 +11,23 @@ function mostrarGradosCantus(iPos){
     // console.log("grado : " + grado);
     switch (grado) {
     	case unisono:
+            return "I";
+            break;
+        case octavaAbajo:
     		return "I";
-    		break;
+    	break;
     	case 1:
+            return "II";
+            break;
+        case septimaAbajo:
     		return "II";
-    		break;
+    	break;
     	case 2:
+            return "III";
+            break;
+        case sextaAbajo:
     		return "III";
-    		break;
+    	break;
     	case 3:
             return "IV";
             break;
@@ -27,13 +37,13 @@ function mostrarGradosCantus(iPos){
     	case 4:
     		return "V";
     		break;
-    	case -3:
+    	case cuartaAbajo:
     		return "V";
     		break;
     	case 5:
     		return "VI";
     		break;
-    	case -2:
+    	case terceraAbajo:
     		return "VI";
     		break;
     	case 6:

@@ -257,6 +257,9 @@ function getFrequency(voz, posicionNota, cantidadAlteracion, key) {
   } 
   // console.log(parseInt(obtenerFrecuenciaNota((indiceNota[voz[posicionNota]] + cantidadAlteracion), 4)));
   // frecuenciaNota[posicionNota - 1] = parseInt(obtenerFrecuenciaNota((indiceNota[noteLetter[posicionNota - 1]] + cantidadAlteracion), 4));
+
+  // return parseInt(obtenerFrecuenciaNota((indiceNota[voz[posicionNota][0] 
+    // + cantidadAlteracion), 4));
   return parseInt(obtenerFrecuenciaNota((indiceNota[voz[posicionNota]] 
     + cantidadAlteracion), 4));
   // console.log("frecuenciaNota[" + (posicionNota - 1) + "] : " + frecuenciaNota[posicionNota - 1]);

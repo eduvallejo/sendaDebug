@@ -12,9 +12,10 @@
        <script type="text/javascript" src="js/0checkFunctions.js"></script>
        <script type="text/javascript" src="js/0getIndexFunctions.js"></script>
        <script type="text/javascript" src="js/1cantusFunciones.js"></script>
-       <script type="text/javascript" src="js/1cantus.js"></script>
+       <script type="text/javascript" src="js/1cantusEjemplos.js"></script>
        <script type="text/javascript" src="js/3funcionesAlto.js"></script>
        <script type="text/javascript" src="js/3alto.js"></script>
+       <script type="text/javascript" src="js/altoEjemplos.js"></script>
        <!-- <script type="text/javascript" src="js/3soprano.js"></script> -->
        <script type="text/javascript" src="js/bajo.js"></script>
        <script type="text/javascript" src="js/4sounds.js"></script>
@@ -58,8 +59,16 @@
   </button>
    <button onclick="">
     <script >document.write("msPerBeat: " + (msPerBeat ));</script>
-  </button><button onclick="">
+  </button>
+  <button onclick="">
+    <script >document.write("divisionEspecie: " + (divisionEspecie ));</script>
+  </button>
+  <button onclick="">
     <script >document.write("intervaloBordadura: " + mostrarNombreIntervalo(intervaloBordadura));</script>
+  </button>
+  <br>
+  <button id="intervaloSonando" style="display: inline-block;position: absolute;left :40%">
+    
   </button>
  	<div id="notation"></div>
  	<div id="midi"></div>
@@ -68,6 +77,7 @@
 
       var tuneObjectArray;
       //para mostrar la animacion se ha de constrior objeto output
+        tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
       var outputElement = document.getElementById('notation');
       function renderAbcSvg(argument) {
         var tuneObjectArray;
@@ -76,11 +86,12 @@
 
         tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
         // tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
-        pintarNotasRelacionAcorde();
+
+        // pintarNotasRelacionAcorde();
             
         outputElement = document.getElementById('notation');
         // ABCJS.startAnimation(outputElement, tuneObjectArray[0],
-        //  {showCursor : true, bpm : (msPerBeat / 1000)*60,});
+        //  {showCursor : true, bpm : (msPerBeat / numeroTiemposCompas),});
         //mirar de poner bien el bpm adecuado
         // ABCJS.stopAnimation();
       }
