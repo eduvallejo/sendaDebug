@@ -36,6 +36,7 @@ function resetearAjax(argument) {
 function decodeAjaxResponse(song, voz) {
 	// console.clear();
 
+
 	resetearAjax();
 	// console.log("argumentDecodeAjaxResponse : " + song);
 	// song = song.replace("<", "&lt");// "<" needs to be "&lt" in pre
@@ -711,16 +712,17 @@ function decodeAjaxResponse(song, voz) {
 		// console.log("margenesCorrectosInferior[" + i + "] : " + margenesCorrectosInferior[i]);
 	}
 
-
+	console.log("noteLetter : " + noteLetter);
 
 	if (voz == "tenor") {
+		console.log("voz : " + voz);
 		for (var i = 0; i < noteLetter.length; i++) {
 			noteLetterTenor["notas"][i] = noteLetter[i];
 			noteLetterTenor["tiempos"][i] = tiemposCorrectos[i];
 		}
-	}
-	// console.log("noteLetterTenor['notas'] : " + noteLetterTenor["notas"]);
+	console.log("noteLetterTenor['notas'] : " + noteLetterTenor["notas"]);
 	console.log("noteLetterTenor['tiempos'] : " + noteLetterTenor["tiempos"]);
+	}
 	// console.log("tiemposCorrectos : " + tiemposCorrectos);
 	// console.log("cantus : " + cantus);
 	// console.log("frecuenciaNota : " + frecuenciaNota);
@@ -733,7 +735,8 @@ function decodeAjaxResponse(song, voz) {
 	// console.clear();
 	//poner el intervalo en el boton
 	if (voz != "tenor") {
-		console.log("tiemposCorrectos : " + tiemposCorrectos);
+		// console.log("noteLetter : " + noteLetter);
+		// console.log("tiemposCorrectos : " + tiemposCorrectos);
 		var tiemposAcumulados = 0;
 		var contadorTenor = 0;
 		for (var i = 0; i < noteLetter.length; i++) {
@@ -752,7 +755,7 @@ function decodeAjaxResponse(song, voz) {
 			}
 		}
 		// console.log("noteLetterTenor['intervaloConAlto'] : " + noteLetterTenor["intervaloConAlto"]);
-	
+		console.log("tiemposCorrectos : " + tiemposCorrectos);
 	}
 
 	// console.log("arrayDeIntervalos : " + arrayDeIntervalos);

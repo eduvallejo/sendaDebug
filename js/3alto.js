@@ -30,8 +30,6 @@ for (var i = 0; i < cantus.length*divisionEspecie; i++) {
 	} 
 	// cantusExtendido[i] = cantus[i - contadorTemp];
 }
-console.log("altoExtENDIDO : " + alto);
-console.log("cantusEXTEN : " + cantusExtendido);
 
 
 
@@ -73,12 +71,10 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 				colgado == true;
 // 				// console.log("colgado en  : " + i );
 // 				if (i >= 1) { //si se cuelga en el i=1 imposible i-2
-// 					console.log("BREAK i: " + i);
 // 					// i = 1; //tirar para atras si no hay una solucion buena
 // 					i = i - buclesAtrasCuelgue; //tirar para atras si no hay una solucion buena
 // 					break;
 // 				} 
-// 				console.log("BREAK i-2: " + i);
 // 				break;
 // 			}
 // 			randomInterval = randomFunction(intervalosArmonicosAlto) ;
@@ -242,7 +238,6 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 	
 // 	// console.log("escalaDoAlto : " + escalaDoAlto);
 // 	// console.clear();
-// 	console.log("alto : " + alto);
 // 	// console.clear();
 // 	// var entenderSlice = "0123456789";
 // 	// console.log("entenderSlice : " + entenderSlice);

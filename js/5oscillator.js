@@ -16,7 +16,7 @@ var convolver = context.createConvolver();
 // console.log("alto : " + alto);
 
 function oscillatorFunction() {
-	if (contadorOscillator >= longitudCantus) {
+	if (contadorOscillator >= noteLetterTenor["notas"].length) {
 		clearInterval(setIntervalNotas);
 		oscillator.stop();
 		// oscillatorSoprano.stop();
@@ -37,6 +37,8 @@ function oscillatorFunction() {
 		//oscillator cantus(tenor)
 		oscillator = context.createOscillator();
 		// oscillator.frequency.value = frecuenciaNotas[cantus[contadorOscillator]]["hz"];
+		// console.log("noteLetter[notas] : " + noteLetterTenor["notas"][contadorOscillator]);
+		// console.log("contadorOscillator : " + contadorOscillator);
 		oscillator.frequency.value = 
 			getFrequency(noteLetterTenor["notas"], contadorOscillator, 0, key);
 
@@ -69,13 +71,14 @@ function oscillatorFunctionAlto() {
 		// tiemposCorrectos[contadorAltoTiempos]);
 
 		playOscillatorAlto();
-        ABCJS.stopAnimation();
-        // console.log("msPerBeat	 : " + msPerBeat	);
-          ABCJS.startAnimation(outputElement, tuneObjectArray[0],
-			 {showCursor : true, bpm : (60000 / msPerBeat),});
+    //     ABCJS.stopAnimation();
+    //     // console.log("msPerBeat	 : " + msPerBeat	);
+    //       ABCJS.startAnimation(outputElement, tuneObjectArray[0],
+			 // {showCursor : true, bpm : (60000 / msPerBeat),});
 
         //mirar de poner bien el bpm adecuado
 	}else{
+		getPosicionCursor();
 		if (oscillatorAlto) {
 			oscillatorAlto.stop();
 		}
@@ -95,7 +98,12 @@ function oscillatorFunctionAlto() {
 		oscillatorAlto.start(0);
 		
 		// document.getElementById("demo").innerHTML = arrayDeIntervalos[contadorOscillatorAlto];
-		document.getElementById("intervaloSonando").innerHTML = noteLetterTenor["intervaloConAlto"][contadorOscillatorAlto];
+		document.getElementById("intervaloSonando").innerHTML 
+			= noteLetterTenor["intervaloConAlto"][contadorOscillatorAlto];
+		document.getElementById("intervaloSonando").style.left 
+			=  (getPosicionCursor().left - 15) + "px";
+		document.getElementById("intervaloSonando").style.top 
+			=  (getPosicionCursor().top +75) + "px";
 
 		// console.log("contadorOscillatorAlto : " + contadorOscillatorAlto);
 		// contadorOscillatorSoprano++;
@@ -108,6 +116,14 @@ function oscillatorFunctionAlto() {
 	}
 
 }
+
+var posicionCursor;
+function getPosicionCursor(argument){
+    posicionCursor = document.getElementsByClassName("cursor")[0];
+    // console.log("posicionCursor.top : " + posicionCursor.getBoundingClientRect().top);
+    return posicionCursor.getBoundingClientRect();
+}
+
 function playOscillator() {
 	// console.log("alto : " + alto);
 	//oscillator

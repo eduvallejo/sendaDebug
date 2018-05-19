@@ -42,8 +42,8 @@ pre{
 }
 */
 .cursor { 
-	opacity: 0.5;
-	border: 3px solid grey !important; 
+	opacity: 0.4;
+	border: 3px dashed grey !important; 
 	/*background-color: #ffffc0;*/
 	/*background-color: green;*/
 }

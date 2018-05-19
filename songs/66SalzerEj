@@ -1,0 +1,10 @@
+X:1
+T:Ej 66 las corcheas solo han depasar x el flujo real de la melodía o  formar embellcmients 
+T: esas corcheas deben marchar siempre x conjun­tos, como bordadura o como mov de paso
+I:linebreak !
+L:1/4
+K:Cmaj
+V:1 clef=treble
+"bueno" c B/2A/2 G F| A B/2A/2 G A | A G/2A/2 B c| c e/2d/2 c B |! "mal" c e/2c/2 B A| c f/2A/2 B c | c B/2A/2 E F| c B/2A/2 G F/2E/2 |
+V:2 clef=treble
+A,4 |D4| C4 |C4 |!A,4 |D4| C4 |C4 |

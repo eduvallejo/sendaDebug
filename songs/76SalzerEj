@@ -1,0 +1,10 @@
+X:1
+T:Ej 76 excesivas corcheas. la progresion de una 7a es mala,  
+T: así como la precipitación delas corcheas en el movimiento de paso hacia mib.
+I:linebreak !
+L:1/4
+K:Bbmaj
+V:1 clef=treble
+z B A G | F G/2A/2 B c/2d/2 | e2 d c | B4 |
+V:2 clef=treble
+B,4 |D4| C4 |G4 |
