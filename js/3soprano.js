@@ -88,23 +88,23 @@ function crearSoprano(argument) {
 	console.log("soprano : " + soprano);
 	// console.log("cantus : " + cantus);
 	
-	// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1 clef=alto1\n"
-	// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\n"
-	// escalaDo = "X:1\nL:1/2\nK:" + key + "\nV:1 clef=alto3\n"
-	// escalaDo = "X:1\nL:1/2\nK:" + key + "\nV:3\n"
-	console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
-	// var keyPosition = ("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
-	// [escalaDo.slice(0, keyPosition), "HOLA", escalaDo.slice(keyPosition)].join('');
+	// abcTenor = "X:1\nL:1/2\nK:Cmaj\nV:1 clef=alto1\n"
+	// abcTenor = "X:1\nL:1/2\nK:Cmaj\nV:1\n"
+	// abcTenor = "X:1\nL:1/2\nK:" + key + "\nV:1 clef=alto3\n"
+	// abcTenor = "X:1\nL:1/2\nK:" + key + "\nV:3\n"
+	console.log("abcTenor.indexOf(" + key + "); : " + abcTenor.indexOf(key));
+	// var keyPosition = ("abcTenor.indexOf(" + key + "); : " + abcTenor.indexOf(key));
+	// [abcTenor.slice(0, keyPosition), "HOLA", abcTenor.slice(keyPosition)].join('');
 
-	var escalaDoSoprano;
+	var abcTenorSoprano;
 	// console.log("soprano : " + soprano);
-	escalaDoSoprano = "V:1 clef=alto1\n";
-	// escalaDo += "\nV:2 clef=treble\n"
-	//aqui solo se suma el soprano al header de escalaDo
+	abcTenorSoprano = "V:1 clef=alto1\n";
+	// abcTenor += "\nV:2 clef=treble\n"
+	//aqui solo se suma el soprano al header de abcTenor
 	for (var i = 0; i < soprano.length; i++) {
-		// escalaDo = escalaDo + soprano[i] + ' "' + (((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )) -
+		// abcTenor = abcTenor + soprano[i] + ' "' + (((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )) -
 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
-		escalaDoSoprano += 
+		abcTenorSoprano += 
 		 	'"' 
 		 		+(((notasMusicales.indexOf(soprano[i]))
 					- (notasMusicales.indexOf(cantus[i])))+1) 
@@ -112,23 +112,23 @@ function crearSoprano(argument) {
 				+ soprano[i]
 			;
 	}
-	// console.log("escalaDoSoprano : " + escalaDoSoprano);
-	escalaDo = escalaDo.replace(key ,key +"\n" + escalaDoSoprano); // if you want all the "hello"'s in the string to be replaced
-	// escalaDo += "\nV:2 clef=treble\n"
+	// console.log("abcTenorSoprano : " + abcTenorSoprano);
+	abcTenor = abcTenor.replace(key ,key +"\n" + abcTenorSoprano); // if you want all the "hello"'s in the string to be replaced
+	// abcTenor += "\nV:2 clef=treble\n"
 	// for (var i = 0; i < cantus.length; i++) {
-	// 	escalaDo = escalaDo + cantus[i] + '"' + (i+1) + '"' ;
+	// 	abcTenor = abcTenor + cantus[i] + '"' + (i+1) + '"' ;
 	// }
-	// escalaDo += "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
-	// escalaDo += "\nV:2 clef=alto\nCDFEDC"
-	// escalaDo += "\nV:2 clef=alto\n" + cantus;
-	// escalaDo += "\nV:2 clef=alto4\n" ;
+	// abcTenor += "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
+	// abcTenor += "\nV:2 clef=alto\nCDFEDC"
+	// abcTenor += "\nV:2 clef=alto\n" + cantus;
+	// abcTenor += "\nV:2 clef=alto4\n" ;
 	
-	// escalaDo += "\nV:2 clef=alto4\n" ;
+	// abcTenor += "\nV:2 clef=alto4\n" ;
 	// for (var i = 0; i < cantus.length; i++) {
-	// 	escalaDo += cantus[i];
+	// 	abcTenor += cantus[i];
 	// }
 
-	// console.log("escalaDo : " + escalaDo);
+	// console.log("abcTenor : " + abcTenor);
 	// console.log("randomIntervalSopranoCantus : " 
 	// 	+ randomIntervalSopranoCantus);
 }

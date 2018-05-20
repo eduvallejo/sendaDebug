@@ -55,15 +55,8 @@ var intervalosArmonicosBajo = [ terceraAbajo, quintaAbajo, sextaAbajo, sextaAbaj
 	bajo[cantusExtendido.length - 1] = //la fndamental 
 		// notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) +  7];
 		notasMusicales[getIndexOf(cantusExtendido[cantusExtendido.length - 1]) ];
-// 		// "e";
-// console.log("bajo : " + bajo);
 var intervaloBajoFin = [  octavaAbajo];
-// bajo[cantusExtendido.length - 1] = 
-// 	notasMusicales[notasMusicales.indexOf(cantus[cantusExtendido.length - 1]) -15];
-// bajo[cantusExtendido.length - 2] = 
-// // 	notasMusicales[notasMusicales.indexOf(cantus[cantusExtendido.length - 1])  -15];
-// console.log("bajo[cantusExtendido.length - 1] : " + bajo[cantusExtendido.length - 1]);
-// console.clear();
+
 function crearBajo(argument) {
 	// BUGs Evitar q los leaps se cuemten cuando no se aplican
 	var randomInterval = 1;
@@ -127,38 +120,33 @@ function crearBajo(argument) {
 		} 
 		// console.log("getIndexBetween(bajo[" + (i - 1) + "], bajo[" + i +"])" + getIndexBetween(bajo[i - 1], bajo[i]));		 
 	}//end for loop
-	// console.log("bajo : " + bajo);
-	// console.clear();
-	// console.log("cantus : " + cantus);
-	// console.log("bajo : " + bajo);
 	
-	// escalaDo += "\nV:2 clef=alto4\n"
+	console.log("abcBajo : " + abcBajo);
+	// abcTenor += "\nV:2 clef=" + clefTenor +"\n"
+	// for (var i = 0; i < cantus.length; i++) {
+	// 	// abcTenor += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+	// 	abcTenor += '"['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+	// 	// console.log(i + " % 4 : " + i%4);
+	// 	if (i % 4 == 3 && i > 1) {
+	// 		// console.log("i : " + i);
+	// 		abcTenor += '\n';
+	// 	}
+	// }
 
+	// decodeAjaxResponse(abcBajo, "bajo");
+	decodeAjaxResponse(abcTenor, "tenor");
 	
-	escalaDo += "\nV:2 clef=" + clefTenor +"\n"
-	for (var i = 0; i < cantus.length; i++) {
-		// escalaDo += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
-		escalaDo += '"['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
-		// console.log(i + " % 4 : " + i%4);
-		if (i % 4 == 3 && i > 1) {
-			// console.log("i : " + i);
-			escalaDo += '\n';
-		}
-	}
-	
-	decodeAjaxResponse(escalaDo, "tenor");
-	
-	// escalaDo += "\nV:3 clef=" + clefBass +"\n" ;
-	// // escalaDo += "\nV:3 clef=alto4\n" ;
+	// abcTenor += "\nV:3 clef=" + clefBass +"\n" ;
+	// // abcTenor += "\nV:3 clef=alto4\n" ;
 	// for (var i = 0; i < bajo.length; i++) {
-	// 	// escalaDo = escalaDo 
+	// 	// abcTenor = abcTenor 
 	// 	//  		+ '"' 
 	// 	//  			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
 	// 	//  			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
 	// 	//  				+'ª"'
 	// 	// 	+ bajo[i] + "/"
 	// 	// 	;
-	// 	escalaDo += "";
+	// 	abcTenor += "";
 	// }
 
 	// console.log("randomIntervalBajoCantus : " 
@@ -169,10 +157,7 @@ function crearBajo(argument) {
 }
 
 var colgado = false;
-var noteLetterTenor = ["notas", "tiempos"];
-noteLetterTenor["notas"] = [];
-noteLetterTenor["tiempos"] = [];
-noteLetterTenor["intervaloConAlto"] = [];
+
 function pararCuelgue(argument) {
 	alert("pararCuelgue : ");
 	window.location.reload();

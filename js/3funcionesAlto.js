@@ -67,7 +67,7 @@ function colocarSensibleYfinal(tipoFinalCantus) {
 }
 
 function agregarAbc(nota){
-    // escalaDoAlto += 
+    // abcAlto += 
      // 	'"' 
      // 		+(((notasMusicales.indexOf(altoTemp[i]))
     	// 		- (notasMusicales.indexOf(cantus[iCantus])))+1) 

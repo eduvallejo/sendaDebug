@@ -1,7 +1,12 @@
 // ajax.js
 function ajax(fileName) {
+	//resetear
+	noteLetterAlto["notas"] = [];
+	noteLetterAlto["tiempos"] = [];
 	noteLetterTenor["notas"] = [];
 	noteLetterTenor["tiempos"] = [];
+	noteLetterBajo["notas"] = [];
+	noteLetterBajo["tiempos"] = [];
 
 	// console.clear();
 	// console.log("AJAXfileName : " + fileName);
@@ -44,23 +49,32 @@ function ajax(fileName) {
 	        // console.log("numero de patrones: " + http.response.length);
 	        // console.log("http.response : " + http.response);
 	        response = JSON.parse(http.response);
-
+	        //songResponse es lo q se muestra en renderAbc
 	        songResponse = response;
-	        escalaDo = response;
+	        abcTenor = response;
 	        var split = response.split("\n");
 	        key = split[4];
 	        key = key.replace("K:", "");
 			document.getElementById("key").innerHTML = key;
 
-	        // escalaDo = split[0] + "\n" + split[1] + "\n" + split[2] + "\n" + split[3] + "\n" + split[4] + "\n" + split[7] +"\n" + split[8]  ;
-	        escalaDo = split[0] + "\n" + split[1] + "\n" + split[2] + "\n" + split[3] + "\n" + split[4] + "\n" + split[5] +"\n" + split[8] + "\n" + split[9]  ;
-	        // escalaDoAlto = split[5] +"\n" + split[6]  ;
-	        escalaDo = escalaDo.replace("!", "");
-	        escalaDoAlto = split[6] +"\n" + split[7]  ;
-	        escalaDoAlto = escalaDoAlto.replace("!", "");
-	        console.log("escalaDoAlto : " + escalaDoAlto);
-	        // response = response.replace(/\n([^\n]*)$/, ']'); //bug5 NO funciona
-	        // console.log("response : " + response);
+			//alto
+	        abcAlto = split[6] +"\n" + split[7]  ;
+	        abcAlto = abcAlto.replace("!", "");
+
+	        //Tenor
+	        abcTenor = split[0] + "\n" + split[1] + "\n" + split[2] + "\n" + split[3] + "\n" + split[4] + "\n" + split[5] +"\n" + split[8] + "\n" + split[9]  ;
+	        // abcAlto = split[5] +"\n" + split[6]  ;
+	        abcTenor = abcTenor.replace("!", "");
+
+	        if (split[10] != undefined) {
+	        //bajo
+		        numeroVoces = 3;
+		        abcBajo = split[10] +"\n" + split[11]  ;
+		        abcBajo = abcBajo.replace("!", "");
+	        	console.log("split[10] : " + split[10]);
+	        }
+	        // console.log("abcAlto : " + abcAlto);
+	        //
 		    appendSong(response);
       		document.getElementById("loading").innerHTML = ''; // Hide the image after the response from the server
 		 	

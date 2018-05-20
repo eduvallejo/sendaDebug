@@ -64,7 +64,7 @@ cantus = ["G,", "D", "C", "E", "D", "C", "B,", "C", "D", "B,", "A,", "G,"];
 key = "Fmaj";
 cantus = ["D", "F", "E", "D", "G","F", "A", "G", "F", "E", "D" ];
 
-escalaDo = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
+abcTenor = "X:1\nL:1/1\nQ:1/4=60\nK:" + key ;
 
 var clefSoprano = "treble";
 var clefAlto = "treble";

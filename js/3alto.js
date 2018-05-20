@@ -1,12 +1,12 @@
 
-var divisionPrimeraEspecie = 1;
-var divisionSegundaEspecie = 2;
-var divisionTerceraEspecie = 4;
-var divisionCuartaEspecie = 2;
-var divisionEspecie = divisionPrimeraEspecie;
-var divisionEspecie = divisionSegundaEspecie;
-var divisionEspecie = divisionTerceraEspecie;
-// var divisionEspecie = divisionCuartaEspecie;
+// var divisionPrimeraEspecie = 1;
+// var divisionSegundaEspecie = 2;
+// var divisionTerceraEspecie = 4;
+// var divisionCuartaEspecie = 2;
+// var divisionEspecie = divisionPrimeraEspecie;
+// var divisionEspecie = divisionSegundaEspecie;
+// var divisionEspecie = divisionTerceraEspecie;
+// // var divisionEspecie = divisionCuartaEspecie;
 
 var posicionClimaxAlto = posicionClimax + 1;
 
@@ -39,12 +39,12 @@ for (var i = 0; i < cantus.length*divisionEspecie; i++) {
 // // alto = ["G","A","d","e","A","B","c"];//CMaj
 // // 
 // function crearAlto(argument){//FOR DEBUGGING
-//     escalaDoAlto = 'V:1 clef=treble\n"8ª"a/2"6ª"f/2|"8ª"e/2"6ª"c/2|"8ª"d/2"6ª"B/2|"6ª"e/2"5ª"d/2|"8ª"b/2"6ª"g/2|"8ª"a'; //AbMaj
-//     // escalaDoAlto = 'V:1 clef=treble\n"5ª"G/2"6ª"A/2|"5ª"d/2"6ª"e/2|"5ª"A/2"6ª"B/2|"8ª"c'; //Cmaj
+//     abcAlto = 'V:1 clef=treble\n"8ª"a/2"6ª"f/2|"8ª"e/2"6ª"c/2|"8ª"d/2"6ª"B/2|"6ª"e/2"5ª"d/2|"8ª"b/2"6ª"g/2|"8ª"a'; //AbMaj
+//     // abcAlto = 'V:1 clef=treble\n"5ª"G/2"6ª"A/2|"5ª"d/2"6ª"e/2|"5ª"A/2"6ª"B/2|"8ª"c'; //Cmaj
 
-// 	escalaDo = escalaDo.replace(key ,key +"\n" 
-// 		+ escalaDoAlto);
-//     decodeAjaxResponse(escalaDoAlto);
+// 	abcTenor = abcTenor.replace(key ,key +"\n" 
+// 		+ abcAlto);
+//     decodeAjaxResponse(abcAlto);
 // }
 //END DEBUGGING
 
@@ -192,18 +192,18 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
 // 	}//end for loop
 
-// 	// console.log("escalaDo.indexOf(" + key + "); : " + escalaDo.indexOf(key));
+// 	// console.log("abcTenor.indexOf(" + key + "); : " + abcTenor.indexOf(key));
 
-// 	var escalaDoAlto;
+// 	var abcAlto;
 // 	// console.log("alto : " + alto);
-// 	escalaDoAlto = "V:1 clef=" + clefAlto + "\n";
-// 	// escalaDoAlto = "V:1\n";
-// 	// escalaDo += "\nV:2 clef=treble\n"
-// 	//aqui solo se suma el alto al header de escalaDo
+// 	abcAlto = "V:1 clef=" + clefAlto + "\n";
+// 	// abcAlto = "V:1\n";
+// 	// abcTenor += "\nV:2 clef=treble\n"
+// 	//aqui solo se suma el alto al header de abcTenor
 // 	for (var i = 0; i < alto.length; i++) {
-// 		// escalaDo = escalaDo + alto[i] + ' "' + (((notasMusicales.indexOf(alto[i + 1]) % 7 + 8 )) -
+// 		// abcTenor = abcTenor + alto[i] + ' "' + (((notasMusicales.indexOf(alto[i + 1]) % 7 + 8 )) -
 // 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
-// 		escalaDoAlto += 
+// 		abcAlto += 
 // 		 	'"' 
 // 		 		// +(((notasMusicales.indexOf(alto[i]))
 // 					// - (notasMusicales.indexOf(cantusExtendido[i])))+1) 
@@ -214,7 +214,7 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 		;
 
 // 		if (i >= alto.length - 1) {
-// 			escalaDoAlto = escalaDoAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
+// 			abcAlto = abcAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
 // 		}
 // 		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
 
@@ -222,28 +222,28 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 		if (i%divisionEspecie == divisionEspecie - 1 
 // 				&& i < alto.length-2 && divisionEspecie == divisionCuartaEspecie) {
 // 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
-// 			escalaDoAlto += "-"; //ligadura de 4a especie
+// 			abcAlto += "-"; //ligadura de 4a especie
 // 		}
 // 		//Colocar la barra de compases
 // 		if (i%divisionEspecie == divisionEspecie - 1 ) {
 // 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
-// 			escalaDoAlto += "|";
+// 			abcAlto += "|";
 // 		} 
 // 	}
 // 	// convertirUltimaBlancaEnNegra, REMOVER EL ultimo /
-// 	// escalaDoAlto = escalaDoAlto.substring(0, escalaDoAlto.length-1);
-// 	escalaDo = escalaDo.replace(key ,key +"\n" 
-// 		+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
+// 	// abcAlto = abcAlto.substring(0, abcAlto.length-1);
+// 	abcTenor = abcTenor.replace(key ,key +"\n" 
+// 		+ abcAlto); // if you want all the "hello"'s in the string to be replaced
 // 	// console.clear();
 	
-// 	// console.log("escalaDoAlto : " + escalaDoAlto);
+// 	// console.log("abcAlto : " + abcAlto);
 // 	// console.clear();
 // 	// console.clear();
 // 	// var entenderSlice = "0123456789";
 // 	// console.log("entenderSlice : " + entenderSlice);
 // 	// entenderSlice = entenderSlice.slice(0, -1);
 // 	// console.log("entenderSlice : " + entenderSlice);
-// 	decodeAjaxResponse(escalaDoAlto);
+// 	decodeAjaxResponse(abcAlto);
 	
 // }
 
@@ -266,22 +266,22 @@ function consoleLog(argument, position){
 //DEBUG
 // function crearAlto(argument){//version sin calculoo para debug
 // 	alto = ["G","A","B","c"]; //1a
-//     escalaDoAlto = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
+//     abcAlto = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
 
 //     alto = ["c","B","A" ,"G", "A","B", "c"]; //2a
-//     escalaDoAlto = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
+//     abcAlto = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
 
 // 	alto = ["c","B","A","G", "c","B","A","G", "c","B","A","B", "c"]; //3a
-//     escalaDoAlto = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
+//     abcAlto = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
     
-//     escalaDo = escalaDo.replace(key ,key +"\n" 
-//     	+ escalaDoAlto); // if you want all the "hello"'s in the string to be replaced
+//     abcTenor = abcTenor.replace(key ,key +"\n" 
+//     	+ abcAlto); // if you want all the "hello"'s in the string to be replaced
 //     // console.clear();
     
 //     //console.log("alto : " + alto);
-//     // escalaDoAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
-//     //console.log("escalaDoAlto : " + escalaDoAlto);
-// 	decodeAjaxResponse(escalaDoAlto);
+//     // abcAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
+//     //console.log("abcAlto : " + abcAlto);
+// 	decodeAjaxResponse(abcAlto);
 //     // tiemposCorrectos = [1000, 1000, 1000, 1000];
 //     // tiemposCorrectos = [500, 500,  500, 500, 500, 500 , 1000];
 //     // tiemposCorrectos = [250,250,250,250,250,250,250,250,250,250,250,250,1000];

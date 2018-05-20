@@ -1,6 +1,6 @@
 var context, oscillator;
 context = new AudioContext;
-var contadorOscillator = 0;
+var contadorOscillatorTenor = 0;
 var contadorOscillatorAlto = 0;
 var contadorOscillatorBajo = 0;
 var gainNode, gainNodeAlto;
@@ -15,13 +15,13 @@ var convolver = context.createConvolver();
 // var oscillatorLetters = /[a-gA-GzZ]/;//letters involved in time
 // console.log("alto : " + alto);
 
-function oscillatorFunction() {
-	if (contadorOscillator >= noteLetterTenor["notas"].length) {
+function oscillatorFunctionTenor() {
+	if (contadorOscillatorTenor >= noteLetterTenor["notas"].length) {
 		clearInterval(setIntervalNotas);
 		oscillator.stop();
 		// oscillatorSoprano.stop();
 		// oscillatorAlto.stop();
-		playOscillator();
+		playOscillatorTenor();
 	}else{
 		if (oscillator) {
 			oscillator.stop();
@@ -36,11 +36,11 @@ function oscillatorFunction() {
 		compressor.connect(context.destination);
 		//oscillator cantus(tenor)
 		oscillator = context.createOscillator();
-		// oscillator.frequency.value = frecuenciaNotas[cantus[contadorOscillator]]["hz"];
-		// console.log("noteLetter[notas] : " + noteLetterTenor["notas"][contadorOscillator]);
+		// oscillator.frequency.value = frecuenciaNotas[cantus[contadorOscillatorTenor]]["hz"];
+		// console.log("noteLetter[notas] : " + noteLetterTenor["notas"][contadorOscillatorTenor]);
 		// console.log("contadorOscillator : " + contadorOscillator);
 		oscillator.frequency.value = 
-			getFrequency(noteLetterTenor["notas"], contadorOscillator, 0, key);
+			getFrequency(noteLetterTenor["notas"], contadorOscillatorTenor, 0, key);
 
 		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
 		oscillator.connect(gainNode);
@@ -48,7 +48,7 @@ function oscillatorFunction() {
 		// console.log("context.currentTime : " + context.currentTime);
 		oscillator.start(0);
 
-		contadorOscillator++;
+		contadorOscillatorTenor++;
 		// contadorOscillatorSoprano++;
 	}
 
@@ -59,7 +59,7 @@ function oscillatorFunction() {
 
 function oscillatorFunctionAlto() {
 	// if (contadorOscillatorAlto >= alto.length) { //previo a ligaduras
-	if (contadorOscillatorAlto >= noteLetter.length) { //a partir de ligaduras
+	if (contadorOscillatorAlto >= noteLetterAlto["notas"].length) { //a partir de ligaduras
 		clearInterval(setIntervalNotasAlto);
 		oscillatorAlto.stop();
 		// console.log("alto : " + alto);
@@ -91,9 +91,10 @@ function oscillatorFunctionAlto() {
 
 		//Alto
 		oscillatorAlto = context.createOscillator();
+		// console.log("noteLetter[contadorOscillatorAlto] : " + noteLetterAlto["notas"][contadorOscillatorAlto]);
 		oscillatorAlto.frequency.value = 
 			// getFrequency(alto , contadorOscillatorAlto, 0, key);
-			getFrequency(noteLetter , contadorOscillatorAlto, 0, key);
+			getFrequency(noteLetterAlto["notas"] , contadorOscillatorAlto, 0, key);
 		oscillatorAlto.connect(gainNodeAlto);
 		oscillatorAlto.start(0);
 		
@@ -109,29 +110,14 @@ function oscillatorFunctionAlto() {
 		// contadorOscillatorSoprano++;
 		// console.log("alto[" + contadorOscillatorAlto + "] : " + alto[contadorOscillatorAlto]);
 		clearInterval(setIntervalNotasAlto);
-		setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
-		tiemposCorrectos[contadorAltoTiempos]);
+		setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, noteLetterAlto["tiempos"][contadorOscillatorAlto]);		
+// tiemposCorrectos[contadorAltoTiempos]);
 		contadorOscillatorAlto++;
 		contadorAltoTiempos++;
 	}
 
 }
 
-var posicionCursor;
-function getPosicionCursor(argument){
-    posicionCursor = document.getElementsByClassName("cursor")[0];
-    // console.log("posicionCursor.top : " + posicionCursor.getBoundingClientRect().top);
-    return posicionCursor.getBoundingClientRect();
-}
-
-function playOscillator() {
-	// console.log("alto : " + alto);
-	//oscillator
-	contadorOscillator = 0;
-	oscillatorFunction();//para no tener delay en la 1a ejecucion
-	// setIntervalNotas = setInterval(oscillatorFunction, msPerBeat*4);
-	setIntervalNotas = setInterval(oscillatorFunction, noteLetterTenor["tiempos"][contadorOscillator]);
-}
 var contadorAltoTiempos = 0;
 function playOscillatorAlto(argument) {
 	// console.log("msPerBeat : " + msPerBeat);
@@ -141,15 +127,24 @@ function playOscillatorAlto(argument) {
 	        ABCJS.startAnimation(outputElement, tuneObjectArray[0],
 			 {showCursor : true, bpm : (60000 /msPerBeat),});
 	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
-
-
-	//mirar de poner bien el bpm adecuado
-
-	// setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 
-	// 	tiemposCorrectos[contadorAltoTiempos]);
-
 }
 
+function playOscillatorTenor() {
+	// console.log("alto : " + alto);
+	//oscillator
+	contadorOscillatorTenor = 0;
+	oscillatorFunctionTenor();//para no tener delay en la 1a ejecucion
+	// setIntervalNotas = setInterval(oscillatorFunction, msPerBeat*4);
+	setIntervalNotas = setInterval(oscillatorFunctionTenor, noteLetterTenor["tiempos"][contadorOscillatorTenor]);
+}
+
+
+var posicionCursor;
+function getPosicionCursor(argument){
+    posicionCursor = document.getElementsByClassName("cursor")[0];
+    // console.log("posicionCursor.top : " + posicionCursor.getBoundingClientRect().top);
+    return posicionCursor.getBoundingClientRect();
+}
 function changeSetInterval(argument){
     clearInterval(setIntervalNotasAlto);
     setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, 

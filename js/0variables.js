@@ -1,3 +1,31 @@
+
+var divisionPrimeraEspecie = 1;
+var divisionSegundaEspecie = 2;
+var divisionTerceraEspecie = 4;
+var divisionCuartaEspecie = 2;
+var divisionEspecie = divisionPrimeraEspecie;
+var divisionEspecie = divisionSegundaEspecie;
+var divisionEspecie = divisionTerceraEspecie;
+// var divisionEspecie = divisionCuartaEspecie;
+
+// var numeroVoces = 3
+var numeroVoces = 2;
+
+var noteLetterAlto = ["notas", "tiempos"];
+noteLetterAlto["notas"] = [];
+noteLetterAlto["tiempos"] = [];
+noteLetterAlto["intervaloConSoprano"] = [];
+
+var noteLetterTenor = ["notas", "tiempos"];
+noteLetterTenor["notas"] = [];
+noteLetterTenor["tiempos"] = [];
+noteLetterTenor["intervaloConAlto"] = [];
+
+var noteLetterBajo = ["notas", "tiempos"];
+noteLetterBajo["notas"] = [];
+noteLetterBajo["tiempos"] = [];
+noteLetterBajo["intervaloConTenor"] = [];
+
 var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,", 
 	"C,","D,","E,","F,","G,","A,","B,",
 		"C","D","E","F","G","A","B",
@@ -27,13 +55,13 @@ var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7; var novenaAbajo 
 var intervMelodMax = sexta;
 var restoreInterval = cuarta;
 
-var escalaDo ;
-// escalaDo = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
+var abcTenor ;
+// abcTenor = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
 
 var buclesAtrasCuelgue = 2;
 
 // var msPerBeat = 1000;
-var msPerBeat = 500;
+var msPerBeat = 1000;
 var numeroTiemposCompas = 4;
 //oscillator, 0 siginifca q el obetivo es el silencio
 var setTarget = 0.1;

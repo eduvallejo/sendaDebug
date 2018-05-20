@@ -20,6 +20,7 @@
        <script type="text/javascript" src="js/bajo.js"></script>
        <script type="text/javascript" src="js/4sounds.js"></script>
        <script type="text/javascript" src="js/5oscillator.js"></script>
+       <script type="text/javascript" src="js/5oscillatorBajo.js"></script>
        <script type="text/javascript" src="js/notasDePaso.js"></script>
        <script type="text/javascript" src="js/decodeAjaxResponse.js"></script>
        <script type="text/javascript" src="js/colors.js"></script>
@@ -45,10 +46,16 @@
             argument = argument.replace(/</g, "&lt");//
             
             tunebookString = argument;  
-            crearBajo();
-            // crearAlto();
-            decodeAjaxResponse(escalaDoAlto);
 
+            decodeAjaxResponse(abcTenor, "tenor");
+            // crearAlto();
+            decodeAjaxResponse(abcAlto, "alto");
+            console.log("numeroVoces : " + numeroVoces);
+            if (numeroVoces == 3) {
+              decodeAjaxResponse(abcBajo, "bajo");
+            }
+            // console.log("abcBajo : " + abcBajo);
+            // crearBajo();
             renderAbcSvg();
             // console.clear();
            
@@ -70,10 +77,23 @@
  --> 
 <!--  <body onload="ajax('0SalzerEjDebug');populateAjax();">
  -->
- <body onload="ajax('66SalzerEj');populateAjax();">
-
+<!--  <body onload="ajax('66SalzerEj');populateAjax();">
+ -->
+<!-- <body onload="ajax('0escala');populateAjax();"> 
+ -->
+<!--  <body onload="ajax('66SalzerEj');populateAjax();"> --> 
+<body onload="ajax('0escalaDebug');populateAjax();"> 
+  
+<!--  <body onload="ajax('0triadaDism');populateAjax();">  
+ -->
 <div id="loading"></div>
 <div>
+<!--   <div id="primeraLinea"> -->
+      <select id="mySelect" onchange="drawOption()">
+          <option value=""  ></option>
+          <!-- <option value="barbershop">barbershop</option> -->
+      </select>
+<!--   </div> -->    
     <button onclick="showAbc();">show Abc</button>
     <button onclick="">
       <script >document.write("intervMelodMax: " + (intervMelodMax + 1)+"ª");</script>
@@ -97,14 +117,9 @@
       <script >document.write("key: " + key);</script>
     </button>
 </div>
-  <div id="primeraLinea">
-      <select id="mySelect" onchange="drawOption()">
-          <option value=""  ></option>
-          <!-- <option value="barbershop">barbershop</option> -->
-      </select>
-  </div>
   <br>
   <button id="intervaloSonando" style="position: absolute;">
+  <button id="intervaloSonandoBajoTenor" style="position: absolute;">
     
   </button>
  	<div id="notation"></div>
@@ -116,14 +131,14 @@
       //para mostrar la animacion se ha de constrior objeto output
       function renderAbcSvg(argument) {
         // var tuneObjectArray;
-        // console.log("escalaDo : " + escalaDo);
+        // console.log("abcTenor : " + abcTenor);
         var tuneObjectArrayMidi;
 
       outputElement = document.getElementById('notation');
         tuneObjectArray = ABCJS.renderAbc('notation', songResponse,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
         // tuneObjectArray = ABCJS.renderAbc('notation', songResponse,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});
         //scroll horizontal
-        // tuneObjectArrayMidi = ABCJS.renderMidi('midi', escalaDo);
+        // tuneObjectArrayMidi = ABCJS.renderMidi('midi', abcTenor);
 
         // pintarNotasRelacionAcorde();
             
@@ -132,8 +147,17 @@
         //  {showCursor : true, bpm : (msPerBeat / numeroTiemposCompas),});
         //mirar de poner bien el bpm adecuado
         // ABCJS.stopAnimation();
-         playOscillator();
-            playOscillatorAlto();
+        
+        //oscillator play
+        // console.log("noteLetter : " + noteLetter);
+        // console.log("noteLetterAlto[notas] : " + noteLetterAlto["notas"]);
+        // console.log("noteLetterTenor[notas] : " + noteLetterTenor["notas"]);
+        // console.log("noteLetterBajo[notas] : " + noteLetterBajo["notas"]);
+        playOscillatorTenor();
+        playOscillatorAlto();
+        if (numeroVoces == 3) {
+          playOscillatorBajo();
+        }
       }
 
     </script>

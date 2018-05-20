@@ -19,7 +19,7 @@
         	}
        </style>
     </head>
-<!--     <body onload="ABCJS.renderMidi('notation', escalaDo); return false;">
+<!--     <body onload="ABCJS.renderMidi('notation', abcTenor); return false;">
  -->    
 	<body onload="renderAbcSvg();">
 
@@ -28,12 +28,12 @@
     <script type="text/javascript">
    		function renderAbcSvg(argument) {
 		 	var tuneObjectArray;
-			console.log("escalaDo : " + escalaDo);
+			console.log("abcTenor : " + abcTenor);
 			outputElement = document.getElementById('notation');
 			var tuneObjectArray;
 
-			// tuneObjectArray = ABCJS.renderAbc('notation', escalaDo,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
-			tuneObjectArray = ABCJS.renderMidi(output, escalaDo);
+			// tuneObjectArray = ABCJS.renderAbc('notation', abcTenor,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
+			tuneObjectArray = ABCJS.renderMidi(output, abcTenor);
 
 		    	
    		}
