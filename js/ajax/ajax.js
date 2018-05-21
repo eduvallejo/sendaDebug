@@ -1,5 +1,8 @@
 // ajax.js
+var nombreCancion;
 function ajax(fileName) {
+	nombreCancion = fileName;
+	console.log("fileName : " + fileName);
 	//resetear
 	noteLetterAlto["notas"] = [];
 	noteLetterAlto["tiempos"] = [];
@@ -7,9 +10,9 @@ function ajax(fileName) {
 	noteLetterTenor["tiempos"] = [];
 	noteLetterBajo["notas"] = [];
 	noteLetterBajo["tiempos"] = [];
-	// clearInterval(setIntervalNotasAlto);
-	// clearInterval(setIntervalNotasTenor);
-	// clearInterval(setIntervalNotasBajo);
+	clearInterval(setIntervalNotasAlto);
+	clearInterval(setIntervalNotasTenor);
+	clearInterval(setIntervalNotasBajo);
 
 
 	// console.clear();

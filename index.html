@@ -64,6 +64,10 @@
             // resetearColores();
             // document.getElementsByClassName("abctext")[0].innerHTML = appendHtml;
         }
+        function changeMsPerBeat(argument){
+            msPerBeat = argument;
+            ajax(nombreCancion);
+        }
        </script>
     </head>
   <!-- <body onload="renderAbcSvg(); playOscillator();playOscillatorAlto();"> -->
@@ -85,7 +89,7 @@
 <!--  <body onload="ajax('66SalzerEj');populateAjax();"> --> 
 <!-- <body onload="ajax('0escalaDebug');populateAjax();"> 
  -->  
- <body onload="ajax('87tresVoces');populateAjax();">  
+ <body onload="ajax('89tresVocesEjemplo');populateAjax();">  
 
 <div id="loading"></div>
 <div>
@@ -104,11 +108,12 @@
     </button>
     <button onclick="">
       <script >document.write("buclesAtrasCuelgue: " + (buclesAtrasCuelgue ));</script>
-    </button>
-     <button onclick="">
-      <script >document.write("msPerBeat: " + (msPerBeat ));</script>
-    </button>
-    <button onclick="">
+    </button>-->
+     <input id="msPerBeat" style="width: 50px" value="">
+    </input>
+     <button onclick="changeMsPerBeat(document.getElementById('msPerBeat').value)"><script >document.write("msPerBeat: " + (msPerBeat ));</script>
+      </button>  
+    <!--<button onclick="">
       <script >document.write("divisionEspecie: " + (divisionEspecie ));</script>
     </button>
     <button onclick="">
