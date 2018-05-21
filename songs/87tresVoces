@@ -1,0 +1,19 @@
+X:1
+T:87tresVoces
+T:
+I:linebreak !
+L:1/4
+K:Ebmaj
+V:1 clef=treble
+z2 e2 |d2 e2 |f2 d2|c2 g2|f2 e2|d2B2|c2G2|=A2=B2|c4|
+V:2 clef=treble
+G4 |A4 |F4|E4|D4|B,4|E4|F4|E4|
+V:3 clef=bass
+C,4 |F,4 |D,4|E,4|F,4|G,4|E,4|D,4|C,4|
+W:Eo el compás 2 del ejemplo 87 la nota miP y, consecuentemente, el
+W:acorde que resulta sobre el segundo tiempo, se usa en una función de
+W:paso de primer tiempo a p ri m e r tiempo. 
+W:En el compás 6, l a nota si� sobre
+W:el segundo tiempo sirve para retardar el movimiento entre las notas re y
+W:do, que de otra manerá serian directamente adyacentes. De lo cual resulta
+W:que el acorde en sí mismo toma un carácter de retardación.

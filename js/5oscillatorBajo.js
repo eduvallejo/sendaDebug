@@ -48,9 +48,6 @@ function oscillatorFunctionBajo() {
 		// document.getElementById("intervaloSonandoBajoTenor").style.top 
 		// 	=  (getPosicionCursor().top +115) + "px";
 
-		// console.log("contadorOscillatorBajo : " + contadorOscillatorBajo);
-		// contadorOscillatorSoprano++;
-		// console.log("Bajo[" + contadorOscillatorBajo + "] : " + Bajo[contadorOscillatorBajo]);
 		clearInterval(setIntervalNotasBajo);
 		setIntervalNotasBajo = setInterval(oscillatorFunctionBajo, 
 		tiemposCorrectos[contadorBajoTiempos]);

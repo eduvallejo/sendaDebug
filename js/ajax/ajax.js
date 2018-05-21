@@ -7,6 +7,10 @@ function ajax(fileName) {
 	noteLetterTenor["tiempos"] = [];
 	noteLetterBajo["notas"] = [];
 	noteLetterBajo["tiempos"] = [];
+	// clearInterval(setIntervalNotasAlto);
+	// clearInterval(setIntervalNotasTenor);
+	// clearInterval(setIntervalNotasBajo);
+
 
 	// console.clear();
 	// console.log("AJAXfileName : " + fileName);
@@ -53,8 +57,9 @@ function ajax(fileName) {
 	        songResponse = response;
 	        abcTenor = response;
 	        var split = response.split("\n");
-	        key = split[4];
+	        key = split[5];
 	        key = key.replace("K:", "");
+	        console.log("key : " + key);
 			document.getElementById("key").innerHTML = key;
 
 			//alto
@@ -71,7 +76,7 @@ function ajax(fileName) {
 		        numeroVoces = 3;
 		        abcBajo = split[10] +"\n" + split[11]  ;
 		        abcBajo = abcBajo.replace("!", "");
-	        	console.log("split[10] : " + split[10]);
+	        	// console.log("split[10] : " + split[10]);
 	        }
 	        // console.log("abcAlto : " + abcAlto);
 	        //

@@ -2,4 +2,10 @@ que detecte el numeroVoces del abc, en vez de tener q cambiar la variable yo mis
 
 poner los oscillators en archivos diferentes para menos lio
 
-arreglar lo de TypeError: posicionCursor is undefined cuando pongo el bajo, tb el intevalo bajo tenor sale equivocado
+lo de poner los intervalos sobre el cursor lo dejo aparcado, creo q se han de calcular sobre la voz q tenga más notas...no sé
+
+arreglar los silencios, los tengo para q se añaddan a la  nota anterior
+
+crear una variable q englobe a todas las voces, algo asi como noteLetter[voz]=[], noteLetter[voz][notas]=[], noteLetter[voz][tiempos]=[]
+
+escribir el ejemplo 88 y 89

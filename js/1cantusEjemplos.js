@@ -268,7 +268,7 @@ checkFinalCantus(cantus);
 // console.clear();
 longitudCantus = cantus.length;
 // longitudcantusExtendido = longitudCantus * divisionEspecie;
-console.log("longitudCantus : " + longitudCantus);
+// console.log("longitudCantus : " + longitudCantus);
 function getClimaxPosition(argument) {
 	for (var i = 0; i < cantus.length; i++) {
 		cantus[i]

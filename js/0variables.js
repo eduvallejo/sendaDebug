@@ -26,6 +26,12 @@ noteLetterBajo["notas"] = [];
 noteLetterBajo["tiempos"] = [];
 noteLetterBajo["intervaloConTenor"] = [];
 
+var frecuencias = ["soprano", "alto","tenor","bajo"];
+frecuencias["soprano"] = [];
+frecuencias["alto"] = [];
+frecuencias["tenor"] = [];
+frecuencias["bajo"] = [];
+
 var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,", 
 	"C,","D,","E,","F,","G,","A,","B,",
 		"C","D","E","F","G","A","B",
@@ -61,7 +67,7 @@ var abcTenor ;
 var buclesAtrasCuelgue = 2;
 
 // var msPerBeat = 1000;
-var msPerBeat = 1000;
+var msPerBeat = 250;
 var numeroTiemposCompas = 4;
 //oscillator, 0 siginifca q el obetivo es el silencio
 var setTarget = 0.1;

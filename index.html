@@ -19,7 +19,8 @@
        <!-- <script type="text/javascript" src="js/3soprano.js"></script> -->
        <script type="text/javascript" src="js/bajo.js"></script>
        <script type="text/javascript" src="js/4sounds.js"></script>
-       <script type="text/javascript" src="js/5oscillator.js"></script>
+       <script type="text/javascript" src="js/5oscillatorTenor.js"></script>
+       <script type="text/javascript" src="js/5oscillatorAlto.js"></script>
        <script type="text/javascript" src="js/5oscillatorBajo.js"></script>
        <script type="text/javascript" src="js/notasDePaso.js"></script>
        <script type="text/javascript" src="js/decodeAjaxResponse.js"></script>
@@ -48,9 +49,9 @@
             tunebookString = argument;  
 
             decodeAjaxResponse(abcTenor, "tenor");
-            // crearAlto();
             decodeAjaxResponse(abcAlto, "alto");
-            console.log("numeroVoces : " + numeroVoces);
+            // crearAlto();
+            // console.log("numeroVoces : " + numeroVoces);
             if (numeroVoces == 3) {
               decodeAjaxResponse(abcBajo, "bajo");
             }
@@ -82,10 +83,10 @@
 <!-- <body onload="ajax('0escala');populateAjax();"> 
  -->
 <!--  <body onload="ajax('66SalzerEj');populateAjax();"> --> 
-<body onload="ajax('0escalaDebug');populateAjax();"> 
-  
-<!--  <body onload="ajax('0triadaDism');populateAjax();">  
- -->
+<!-- <body onload="ajax('0escalaDebug');populateAjax();"> 
+ -->  
+ <body onload="ajax('87tresVoces');populateAjax();">  
+
 <div id="loading"></div>
 <div>
 <!--   <div id="primeraLinea"> -->
@@ -94,8 +95,8 @@
           <!-- <option value="barbershop">barbershop</option> -->
       </select>
 <!--   </div> -->    
-    <button onclick="showAbc();">show Abc</button>
-    <button onclick="">
+     <button onclick="showAbc();">show Abc</button>
+    <!-- <button onclick="">
       <script >document.write("intervMelodMax: " + (intervMelodMax + 1)+"ª");</script>
     </button>
     <button onclick="">
@@ -112,7 +113,7 @@
     </button>
     <button onclick="">
       <script >document.write("intervaloBordadura: " + mostrarNombreIntervalo(intervaloBordadura));</script>
-    </button>
+    </button> --> 
     <button id="key" onclick="">
       <script >document.write("key: " + key);</script>
     </button>
@@ -148,17 +149,12 @@
         //mirar de poner bien el bpm adecuado
         // ABCJS.stopAnimation();
         
-        //oscillator play
-        // console.log("noteLetter : " + noteLetter);
-        // console.log("noteLetterAlto[notas] : " + noteLetterAlto["notas"]);
-        // console.log("noteLetterTenor[notas] : " + noteLetterTenor["notas"]);
-        // console.log("noteLetterBajo[notas] : " + noteLetterBajo["notas"]);
-        playOscillatorTenor();
+      
         playOscillatorAlto();
+        playOscillatorTenor();
         if (numeroVoces == 3) {
           playOscillatorBajo();
         }
       }
-
     </script>
 </html>

@@ -1,5 +1,5 @@
 X:1
-T: dos voces Debug
+T:0escalaDebug
 T:
 I:linebreak !
 L:1/4
@@ -7,6 +7,6 @@ K:Cmaj
 V:1 clef=treble
 G A A B |B A  G c |
 V:2 clef=treble
-G2 G2 | G2 A2 |
+CC F2 | A2 c2 |
 V:3 clef=treble
-C2 D2 | E2 F2 |
+C2 DD | E2 F2 |

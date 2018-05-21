@@ -53,8 +53,10 @@ function populateAjax(fileName) {
 function drawOption(argument) {
 		oscillatorAlto.stop(0);
 		clearInterval(setIntervalNotasAlto);
-		oscillator.stop(0);
-		clearInterval(setIntervalNotas);
+		oscillatorTenor.stop(0);
+		clearInterval(setIntervalNotasTenor);
+		oscillatorBajo.stop(0);
+		clearInterval(setIntervalNotasBajo);
 
 	var value = document.getElementById("mySelect").value;
 	song = value;
