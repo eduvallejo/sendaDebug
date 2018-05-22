@@ -75,6 +75,8 @@ function getFrequency(voz, posicionNota, cantidadAlteracion, key) {
   };
     // console.log("indiceNota[B,,] : " + indiceNota['B,,']);
   // console.log("Alteracioneskey:" + key);
+      console.log("key : " + key);
+
   switch(key) {
     case "Gmaj":
       indiceNota["F,,,"]++;
@@ -436,6 +438,19 @@ function getAlteraciones(posicionNota, cantitadAlteracion) {
     // console.log("indiceNota[B,,] : " + indiceNota['B,,']);
 
       break;
+    case "Bbmaj":
+      // console.log("ANTES---indiceNota['A'] : " + indiceNota['A']);
+      indiceNota["B,,"]--;
+      indiceNota["B,"]--;
+      indiceNota["B"]--;
+      indiceNota["b"]--;
+      indiceNota["b'"]--;
+      indiceNota["E,"]--;
+      indiceNota["E"]--;
+      indiceNota["e"]--;
+      indiceNota["e'"]--;
+      // console.log("DESPUES---indiceNota['A'] : " + indiceNota['A']);
+      break;    
     case "Ebmaj":
       // console.log("ANTES---indiceNota['A'] : " + indiceNota['A']);
       indiceNota["B,"]--;

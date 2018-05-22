@@ -8,4 +8,4 @@ arreglar los silencios, los tengo para q se añaddan a la  nota anterior
 
 crear una variable q englobe a todas las voces, algo asi como noteLetter[voz]=[], noteLetter[voz][notas]=[], noteLetter[voz][tiempos]=[]
 
-escribir el ejemplo 88 y 89
+hacer boton para q se paren los osciladores

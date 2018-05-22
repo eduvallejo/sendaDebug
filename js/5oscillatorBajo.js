@@ -36,7 +36,8 @@ function oscillatorFunctionBajo() {
 		// console.log("noteLetterBajo[tiempos] : " + noteLetterBajo["tiempos"]);
 		oscillatorBajo.frequency.value = 
 			// getFrequency(Bajo , contadorOscillatorBajo, 0, key);
-			getFrequency(noteLetterBajo["notas"] , contadorOscillatorBajo, 0, key);
+			frecuencias["bajo"][contadorOscillatorBajo];
+			// getFrequency(noteLetterBajo["notas"] , contadorOscillatorBajo, 0, key);
 		oscillatorBajo.connect(gainNodeBajo);
 		oscillatorBajo.start(0);
 		

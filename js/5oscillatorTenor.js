@@ -39,7 +39,8 @@ function oscillatorFunctionTenor() {
 		// console.log("noteLetter[notas] : " + noteLetterTenor["notas"][contadorOscillatorTenor]);
 		// console.log("contadorOscillator : " + contadorOscillator);
 		oscillatorTenor.frequency.value = 
-			getFrequency(noteLetterTenor["notas"], contadorOscillatorTenor, 0, key);
+			frecuencias["tenor"][contadorOscillatorTenor];
+			// getFrequency(noteLetterTenor["notas"], contadorOscillatorTenor, 0, key);
 
 		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
 		oscillatorTenor.connect(gainNode);

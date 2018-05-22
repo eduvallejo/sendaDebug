@@ -23,6 +23,7 @@ function resetearAjax(argument) {
 }
 
 function decodeAjaxResponse(song, voz) {
+	console.log("voz : " + voz);
 	resetearAjax();
 	song = song.replace(/".*?"/g, ""); //elimino las quotes de los acordes, asi descode mmas facil
 
@@ -151,7 +152,7 @@ function decodeAjaxResponse(song, voz) {
 				armadura = armadura + song[pointer];
 				pointer++;
 			}
-			console.log("armadura :" + armadura);
+			// console.log("armadura :" + armadura);
 			key = armadura;
 		}else if(song[pointer] = "[" && song[pointer + 1] == "K" && (song[pointer + 3] == "t" || song[pointer + 3] == "b")) {
 			while(song[pointer] != "]"){
@@ -186,6 +187,9 @@ function decodeAjaxResponse(song, voz) {
 			msPerBeat = parseFloat(60000 / bpm).toFixed(0);
 		}
 
+		//LETTERS
+		// console.log("key : " + key);
+		// console.log("noteLetter : " + noteLetter);
 		var lettersTime = /[a-gA-GzZ]/;//letters involved in time
 		if (song[pointer].match(lettersTime) ) {
 
