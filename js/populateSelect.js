@@ -55,8 +55,10 @@ function drawOption(argument) {
 		clearInterval(setIntervalNotasAlto);
 		oscillatorTenor.stop(0);
 		clearInterval(setIntervalNotasTenor);
-		oscillatorBajo.stop(0);
-		clearInterval(setIntervalNotasBajo);
+		if (numeroVoces == 3) {
+			oscillatorBajo.stop(0);
+			clearInterval(setIntervalNotasBajo);
+		}
 
 	var value = document.getElementById("mySelect").value;
 	song = value;

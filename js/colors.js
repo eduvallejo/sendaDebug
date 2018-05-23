@@ -89,54 +89,107 @@ function colorear(argument) {
 }
 
 var coloresNotaAcorde = {
-	octavaAbajo : "#331a00", septimaAbajo : "#999966", sextaAbajo : "green",   quintaAbajo : "#0059b3",  cuartaAbajo : "red",  terceraAbajo : "#33cccc", segundaAbajo : " #ff33cc", 
-	1 : "#331a00", 2 : "#999966", 3 : "green",   4 : "#0059b3",  5 : "red",  6 : "#33cccc", 7 : " #ff33cc", 
-	8 : "#331a00", 9 : "#999966", 10 : "green", 11 : "#0059b3", 12 : "red", 13 : "#33cccc",  14 : "#ff33cc", 
+	octavaAbajo : "#331a00", septimaAbajo : "#999966", sextaAbajo : "green",   quintaAbajo : "#990099",  cuartaAbajo : "#b30047",  terceraAbajo : "#0066ff", segundaAbajo : " #ff33cc", 
+	1 : "#331a00",2 : "#999966", 3 : "green",   4 : "#990099",  5 : "#b30047",  6 : "#0066ff", 7 : " #ff33cc", 
+	8 : "#331a00", 9 : "#999966", 10 : "green", 11 : "#990099", 12 : "#b30047", 13 : "#0066ff",  14 : "#ff33cc", 
 	15: "331a00",16 : "#ff4da6" 
 }
 
 function pintarNotasRelacionAcorde(argument) {
-	// console.clear();
-	console.log("coloresNotaAcorde[5] : " + coloresNotaAcorde[5]);
+	console.clear();
+	// console.log("noteLetterAlto[notas] : " + noteLetterAlto["notas"]);
 	var notesArray = document.getElementsByClassName("abcjs-note");
-	// var notesArray = document.getElementsByTagName("button");
 	console.log("notesArray.length : " + notesArray.length);
 	//pentagrama superior
-	for (var i = 0; i < alto.length; i++){
-		// console.log("notesArray[" + i + "].nextSibling.[width] : " + notesArray[i].nextSibling.getAttribute("width"));
-		// posicionNota1 = parseInt(posicionNota1) +  parseInt(notesArray[i].nextSibling.getAttribute("width")); 
-		notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(alto, i)]);
-		// console.log(" mostrarGradosVoz(alto, " + i + "): " + mostrarGradosVoz(alto, i));
-	}
-	//pentagrama siguiente al superior
-	for (var i = alto.length; i < notesArray.length; i++){
-		// console.log("notesArray[" + i + "].nextSibling.[width] : " + notesArray[i].nextSibling.getAttribute("width"));
-		// posicionNota1 = parseInt(posicionNota1) +  parseInt(notesArray[i].nextSibling.getAttribute("width")); 
-		notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(cantus, i - alto.length)]);
-		// console.log(" mostrarGradosVoz(cantus, " + (i - alto.length) + "): " + mostrarGradosVoz(cantus, i - alto.length));
-	}
-	// tenemos en cuenta la cantidad de sotsenidos para colocar la linea de posicion, aunq a veces no hay y se tieene q catcheaar
-	// console.log("key : " + key);
-	// try{
-	// 	if (key != "Cmaj") {
-	// 		posicionNota1 = parseInt(posicionNota1) +  parseInt(staffExtraArray[1].nextSibling.getAttribute("width")); 
-	// 		document.getElementById("flecha").style.left = parseInt(screenWidth + posicionNota1 - 3 ) + "px";
-	// 		// console.log("posicionNota1 : " + parseInt(staffExtraArray[1].nextSibling.getAttribute('width')));
-	// 	}else if(key == "Cmaj"){
-	// 		document.getElementById("flecha").style.left = parseInt(screenWidth + 60) + "px"; //25 a ojo
-	// 		console.log("else Cmaj : ");
-	// 	}
-	// }catch(e){//para la tonalidad de C no esta el elemento staff
-	// 	document.getElementById("flecha").style.left = parseInt(screenWidth + 60) + "px"; //25 a ojo
-	// 	// console.log(" document.getElementById(flecha).getAttribute(left): " + document.getElementById("flecha").getAttribute("left")); //25 a ojo
-	// 	console.log("e : ");
+	// for (var i = 0; i < alto.length; i++){
+	// 	notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(noteLetterAlto["notas"], i)]);
+	// 	// notesArray[i].setAttribute("fill", "blue");
 	// }
-
-	// // console.log("resetearColores");
-	// for (var i = 0; i < notes.length; i++) {
-	// 	notes[i].setAttribute("fill", "black");
-	// // 			notes[contadorColor].setAttribute("class", "note note_selected");
-	// // notes[contadorColor].setAttribute("fill", "grey");
+	// //pentagrama siguiente al superior
+	// for (var i = alto.length; i < notesArray.length; i++){
+	// 	// notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(cantus, i - alto.length)]);
+	// 	notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(noteLetterAlto["notas"], i)]);
 	// }
+	for (var i = 0; i < notesArray.length; i++) {
+		var clase = notesArray[i].classList[2];
+		//el 7 es para quitar los 7 primeros caracteres de la clase y quedarnos con el numero(index de nota)
+		clase = clase.slice(7,clase.length);
+		notesArray[i].setAttribute("fill", 
+			coloresNotaAcorde[mostrarGradosVoz((clase%7)+14)]);
+		console.log("mostrarGradosVoz((clase%7)+14) : " + mostrarGradosVoz((clase%7)+14));
+	}
+}
 
+
+function getNotaFromSvg(argument){
+    
+}
+
+function mostrarGradosVoz(nota){
+	//nota es un index sacado del svg
+	console.log("notasMusicales[nota] : " + notasMusicales[nota]);
+    var grado = (nota - getIndexOf(key[0]));
+    // console.log("getIndexOf(key[0]) : " + getIndexOf(key[0]));
+	// console.log("nota : 	" + nota);
+    console.log("grado : " + grado);
+    switch (grado) {
+        case unisono:
+            return "1";
+            break;
+        case segunda:
+            return "2";
+            break;
+        case 2:
+            return "3";
+            break;
+        case -5:
+            return "3";
+            break;
+        case 3:
+            return "4";
+            break;
+        case -4:
+            return "4";
+            break;
+        case 4:
+            return "5";
+            break;
+        case -3:
+            return "5";
+            break;
+        case 5:
+            return "6";
+            break;
+        case -2:
+            return "6";
+            break;
+        case 6:
+            return "7";
+            break;
+        case -1:
+            return "7";
+            break;
+        case 7:
+            return "8";
+            break;
+        case 8:
+            return "9";
+        break;
+        case 9:
+            return "10";
+        break;
+        case onceava:
+            return "11";
+        break;
+        case doceava:
+            return "12";
+        break;
+        case treceava:
+            return "13";
+        break;
+        // default:
+        //     return "def: " + grado
+        // break;
+            
+    }
 }

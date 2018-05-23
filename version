@@ -9,3 +9,8 @@ arreglar los silencios, los tengo para q se añaddan a la  nota anterior
 crear una variable q englobe a todas las voces, algo asi como noteLetter[voz]=[], noteLetter[voz][notas]=[], noteLetter[voz][tiempos]=[]
 
 hacer boton para q se paren los osciladores
+
+hacer botn q pause el sonido, o sea q siga sonando el sonido de ese momemtno pero sin avanzar al siguiente acorde, para poder apreciar las disonancias
+
+poner colores, no se si hay q mirar donde acaba cada voz.. ?es posible sacar la  nota directamente de una clase del svg?
+	abcjs-note abcjs-d0-5 abcjs-p5 abcjs-l1 abcjs-m6 abcjs-v0 abcjs-n1 abcjs-note_selected, parece que abcjs-p5 es el LA y p7 el DO
