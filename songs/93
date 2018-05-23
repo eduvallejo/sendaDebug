@@ -1,0 +1,21 @@
+X:1
+T:93
+T:
+I:linebreak !
+L:1/4
+K:Fmaj
+V:1 clef=treble
+z2A2-|A2 d2-|d2 c2-|c2 B2-|B2 d2-|d2 c2-|c2 f2-|f2 e2-|e2 d2-|d2 ^c2|d4|
+V:2 clef=treble
+FEFD|CB,A,D|EFGE|FGFE|DGFG|ABAG|FEDC|B,GFG|ADEF|GFAG|F4|
+V:3 clef=bass
+D,4|F,4|E,4|D,4|G,4|F,4|A,4|G,4|F,4|E,4|D,4|
+W:Una disonancia puede resolver aquí sobre un acorde consonante en el
+W:tercer tiempo, tal como indicábamos en el contrapunto elemental; tal reso­
+W:lución aparece en el compás 3. Sin embargo, ahora es posible retardar la
+W:resolución hasta el cuarto tiempo, debido al movimiento de las ·negras.
+W:
+W:En el compás 9, por ejemplo, la resolución se retarda por la nota disonante de
+W:paso mi hasta la cuarta parte, donde resulta el acorde fa-fa-re. 
+W:Otro de estos efectos retardados aparece en el compás 10 origin a d o por un movimiento
+W:de bordadura superior e inferior.

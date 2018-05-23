@@ -67,7 +67,7 @@ var abcTenor ;
 var buclesAtrasCuelgue = 2;
 
 // var msPerBeat = 1000;
-var msPerBeat = 250;
+var msPerBeat = 500;
 var numeroTiemposCompas = 4;
 //oscillator, 0 siginifca q el obetivo es el silencio
 var setTarget = 0.1;

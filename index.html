@@ -45,7 +45,6 @@
             //para evitar el bug "<""
             // decodeAjaxResponse(argument, "tenor");
             argument = argument.replace(/</g, "&lt");//
-            
             tunebookString = argument;  
 
             decodeAjaxResponse(abcTenor, "tenor");
@@ -89,7 +88,7 @@
 <!--  <body onload="ajax('66SalzerEj');populateAjax();"> --> 
 <!-- <body onload="ajax('0escalaDebug');populateAjax();"> 
  -->  
- <body onload="ajax('90tresVoces');populateAjax();">  
+ <body onload="ajax('95');populateAjax();">  
 
 <div id="loading"></div>
 <div>
@@ -141,7 +140,10 @@
         var tuneObjectArrayMidi;
 
       outputElement = document.getElementById('notation');
-        tuneObjectArray = ABCJS.renderAbc('notation', songResponse,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
+        // tuneObjectArray = ABCJS.renderAbc('notation', songResponse,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal 
+        tuneObjectArray = ABCJS.renderAbc('notation', tunebookString,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});//scroll horizontal
+       
+
         // tuneObjectArray = ABCJS.renderAbc('notation', songResponse,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});
         //scroll horizontal
         // tuneObjectArrayMidi = ABCJS.renderMidi('midi', abcTenor);

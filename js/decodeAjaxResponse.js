@@ -23,7 +23,6 @@ function resetearAjax(argument) {
 }
 
 function decodeAjaxResponse(song, voz) {
-	console.log("voz : " + voz);
 	resetearAjax();
 	song = song.replace(/".*?"/g, ""); //elimino las quotes de los acordes, asi descode mmas facil
 
@@ -477,7 +476,6 @@ function decodeAjaxResponse(song, voz) {
 			noteLetterBajo["intervaloConTenor"][i] = 
 				mostrarNombreIntervalo(getIntervaloArmonico(noteLetterBajo["notas"][i], noteLetterTenor["notas"][i]));
 		}
-		console.log("noteLetterBajo[intervaloConTenor] : " + noteLetterBajo["intervaloConTenor"]);
 	}
 
 

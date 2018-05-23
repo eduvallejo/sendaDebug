@@ -57,12 +57,12 @@ function ajax(fileName) {
 	        // console.log("http.response : " + http.response);
 	        response = JSON.parse(http.response);
 	        //songResponse es lo q se muestra en renderAbc
-	        songResponse = response;
+	        // songResponse = response;
 	        abcTenor = response;
 	        var split = response.split("\n");
 	        key = split[5];
 	        key = key.replace("K:", "");
-	        console.log("key : " + key);
+	        // console.log("key : " + key);
 			document.getElementById("key").innerHTML = key;
 
 			//alto
@@ -83,6 +83,7 @@ function ajax(fileName) {
 	        }
 	        // console.log("abcAlto : " + abcAlto);
 	        //
+	     
 		    appendSong(response);
       		document.getElementById("loading").innerHTML = ''; // Hide the image after the response from the server
 		 	
