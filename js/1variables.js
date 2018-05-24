@@ -11,27 +11,48 @@ var divisionEspecie = divisionTerceraEspecie;
 // var numeroVoces = 3
 var numeroVoces = 3;
 // var numeroVoces = 4;
-var objeto = {} ;
-iniciarObjeto();
-function iniciarObjeto(argument){
-	objeto = {"soprano":{}, "alto":{}, "tenor":{}, "bajo":{}};
-	for (var i in objeto) {
-		// console.log("objeto["+i+"] : " + objeto[i]);
-		objeto[i] = {
-			"notas" : {}, 
-			"tiempos" : {}, 
-			"intervalo" : {}, 
-			"frecuencia" : {}, 
-			"oscillator" : {},
-			"abc" : false,
-				};
-		for (var j in objeto[i]) {
-			objeto[i][j] = [];
-			// console.log("objeto["+i+"]["+j+"] : " + objeto[i][j]);
-		}
+var objeto = {"soprano":{}, "alto":{}, "tenor":{}, "bajo":{}};
+for (var i in objeto) {
+	console.log("objeto["+i+"] : " + objeto[i]);
+	objeto[i] = {
+		"notas" : {}, 
+		"tiempos" : {}, 
+		"intervalo" : {}, 
+		"frecuencia" : {}, 
+		"oscillator" : {}
+			};
+	for (var j in objeto[i]) {
+		objeto[i][j] = [];
+		// console.log("objeto["+i+"]["+j+"] : " + objeto[i][j]);
 	}
 }
+// console.log("objeto : " + objeto);
 
+// var n1oteLetterSoprano = ["notas", "tiempos"];
+// n1oteLetterSoprano["notas"] = [];
+// n1oteLetterSoprano["tiempos"] = [];
+// n1oteLetterSoprano["intervaloConSoprano"] = [];
+
+var noteLetterAlto = ["notas", "tiempos"];
+noteLetterAlto["notas"] = [];
+noteLetterAlto["tiempos"] = [];
+noteLetterAlto["intervaloConSoprano"] = [];
+
+var noteLetterTenor = ["notas", "tiempos"];
+noteLetterTenor["notas"] = [];
+noteLetterTenor["tiempos"] = [];
+noteLetterTenor["intervaloConAlto"] = [];
+
+var noteLetterBajo = ["notas", "tiempos"];
+noteLetterBajo["notas"] = [];
+noteLetterBajo["tiempos"] = [];
+noteLetterBajo["intervaloConTenor"] = [];
+
+var frecuencias = ["soprano", "alto","tenor","bajo"];
+// f1recuencias["soprano"] = [];
+frecuencias["alto"] = [];
+frecuencias["tenor"] = [];
+frecuencias["bajo"] = [];
 
 var grados = ["soprano", "alto","tenor","bajo"];
 grados["soprano"] = [];
@@ -70,7 +91,7 @@ var sextaAbajo = -5;var septimaAbajo = -6;var octavaAbajo = -7; var novenaAbajo 
 var intervMelodMax = sexta;
 var restoreInterval = cuarta;
 
-// var objeto["tenor"]["abc"] ;
+var objeto["tenor"]["abc"] ;
 // objeto["tenor"]["abc"] = "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
 
 var buclesAtrasCuelgue = 2;

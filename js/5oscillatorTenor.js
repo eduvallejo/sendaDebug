@@ -7,7 +7,7 @@ var contadorOscillatorBajo = 0;
 var gainNode, gainNodeAlto;
 var setIntervalNotasSoprano, setIntervalNotasTenor, setIntervalNotasAlto, setIntervalNotasBajo;
 
-var oscillatorSoprano, oscillatorTenor, oscillatorBajo, oscillatorAlto;
+// var objeto["soprano"]["tenor"], objeto["soprano"]["bajo"], objeto["soprano"]["alto"];
 //compressor
 var compressor = context.createDynamicsCompressor();
 
@@ -17,16 +17,16 @@ var convolver = context.createConvolver();
 // console.log("alto : " + alto);
 
 function oscillatorFunctionTenor() {
-	if (contadorOscillatorTenor >= noteLetterTenor["notas"].length) {
+	if (contadorOscillatorTenor >= objeto["tenor"]["notas"].length) {
 		clearInterval(setIntervalNotasTenor);
-		oscillatorTenor.stop();
+		objeto["soprano"]["tenor"].stop();
 		
 		playOscillatorTenor();
 	}else{
-		if (oscillatorTenor) {
-			oscillatorTenor.stop();
-			// oscillatorSoprano.stop();
-			// oscillatorAlto.stop();
+		if (objeto["soprano"]["tenor"]) {
+			objeto["soprano"]["tenor"].stop();
+			// objeto["soprano"]["soprano"].stop();
+			// objeto["soprano"]["alto"].stop();
 		}
 		gainNode = context.createGain();
 		gainNode.gain.value = 1;
@@ -34,24 +34,24 @@ function oscillatorFunctionTenor() {
 		gainNode.connect(compressor);
 		compressor.threshold.setValueAtTime(-50, context.currentTime);
 		compressor.connect(context.destination);
-		//oscillatorTenor cantus(tenor)
-		oscillatorTenor = context.createOscillator();
-		// oscillatorTenor.frequency.value = frecuenciaNotas[cantus[contadorOscillatorTenor]]["hz"];
-		// console.log("noteLetter[notas] : " + noteLetterTenor["notas"][contadorOscillatorTenor]);
+		//objeto["soprano"]["tenor"] cantus(tenor)
+		objeto["soprano"]["tenor"] = context.createOscillator();
+		// objeto["soprano"]["tenor"].frequency.value = frecuenciaNotas[cantus[contadorOscillatorTenor]]["hz"];
+		// console.log("noteLetter[notas] : " + objeto["tenor"]["notas"][contadorOscillatorTenor]);
 		// console.log("contadorOscillator : " + contadorOscillator);
-		oscillatorTenor.frequency.value = 
-			frecuencias["tenor"][contadorOscillatorTenor];
-			// getFrequency(noteLetterTenor["notas"], contadorOscillatorTenor, 0, key);
+		objeto["soprano"]["tenor"].frequency.value = 
+			objeto["tenor"]["frecuencia"][contadorOscillatorTenor];
+			// getFrequency(objeto["tenor"]["notas"], contadorOscillatorTenor, 0, key);
 
 		//el primer param es a lo q tiende de 0% a 100%, el segundo cuando empieza, , el tercero es la velocidad a la q tiende(0max 1min)
-		oscillatorTenor.connect(gainNode);
+		objeto["soprano"]["tenor"].connect(gainNode);
 		// gainNode.gain.linearRampToValueAtTime(0.3, context.currentTime + 0.4);
 		// console.log("context.currentTime : " + context.currentTime);
-		oscillatorTenor.start(0);
+		objeto["soprano"]["tenor"].start(0);
 
 		clearInterval(setIntervalNotasTenor);
 		setIntervalNotasTenor = 
-			setInterval(oscillatorFunctionTenor, noteLetterTenor["tiempos"][contadorOscillatorTenor]);		
+			setInterval(oscillatorFunctionTenor, objeto["tenor"]["tiempos"][contadorOscillatorTenor]);		
 		
 		contadorOscillatorTenor++;
 		// contadorTenorTiempos++;
@@ -69,7 +69,7 @@ function playOscillatorTenor() {
 	//oscillator
 	contadorOscillatorTenor = 0;
 	oscillatorFunctionTenor();//para no tener delay en la 1a ejecucion
-	// setIntervalNotasTenor = setInterval(oscillatorFunctionTenor, noteLetterTenor["tiempos"][contadorOscillatorTenor]);
+	// setIntervalNotasTenor = setInterval(oscillatorFunctionTenor, objeto["tenor"]["tiempos"][contadorOscillatorTenor]);
 }
 
 
@@ -91,13 +91,13 @@ function showAbc(argument) {
 function oscillatorFunctionBajo() {
 	if (contadorOscillatorBajo >= bajo.length) {
 		clearInterval(setIntervalNotasBajo);
-		oscillatorBajo.stop();
+		objeto["soprano"]["bajo"].stop();
 		// console.log("Bajo : " + Bajo);
 
 		playOscillatorBajo();
 	}else{
-		if (oscillatorBajo) {
-			oscillatorBajo.stop();
+		if (objeto["soprano"]["bajo"]) {
+			objeto["soprano"]["bajo"].stop();
 		}
 		gainNodeBajo = context.createGain();
 		gainNodeBajo.gain.value = 1;
@@ -107,11 +107,11 @@ function oscillatorFunctionBajo() {
 		compressor.connect(context.destination);
 
 		// oscillator bajo//
-		oscillatorBajo = context.createOscillator();
-		oscillatorBajo.frequency.value = 
+		objeto["soprano"]["bajo"] = context.createOscillator();
+		objeto["soprano"]["bajo"].frequency.value = 
 			getFrequency(bajo, contadorOscillatorAlto, 0, key);
-		oscillatorBajo.connect(gainNodeAlto);
-		oscillatorBajo.start(0);
+		objeto["soprano"]["bajo"].connect(gainNodeAlto);
+		objeto["soprano"]["bajo"].start(0);
 
 		// console.log("contadorOscillatorAlto : " + contadorOscillatorAlto);
 		contadorOscillatorBajo++;
@@ -122,7 +122,7 @@ function oscillatorFunctionBajo() {
 
 function playOscillatorBajo() {
 	// console.log("alto : " + alto);
-	//oscillatorBajo
+	//objeto["soprano"]["bajo"]
 	contadorOscillatorBajo = 0;
 	oscillatorFunctionBajo();//para no tener delay en la 1a ejecucion
 	setIntervalNotas = setInterval(oscillatorFunctionBajo, 500);

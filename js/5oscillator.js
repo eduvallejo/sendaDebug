@@ -55,3 +55,26 @@ function playOscillatorSoprano(argument) {
 			 // {showCursor : true, bpm : (60000 /msPerBeat),});
 	oscillatorFunctionSoprano();//para no tener delay en la 1a ejecucion
 }
+
+function stopOscillators(argument){   
+	switch (numeroVoces) {
+	  case 2:
+		objeto["soprano"]["soprano"].stop(0);
+		objeto["soprano"]["alto"].stop(0);
+	    break;
+	  case 3:
+		objeto["soprano"]["soprano"].stop(0);
+		objeto["soprano"]["alto"].stop(0);
+		objeto["soprano"]["tenor"].stop(0);
+	    break;
+	  case 4:
+		objeto["soprano"]["soprano"].stop(0);
+		objeto["soprano"]["alto"].stop(0);
+		objeto["soprano"]["tenor"].stop(0);
+		objeto["soprano"]["bajo"].stop(0);
+	  break;
+	  default:
+		objeto["soprano"]["soprano"].stop(0);
+	    break;
+	}
+}

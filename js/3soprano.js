@@ -88,23 +88,23 @@ function crearSoprano(argument) {
 	console.log("soprano : " + soprano);
 	// console.log("cantus : " + cantus);
 	
-	// abcTenor = "X:1\nL:1/2\nK:Cmaj\nV:1 clef=alto1\n"
-	// abcTenor = "X:1\nL:1/2\nK:Cmaj\nV:1\n"
-	// abcTenor = "X:1\nL:1/2\nK:" + key + "\nV:1 clef=alto3\n"
-	// abcTenor = "X:1\nL:1/2\nK:" + key + "\nV:3\n"
-	console.log("abcTenor.indexOf(" + key + "); : " + abcTenor.indexOf(key));
-	// var keyPosition = ("abcTenor.indexOf(" + key + "); : " + abcTenor.indexOf(key));
-	// [abcTenor.slice(0, keyPosition), "HOLA", abcTenor.slice(keyPosition)].join('');
+	// objeto["tenor"]["abc"] = "X:1\nL:1/2\nK:Cmaj\nV:1 clef=alto1\n"
+	// objeto["tenor"]["abc"] = "X:1\nL:1/2\nK:Cmaj\nV:1\n"
+	// objeto["tenor"]["abc"] = "X:1\nL:1/2\nK:" + key + "\nV:1 clef=alto3\n"
+	// objeto["tenor"]["abc"] = "X:1\nL:1/2\nK:" + key + "\nV:3\n"
+	console.log("objeto["tenor"]["abc"].indexOf(" + key + "); : " + objeto["tenor"]["abc"].indexOf(key));
+	// var keyPosition = ("objeto["tenor"]["abc"].indexOf(" + key + "); : " + objeto["tenor"]["abc"].indexOf(key));
+	// [objeto["tenor"]["abc"].slice(0, keyPosition), "HOLA", objeto["tenor"]["abc"].slice(keyPosition)].join('');
 
-	var abcTenorSoprano;
+	var objeto["tenor"]["abc"]Soprano;
 	// console.log("soprano : " + soprano);
-	abcTenorSoprano = "V:1 clef=alto1\n";
-	// abcTenor += "\nV:2 clef=treble\n"
-	//aqui solo se suma el soprano al header de abcTenor
+	objeto["tenor"]["abc"]Soprano = "V:1 clef=alto1\n";
+	// objeto["tenor"]["abc"] += "\nV:2 clef=treble\n"
+	//aqui solo se suma el soprano al header de objeto["tenor"]["abc"]
 	for (var i = 0; i < soprano.length; i++) {
-		// abcTenor = abcTenor + soprano[i] + ' "' + (((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )) -
+		// objeto["tenor"]["abc"] = objeto["tenor"]["abc"] + soprano[i] + ' "' + (((notasMusicales.indexOf(soprano[i + 1]) % 7 + 8 )) -
 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
-		abcTenorSoprano += 
+		objeto["tenor"]["abc"]Soprano += 
 		 	'"' 
 		 		+(((notasMusicales.indexOf(soprano[i]))
 					- (notasMusicales.indexOf(cantus[i])))+1) 
@@ -112,23 +112,23 @@ function crearSoprano(argument) {
 				+ soprano[i]
 			;
 	}
-	// console.log("abcTenorSoprano : " + abcTenorSoprano);
-	abcTenor = abcTenor.replace(key ,key +"\n" + abcTenorSoprano); // if you want all the "hello"'s in the string to be replaced
-	// abcTenor += "\nV:2 clef=treble\n"
+	// console.log("objeto["tenor"]["abc"]Soprano : " + objeto["tenor"]["abc"]Soprano);
+	objeto["tenor"]["abc"] = objeto["tenor"]["abc"].replace(key ,key +"\n" + objeto["tenor"]["abc"]Soprano); // if you want all the "hello"'s in the string to be replaced
+	// objeto["tenor"]["abc"] += "\nV:2 clef=treble\n"
 	// for (var i = 0; i < cantus.length; i++) {
-	// 	abcTenor = abcTenor + cantus[i] + '"' + (i+1) + '"' ;
+	// 	objeto["tenor"]["abc"] = objeto["tenor"]["abc"] + cantus[i] + '"' + (i+1) + '"' ;
 	// }
-	// abcTenor += "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
-	// abcTenor += "\nV:2 clef=alto\nCDFEDC"
-	// abcTenor += "\nV:2 clef=alto\n" + cantus;
-	// abcTenor += "\nV:2 clef=alto4\n" ;
+	// objeto["tenor"]["abc"] += "X:1\nL:1/2\nK:Cmaj\nV:1\nCDFEDC"
+	// objeto["tenor"]["abc"] += "\nV:2 clef=alto\nCDFEDC"
+	// objeto["tenor"]["abc"] += "\nV:2 clef=alto\n" + cantus;
+	// objeto["tenor"]["abc"] += "\nV:2 clef=alto4\n" ;
 	
-	// abcTenor += "\nV:2 clef=alto4\n" ;
+	// objeto["tenor"]["abc"] += "\nV:2 clef=alto4\n" ;
 	// for (var i = 0; i < cantus.length; i++) {
-	// 	abcTenor += cantus[i];
+	// 	objeto["tenor"]["abc"] += cantus[i];
 	// }
 
-	// console.log("abcTenor : " + abcTenor);
+	// console.log("objeto["tenor"]["abc"] : " + objeto["tenor"]["abc"]);
 	// console.log("randomIntervalSopranoCantus : " 
 	// 	+ randomIntervalSopranoCantus);
 }

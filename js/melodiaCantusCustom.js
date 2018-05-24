@@ -94,9 +94,9 @@ function crearAlto(argument) {
 							|| (cantus[i - 1] + cantus[i] == cantus[i + 1] + cantus[i + 2]) //evitar patrones posteriores
 				 )  //
 	}
-	//aqui solo se suma el cantus al header de abcTenor
+	//aqui solo se suma el cantus al header de objeto["tenor"]["abc"]
 	// for (var i = 0; i < cantus.length; i++) {
-	// 	abcTenor = abcTenor + cantus[i];
+	// 	objeto["tenor"]["abc"] = objeto["tenor"]["abc"] + cantus[i];
 	// }
 	//una vez calculado el cantus, calculamos el soprano
 	// crearSoprano();

@@ -19,9 +19,9 @@
        <!-- <script type="text/javascript" src="js/3soprano.js"></script> -->
        <script type="text/javascript" src="js/bajo.js"></script>
        <script type="text/javascript" src="js/4sounds.js"></script>
-       <script type="text/javascript" src="js/5oscillatorSoprano.js"></script>
-       <script type="text/javascript" src="js/5oscillatorTenor.js"></script>
+       <script type="text/javascript" src="js/5oscillator.js"></script>
        <script type="text/javascript" src="js/5oscillatorAlto.js"></script>
+       <script type="text/javascript" src="js/5oscillatorTenor.js"></script>
        <script type="text/javascript" src="js/5oscillatorBajo.js"></script>
        <script type="text/javascript" src="js/notasDePaso.js"></script>
        <script type="text/javascript" src="js/decodeAjaxResponse.js"></script>
@@ -48,30 +48,30 @@
             tunebookString = argument;  
             switch (numeroVoces) {
               case 2:
-                decodeAjaxResponse(abcSoprano, "soprano");
-                decodeAjaxResponse(abcAlto, "alto");
+                decodeAjaxResponse(objeto["soprano"]["abc"], "soprano");
+                decodeAjaxResponse(objeto["alto"]["abc"], "alto");
                 break;
               case 3:
-                decodeAjaxResponse(abcSoprano, "soprano");
-                decodeAjaxResponse(abcAlto, "alto");
-                decodeAjaxResponse(abcTenor, "tenor");
+                decodeAjaxResponse(objeto["soprano"]["abc"], "soprano");
+                decodeAjaxResponse(objeto["alto"]["abc"], "alto");
+                decodeAjaxResponse(objeto["tenor"]["abc"], "tenor");
                 break;
               case 4:
-                decodeAjaxResponse(abcSoprano, "soprano");
-                decodeAjaxResponse(abcAlto, "alto");
-                decodeAjaxResponse(abcTenor, "tenor");
-                decodeAjaxResponse(abcBajo, "bajo");
+                decodeAjaxResponse(objeto["soprano"]["abc"], "soprano");
+                decodeAjaxResponse(objeto["alto"]["abc"], "alto");
+                decodeAjaxResponse(objeto["tenor"]["abc"], "tenor");
+                decodeAjaxResponse(objeto["bajo"]["abc"], "bajo");
               break;
               default:
-                decodeAjaxResponse(abcSoprano, "soprano");
+                decodeAjaxResponse(objeto["soprano"]["abc"], "soprano");
                 break;
             }
             // crearAlto();
             // console.log("numeroVoces : " + numeroVoces);
             // if (numeroVoces == 4) {
-            //   decodeAjaxResponse(abcBajo, "bajo");
+            //   decodeAjaxResponse(objeto["bajo"]["abc"], "bajo");
             // }
-            // console.log("abcBajo : " + abcBajo);
+            // console.log("objeto["bajo"]["abc"] : " + objeto["bajo"]["abc"]);
             // crearBajo();
             renderAbcSvg();
             // console.clear();
@@ -86,7 +86,7 @@
         }
        </script>
     </head>
-<body onload="ajax('89tresVocesEjemplo');populateAjax();">
+<body onload="ajax('100');populateAjax();">
 
 <div id="loading"></div>
 <div>
@@ -134,7 +134,7 @@
       //para mostrar la animacion se ha de constrior objeto output
       function renderAbcSvg(argument) {
         // var tuneObjectArray;
-        // console.log("abcTenor : " + abcTenor);
+        // console.log("objeto["tenor"]["abc"] : " + objeto["tenor"]["abc"]);
         var tuneObjectArrayMidi;
 
       outputElement = document.getElementById('notation');
@@ -144,7 +144,7 @@
 
         // tuneObjectArray = ABCJS.renderAbc('notation', songResponse,{}, { scale : 1, add_classes: true , }, {viewportHorizontal : true, scrollHorizontal : false});
         //scroll horizontal
-        // tuneObjectArrayMidi = ABCJS.renderMidi('midi', abcTenor);
+        // tuneObjectArrayMidi = ABCJS.renderMidi('midi', objeto["tenor"]["abc"]);
 
         // pintarNotasRelacionAcorde();
             

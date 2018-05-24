@@ -121,32 +121,32 @@ function crearBajo(argument) {
 		// console.log("getIndexBetween(bajo[" + (i - 1) + "], bajo[" + i +"])" + getIndexBetween(bajo[i - 1], bajo[i]));		 
 	}//end for loop
 	
-	console.log("abcBajo : " + abcBajo);
-	// abcTenor += "\nV:2 clef=" + clefTenor +"\n"
+	console.log("objeto[bajo][abc] : " + objeto["bajo"]["abc"]);
+	// objeto["tenor"]["abc"] += "\nV:2 clef=" + clefTenor +"\n"
 	// for (var i = 0; i < cantus.length; i++) {
-	// 	// abcTenor += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
-	// 	abcTenor += '"['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+	// 	// objeto["tenor"]["abc"] += '"' + mostrarGradosCantus(i)+ ' ['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
+	// 	objeto["tenor"]["abc"] += '"['+ i*divisionEspecie + ']"'+ cantus[i] + "|";
 	// 	// console.log(i + " % 4 : " + i%4);
 	// 	if (i % 4 == 3 && i > 1) {
 	// 		// console.log("i : " + i);
-	// 		abcTenor += '\n';
+	// 		objeto["tenor"]["abc"] += '\n';
 	// 	}
 	// }
 
-	// decodeAjaxResponse(abcBajo, "bajo");
-	decodeAjaxResponse(abcTenor, "tenor");
+	// decodeAjaxResponse(objeto["bajo"]["abc"], "bajo");
+	decodeAjaxResponse(objeto["tenor"]["abc"], "tenor");
 	
-	// abcTenor += "\nV:3 clef=" + clefBass +"\n" ;
-	// // abcTenor += "\nV:3 clef=alto4\n" ;
+	// objeto["tenor"]["abc"] += "\nV:3 clef=" + clefBass +"\n" ;
+	// // objeto["tenor"]["abc"] += "\nV:3 clef=alto4\n" ;
 	// for (var i = 0; i < bajo.length; i++) {
-	// 	// abcTenor = abcTenor 
+	// 	// objeto["tenor"]["abc"] = objeto["tenor"]["abc"] 
 	// 	//  		+ '"' 
 	// 	//  			+ (( ((notasMusicales.indexOf(cantusExtendido[i ])) + 1) 
 	// 	//  			- ((notasMusicales.indexOf(bajo[i ]) + 1)) + 1) ) 
 	// 	//  				+'ª"'
 	// 	// 	+ bajo[i] + "/"
 	// 	// 	;
-	// 	abcTenor += "";
+	// 	objeto["tenor"]["abc"] += "";
 	// }
 
 	// console.log("randomIntervalBajoCantus : " 

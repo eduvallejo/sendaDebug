@@ -150,11 +150,11 @@ function checkSextasSeguidas(argument1, argument2) {
 //intervalos peremitidos
 
 //esta es solo el header al q se se suma el cantus 
-// var abcTenor = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
-// var abcTenor = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=bass\n"
-// console.log("abcTenor : " + abcTenor);
+// var objeto["tenor"]["abc"] = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=treble\n"
+// var objeto["tenor"]["abc"] = "X:1\nT:escala de Do\nC:\nL:1/2\nQ:1/4=150\nM:4/2\nK:Cmaj\nV:1 clef=bass\n"
+// console.log("objeto["tenor"]["abc"] : " + objeto["tenor"]["abc"]);
 
-// var abcTenor = "X:1\nM: 4/4\nL: 1/8\nK: Emin\n|:D2|EB{c}BA B2 EB|\n";
+// var objeto["tenor"]["abc"] = "X:1\nM: 4/4\nL: 1/8\nK: Emin\n|:D2|EB{c}BA B2 EB|\n";
 
 // console.log("indiceNota['G,'] : " + indiceNota['G,']);
 	// console.log("indiceNota['E,'] : " + indiceNota['E,']);
@@ -457,7 +457,7 @@ function getFrecuenciaNotas(argument) {
 
 
 
-// console.log("abcTenor : " + abcTenor); 
+// console.log("objeto["tenor"]["abc"] : " + objeto["tenor"]["abc"]); 
 
 
 

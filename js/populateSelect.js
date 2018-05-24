@@ -51,18 +51,18 @@ function populateAjax(fileName) {
 }
 
 function drawOption(argument) {
-		oscillatorSoprano.stop(0);
-		// clearInterval(setIntervalNotasSoprano);
-		oscillatorAlto.stop(0);
-		// clearInterval(setIntervalNotasAlto);
-		if (numeroVoces == 3) {
-			oscillatorTenor.stop(0);
-			// clearInterval(setIntervalNotasTenor);
-		}
-		if (numeroVoces == 4) {
-			oscillatorBajo.stop(0);
-			// clearInterval(setIntervalNotasBajo);
-		}
+	console.log("numeroVoces : " + numeroVoces);
+		// objeto["soprano"]["alto"].stop(0);
+		// objeto["soprano"]["bajo"].stop(0);
+
+		// if (numeroVoces == 3) {
+		// 	objeto["soprano"]["tenor"].stop(0);
+		// }
+		// if (numeroVoces == 4) {
+		// 	objeto["soprano"]["tenor"].stop(0);
+		// 	objeto["soprano"]["bajo"].stop(0);
+		// }
+	stopOscillators();
 
 	var value = document.getElementById("mySelect").value;
 	// song = value;

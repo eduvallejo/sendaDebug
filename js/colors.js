@@ -97,7 +97,7 @@ var coloresNotaAcorde = {
 
 function pintarNotasRelacionAcorde(argument) {
 	// console.clear();
-	// console.log("noteLetterAlto[notas] : " + noteLetterAlto["notas"]);
+	// console.log("objeto["alto"][notas] : " + objeto["alto"]["notas"]);
 	var notesArray = document.getElementsByClassName("abcjs-note");
 	
 	for (var i = 0; i < notesArray.length; i++) {

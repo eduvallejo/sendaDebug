@@ -39,12 +39,12 @@ for (var i = 0; i < cantus.length*divisionEspecie; i++) {
 // // alto = ["G","A","d","e","A","B","c"];//CMaj
 // // 
 // function crearAlto(argument){//FOR DEBUGGING
-//     abcAlto = 'V:1 clef=treble\n"8ª"a/2"6ª"f/2|"8ª"e/2"6ª"c/2|"8ª"d/2"6ª"B/2|"6ª"e/2"5ª"d/2|"8ª"b/2"6ª"g/2|"8ª"a'; //AbMaj
-//     // abcAlto = 'V:1 clef=treble\n"5ª"G/2"6ª"A/2|"5ª"d/2"6ª"e/2|"5ª"A/2"6ª"B/2|"8ª"c'; //Cmaj
+//     objeto["alto"]["abc"] = 'V:1 clef=treble\n"8ª"a/2"6ª"f/2|"8ª"e/2"6ª"c/2|"8ª"d/2"6ª"B/2|"6ª"e/2"5ª"d/2|"8ª"b/2"6ª"g/2|"8ª"a'; //AbMaj
+//     // objeto["alto"]["abc"] = 'V:1 clef=treble\n"5ª"G/2"6ª"A/2|"5ª"d/2"6ª"e/2|"5ª"A/2"6ª"B/2|"8ª"c'; //Cmaj
 
-// 	abcTenor = abcTenor.replace(key ,key +"\n" 
-// 		+ abcAlto);
-//     decodeAjaxResponse(abcAlto);
+// 	objeto["tenor"]["abc"] = objeto["tenor"]["abc"].replace(key ,key +"\n" 
+// 		+ objeto["alto"]["abc"]);
+//     decodeAjaxResponse(objeto["alto"]["abc"]);
 // }
 //END DEBUGGING
 
@@ -192,18 +192,18 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 		// console.log("getIndexBetween(alto[" + (i - 1) + "], alto[" + i +"])" + getIndexBetween(alto[i - 1], alto[i]));		 
 // 	}//end for loop
 
-// 	// console.log("abcTenor.indexOf(" + key + "); : " + abcTenor.indexOf(key));
+// 	// console.log("objeto["tenor"]["abc"].indexOf(" + key + "); : " + objeto["tenor"]["abc"].indexOf(key));
 
-// 	var abcAlto;
+// 	var objeto["alto"]["abc"];
 // 	// console.log("alto : " + alto);
-// 	abcAlto = "V:1 clef=" + clefAlto + "\n";
-// 	// abcAlto = "V:1\n";
-// 	// abcTenor += "\nV:2 clef=treble\n"
-// 	//aqui solo se suma el alto al header de abcTenor
+// 	objeto["alto"]["abc"] = "V:1 clef=" + clefAlto + "\n";
+// 	// objeto["alto"]["abc"] = "V:1\n";
+// 	// objeto["tenor"]["abc"] += "\nV:2 clef=treble\n"
+// 	//aqui solo se suma el alto al header de objeto["tenor"]["abc"]
 // 	for (var i = 0; i < alto.length; i++) {
-// 		// abcTenor = abcTenor + alto[i] + ' "' + (((notasMusicales.indexOf(alto[i + 1]) % 7 + 8 )) -
+// 		// objeto["tenor"]["abc"] = objeto["tenor"]["abc"] + alto[i] + ' "' + (((notasMusicales.indexOf(alto[i + 1]) % 7 + 8 )) -
 // 		// 	+ (notasMusicales.indexOf(cantus[i + 1]) % 7 + 1 ) % 7 + 1)  +'"';
-// 		abcAlto += 
+// 		objeto["alto"]["abc"] += 
 // 		 	'"' 
 // 		 		// +(((notasMusicales.indexOf(alto[i]))
 // 					// - (notasMusicales.indexOf(cantusExtendido[i])))+1) 
@@ -214,7 +214,7 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 		;
 
 // 		if (i >= alto.length - 1) {
-// 			abcAlto = abcAlto.slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
+// 			objeto["alto"]["abc"] = objeto["alto"]["abc"].slice(0 , -2); //slice devuelve desde 0 hasta la 2a al final
 // 		}
 // 		// console.log(i + " % divisionEspecie : " + (i % divisionEspecie));
 
@@ -222,28 +222,28 @@ var intervalosArmonicosAlto = [unisono, quinta, sexta, tercera, octava];
 // 		if (i%divisionEspecie == divisionEspecie - 1 
 // 				&& i < alto.length-2 && divisionEspecie == divisionCuartaEspecie) {
 // 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
-// 			abcAlto += "-"; //ligadura de 4a especie
+// 			objeto["alto"]["abc"] += "-"; //ligadura de 4a especie
 // 		}
 // 		//Colocar la barra de compases
 // 		if (i%divisionEspecie == divisionEspecie - 1 ) {
 // 			// console.log(i + "%" + divisionEspecie + " para | : " + i );
-// 			abcAlto += "|";
+// 			objeto["alto"]["abc"] += "|";
 // 		} 
 // 	}
 // 	// convertirUltimaBlancaEnNegra, REMOVER EL ultimo /
-// 	// abcAlto = abcAlto.substring(0, abcAlto.length-1);
-// 	abcTenor = abcTenor.replace(key ,key +"\n" 
-// 		+ abcAlto); // if you want all the "hello"'s in the string to be replaced
+// 	// objeto["alto"]["abc"] = objeto["alto"]["abc"].substring(0, objeto["alto"]["abc"].length-1);
+// 	objeto["tenor"]["abc"] = objeto["tenor"]["abc"].replace(key ,key +"\n" 
+// 		+ objeto["alto"]["abc"]); // if you want all the "hello"'s in the string to be replaced
 // 	// console.clear();
 	
-// 	// console.log("abcAlto : " + abcAlto);
+// 	// console.log("objeto["alto"]["abc"] : " + objeto["alto"]["abc"]);
 // 	// console.clear();
 // 	// console.clear();
 // 	// var entenderSlice = "0123456789";
 // 	// console.log("entenderSlice : " + entenderSlice);
 // 	// entenderSlice = entenderSlice.slice(0, -1);
 // 	// console.log("entenderSlice : " + entenderSlice);
-// 	decodeAjaxResponse(abcAlto);
+// 	decodeAjaxResponse(objeto["alto"]["abc"]);
 	
 // }
 
@@ -266,22 +266,22 @@ function consoleLog(argument, position){
 //DEBUG
 // function crearAlto(argument){//version sin calculoo para debug
 // 	alto = ["G","A","B","c"]; //1a
-//     abcAlto = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
+//     objeto["alto"]["abc"] = 'V:1 clef=alto1\nG/1A/1B/1c'; //1a especie
 
 //     alto = ["c","B","A" ,"G", "A","B", "c"]; //2a
-//     abcAlto = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
+//     objeto["alto"]["abc"] = 'V:1 clef=alto1\nc/2B/2 A/2G/2 A/2B/2 c'; //
 
 // 	alto = ["c","B","A","G", "c","B","A","G", "c","B","A","B", "c"]; //3a
-//     abcAlto = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
+//     objeto["alto"]["abc"] = 'V:1 clef=alto1\nc/4B/4A/4G/4 c/4B/4A/4G/4 c/4B/4A/4B/4 c'; //3a especie
     
-//     abcTenor = abcTenor.replace(key ,key +"\n" 
-//     	+ abcAlto); // if you want all the "hello"'s in the string to be replaced
+//     objeto["tenor"]["abc"] = objeto["tenor"]["abc"].replace(key ,key +"\n" 
+//     	+ objeto["alto"]["abc"]); // if you want all the "hello"'s in the string to be replaced
 //     // console.clear();
     
 //     //console.log("alto : " + alto);
-//     // abcAlto = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
-//     //console.log("abcAlto : " + abcAlto);
-// 	decodeAjaxResponse(abcAlto);
+//     // objeto["alto"]["abc"] = 'V:1 clef=alto1\n"5ª (5) "G/1"6ª (10) "e/1"6ª (7) "B/1"8ª (8) "c';
+//     //console.log("objeto["alto"]["abc"] : " + objeto["alto"]["abc"]);
+// 	decodeAjaxResponse(objeto["alto"]["abc"]);
 //     // tiemposCorrectos = [1000, 1000, 1000, 1000];
 //     // tiemposCorrectos = [500, 500,  500, 500, 500, 500 , 1000];
 //     // tiemposCorrectos = [250,250,250,250,250,250,250,250,250,250,250,250,1000];

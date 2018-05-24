@@ -1,14 +1,14 @@
 function oscillatorFunctionAlto() {
 	// if (contadorOscillatorAlto >= alto.length) { //previo a ligaduras
-	if (contadorOscillatorAlto >= noteLetterAlto["notas"].length) { //a partir de ligaduras
+	if (contadorOscillatorAlto >= objeto["alto"]["notas"].length) { //a partir de ligaduras
 		clearInterval(setIntervalNotasAlto);
-		oscillatorAlto.stop();
+		objeto["soprano"]["alto"].stop();
 		
 		playOscillatorAlto();
 	}else{
 		getPosicionCursor();
-		if (oscillatorAlto) {
-			oscillatorAlto.stop();
+		if (objeto["soprano"]["alto"]) {
+			objeto["soprano"]["alto"].stop();
 		}
 		gainNodeAlto = context.createGain();
 		gainNodeAlto.gain.value = 1;
@@ -18,17 +18,17 @@ function oscillatorFunctionAlto() {
 		compressor.connect(context.destination);
 
 		//Alto
-		oscillatorAlto = context.createOscillator();
-		// console.log("noteLetter[contadorOscillatorAlto] : " + noteLetterAlto["notas"][contadorOscillatorAlto]);
-		oscillatorAlto.frequency.value = 
-			frecuencias["alto"][contadorOscillatorAlto];
-			// getFrequency(noteLetterAlto["notas"] , contadorOscillatorAlto, 0, key);
-		oscillatorAlto.connect(gainNodeAlto);
-		oscillatorAlto.start(0);
+		objeto["soprano"]["alto"] = context.createOscillator();
+		// console.log("noteLetter[contadorOscillatorAlto] : " + objeto["alto"]["notas"][contadorOscillatorAlto]);
+		objeto["soprano"]["alto"].frequency.value = 
+			objeto["alto"]["frecuencia"][contadorOscillatorAlto];
+			// getFrequency(objeto["alto"]["notas"] , contadorOscillatorAlto, 0, key);
+		objeto["soprano"]["alto"].connect(gainNodeAlto);
+		objeto["soprano"]["alto"].start(0);
 		
 		// document.getElementById("demo").innerHTML = arrayDeIntervalos[contadorOscillatorAlto];
 		// document.getElementById("intervaloSonando").innerHTML 
-		// 	= noteLetterTenor["intervaloConAlto"][contadorOscillatorAlto];
+		// 	= objeto["tenor"]["intervaloConAlto"][contadorOscillatorAlto];
 		// document.getElementById("intervaloSonando").style.left 
 		// 	=  (getPosicionCursor().left - 15) + "px";
 		// document.getElementById("intervaloSonando").style.top 
@@ -36,7 +36,7 @@ function oscillatorFunctionAlto() {
 		
 		///
 		clearInterval(setIntervalNotasAlto);
-		setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, noteLetterAlto["tiempos"][contadorOscillatorAlto]);		
+		setIntervalNotasAlto = setInterval(oscillatorFunctionAlto, objeto["alto"]["tiempos"][contadorOscillatorAlto]);		
 
 		contadorOscillatorAlto++;
 		contadorAltoTiempos++;
@@ -46,8 +46,8 @@ function oscillatorFunctionAlto() {
 
 var contadorAltoTiempos = 0;
 function playOscillatorAlto(argument) {
-	// console.log("frecuencias[alto] : " + frecuencias["alto"]);
-	// console.log("noteLetterAlto : " + noteLetterAlto["notas"]);
+	// console.log("frecuencias[alto] : " + objeto["alto"]["frecuencia"]);
+	// console.log("objeto["alto"] : " + objeto["alto"]["notas"]);
 	contadorOscillatorAlto = 0;
 	contadorAltoTiempos = 0;
 	// console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
