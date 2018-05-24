@@ -20,3 +20,5 @@ sacar la posicion de la nota tb del svg para colocar el intervalo
 estoy con llo de aplicar cambio de armadura en los colores, he hecho un array grados[voces] pero creo q no funciona ya q en el svg uestra la nota pero no hay relacion con la nota de los arrays. creo q lo mejor es dejarlo de momento. no es tan importante
 
 poner los intervalos sobre el svg o incluso calcular q acorde forman las notas
+
+porq da error el 89tresVocesEjemplo cuando hago ajax?

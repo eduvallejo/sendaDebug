@@ -28,6 +28,7 @@ function decodeAjaxResponse(song, voz) {
 
 	var musicLines = false;
 	while(musicLines == false){
+
 		if ((isNaN(song[pointer]) && (song[pointer + 1] == ":")) || (song[pointer] == "%" ) || (song[pointer] == "\n")) {
 			if (song[pointer] == "L" && song[pointer + 4] == "8") {
 				corcheasL = true;
@@ -130,7 +131,6 @@ function decodeAjaxResponse(song, voz) {
 		if (song[pointer] == "|") {
 			measureNumberTimeSignatures.push(false);
 		}
-
 		saltarCaracter(pointer); //posicion original de la funcion salyar
 
 		if (song[pointer] == "X" && song[pointer + 1] == ":") {

@@ -10,7 +10,7 @@ var divisionEspecie = divisionTerceraEspecie;
 
 // var numeroVoces = 3
 var numeroVoces = 3;
-var numeroVoces = 4;
+// var numeroVoces = 4;
 
 var noteLetterSoprano = ["notas", "tiempos"];
 noteLetterSoprano["notas"] = [];

@@ -46,15 +46,31 @@
             // decodeAjaxResponse(argument, "tenor");
             argument = argument.replace(/</g, "&lt");//
             tunebookString = argument;  
-
-            decodeAjaxResponse(abcSoprano, "soprano");
-            decodeAjaxResponse(abcTenor, "tenor");
-            decodeAjaxResponse(abcAlto, "alto");
+            switch (numeroVoces) {
+              case 2:
+                decodeAjaxResponse(abcSoprano, "soprano");
+                decodeAjaxResponse(abcAlto, "alto");
+                break;
+              case 3:
+                decodeAjaxResponse(abcSoprano, "soprano");
+                decodeAjaxResponse(abcAlto, "alto");
+                decodeAjaxResponse(abcTenor, "tenor");
+                break;
+              case 4:
+                decodeAjaxResponse(abcSoprano, "soprano");
+                decodeAjaxResponse(abcAlto, "alto");
+                decodeAjaxResponse(abcTenor, "tenor");
+                decodeAjaxResponse(abcBajo, "bajo");
+              break;
+              default:
+                decodeAjaxResponse(abcSoprano, "soprano");
+                break;
+            }
             // crearAlto();
             // console.log("numeroVoces : " + numeroVoces);
-            if (numeroVoces == 4) {
-              decodeAjaxResponse(abcBajo, "bajo");
-            }
+            // if (numeroVoces == 4) {
+            //   decodeAjaxResponse(abcBajo, "bajo");
+            // }
             // console.log("abcBajo : " + abcBajo);
             // crearBajo();
             renderAbcSvg();
@@ -70,7 +86,7 @@
         }
        </script>
     </head>
-<body onload="ajax('100 ');populateAjax();">
+<body onload="ajax('89tresVocesEjemplo');populateAjax();">
 
 <div id="loading"></div>
 <div>
@@ -138,15 +154,28 @@
         //mirar de poner bien el bpm adecuado
         // ABCJS.stopAnimation();
         pintarNotasRelacionAcorde();
-
-        playOscillatorSoprano();
-        playOscillatorAlto();
-        playOscillatorTenor();
-        console.log("numeroVoces : " + numeroVoces);
         // console.log("numeroVoces : " + numeroVoces);
-        if (numeroVoces == 4) {
-          playOscillatorBajo();
+        switch (numeroVoces) {
+          case 2:
+            playOscillatorSoprano();
+            playOscillatorAlto();
+            break;
+          case 3:
+            playOscillatorSoprano();
+            playOscillatorAlto();
+            playOscillatorTenor();
+            break;
+          case 4:
+            playOscillatorSoprano();
+            playOscillatorAlto();
+            playOscillatorTenor();
+            playOscillatorBajo();
+          break;
+          default:
+            playOscillatorSoprano();
+            break;
         }
+       
       }
     </script>
 </html>

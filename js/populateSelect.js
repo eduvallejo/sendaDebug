@@ -51,17 +51,21 @@ function populateAjax(fileName) {
 }
 
 function drawOption(argument) {
+		oscillatorSoprano.stop(0);
+		// clearInterval(setIntervalNotasSoprano);
 		oscillatorAlto.stop(0);
-		clearInterval(setIntervalNotasAlto);
-		oscillatorTenor.stop(0);
-		clearInterval(setIntervalNotasTenor);
+		// clearInterval(setIntervalNotasAlto);
 		if (numeroVoces == 3) {
+			oscillatorTenor.stop(0);
+			// clearInterval(setIntervalNotasTenor);
+		}
+		if (numeroVoces == 4) {
 			oscillatorBajo.stop(0);
-			clearInterval(setIntervalNotasBajo);
+			// clearInterval(setIntervalNotasBajo);
 		}
 
 	var value = document.getElementById("mySelect").value;
-	song = value;
+	// song = value;
 	ajax(value);
 	// console.log("response : " + response);
     // document.getElementById("preId").innerHTML += response; // Hide the image after the response from the server
