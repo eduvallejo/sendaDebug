@@ -19,6 +19,7 @@
        <!-- <script type="text/javascript" src="js/3soprano.js"></script> -->
        <script type="text/javascript" src="js/bajo.js"></script>
        <script type="text/javascript" src="js/4sounds.js"></script>
+       <script type="text/javascript" src="js/5oscillatorSoprano.js"></script>
        <script type="text/javascript" src="js/5oscillatorTenor.js"></script>
        <script type="text/javascript" src="js/5oscillatorAlto.js"></script>
        <script type="text/javascript" src="js/5oscillatorBajo.js"></script>
@@ -39,7 +40,6 @@
       
         // crearBajo();
         // crearAlto();
-
         function appendSong(argument) {
           // console.log("appendSong  " + argument );
             //para evitar el bug "<""
@@ -47,11 +47,12 @@
             argument = argument.replace(/</g, "&lt");//
             tunebookString = argument;  
 
+            decodeAjaxResponse(abcSoprano, "soprano");
             decodeAjaxResponse(abcTenor, "tenor");
             decodeAjaxResponse(abcAlto, "alto");
             // crearAlto();
             // console.log("numeroVoces : " + numeroVoces);
-            if (numeroVoces == 3) {
+            if (numeroVoces == 4) {
               decodeAjaxResponse(abcBajo, "bajo");
             }
             // console.log("abcBajo : " + abcBajo);
@@ -69,27 +70,7 @@
         }
        </script>
     </head>
-  <!-- <body onload="renderAbcSvg(); playOscillator();playOscillatorAlto();"> -->
-<!--   <body onload="renderAbcSvg(); playOscillator();playOscillatorAlto();populateAjax();"> -->  
-<!-- <body onload="ajax('76EjemploSalzer');populateAjax();">
- -->
-
-<!--  <body onload="ajax('59SalzerEj');populateAjax();">
- --> 
-<!-- 
- --><!--  <body onload="ajax('0SalzerEjDebug');populateAjax();">
- -->
-<!--  <body onload="ajax('66SalzerEj');populateAjax();">
- -->
-<!-- <body onload="ajax('0escala');populateAjax();"> 
- -->
-<!--  <body onload="ajax('66SalzerEj');populateAjax();"> --> 
-<!-- <body onload="ajax('0escalaDebug');populateAjax();"> 
- -->  
-<!--  <body onload="ajax('95');populateAjax();">  
- <body onload="ajax('88DebugTresVoces');populateAjax();">
- --> 
- <body onload="ajax('88tresVoces');populateAjax();">
+<body onload="ajax('100 ');populateAjax();">
 
 <div id="loading"></div>
 <div>
@@ -157,10 +138,13 @@
         //mirar de poner bien el bpm adecuado
         // ABCJS.stopAnimation();
         pintarNotasRelacionAcorde();
-      
+
+        playOscillatorSoprano();
         playOscillatorAlto();
         playOscillatorTenor();
-        if (numeroVoces == 3) {
+        console.log("numeroVoces : " + numeroVoces);
+        // console.log("numeroVoces : " + numeroVoces);
+        if (numeroVoces == 4) {
           playOscillatorBajo();
         }
       }

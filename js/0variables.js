@@ -9,7 +9,13 @@ var divisionEspecie = divisionTerceraEspecie;
 // var divisionEspecie = divisionCuartaEspecie;
 
 // var numeroVoces = 3
-var numeroVoces = 2;
+var numeroVoces = 3;
+var numeroVoces = 4;
+
+var noteLetterSoprano = ["notas", "tiempos"];
+noteLetterSoprano["notas"] = [];
+noteLetterSoprano["tiempos"] = [];
+noteLetterSoprano["intervaloConSoprano"] = [];
 
 var noteLetterAlto = ["notas", "tiempos"];
 noteLetterAlto["notas"] = [];
@@ -31,6 +37,14 @@ frecuencias["soprano"] = [];
 frecuencias["alto"] = [];
 frecuencias["tenor"] = [];
 frecuencias["bajo"] = [];
+
+var grados = ["soprano", "alto","tenor","bajo"];
+grados["soprano"] = [];
+grados["alto"] = [];
+grados["tenor"] = [];
+grados["bajo"] = [];
+
+
 
 var notasMusicales= ["C,,","D,,","E,,","F,,","G,,","A,,","B,,", 
 	"C,","D,","E,","F,","G,","A,","B,",

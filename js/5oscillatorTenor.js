@@ -1,12 +1,13 @@
 var context;
 context = new AudioContext;
+var contadorOscillatorSoprano = 0;
 var contadorOscillatorTenor = 0;
 var contadorOscillatorAlto = 0;
 var contadorOscillatorBajo = 0;
 var gainNode, gainNodeAlto;
-var setIntervalNotasTenor, setIntervalNotasAlto, setIntervalNotasBajo;
+var setIntervalNotasSoprano, setIntervalNotasTenor, setIntervalNotasAlto, setIntervalNotasBajo;
 
-var contextSoprano, oscillatorTenor, oscillatorBajo, oscillatorAlto;
+var oscillatorSoprano, oscillatorTenor, oscillatorBajo, oscillatorAlto;
 //compressor
 var compressor = context.createDynamicsCompressor();
 
@@ -74,9 +75,8 @@ function playOscillatorTenor() {
 
 var posicionCursor;
 function getPosicionCursor(argument){
-    posicionCursor = document.getElementsByClassName("cursor")[0];
-    // console.log("posicionCursor.top : " + posicionCursor.getBoundingClientRect().top);
-    return posicionCursor.getBoundingClientRect();
+    // posicionCursor = document.getElementsByClassName("cursor")[0];
+    // return posicionCursor.getBoundingClientRect();
 }
 function changeSetInterval(argument){
     clearInterval(setIntervalNotasAlto);

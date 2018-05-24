@@ -1,0 +1,26 @@
+X:1
+T:96 difrencia entre acordes contrapuntisticos
+T: y acordes armonicos
+I:linebreak !
+L:1/4
+K:Cmaj
+V:1 clef=treble
+"a"e2 d2 c2 | "b"e2 d2 c2 |
+V:2 clef=treble
+G2- G F E2 | c2 B2 G2|
+V:3 clef=bass
+C2 B,2 C2 | C,2 G,2 C2|
+W:a)Estas diferencias pueden ser de mo s tra d as a partir de una linea meló­
+W:dica muy simple· formada por un descenso de tercera. Esta línea melódica
+W:puede tratarse contrapuntísticamente. Si por razones tonales el
+W:bajo debe concluir sobre el do, es obvio que el re de la melodía debería
+W:colocarse contra el Si(VII-I) ya que el uso del Re en el bajo produciría octavas
+W:paralelas(II-I). 
+W:Con el fin de crear un movimiento en la voz interior y evitar la
+W:retención del sol para los tres acordes, el sol es suspendido sobre el se­
+W:gundo acorde, para proceder luego a través del fa hacia el mi. En este
+W:ejemplo el movimiento y J a dirección de las tres voces son las principales
+W:consideraciones; el factor contrapuntístico fundamental es la progresión de
+W:intervalos 1 0-10-8 de las voces exteriores. Los acordes s o n el resultado de
+W:este movimiento y su conexión ha sido llevada a cabo con intencion
+W:contrapuntística.

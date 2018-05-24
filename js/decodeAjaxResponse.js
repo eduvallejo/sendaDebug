@@ -283,6 +283,9 @@ function decodeAjaxResponse(song, voz) {
 			}else{//nota sin alteracion accidental
 				getAlteraciones(noteLetter.length, 0);
 			}
+			//por hacer, para calcular intervalos
+			grados[voz][noteLetter.length-1] = (getIndexOf(noteLetter[noteLetter.length - 1]) -getIndexOf(key[0]));
+		
 		}
 
 		if (song[pointer] == "/" ) {//areglar bug de / sin nada dtras(/2 por defecto)
@@ -429,6 +432,13 @@ function decodeAjaxResponse(song, voz) {
 	}
 
 	// getNotesWidth();
+	//poner el intervalo en el boton
+	if (voz == "soprano") {
+		for (var i = 0; i < noteLetter.length; i++) {
+			noteLetterSoprano["notas"][i] = noteLetter[i];
+			noteLetterSoprano["tiempos"][i] = tiemposCorrectos[i];
+		}
+	}
 
 	if (voz == "tenor") {
 		for (var i = 0; i < noteLetter.length; i++) {

@@ -89,35 +89,26 @@ function colorear(argument) {
 }
 
 var coloresNotaAcorde = {
-	octavaAbajo : "#331a00", septimaAbajo : "#999966", sextaAbajo : "green",   quintaAbajo : "#990099",  cuartaAbajo : "#b30047",  terceraAbajo : "#0066ff", segundaAbajo : " #ff33cc", 
-	1 : "#331a00",2 : "#999966", 3 : "green",   4 : "#990099",  5 : "#b30047",  6 : "#0066ff", 7 : " #ff33cc", 
-	8 : "#331a00", 9 : "#999966", 10 : "green", 11 : "#990099", 12 : "#b30047", 13 : "#0066ff",  14 : "#ff33cc", 
+	octavaAbajo : "#331a00", septimaAbajo : "#999966", sextaAbajo : "green",   quintaAbajo : "#4000ff",  cuartaAbajo : "#b30047",  terceraAbajo : "#00bfff", segundaAbajo : " #ff33cc", 
+	1 : "#331a00",2 : "#999966", 3 : "green",   4 : "#4000ff",  5 : "#b30047",  6 : "#00bfff", 7 : " #ff33cc", 
+	8 : "#331a00", 9 : "#999966", 10 : "green", 11 : "#4000ff", 12 : "#b30047", 13 : "#00bfff",  14 : "#ff33cc", 
 	15: "331a00",16 : "#ff4da6" 
 }
 
 function pintarNotasRelacionAcorde(argument) {
-	console.clear();
+	// console.clear();
 	// console.log("noteLetterAlto[notas] : " + noteLetterAlto["notas"]);
 	var notesArray = document.getElementsByClassName("abcjs-note");
-	console.log("notesArray.length : " + notesArray.length);
-	//pentagrama superior
-	// for (var i = 0; i < alto.length; i++){
-	// 	notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(noteLetterAlto["notas"], i)]);
-	// 	// notesArray[i].setAttribute("fill", "blue");
-	// }
-	// //pentagrama siguiente al superior
-	// for (var i = alto.length; i < notesArray.length; i++){
-	// 	// notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(cantus, i - alto.length)]);
-	// 	notesArray[i].setAttribute("fill", coloresNotaAcorde[mostrarGradosVoz(noteLetterAlto["notas"], i)]);
-	// }
+	
 	for (var i = 0; i < notesArray.length; i++) {
-		var clase = notesArray[i].classList[2];
+		var clase = notesArray[i].classList[2];//la p-index se encuentra en la segunda clase de las abcjs-note classes
 		//el 7 es para quitar los 7 primeros caracteres de la clase y quedarnos con el numero(index de nota)
 		clase = clase.slice(7,clase.length);
 		notesArray[i].setAttribute("fill", 
 			coloresNotaAcorde[mostrarGradosVoz((clase%7)+14)]);
-		console.log("mostrarGradosVoz((clase%7)+14) : " + mostrarGradosVoz((clase%7)+14));
 	}
+
+	// console.log("grados[alto] : " + grados["alto"]);
 }
 
 
@@ -127,11 +118,11 @@ function getNotaFromSvg(argument){
 
 function mostrarGradosVoz(nota){
 	//nota es un index sacado del svg
-	console.log("notasMusicales[nota] : " + notasMusicales[nota]);
+	// console.log("notasMusicales[nota] : " + notasMusicales[nota]);
     var grado = (nota - getIndexOf(key[0]));
     // console.log("getIndexOf(key[0]) : " + getIndexOf(key[0]));
 	// console.log("nota : 	" + nota);
-    console.log("grado : " + grado);
+    // console.log("grado : " + grado);
     switch (grado) {
         case unisono:
             return "1";

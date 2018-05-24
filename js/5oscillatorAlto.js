@@ -27,12 +27,12 @@ function oscillatorFunctionAlto() {
 		oscillatorAlto.start(0);
 		
 		// document.getElementById("demo").innerHTML = arrayDeIntervalos[contadorOscillatorAlto];
-		document.getElementById("intervaloSonando").innerHTML 
-			= noteLetterTenor["intervaloConAlto"][contadorOscillatorAlto];
-		document.getElementById("intervaloSonando").style.left 
-			=  (getPosicionCursor().left - 15) + "px";
-		document.getElementById("intervaloSonando").style.top 
-			=  (getPosicionCursor().top +75) + "px";
+		// document.getElementById("intervaloSonando").innerHTML 
+		// 	= noteLetterTenor["intervaloConAlto"][contadorOscillatorAlto];
+		// document.getElementById("intervaloSonando").style.left 
+		// 	=  (getPosicionCursor().left - 15) + "px";
+		// document.getElementById("intervaloSonando").style.top 
+		// 	=  (getPosicionCursor().top +75) + "px";
 		
 		///
 		clearInterval(setIntervalNotasAlto);

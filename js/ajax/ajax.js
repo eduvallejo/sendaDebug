@@ -4,43 +4,23 @@ function ajax(fileName) {
 	nombreCancion = fileName;
 	console.log("fileName : " + fileName);
 	//resetear
+	// noteLetterSoprano["notas"] = [];
+	// noteLetterSoprano["tiempos"] = [];
+	// clearInterval(setIntervalNotasSoprano);
+
 	noteLetterAlto["notas"] = [];
 	noteLetterAlto["tiempos"] = [];
+	clearInterval(setIntervalNotasAlto);
+	
 	noteLetterTenor["notas"] = [];
 	noteLetterTenor["tiempos"] = [];
+	clearInterval(setIntervalNotasTenor);
+
 	noteLetterBajo["notas"] = [];
 	noteLetterBajo["tiempos"] = [];
-	clearInterval(setIntervalNotasAlto);
-	clearInterval(setIntervalNotasTenor);
 	clearInterval(setIntervalNotasBajo);
 
 
-	// console.clear();
-	// console.log("AJAXfileName : " + fileName);
-	// // document.getElementById("preId").innerHTML = '';		
-	// try {//CON ESTE TRY CATCH EL PROGRAMA NO SE VA A LA MIERDA
- //    // Fix up for prefixing
-	// 	audioSong.pause();
-	//   }
-	//   catch(e) {
-	//     // console.log('no audioSong playing still');
-	//   }
-
-	// //Sin melodia
-	// audioSong = new Audio('ogg/' + fileName.replace('.abc', '.ogg')); //oggs ssin melodia
-	// // console.log("audioSong : " + audioSong);
-	// //CON MELODIAS
-	// // audioSong = new Audio('melodiasOgg/' + fileName.replace('.abc', '.ogg')); //ogg con melodia
-	
-	// // console.log("audioDuration : " + (audioSong.duration));
-	// for (properties in audioSong){
-	// 	// console.log("properties : " + properties.value);
-	// }
-	// // audioSong = new Audio('ogg/arabesque120Compases1-38.ogg'); //ogg
-	
-
-
-	
 	var url = "js/ajax/echo.php?name=" + encodeURIComponent(fileName);
 	// console.log("AJAXfileNameencoded : " + encodeURIComponent(fileName));
 
@@ -57,30 +37,39 @@ function ajax(fileName) {
 	        // console.log("http.response : " + http.response);
 	        response = JSON.parse(http.response);
 	        //songResponse es lo q se muestra en renderAbc
+	        console.log("response.indexOf(V:4) : " + response.indexOf("V:4"));
 	        // songResponse = response;
+
 	        abcTenor = response;
 	        var split = response.split("\n");
 	        key = split[5];
 	        key = key.replace("K:", "");
 	        // console.log("key : " + key);
 			document.getElementById("key").innerHTML = key;
-
+			
+			//soprano
+	        abcSoprano = split[6] +"\n" + split[7]  ;
+	        abcSoprano = abcSoprano.replace("!", "");
+	        console.log("abcSoprano : " + abcSoprano);
 			//alto
-	        abcAlto = split[6] +"\n" + split[7]  ;
+	        abcAlto = split[8] +"\n" + split[9]  ;
 	        abcAlto = abcAlto.replace("!", "");
 
-	        //Tenor
-	        abcTenor = split[0] + "\n" + split[1] + "\n" + split[2] + "\n" + split[3] + "\n" + split[4] + "\n" + split[5] +"\n" + split[8] + "\n" + split[9]  ;
-	        // abcAlto = split[5] +"\n" + split[6]  ;
-	        abcTenor = abcTenor.replace("!", "");
 
 	        if (split[10] != undefined) {
-	        //bajo
-		        numeroVoces = 3;
-		        abcBajo = split[10] +"\n" + split[11]  ;
-		        abcBajo = abcBajo.replace("!", "");
-	        	// console.log("split[10] : " + split[10]);
+		        //Tenor
+		        abcTenor = split[0] + "\n" + split[1] + "\n" + split[2] + "\n" + split[3] + "\n" + split[4] + "\n" + split[5] +"\n" + split[10] + "\n" + split[11]  ;
+		        abcTenor = abcTenor.replace("!", "");
+		        // abcTenor = split[12] +"\n" + split[13]  ;
+		        // abcTenor = abcTenor.replace("!", "");
 	        }
+	        console.log("split[10] : " + split[10]);
+	        // if (split[10] == "V") {//V:4
+		       //  //bajo
+		       //  numeroVoces = 4;
+		       //  abcBajo = split[12] +"\n" + split[13]  ;
+		       //  abcBajo = abcBajo.replace("!", "");
+	        // }
 	        // console.log("abcAlto : " + abcAlto);
 	        //
 	     

@@ -14,3 +14,9 @@ hacer botn q pause el sonido, o sea q siga sonando el sonido de ese momemtno per
 
 poner colores, no se si hay q mirar donde acaba cada voz.. ?es posible sacar la  nota directamente de una clase del svg?
 	abcjs-note abcjs-d0-5 abcjs-p5 abcjs-l1 abcjs-m6 abcjs-v0 abcjs-n1 abcjs-note_selected, parece que abcjs-p5 es el LA y p7 el DO
+
+sacar la posicion de la nota tb del svg para colocar el intervalo
+
+estoy con llo de aplicar cambio de armadura en los colores, he hecho un array grados[voces] pero creo q no funciona ya q en el svg uestra la nota pero no hay relacion con la nota de los arrays. creo q lo mejor es dejarlo de momento. no es tan importante
+
+poner los intervalos sobre el svg o incluso calcular q acorde forman las notas

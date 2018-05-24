@@ -1,0 +1,21 @@
+X:1
+T:96 difrencia entre acordes contrapuntisticos
+T: y acordes armonicos
+I:linebreak !
+L:1/4
+K:Cmaj
+V:1 clef=treble
+"a"e2 d2 c2 | "b"e2 d2 c2 |
+V:2 clef=treble
+G2- G F E2 | c2 B2 G2|
+V:3 clef=treble
+C2 B,2 C2 | G2 G2 E2|
+W:b)En el siguiente ejemplo, sin embargo, aunque se han usado los mis­mos
+W:acoroes, el resultado es muy diferente. La consideración vertical hacia
+W:la melodla está basada en una concepción armónica. El encontrar un con­
+W:trapunto satisfactorio para el descenso melódico de tercera es menos im­
+W:portante aquí que el encontrar una «armonía» como soporte acórdico de
+W:la nota re de la melodía. En este proceso de «armonización», buscaremos
+W:una acorde que esté asociado estrechamente con el acorde de do. Instinti­
+W:vamente, nos dirigimos hacia el acorde sobre el quinto grado de la escala,
+W:como el más estrechamente asociado con el acorde fundamental do

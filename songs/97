@@ -1,0 +1,17 @@
+X:1
+T:97
+T: 
+I:linebreak !
+L:1/4
+K:Cmaj
+V:1 clef=treble
+C, C G c d g _b c' d' e' ^f' g' a' _b' =b' c''|
+V:2 clef=treble
+c d g _b c' d' e' ^f' g' a' _b' =b'c'' C, C G |
+V:3 clef=treble
+c' d' e' ^f' g' a' _b' 	=b' c'' C, C G c d g _b  |
+W:echa relación que existía entre las notas y los acordes separados por
+W:una quinta y establecieron uo sistema de progresiones armónicas basado
+W:sobre ese intervalo. La percepción instintiva de esta relación fue verificada
+W:en siglos posteriores por la aplicación de la teoría de la serie de armóni­
+W:cos, un fenómeno que demostraba el origen natural de la triada 

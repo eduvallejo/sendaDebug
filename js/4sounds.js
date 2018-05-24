@@ -551,7 +551,6 @@ function getAlteraciones(posicionNota, cantitadAlteracion) {
   } 
 
   frecuenciaNota[posicionNota - 1] = parseInt(obtenerFrecuenciaNota((indiceNota[noteLetter[posicionNota - 1]] + cantitadAlteracion), 4));
-  // console.log("noteLetter[" + (posicionNota - 1 )+ "] : " + noteLetter[posicionNota - 1]);
   // console.log("indiceNota[noteLetter[" + (posicionNota - 1 ) + "] : " + indiceNota[noteLetter[posicionNota - 1]]);
   // console.log("frecuenciaNota[" + (posicionNota - 1) + "] : " + frecuenciaNota[posicionNota - 1]);
 }
