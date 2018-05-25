@@ -1,0 +1,25 @@
+X:1
+T:Ib acordes de prolongación (paso ,embellecimiento y de bordadura)
+T: (p)paso, (e) embellecimiento (b) bordadura
+I:linebreak !
+L:1/4
+K:Bbmaj
+V:1 clef=treble
+d/c/ d/f/ B/A/ B/d/|! G/F/ G/B/ | E/-| E/G/  F/ E  |D|
+V:2 clef=bass
+"Ip"B,/"V6b"A,/ "Ip"B,/"Ve"F,/ "VIp"G,/"III6b"F,/ "VIp"G,/"IIIe"D,/ |! "IVp"E,/"I6b"D,/ "IVp"E,/"Ie"B,,/ | "II"C,/ -|C,/"VI6"B,,/ "V6"A,,/"V7"F,, | "I"B,, |
+W:Los acordes bordadura sobre la segunda y sexta corchea en el compás 1 y sobre
+W:la segunda corchea del compás 2. Los acordes incompletos Fa mayor, re
+W:menor y Sib mayor que siguen a los acordes de paso Silb mayor, sol menor
+W:y Mib mayor se denominan acordes de embellecimiento, ya que sustentan
+W:las notas embellecedoras de la melodía. 
+W:La función principal de estos acordes, así como la de los 
+W: acordes de paso sol menor y Mib mayor es prolon­
+W:gar el movimiento desde el acorde Sil> mayor al de do menor. 
+W:De aqui que para distinguir los acordes estructurales l y II de los acordes de paso,
+W:bordadura y embellecimiento, estos últimos serán llamados qcordes de pro­longación.
+W:Los acordes sol menor y Fa mayor en primera inversión que
+W:aparecen entre el estructural II y el V tienen origen similar; puesto que 
+W:sustentan las notas de la parte superior sol y fa, que son notas de embelleci­
+W:miento de la nota estructural mib, esos acordes son de paso y embelle­
+W:cimiento y prolongan el movimiento desde el II hacia el V.

@@ -105,7 +105,10 @@ function pintarNotasRelacionAcorde(argument) {
 		//el 7 es para quitar los 7 primeros caracteres de la clase y quedarnos con el numero(index de nota)
 		clase = clase.slice(7,clase.length);
 		notesArray[i].setAttribute("fill", 
-			coloresNotaAcorde[mostrarGradosVoz((clase%7)+14)]);
+			coloresNotaAcorde[mostrarGradosVoz((parseInt(clase%7)+14))]);//la clase abcjs_note le da al Do central la posicion 0, nosotros seria la 14
+
+		// console.log("clase : " + );
+		// console.log("mostrarGradosVoz((clase%7)+14) : " + mostrarGradosVoz((clase%7)+14));
 	}
 
 	// console.log("grados[alto] : " + grados["alto"]);
@@ -122,12 +125,14 @@ function mostrarGradosVoz(nota){
     var grado = (nota - getIndexOf(key[0]));
     // console.log("getIndexOf(key[0]) : " + getIndexOf(key[0]));
 	// console.log("nota : 	" + nota);
-    // console.log("grado : " + grado);
-    switch (grado) {
+    switch (grado%7) {
         case unisono:
             return "1";
             break;
         case segunda:
+            return "2";
+            break;
+        case -6:
             return "2";
             break;
         case 2:

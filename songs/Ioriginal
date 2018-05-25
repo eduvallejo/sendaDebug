@@ -1,0 +1,10 @@
+X:1
+T:bach preludio 21
+T: 
+I:linebreak !
+L:C
+K:Bbmaj
+V:1 clef=treble
+z/4F/4d/4F/4 z/4F/4c/4F/4 z/4F/4d/4F/4 z/4F/4f/4F/4  z/4F/4B/4F/4 z/4F/4A/4F/4 z/4F/4B/4F/4 z/4F/4d/4F/4 |! z/4B,/4G/4B,/4 z/4B,/4F/4B,/4 z/4B,/4G/4B,/4 z/4D/4B/4D/4  z/4D/4E/4B,/4 z/4D/4G/4D/4 z/4C/4F/4C/4 z/4A,/4E/4A,/4 | z/4F/4d/4F/4 z/4F/4c/4F/4 z/4F/4d/4F/4 z/4F/4c/4F/4 | 
+V:2 clef=bass
+B,A, B,F, G,F, G,D, |! E,D, E,B,, C,B,, A,F, | B,F, D,B,, |

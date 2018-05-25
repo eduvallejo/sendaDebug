@@ -431,76 +431,15 @@ function decodeAjaxResponse(song, voz) {
 		margenesCorrectosInferior[i] = parseInt(tiemposCorrectos[i]) - parseInt(tiemposCorrectos[i] * (dificultad / 100)) - compensation;//error relativo a la duracion
 	}
 
-	// getNotesWidth();
-	//poner el intervalo en el boton
-	if (voz == "soprano") {
-		for (var i = 0; i < noteLetter.length; i++) {
-			objeto["soprano"]["notas"][i] = noteLetter[i];
-			objeto["soprano"]["tiempos"][i] = tiemposCorrectos[i];
-		}
-	}
-	// console.log("objeto[soprano][notas] : " + objeto["soprano"]["notas"]);
-
-	if (voz == "tenor") {
-		for (var i = 0; i < noteLetter.length; i++) {
-			objeto["tenor"]["notas"][i] = noteLetter[i];
-			objeto["tenor"]["tiempos"][i] = tiemposCorrectos[i];
-		}
-	}
+	//asignamos la nota a la voz pasada por ref
 	for (var i = 0; i < noteLetter.length; i++) {
-		arrayDeIntervalos[i] = mostrarNombreIntervalo(getIntervaloArmonico(cantusExtendido[i], noteLetter[i]));
-	}
-	//poner el intervalo en el boton
-	if (voz == "alto") {
-		for (var i = 0; i < noteLetter.length; i++) {
-			objeto["alto"]["notas"][i] = noteLetter[i];
-			objeto["alto"]["tiempos"][i] = tiemposCorrectos[i];
-		}
-	}
-	if (voz == "alto") { 
-		var tiemposAcumulados = 0;
-		var contadorTenor = 0;
-		for (var i = 0; i < noteLetter.length; i++) {
-			// if (tiemposAcumulados <  msPerBeat*numeroTiemposCompas) { //version una nota por compas en  tenor
-			if (tiemposAcumulados <  objeto["tenor"]["tiempos"][contadorTenor]) {
-				tiemposAcumulados += tiemposCorrectos[i];
-				objeto["tenor"]["intervaloConAlto"][i] = 
-					mostrarNombreIntervalo(getIntervaloArmonico(objeto["tenor"]["notas"][contadorTenor], objeto["alto"]["notas"][i]));
-			}else{
-				tiemposAcumulados = 0;
-				contadorTenor++;
-				// objeto["tenor"]["intervaloConAlto"][i] =
-				//  mostrarNombreIntervalo(getIntervaloArmonico(objeto["tenor"]["notas"][contadorTenor], objeto["alto"]["notas"][i]));
-				tiemposAcumulados += tiemposCorrectos[i];
-			}
-		}
+		objeto[voz]["notas"][i] = noteLetter[i];
+		objeto[voz]["tiempos"][i] = tiemposCorrectos[i];
 	}
 
-	if (voz == "bajo") {
-		for (var i = 0; i < noteLetter.length; i++) {
-			objeto["bajo"]["notas"][i] = noteLetter[i];
-			objeto["bajo"]["tiempos"][i] = tiemposCorrectos[i];
-		}
-	}
-	if (voz == "bajo") { 
-		for (var i = 0; i < objeto["bajo"]["notas"].length; i++) {
-			// objeto["bajo"]["intervaloConTenor"][i] = 
-			// 	mostrarNombreIntervalo(getIntervaloArmonico(objeto["bajo"]["notas"][i], objeto["tenor"]["notas"][i]));
-		}
-	}
-
-
-	//
-	// if (voz  != "soprano" &&  voz != "alto") {
-	// 	for (var i = 0; i < frecuenciaNota.length; i++) {
-	// 	console.log("voz : " + voz);
-	// 		frecuencias[voz][i] = frecuenciaNota[i];
-	// 	}	
-	// }else{
-		for (var i = 0; i < frecuenciaNota.length; i++) {
-				objeto[voz]["frecuencia"][i] = frecuenciaNota[i];
-		}	
-	// }
+	for (var i = 0; i < frecuenciaNota.length; i++) {
+			objeto[voz]["frecuencia"][i] = frecuenciaNota[i];
+	}	
 }
 
 // var song = 'B/2A/2|"G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2| "G"BB "Em"B/2A/2G/2A/2|"Am"BA "D7"AB/2A/2| "G"G/2F/2G/2A/2 GB,/2C/2|"G"D/2E/2D/2B,/2 DG/2A/2|"G"B/2de/2 "Em"d/2B/2G/2A/2| "D7"BA "G"G:|'; 

@@ -1,0 +1,30 @@
+X:1
+T:96 difrencia entre acordes contrapuntisticos
+T: y acordes armonicos
+I:linebreak !
+L:1/4
+K:Cmaj
+V:1 clef=treble
+"a"e2 d2 c2 | "b"e2 d2 c2 |
+V:2 clef=treble
+G2- G F E2 | c2 B2 G2|
+V:3 clef=treble
+C2 B,2 C2 | G2-G2 E2|
+V:4 clef=bass
+C2 "V6"B,2 C2 | "I"C2 "V"G,2 "I"C2|
+W:c)puede parecer que hay muy poca diferencia entre el ejemplo 96a y el 96b,
+W:ya que ambos muestran la sucesión de un acorde de do, uno de sol y otro
+W:acorde de do, con el acorde de sol escrito en uri lugar en estado funda­
+W:menta! y en otro en primera inversión_ Esto puede parecer un mínimo cam­
+W:bio que no afecta realmente el status de la progresión 1-V-I como una pro­
+W:gresión armónica. Recordando las ·afirmaciones hechas en el capítulo 2,
+W:sostuve que el status gramatical del acorde no cambiaba pero que su signi­
+W:ficado auténtico era muy diferente. En principio, existe una decisiva dife­
+W:rencia entre un bajo caracterizado por un movimiento de bordadura (una
+W:técnica tipicamente contrapuntistica) y un movimiento de bajo que mues­
+W:tra una asociación de quinta (una relación armónica entre las notas y sus
+W:triadas). Esta diferencia en el bajo es significativa y fundamenta la distin-
+W:ción entre una concepción puramente contrapuntfstica y u n a concepción
+W:puramente armónica. Ciertamente, se usan los mismos acordes de tónica
+W:y dominante en ambos casos, pero el significado de estos acordes en los
+W:dos ejemplos es ampliamente divergente.

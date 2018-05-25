@@ -56,25 +56,37 @@ function playOscillatorSoprano(argument) {
 	oscillatorFunctionSoprano();//para no tener delay en la 1a ejecucion
 }
 
-function stopOscillators(argument){   
+function stopOscillators(argument){  
+	ABCJS.stopAnimation(); 
 	switch (numeroVoces) {
 	  case 2:
 		objeto["soprano"]["soprano"].stop(0);
 		objeto["soprano"]["alto"].stop(0);
+   		clearInterval(setIntervalNotasSoprano);
+   		clearInterval(setIntervalNotasAlto);
+
 	    break;
 	  case 3:
 		objeto["soprano"]["soprano"].stop(0);
 		objeto["soprano"]["alto"].stop(0);
 		objeto["soprano"]["tenor"].stop(0);
+   		clearInterval(setIntervalNotasSoprano);
+   		clearInterval(setIntervalNotasAlto);
+   		clearInterval(setIntervalNotasTenor);
 	    break;
 	  case 4:
 		objeto["soprano"]["soprano"].stop(0);
 		objeto["soprano"]["alto"].stop(0);
 		objeto["soprano"]["tenor"].stop(0);
 		objeto["soprano"]["bajo"].stop(0);
+   		clearInterval(setIntervalNotasSoprano);
+   		clearInterval(setIntervalNotasAlto);
+   		clearInterval(setIntervalNotasTenor);
+   		clearInterval(setIntervalNotasBajo);
 	  break;
 	  default:
 		objeto["soprano"]["soprano"].stop(0);
+   		clearInterval(setIntervalNotasSoprano);
 	    break;
 	}
 }

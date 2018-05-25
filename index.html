@@ -82,11 +82,12 @@
         }
         function changeMsPerBeat(argument){
             msPerBeat = argument;
+            stopOscillators();
             ajax(nombreCancion);
         }
        </script>
     </head>
-<body onload="ajax('100');populateAjax();">
+<body onload="ajax('Ib2');populateAjax();">
 
 <div id="loading"></div>
 <div>
@@ -97,6 +98,7 @@
       </select>
 <!--   </div> -->    
      <button onclick="showAbc();">show Abc</button>
+     <button onclick="stopOscillators();">stop</button>
     <!-- <button onclick="">
       <script >document.write("intervMelodMax: " + (intervMelodMax + 1)+"ª");</script>
     </button>
@@ -154,6 +156,7 @@
         //mirar de poner bien el bpm adecuado
         // ABCJS.stopAnimation();
         pintarNotasRelacionAcorde();
+
         // console.log("numeroVoces : " + numeroVoces);
         switch (numeroVoces) {
           case 2:

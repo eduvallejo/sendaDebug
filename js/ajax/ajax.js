@@ -5,10 +5,10 @@ function ajax(fileName) {
 	console.log("fileName : " + fileName);
 	//reiniciarObjeto
 	iniciarObjeto();
-	clearInterval(setIntervalNotasSoprano);
-	clearInterval(setIntervalNotasAlto);
-	clearInterval(setIntervalNotasTenor);
-	clearInterval(setIntervalNotasBajo);
+	// clearInterval(setIntervalNotasSoprano);
+	// clearInterval(setIntervalNotasAlto);
+	// clearInterval(setIntervalNotasTenor);
+	// clearInterval(setIntervalNotasBajo);
 
 	
 

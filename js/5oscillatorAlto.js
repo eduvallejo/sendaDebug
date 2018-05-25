@@ -6,6 +6,7 @@ function oscillatorFunctionAlto() {
 		
 		playOscillatorAlto();
 	}else{
+		//CURSORPOSICION
 		getPosicionCursor();
 		if (objeto["soprano"]["alto"]) {
 			objeto["soprano"]["alto"].stop();
@@ -52,6 +53,9 @@ function playOscillatorAlto(argument) {
 	contadorAltoTiempos = 0;
 	// console.log("OscilatortiemposCorrectos : " + tiemposCorrectos);
 	        ABCJS.startAnimation(outputElement, tuneObjectArray[0],
-			 {showCursor : true, bpm : (60000 /msPerBeat),});
+			 {showCursor : true, bpm : (60000 /(msPerBeat)),});
+	        //msPerBeat*2 si es L=1/8
+	        //msPerBeat si es L=1/4
+	        // console.log("6000/msPerBeat : " + 6000/msPerBeat);
 	oscillatorFunctionAlto();//para no tener delay en la 1a ejecucion
 }

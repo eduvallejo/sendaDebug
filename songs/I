@@ -1,0 +1,21 @@
+X:1
+T:bach preludio 21
+T: 
+I:linebreak !
+L:1/4
+K:Bbmaj
+V:1 clef=treble
+z/8F/8d/8F/8 z/8F/8c/8F/8 z/8F/8d/8F/8 z/8F/8f/8F/8  z/8F/8B/8F/8 z/8F/8A/8F/8 z/8F/8B/8F/8 z/8F/8d/8F/8 |! z/8B,/8G/8B,/8 z/8B,/8F/8B,/8 z/8B,/8G/8B,/8 z/8D/8B/8D/8  z/8D/8E/8D/8 z/8D/8G/8D/8 z/8C/8F/8C/8 z/8A,/8E/8A,/8 | z/8D/8F/8D/8 z/8B,/8D/8B,/8 z/8F,/8B,/8F,/8 z/8D,/8F,/8D,/8 | 
+V:2 clef=bass
+"I"B,/"V6"A,/ "I"B,/"V"F,/ "VI"G,/"III6"F,/ "VI"G,/"III"D,/ |! "IV"E,/"I6"D,/ "IV"E,/"I"B,,/ "II"C,/"VI6"B,,/ "V6"A,,/"V7"F,,/ | "I"B,,/F,/ D,/B,,/ |
+W:escucharnos la secuencia empezando sobre el acorde de tónica Sil> mayor
+W:y Uegando al final sobre el acorde incompleto de do menor (compás 2),
+W:en cuyo punto cambia el motivo. Este movimiento �cuencial y e! �unto
+W:de cambio poseen un doble significado: primero, unifican el movuniento
+W:hasta el punto de cambio; en segundo lugar, esta misma unificación sirve
+W:para volver a recalcar el acorde de do menor como objetivo temporal, pro­
+W:porcionándole de esta manera más peso que a lo� ·acordes an�enores
+W:de submediante y subdominante, En los acordes que sigueo, el énfasis recae
+W:en el acorde de séptima de dominante -sobre fa, mientras la 'voz superior
+W:circula alrededor del mib,' que conduce el movimiento a la conclusión de
+W:la frase completa sobre la tónica sib .
